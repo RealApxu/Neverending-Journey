@@ -1,0 +1,102 @@
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	Global("VP_Enough_IsEnough","LOCALS",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,1)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~I wouldn't try that again. Thieves are not welcome in these parts.~)
+		SetGlobal("VP_Enough_IsEnough","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,2)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~That better not have been your hand I felt in my pocket.~)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,3)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~You thieving scoundrel. I'll let you off this time with a warning, but next time...~)
+		SetGlobal("VP_Enough_IsEnough","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,4)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~Watch yourself, stranger. Pickpocketing is risky business - especially when your as clumsy as you seem to be.~)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,5)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~Hey, watch it! Keep your hands to yourself, friend.~)
+		Continue()
+END
+		
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,6)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~I don't appreciate the attempt at theft. You'd better behave yourself.~)
+		Continue()
+END
+		
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,7)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~You're lucky I'm a forgiving person. Don't try to steal from me again.~)
+		SetGlobal("VP_Enough_IsEnough","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,8)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~Keep your distance. You think I can't tell what you were doing just now?~)
+		Continue()
+END
+		
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,9)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~What were you just doing? I'd like to ask that you step away, thank you.~)
+		Continue()
+END

@@ -1,0 +1,13 @@
+IF
+	AttackedBy([ANYTHING],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("ELISIA_VANISH","GLOBAL",1)
+		StartCutSceneMode()
+		ActionOverride("elisia",Wait(1))
+		ActionOverride("elisia",ForceSpell(Myself,DRYAD_TELEPORT))
+		ActionOverride("elisia",EndCutSceneMode())
+		DestroySelf()
+END
+
+

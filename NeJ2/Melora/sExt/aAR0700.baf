@@ -1,0 +1,52 @@
+IF
+	InParty("Hrothgar")
+	Global("VP_Hrothgar_Tilorn","GLOBAL",1)
+	Global("VP_Delay_HT_Dialog","MYAREA",1)
+	RealGlobalTimerExpired("VP_First_HT_Dialog","MYAREA")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Delay_HT_Dialog","MYAREA",2)
+		ActionOverride(Player1,StartDialog("Player1",Myself))
+END
+
+IF
+	XPLT(Player1,345000)
+	Global("VP_Create_Melora","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Melora","GLOBAL",1)
+		CreateCreature("Melora11",[2470.1538],0) // Melora
+		Continue()
+END
+
+IF
+	XPGT(Player1,344999)
+	XPLT(Player1,570000)
+	Global("VP_Create_Melora","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Melora","GLOBAL",1)
+		CreateCreature("Melora12",[2470.1538],0) // Melora
+		Continue()
+END
+
+IF
+	XPGT(Player1,569999)
+	XPLT(Player1,788000)
+	Global("VP_Create_Melora","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Melora","GLOBAL",1)
+		CreateCreature("Melora13",[2470.1538],0) // Melora
+		Continue()
+END
+
+IF
+	XPGT(Player1,787999)
+	Global("VP_Create_Melora","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Melora","GLOBAL",1)
+		CreateCreature("Melora14",[2470.1538],0) // Melora
+		Continue()
+END

@@ -1,0 +1,283 @@
+IF
+	Global("MOVE_DEST","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",1)
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",2)
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",3)
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",4)
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",5)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+	Global("MOVE_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+		MoveToPoint([507.669])
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+	Global("MOVE_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",2)
+		Face(4)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",2)
+	Global("MOVE_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",3)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",3)
+	Global("MOVE_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",4)
+		MoveToPoint([640.680])
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",4)
+	Global("MOVE_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",0)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",0)
+	Global("MOVE_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",1)
+		MoveToPoint([551.616])
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",1)
+	Global("MOVE_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",2)
+		Face(4)
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",2)
+	Global("MOVE_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",3)
+		MoveToPoint([640.680])
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",3)
+	Global("MOVE_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",4)
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",4)
+	Global("MOVE_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",0)
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",0)
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",0)
+	Global("MOVE_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",1)
+		MoveToPoint([639.596])
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",1)
+	Global("MOVE_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",2)
+		Face(8)
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",2)
+	Global("MOVE_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",3)
+		MoveToPoint([640.680])
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",3)
+	Global("MOVE_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",4)
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",4)
+	Global("MOVE_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",0)
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",0)
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",0)
+	Global("MOVE_DEST","LOCALS",4)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",1)
+		MoveToPoint([728.620])
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",1)
+	Global("MOVE_DEST","LOCALS",4)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",2)
+		Face(10)
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",2)
+	Global("MOVE_DEST","LOCALS",4)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",3)
+		MoveToPoint([640.680])
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",3)
+	Global("MOVE_DEST","LOCALS",4)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",4)
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",4)
+	Global("MOVE_DEST","LOCALS",4)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",0)
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",0)
+END
+
+IF
+	Global("MOVEMENT_LIST_4_LOC","LOCALS",0)
+	Global("MOVE_DEST","LOCALS",5)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_4_LOC","LOCALS",1)
+		MoveToPoint([776.678])
+END
+
+IF
+	Global("MOVEMENT_LIST_4_LOC","LOCALS",1)
+	Global("MOVE_DEST","LOCALS",5)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_4_LOC","LOCALS",2)
+		Face(12)
+END
+
+IF
+	Global("MOVEMENT_LIST_4_LOC","LOCALS",2)
+	Global("MOVE_DEST","LOCALS",5)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_4_LOC","LOCALS",3)
+		MoveToPoint([640.680])
+END
+
+IF
+	Global("MOVEMENT_LIST_4_LOC","LOCALS",3)
+	Global("MOVE_DEST","LOCALS",5)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_4_LOC","LOCALS",4)
+END
+
+IF
+	Global("MOVEMENT_LIST_4_LOC","LOCALS",4)
+	Global("MOVE_DEST","LOCALS",5)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVE_DEST","LOCALS",0)
+		SetGlobal("MOVEMENT_LIST_4_LOC","LOCALS",0)
+END
+
+

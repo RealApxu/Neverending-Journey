@@ -1,0 +1,27 @@
+IF
+	Global("LARREL_CUTSCENE","MYAREA",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		HideGUI()
+		MultiPlayerSync()
+		ClearAllActions()
+		MultiPlayerSync()
+		DisplayStringHead(Myself,~"It worked!  It worked!"~)
+		Wait(3)
+		DisplayStringHead(Myself,~"Blew it up I did!"~)
+		Wait(3)
+		DisplayStringHead(Myself,~"hehehhahhaHAHA"~)
+		Wait(3)
+		DisplayStringHead(Myself,~"Ascend not, they will"~)
+		Wait(3)
+		DisplayStringHead(Myself,~"Spell now, I complete"~)
+		Wait(2)
+		MoveToPoint([640.722])
+		MoveViewObject([0.0.10000.10000],FAST)
+		SetGlobal("LARREL_CUTSCENE","MYAREA",1)
+		UnhideGUI()
+		MultiPlayerSync()
+		EndCutSceneMode()
+		DestroySelf()
+END

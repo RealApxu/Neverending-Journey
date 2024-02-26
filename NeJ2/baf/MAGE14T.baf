@@ -1,0 +1,958 @@
+IF
+	See(NearestEnemyOf(Myself))
+	Global("VP_Tulla_Offense","LOCALS",0)
+	!Die()
+THEN
+	RESPONSE #100
+		ApplySpell(Myself,WIZARD_SPELL_TURNING)
+		Wait(1)
+		DisplayString(Myself,30942) // Contingency - Spell Immunity
+		ApplySpell(Myself,WIZARD_SPELL_IMMUNITY_INVOCATION)
+		SetGlobal("VP_Tulla_Offense","LOCALS",1)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Global("VP_Tulla_Offense","LOCALS",1)
+	CheckStatLT(Myself,1,STONESKINS)
+	!Die()
+THEN
+	RESPONSE #100
+		DisplayString(Myself,29736) // Contingency - Stoneskin
+		ApplySpell(Myself,WIZARD_STONE_SKIN)
+		ForceSpell(Myself,WIZARD_MANTLE)
+		SetGlobal("VP_Tulla_Offense","LOCALS",2)
+END
+
+IF
+	Global("areawarning","LOCALS",0)
+	HasItem("WAND16",Myself) // Potion of Icedust
+THEN
+	RESPONSE #100
+		ClearActions(Myself)
+		SetGlobal("areawarning","LOCALS",1)
+		UseItem("WAND16",Myself) // Potion of Icedust
+END
+
+IF
+	Global("areawarning","LOCALS",1)
+	HasItem("WAND16",Myself) // Potion of Icedust
+THEN
+	RESPONSE #100
+		SetGlobal("areawarning","LOCALS",0)
+		MoveToObject([PC])
+END
+
+IF
+	Global("prepspells","LOCALS",0)
+	See(NearestEnemyOf(Myself))
+	See(NearestMyGroupOfType)
+THEN
+	RESPONSE #100
+		SetGlobal("prepspells","LOCALS",1)
+		ForceSpell(Myself,WIZARD_MISLEAD)
+		DisplayString(Myself,31247) // Tattoo of Power - Spell Immunity
+		ApplySpell(Myself,WIZARD_SPELL_IMMUNITY_INVOCATION)
+		Spell(LastSeenBy(Myself),WIZARD_HASTE)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([GOODCUTOFF.0.0.0.0.SUMMONED])
+	!Range(LastSeenBy(Myself),12)
+	HaveSpell(WIZARD_DEATH_SPELL)
+	Global("DeathSpell","LOCALS",0)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,31024) // Magic Tattoo - Mirror Image
+		ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+		ForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)
+		SetGlobal("DeathSpell","LOCALS",1)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Global("prepspells","LOCALS",1)
+	CheckStatLT(Myself,1,STONESKINS)
+	TookDamage()
+	!Die()
+THEN
+	RESPONSE #100
+		DisplayString(Myself,29736) // Contingency - Stoneskin
+		ApplySpell(Myself,WIZARD_STONE_SKIN)
+		SetGlobal("prepspells","LOCALS",2)
+END
+
+IF
+	RandomNumGT(4,2)
+	Global("KR_OFFENSIVE_TIME","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",1)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	RandomNumLT(4,2)
+	Global("KR_DEFENSIVE_TIME","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",1)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MIRROR_IMAGE)
+	!StateCheck(Myself,STATE_MIRRORIMAGE)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_MIRROR_IMAGE)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(StrongestOf([PC]))
+	HaveSpell(WIZARD_MAZE)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_MAZE)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.0.0.SUMMONED]))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSDEATH)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+	HaveSpell(WIZARD_FINGER_OF_DEATH)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FINGER_OF_DEATH)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	HaveSpell(WIZARD_FINGER_OF_DEATH)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FINGER_OF_DEATH)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_SYMBOL_FEAR)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	See([EVILCUTOFF])
+	HaveSpell(WIZARD_HASTE)
+	!StateCheck(LastSeenBy(Myself),STATE_HASTED)
+	OR(4)
+		Class(LastSeenBy(Myself),FIGHTER_ALL)
+		Class(LastSeenBy(Myself),RANGER_ALL)
+		Class(LastSeenBy(Myself),PALADIN_ALL)
+		Class(LastSeenBy(Myself),THIEF_ALL)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_HASTE)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_INVISIBLE_STALKER)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_INVISIBLE_STALKER)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	!See(NearestEnemyOf(Myself))
+	Detect(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_TRUE_SIGHT)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_TRUE_SIGHT)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	!See(SecondNearestEnemyOf(Myself))
+	Detect(SecondNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_TRUE_SIGHT)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_TRUE_SIGHT)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	!See(ThirdNearestEnemyOf(Myself))
+	Detect(ThirdNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_TRUE_SIGHT)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_TRUE_SIGHT)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	See(StrongestOf([PC]))
+	HaveSpell(WIZARD_SPIDER_SPAWN)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_SPIDER_SPAWN)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	Range(LastSeenBy(Myself),15)
+	HaveSpell(WIZARD_DISPEL_MAGIC)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_DISPEL_MAGIC)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	Range(LastSeenBy(Myself),12)
+	HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)
+	OR(2)
+		HasBounceEffects(LastSeenBy(Myself))
+		HasImmunityEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	Range(LastSeenBy(Myself),12)
+	HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)
+	OR(2)
+		HasBounceEffects(LastSeenBy(Myself))
+		HasImmunityEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(TenthNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	Range(LastSeenBy(Myself),12)
+	HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)
+	OR(2)
+		HasBounceEffects(LastSeenBy(Myself))
+		HasImmunityEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_GREATER_MALISON)
+	HaveSpell(WIZARD_CHAOS)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+THEN
+	RESPONSE #100
+		Spell(SecondNearestEnemyOf(Myself),WIZARD_GREATER_MALISON)
+		Spell(SecondNearestEnemyOf(Myself),WIZARD_CHAOS)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_DEATH_SPELL)
+THEN
+	RESPONSE #100
+		Spell(SecondNearestEnemyOf(Myself),WIZARD_DEATH_SPELL)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	Allegiance(Myself,ENEMY)
+	See([GOODCUTOFF.0.0.0.0.SUMMONED])
+	Range(LastSeenBy(Myself),12)
+	HaveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)
+	!Die()
+THEN
+	RESPONSE #100
+		DisplayString(Myself,31024) // Magic Tattoo - Mirror Image
+		ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+		Spell(Myself,WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	HaveSpell(WIZARD_SUMMON_NISHRUU)
+	OR(3)
+		See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+		See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+		See(NearestEnemyOfType([0.0.0.BARD_ALL]))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_SUMMON_NISHRUU)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	Global("prepspells","LOCALS",2)
+	HaveSpell(WIZARD_STONE_SKIN)
+	CheckStatLT(Myself,1,STONESKINS)
+	!Die()
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_STONE_SKIN)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	HaveSpell(WIZARD_PIERCE_MAGIC)
+	HaveSpell(WIZARD_POWER_WORD_SILENCE)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)
+		Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_SILENCE)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	Allegiance(Myself,ENEMY)
+	See(SecondNearestEnemyOf(Myself))
+	!StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+	HaveSpell(WIZARD_POWER_WORD_STUN)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_POWER_WORD_STUN)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	Allegiance(Myself,ENEMY)
+	!Range(FourthNearestEnemyOf(Myself),10)
+	HaveSpell(WIZARD_FIREBALL)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),40,RESISTFIRE)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FIREBALL)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HasItem("SCRL9G",Myself) // Abi Dalzim's Horrid Wilting
+THEN
+	RESPONSE #100
+		UseItem("SCRL9G",LastSeenBy(Myself)) // Abi Dalzim's Horrid Wilting
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.MONSTER]))
+	HaveSpell(WIZARD_HOLD_MONSTER)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+THEN
+	RESPONSE #100
+		Spell(ThirdNearestEnemyOf(Myself),WIZARD_HOLD_MONSTER)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MONSTER_SUMMONING_3)
+THEN
+	RESPONSE #100
+		Spell(ThirdNearestEnemyOf(Myself),WIZARD_MONSTER_SUMMONING_3)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_DISINTEGRATE)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+THEN
+	RESPONSE #10
+		Spell(NearestEnemyOf(Myself),WIZARD_DISINTEGRATE)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_SPELL_TURNING)
+	!HasBounceEffects(Myself)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_SPELL_TURNING)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+	RandomNumGT(4,2)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	RandomNumLT(4,2)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.BARD_ALL]))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	RandomNumGT(4,2)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.PALADIN_ALL]))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	RandomNumLT(4,2)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SecondNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(SecondNearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(ThirdNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(ThirdNearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(FourthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(FourthNearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(FifthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(FifthNearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SixthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(SixthNearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(TenthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	!CheckStatGT(LastSeenBy(Myself),30,RESISTELECTRICITY)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(TenthNearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	RandomNumLT(2,1)
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+	RandomNumGT(2,1)
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.BARD_ALL]))
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SecondNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(ThirdNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(FourthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(FifthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SixthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(TenthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FLAME_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTFIRE)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MELF_ACID_ARROW)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTACID)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_MELF_ACID_ARROW)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAGIC_MISSILE)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAGIC_MISSILE)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SecondNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAGIC_MISSILE)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(ThirdNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAGIC_MISSILE)
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!HasBounceEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.MAGE_ALL]))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SecondNearestEnemyOfType([GOODCUTOFF.0.0.CLERIC_ALL]))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SecondNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(SecondNearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(ThirdNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(ThirdNearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(FourthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(FourthNearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(FifthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(FifthNearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(SixthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(SixthNearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(TenthNearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+	!HasBounceEffects(LastSeenBy(Myself))
+	!CheckStatGT(LastSeenBy(Myself),35,RESISTMAGIC)
+	!CheckStatLT(LastSeenBy(Myself),7,SAVEVSSPELL)
+THEN
+	RESPONSE #100
+		Spell(TenthNearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	!Range(LastSeenBy(Myself),4)
+THEN
+	RESPONSE #100
+		EquipRanged()
+		AttackReevaluate(NearestEnemyOf(Myself),15)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_OFFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	Range(LastSeenBy(Myself),4)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),15)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	Global("KR_DEFENSIVE_TIME","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	Range(LastSeenBy(Myself),4)
+THEN
+	RESPONSE #100
+		RunAwayFrom(LastSeenBy(Myself),180)
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+END
+
+IF
+	OR(2)
+		Global("KR_OFFENSIVE_TIME","LOCALS",1)
+		Global("KR_DEFENSIVE_TIME","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("KR_OFFENSIVE_TIME","LOCALS",0)
+		SetGlobal("KR_DEFENSIVE_TIME","LOCALS",0)
+END

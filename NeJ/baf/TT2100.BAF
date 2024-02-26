@@ -1,0 +1,111 @@
+IF
+	Global("VP_WelcomeKuldahar","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_WelcomeKuldahar","GLOBAL",1)
+		TriggerActivation("To3000",TRUE)
+		TriggerActivation("To5000",FALSE)
+		TriggerActivation("To7000",FALSE)
+		TriggerActivation("To2118",FALSE)
+		Explore()
+		StartCutSceneMode()
+		StartCutScene("To2100")
+END
+
+IF
+	Global("KULDAHAR_ATTACK","GLOBAL",1)
+	OR(2)
+		Global("YXUNOMEI_DEAD","GLOBAL",1)
+		GlobalTimerExpired("2100_ATTACK","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("KULDAHAR_ATTACK","GLOBAL",2)
+		SetGlobalTimer("2100_ATTACK","GLOBAL",FOUR_DAYS)
+		CreateCreature("KUORC",[3239.1610],0)  // Orog
+		CreateCreature("KUORC",[3229.1745],0)  // Orog
+		CreateCreature("KUORC",[3034.1409],0)  // Orog
+		CreateCreature("KUORC",[3073.1435],0)  // Orog
+		CreateCreature("KUORC",[2593.1591],0)  // Orog
+		CreateCreature("KUORC",[2309.593],0)  // Orog
+		CreateCreature("KUORC",[2090.1073],0)  // Orog
+		CreateCreature("KUORC",[1932.2412],0)  // Orog
+		CreateCreature("KUORC",[2272.599],0)  // Orog
+		CreateCreature("GUTHIC",[1400.2262],0)
+		CreateCreature("LODIEG",[1320.2262],0)
+		CreateCreature("URGAN",[1463.2262],14)
+		CreateCreature("VARBU",[1320.2262],0)
+		CreateCreature("GAUTHIG",[1368.2226],14)
+		CreateCreature("GAUTHUG",[1256.2262],0)
+END
+
+IF
+	Global("KULDAHAR_MURDER","GLOBAL",0)
+	!Global("TOWNIE_HOSTILE","MYAREA",0)
+	!Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("KULDAHAR_MURDER","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Global("KULDAHAR_ALARM","GLOBAL",0)
+	OR(2)
+		Global("KULDAHAR_ATTACK","GLOBAL",2)
+		!Global("AREA_HOSTILE","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("KULDAHAR_ALARM","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Global("AREA_HOSTILE","MYAREA",0)
+	!Global("KULDAHAR_ALARM","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("AREA_HOSTILE","MYAREA",1)
+		Continue()
+END
+
+IF
+	!Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("TOWNIE_HOSTILE","MYAREA",0)
+		SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+		Continue()
+END
+
+IF
+	Global("OpenDornsDeep","GLOBAL",1)
+	Global("VP_BackTo_Kuldahar","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BackTo_Kuldahar","GLOBAL",1)
+		ActionOverride("Hrothgar",StartDialogNoSet(Player1))
+END
+
+IF
+	Global("VP_TT2117_Created","GLOBAL",1)
+	Global("VP_In_IWD_Part2","GLOBAL",1)
+	Global("VP_OpenRoadToDorn","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_OpenRoadToDorn","MYAREA",1)
+		TriggerActivation("To3000",FALSE)
+		TriggerActivation("To2112",FALSE)
+		TriggerActivation("To5000",TRUE)
+		TriggerActivation("To2118",TRUE)
+END
+
+IF
+	Global("VP_TT7000_Created","GLOBAL",1)
+	Global("VP_In_IWD_Part2","GLOBAL",1)
+	Global("VP_RoadToLowDorn","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_RoadToLowDorn","MYAREA",1)
+		TriggerActivation("To5000",FALSE)
+		TriggerActivation("To7000",TRUE)
+END

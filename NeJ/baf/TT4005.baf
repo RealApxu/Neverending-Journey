@@ -1,0 +1,34 @@
+IF
+	Global("D5_DEATH_FOG_TRAP_SET","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("D5_DEATH_FOG_TRAP_SET","MYAREA",2)
+		CloseDoor("AR4005DOOR1")
+		CloseDoor("AR4005DOOR2")
+		Lock("AR4005DOOR1")
+		Lock("AR4005DOOR2")
+		SetGlobalTimer("D5_TRAP_TIMER","MYAREA",30)
+		Continue()
+END
+
+IF
+	Global("D5_DEATH_FOG_TRAP_SET","MYAREA",2)
+	GlobalTimerExpired("D5_TRAP_TIMER","MYAREA")
+THEN
+	RESPONSE #100
+		SetGlobal("D5_DEATH_FOG_TRAP_SET","MYAREA",3)
+		Unlock("AR4005DOOR1")
+		Unlock("AR4005DOOR2")
+		OpenDoor("AR4005DOOR1")
+		OpenDoor("AR4005DOOR2")
+		Continue()
+END
+
+IF
+	Global("YXUNOMEI_DEAD","GLOBAL",0)
+	PartyHasItem("HEARTGM") // No such index
+THEN
+	RESPONSE #100
+		SetGlobal("YXUNOMEI_DEAD","GLOBAL",1)
+		Continue()
+END

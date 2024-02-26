@@ -1,0 +1,24 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(7)
+		CreateCreatureDoor("TuPungCS",[600.740],0)
+		Wait(3)
+		ActionOverride("TuPungCS",MoveToPointNoInterrupt([576.632]))
+		Wait(3)
+		ActionOverride("TuPungCS",Face(12))
+		Wait(3)
+		ActionOverride("TuPungCS",MoveToPointNoInterrupt([386.694]))
+		Wait(3)
+		ActionOverride("TuPungCS",Face(12))
+		Wait(3)
+		ActionOverride("TuPungCS",MoveToPointNoInterrupt([469.209]))
+		Wait(3)
+		CreateVisualEffect("SPPORTAL",[469.209])
+		ActionOverride("TuPungCS",DestroySelf())
+		Wait(5)
+		ActionOverride(Player1,StartDialog("Player1",Myself))
+		EndCutSceneMode()
+END	

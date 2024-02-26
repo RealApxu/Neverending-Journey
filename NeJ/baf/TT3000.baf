@@ -1,0 +1,10 @@
+IF
+	OnCreation()
+	!Global("TT3000_Visited","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("TT3000_Visited","GLOBAL",1)
+		Continue()
+END
+
+

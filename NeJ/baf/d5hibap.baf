@@ -1,0 +1,221 @@
+IF
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("SPELL_PHASE","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("SPELL_PHASE","LOCALS",1)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_BOLT_OF_GLORY)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("SPELL_PHASE","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("SPELL_PHASE","LOCALS",2)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+	RESPONSE #100
+		SetGlobal("SPELL_PHASE","LOCALS",2)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_BOLT_OF_GLORY)
+	RESPONSE #100
+		SetGlobal("SPELL_PHASE","LOCALS",2)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)
+		Wait(2)
+	RESPONSE #100
+		SetGlobal("SPELL_PHASE","LOCALS",2)
+		ReallyForceSpell(Myself,CLERIC_STRENGTH_OF_ONE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+	Global("SPELL_PHASE","LOCALS",2)
+THEN
+	RESPONSE #100
+		SetGlobal("SPELL_PHASE","LOCALS",3)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("SPELL_PHASE","LOCALS",3)
+THEN
+	RESPONSE #100
+		SetGlobal("SPELL_PHASE","LOCALS",4)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_BOLT_OF_GLORY)
+END
+
+IF
+	HPPercentLT(Myself,25)
+	HasItem("potn52",Myself) // Potion of Extra Healing
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,46150) // quaffs a potion
+		UseItem("potn52",Myself) // Potion of Extra Healing
+		Continue()
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+	Range(LastAttackerOf(Myself),4)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Range(NearestEnemyOf(Myself),4)
+	Range(NearestEnemyOf(Myself),10)
+THEN
+	RESPONSE #100
+		RunAwayFrom(NearestEnemyOf(Myself),45)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Range(NearestEnemyOf(Myself),10)
+THEN
+	RESPONSE #100
+		EquipRanged()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	ActionListEmpty()
+	See(NearestEnemyOf(Myself))
+	Range(NearestEnemyOf(Myself),4)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	ActionListEmpty()
+	See(NearestEnemyOf(Myself))
+	!Range(NearestEnemyOf(Myself),4)
+THEN
+	RESPONSE #100
+		EquipRanged()
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("BAPTISM_PHASE","LOCALS",0)
+THEN
+	RESPONSE #100
+		MoveToObject("CAPTIVEVILLAGER1A")
+		DisplayStringHead(Myself,~In the name of Sseth and Yxunomei, I consecrate you for their dark blessing.~)
+		CreateVisualEffectObject("SPDISPMA","CAPTIVEVILLAGER1A")
+		Wait(2)
+		IncrementGlobal("BAPTISM_PHASE","LOCALS",1)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("BAPTISM_PHASE","LOCALS",1)
+THEN
+	RESPONSE #100
+		MoveToObject("CAPTIVEVILLAGER2A")
+		DisplayStringHead(Myself,~In the name of Sseth and Yxunomei, I consecrate you for their dark blessing.~)
+		CreateVisualEffectObject("SPDISPMA","CAPTIVEVILLAGER2A")
+		Wait(2)
+		IncrementGlobal("BAPTISM_PHASE","LOCALS",1)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("BAPTISM_PHASE","LOCALS",2)
+THEN
+	RESPONSE #100
+		MoveToObject("CAPTIVEVILLAGER3A")
+		DisplayStringHead(Myself,~In the name of Sseth and Yxunomei, I consecrate you for their dark blessing.~)
+		CreateVisualEffectObject("SPDISPMA","CAPTIVEVILLAGER3A")
+		Wait(2)
+		IncrementGlobal("BAPTISM_PHASE","LOCALS",1)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("BAPTISM_PHASE","LOCALS",3)
+THEN
+	RESPONSE #100
+		MoveToObject("CAPTIVEVILLAGER4A")
+		DisplayStringHead(Myself,~In the name of Sseth and Yxunomei, I consecrate you for their dark blessing.~)
+		CreateVisualEffectObject("SPDISPMA","CAPTIVEVILLAGER4A")
+		Wait(2)
+		IncrementGlobal("BAPTISM_PHASE","LOCALS",1)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("BAPTISM_PHASE","LOCALS",4)
+THEN
+	RESPONSE #100
+		MoveToObject("CAPTIVEVILLAGER5A")
+		DisplayStringHead(Myself,~In the name of Sseth and Yxunomei, I consecrate you for their dark blessing.~)
+		CreateVisualEffectObject("SPDISPMA","CAPTIVEVILLAGER5A")
+		Wait(2)
+		IncrementGlobal("BAPTISM_PHASE","LOCALS",1)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("BAPTISM_PHASE","LOCALS",5)
+THEN
+	RESPONSE #100
+		MoveToObject("CAPTIVEVILLAGER6A")
+		DisplayStringHead(Myself,~In the name of Sseth and Yxunomei, I consecrate you for their dark blessing.~)
+		CreateVisualEffectObject("SPDISPMA","CAPTIVEVILLAGER6A")
+		Wait(2)
+		IncrementGlobal("BAPTISM_PHASE","LOCALS",1)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("BAPTISM_PHASE","LOCALS",6)
+THEN
+	RESPONSE #100
+		MoveToObject("CAPTIVEVILLAGER7A")
+		DisplayStringHead(Myself,~In the name of Sseth and Yxunomei, I consecrate you for their dark blessing.~)
+		CreateVisualEffectObject("SPDISPMA","CAPTIVEVILLAGER7A")
+		Wait(2)
+		IncrementGlobal("BAPTISM_PHASE","LOCALS",1)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("BAPTISM_PHASE","LOCALS",7)
+THEN
+	RESPONSE #100
+		MoveToObject("CAPTIVEVILLAGER8A")
+		DisplayStringHead(Myself,~In the name of Sseth and Yxunomei, I consecrate you for their dark blessing.~)
+		CreateVisualEffectObject("SPDISPMA","CAPTIVEVILLAGER8A")
+		Wait(2)
+		SetGlobal("BAPTISM_PHASE","LOCALS",0)
+END
+
+

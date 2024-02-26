@@ -1,0 +1,43 @@
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_HalruaaHostile","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Die()
+	Global("VP_HalruaaHostile","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END
+
+IF
+	Global("VP_Leaving_Halruaa","GLOBAL",5)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	OR(10)
+		HitBy([PC],CRUSHING)
+		HitBy([PC],MISSILE)
+		HitBy([PC],FIRE)
+		HitBy([PC],PIERCING)
+		HitBy([PC],SLASHING)
+		HitBy([PC],ELECTRICITY)
+		HitBy([PC],POISON)
+		HitBy([PC],ACID)
+		HitBy([PC],COLD)
+		HPPercentLT(Myself,100)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END

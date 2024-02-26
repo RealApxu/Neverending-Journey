@@ -1,0 +1,260 @@
+IF
+	See("Egenia")
+	Global("VP_TaloniteAttacks","LOCALS",0)
+	See([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TaloniteAttacks","LOCALS",1)
+		Enemy()
+END
+
+IF
+	Die()
+THEN
+	RESPONSE #100
+		IncrementGlobal("Talonite_Dead","GLOBAL",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("prep","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,CLERIC_MAGIC_RESISTANCE)
+		ReallyForceSpell(Myself,CLERIC_CLOAK_OF_FEAR)
+		SetGlobal("prep","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_DISPEL_MAGIC)
+	Global("magedispel","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+		SetGlobal("magedispel","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_HOLY_SMITE)
+	Alignment(Myself,MASK_GOOD)
+	Global("blightsmite","LOCALS",0)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_HOLY_SMITE)
+		SetGlobal("blightsmite","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_UNHOLY_BLIGHT)
+	Alignment(Myself,MASK_EVIL)
+	Global("blightsmite","LOCALS",0)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_UNHOLY_BLIGHT)
+		SetGlobal("blightsmite","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_CHARM_PERSON)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_CHARM_PERSON)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_MENTAL_DOMINATION)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_MENTAL_DOMINATION)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_SLAY_LIVING)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_SLAY_LIVING)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_RIGHTEOUS_MAGIC)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipRanged()
+		AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+	HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+	!Die()
+	HPPercentLT(Myself,50)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+		Wait(2)
+		Continue()
+END
+
+IF
+	HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+	See("TALONA")
+	!Died(LastSeenBy(Myself))
+	HPPercentLT(LastSeenBy(Myself),50)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+		Wait(2)
+		Continue()
+END
+
+IF
+	HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+	See("TALONA")
+	!Died(LastSeenBy(Myself))
+	HPPercentLT(LastSeenBy(Myself),50)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+		Wait(2)
+		Continue()
+END
+
+IF
+	HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+	See("TALONA")
+	!Died(LastSeenBy(Myself))
+	HPPercentLT(LastSeenBy(Myself),50)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+		Wait(2)
+		Continue()
+END
+
+IF
+	HaveSpell(CLERIC_HOLD_PERSON)
+	See(NearestEnemyOf(Myself))
+	!StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+		Wait(2)
+END
+
+IF
+	HaveSpell(CLERIC_HOLD_PERSON)
+	See(NearestEnemyOf(Myself))
+	!StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+	!HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)
+		Wait(2)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_CONJURE_ANIMALS)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CONJURE_ANIMALS)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_GLYPH_OF_WARDING)
+THEN
+	RESPONSE #100
+		Spell(StrongestOf(GroupOf(NearestEnemyOf(Myself))),CLERIC_GLYPH_OF_WARDING)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_COMMAND)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_COMMAND)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_ANIMATE_DEAD)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_ANIMATE_DEAD)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_HOLD_PERSON)
+	!StateCheck(NearestEnemyOf(Myself),STATE_SLEEPING)
+	!StateCheck(NearestEnemyOf(Myself),STATE_HELPLESS)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(NearestEnemyOf(Myself))
+END
+
+IF
+	HPPercentLT(Myself,50)
+	HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+	HPPercentLT(Myself,75)
+	HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CURE_LIGHT_WOUNDS)
+END
+
+IF
+	OR(2)
+		See(NearestEnemyOf(Myself))
+		See([PC.0.0.PALADIN])
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	OR(2)
+		AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+		AttackedBy([PC.0.0.PALADIN],DEFAULT)
+THEN
+	RESPONSE #100
+		FaceObject(LastAttackerOf(Myself))
+		Continue()
+END
+
+

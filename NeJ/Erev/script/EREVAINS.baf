@@ -1,0 +1,17 @@
+IF
+	SpellCastOnMe([PC],CLERIC_RAISE_DEAD)
+	Global("VP_Erevain_RaiseDe","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Erevain_RaiseDe","GLOBAL",3)
+		Wait(2)
+		StartCutSceneMode()
+		FadeToColor([20.0],0)
+		Wait(1)
+		MoveGlobal("TT4001","Erevain",[1880.2300])
+		ActionOverride("Erevain",SetName(~Erevain~))
+		EndCutSceneMode()
+		DestroySelf()
+		StartCutSceneMode()
+		StartCutScene("VPCutEre")
+END

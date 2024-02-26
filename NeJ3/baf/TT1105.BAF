@@ -1,0 +1,64 @@
+IF
+	OnCreation()
+	Global("SPRITE_IS_DEADPoquelin","GLOBAL",0)
+	Global("VP_Final_Battle","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Final_Battle","GLOBAL",1)
+		Explore()
+		TriggerActivation("EndPortal",FALSE)
+END
+
+IF
+	Global("VP_Everard_Move","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Everard_Move","GLOBAL",2)
+		ClearAllActions()
+		StartCutSceneMode()
+		Wait(1)
+		MoveViewPoint([777.621],VERY_FAST)
+		ActionOverride("EVERARD",MoveToPointNoInterrupt([830.719]))
+		Wait(2)
+		ActionOverride("EVERARD",Face(4))
+		Wait(1)
+		ActionOverride("EVERARD",StartDialogNoSet([PC]))
+		EndCutSceneMode()
+END
+
+IF
+	Global("SPRITE_IS_DEADPoquelin","GLOBAL",1)
+	Global("VP_End_IWD","GLOBAL",0)
+	Global("VP_Final_Battle","GLOBAL",1)
+	CombatCounter(0)
+	InParty("Hrothgar")  // Hrothgar
+	!Dead("Hrothgar")  // Hrothgar
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Final_Battle","GLOBAL",2)
+		TriggerActivation("EndPortal",TRUE)
+		ClearAllActions()
+		StartCutSceneMode()
+		Wait(2)
+		SetGlobal("VP_End_IWD","GLOBAL",1)
+		SetGlobal("VP_BackTo_DornDeep","GLOBAL",2)
+		Wait(3)
+		ActionOverride(Player1,MoveToPointNoInterrupt([608.483]))
+		ActionOverride(Player2,MoveToPointNoInterrupt([664.461]))
+		ActionOverride(Player3,MoveToPointNoInterrupt([638.526]))
+		ActionOverride(Player4,MoveToPointNoInterrupt([694.502]))
+		ActionOverride(Player5,MoveToPointNoInterrupt([660.557]))
+		ActionOverride(Player6,MoveToPointNoInterrupt([716.534]))
+		Wait(3)
+		ActionOverride("Hrothgar",StartDialogNoSet([PC]))
+		EndCutSceneMode()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END

@@ -1,0 +1,10 @@
+IF
+	SpellCastOnMe([PC],CLERIC_RESURRECTION)
+THEN
+	RESPONSE #100
+		ChangeEnemyAlly(Myself,NEUTRAL)
+		ChangeAnimation("mumfig01") // Commoner
+		AddexperienceParty(3500)
+END
+
+

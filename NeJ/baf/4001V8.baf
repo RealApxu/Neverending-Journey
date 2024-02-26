@@ -1,0 +1,21 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #33
+		DisplayStringHead(Myself,~I'm hungry.~) // "I'm hungry."
+		Wait(3)
+	RESPONSE #34
+		DisplayStringHead(Myself,~My shoulder hurts!~) // "My shoulder hurts!"
+		Wait(3)
+	RESPONSE #34
+		DisplayStringHead(Myself,~I'm so tired.~) // "I'm so tired."
+		Wait(3)
+END
+
+

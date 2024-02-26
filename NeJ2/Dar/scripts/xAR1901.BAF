@@ -1,0 +1,18 @@
+IF
+	Global("VP_Dar_Quest","GLOBAL",9)
+	Global("VP_Dar_Druids","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Druids","MYAREA",1)
+		CreateCreature("Erhard",[1443.1069],14)
+		CreateCreature("Athia",[550.500],0)
+END
+
+IF
+	OnCreation()
+	GlobalGT("VP_Dar_Quest","GLOBAL",10)
+	InMyArea("Athia")
+THEN
+	RESPONSE #100
+		ActionOverride("Athia",DestroySelf())
+END

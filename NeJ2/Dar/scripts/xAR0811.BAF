@@ -1,0 +1,36 @@
+IF
+	OnCreation()
+	Global("VP_Create_Guardians","MYAREA",0)
+	GlobalGT("VP_Dar_Quest","GLOBAL",11)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Guardians","MYAREA",1)
+		TriggerActivation("Tran0800",FALSE)
+		RealSetGlobalTimer("VP_DarBook_Timer","GLOBAL",1)
+		ActionOverride("Container1",CreateItem("DRBOOK3",0,0,0)) // Book of Wisdom (Part 3)
+		CreateCreature("DarSen1",[568.365],0) // Guardian
+		CreateCreature("DarSen2",[312.377],2) // Guardian
+		CreateCreature("DarSen3",[504.546],2) // Guardian
+		CreateCreature("DarBook",[138.441],2) // Etheral Voice
+		ActionOverride("DarBook",StartDialogueNoSet([PC]))
+END
+
+IF
+	Global("SPRITE_IS_DEADDarSen1","GLOBAL",1)
+	Global("SPRITE_IS_DEADDarSen2","GLOBAL",1)
+	Global("SPRITE_IS_DEADDarSen3","GLOBAL",1)
+	Global("VP_OpenTheDoor","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_OpenTheDoor","MYAREA",1)
+		TriggerActivation("Tran0800",TRUE)
+END
+
+IF
+	Global("VP_Dar_Quest","GLOBAL",14)
+	Global("VP_OpenTheDoor","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_OpenTheDoor","MYAREA",1)
+		TriggerActivation("Tran0800",TRUE)
+END

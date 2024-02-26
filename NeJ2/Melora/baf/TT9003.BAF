@@ -1,0 +1,9 @@
+IF
+	Global("VP_Melora_Quest","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Melora_Quest","GLOBAL",8)
+		CreateCreature("balor",[599.586],3)
+END
+
+

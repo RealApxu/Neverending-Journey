@@ -1,0 +1,75 @@
+IF
+	Global("VP_My_Test","LOCALS",1)
+	!RealGlobalTimerExpired("VP_Conjurer_Tests","GLOBAL")
+	StateCheck("TuConj",STATE_SILENCED)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_My_Test","LOCALS",2)
+		ForceSpell("TuConj",WIZARD_VOCALIZE)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("VP_My_Test","LOCALS",1)
+	RealGlobalTimerExpired("VP_Conjurer_Tests","GLOBAL")
+	!StateCheck("TuConj",STATE_SILENCED)
+	See([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_My_Test","LOCALS",7)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("VP_My_Test","LOCALS",3)
+	Global("VP_Ghiala_Escapes","GLOBAL",1)
+	!RealGlobalTimerExpired("VP_Conjurer_Tests","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_My_Test","LOCALS",4)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("VP_My_Test","LOCALS",8)
+	Global("VP_Ghiala_Escapes","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_My_Test","LOCALS",9)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("VP_My_Test","LOCALS",5)
+	RealGlobalTimerExpired("VP_Conjurer_Tests","GLOBAL")
+	See([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_My_Test","LOCALS",10)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_HalruaaHostile","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Die()
+	Global("VP_HalruaaHostile","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END
+
+IF
+	Global("VP_Leaving_Halruaa","GLOBAL",5)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END

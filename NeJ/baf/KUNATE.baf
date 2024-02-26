@@ -1,0 +1,39 @@
+IF
+	See([PC])
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		RunAwayFromNoInterrupt(LastSeenBy(Myself),45)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		RunAwayFromNoInterrupt(LastSeenBy(Myself),45)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		EscapeArea()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		RandomWalk()
+END
+
+

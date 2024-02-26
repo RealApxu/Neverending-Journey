@@ -1,0 +1,8 @@
+IF
+	Global("SAID_COLD","MYAREA",0)
+	Entered([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("SAID_COLD","MYAREA",1)
+		DisplayString(LastTrigger,~You suddenly feel very, very cold.~)
+END

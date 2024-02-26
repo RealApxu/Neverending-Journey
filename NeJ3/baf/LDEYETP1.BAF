@@ -1,0 +1,21 @@
+IF
+	Entered([PC])
+	!StateCheck(LastTrigger,STATE_STONE_DEATH)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,~I mourn many fellows of the Harp, but they died fighting for balance and truth.  Galvarey did not, and this matter cheapens their loss.  I will not be party to it.~)
+		DisplayString(Myself,14381) // Trap Sprung
+		ReallyForceSpell(LastTrigger,FORCE_STONE_TRAP)
+		Wait(2)
+END
+
+IF
+	Opened([PC])
+	!StateCheck(LastTrigger,STATE_STONE_DEATH)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,~I mourn many fellows of the Harp, but they died fighting for balance and truth.  Galvarey did not, and this matter cheapens their loss.  I will not be party to it.~)
+		DisplayString(Myself,14381) // Trap Sprung
+		ReallyForceSpell(LastTrigger,FORCE_STONE_TRAP)
+		Wait(2)
+END

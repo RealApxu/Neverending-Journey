@@ -1,0 +1,27 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("TuPhin")
+		Wait(1)
+		ActionOverride(Player1,MakeUnselectable(1500000))
+		ActionOverride(Player2,MakeUnselectable(1500000))
+		ActionOverride(Player3,MakeUnselectable(1500000))
+		ActionOverride(Player4,MakeUnselectable(1500000))
+		ActionOverride(Player5,MakeUnselectable(1500000))
+		ActionOverride(Player6,MakeUnselectable(1500000))
+		ActionOverride("Kachiko",MakeUnselectable(1))
+		Wait(2)
+		ReallyForceSpell("Kachiko",HEAL_NO_VISUAL)
+		SmallWait(5)
+		Spell("Kachiko",WIZARD_CHROMATIC_ORB)
+		Wait(1)
+		Spell("Kachiko",WIZARD_MAGIC_MISSILE)
+		Wait(1)
+		Spell("Kachiko",WIZARD_FLAME_ARROW)
+		Wait(1)
+		StartDialogueNoSet("Kachiko")
+		EndCutSceneMode()
+END
+
+

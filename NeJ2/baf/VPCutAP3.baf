@@ -1,0 +1,17 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player3)
+		SmallWait(7)
+		FadeToColor([30.0],0)
+		SmallWait(7)
+		LeaveAreaLUAPanic("TT0073","",[383.167],2)
+		LeaveAreaLUA("TT0073","",[383.167],2)
+		MultiPlayerSync()
+		SmallWait(7)
+		FadeFromColor([30.0],0)
+		Wait(1)
+		ActionOverride("TuTheod",StartDialogueNoSet([PC]))
+		EndCutSceneMode()
+END

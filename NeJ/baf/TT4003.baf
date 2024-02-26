@@ -1,0 +1,11 @@
+IF
+	!InParty("Hrothgar")
+	!Dead("Hrothgar")
+	PartyHasItem("PWARJ")
+	Global("Presio_Journal","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("Presio_Journal","GLOBAL",1)
+		DisplayStringHead(Player1,~The farewell necromancer’s sending.~)
+		Kill(Player1)
+END

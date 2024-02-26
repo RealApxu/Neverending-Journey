@@ -1,0 +1,23 @@
+IF
+	Entered([PC])
+	!StateCheck(LastTrigger,STATE_STONE_DEATH)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,~I'm watching you.  Always watching... watching... ha ha ha ha ha!~)
+		DisplayString(Myself,14381) // Trap Sprung
+		ReallyForceSpell(LastTrigger,FORCE_STONE_TRAP)
+		Wait(2)
+END
+
+IF
+	Opened([PC])
+	!StateCheck(LastTrigger,STATE_STONE_DEATH)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,~I'm watching you.  Always watching... watching... ha ha ha ha ha!~)
+		DisplayString(Myself,14381) // Trap Sprung
+		ReallyForceSpell(LastTrigger,FORCE_STONE_TRAP)
+		Wait(2)
+END
+
+

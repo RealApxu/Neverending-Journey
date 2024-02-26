@@ -1,0 +1,182 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_TT0062","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_TT0062","MYAREA",1)
+		CreateCreature("XanGiber",[676.377],0) // Fighter
+		CreateCreature("XanGnoll",[457.645],12) // Fighter
+		CreateCreature("XanOgre",[690.866],8) // Fighter
+		CreateCreature("XanSirin",[996.592],4) // Sirine
+		Explore()
+END
+
+IF
+	Global("VP_XanGiber_Set","MYAREA",0)
+	OR(2)
+		!Allegiance("XanGiber",ENEMY)
+		Global("SPRITE_IS_DEADXanGiber","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_XanGiber_Set","MYAREA",1)
+END
+
+IF
+	Global("VP_XanGnoll_Set","MYAREA",0)
+	OR(2)
+		!Allegiance("XanGnoll",ENEMY)
+		Global("SPRITE_IS_DEADXanGnoll","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_XanGnoll_Set","MYAREA",1)
+END
+
+IF
+	Global("VP_XanOgre_Set","MYAREA",0)
+	OR(2)
+		!Allegiance("XanOgre",ENEMY)
+		Global("SPRITE_IS_DEADXanOgre","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_XanOgre_Set","MYAREA",1)
+END
+
+IF
+	Global("VP_XanSirin_Set","MYAREA",0)
+	OR(2)
+		!Allegiance("XanSirin",ENEMY)
+		Global("SPRITE_IS_DEADXanSirin","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_XanSirin_Set","MYAREA",1)
+END
+
+IF
+	OR(2)
+		Global("VP_Xan_Test2","GLOBAL",1)
+		Global("VP_XanGiber_Set","MYAREA",1)
+	Allegiance("XanGiber",ENEMY)
+	!Global("SPRITE_IS_DEADXanGiber","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_XanGiber_Set","MYAREA",0)
+		SetGlobal("VP_Xan_Test2","GLOBAL",0)
+END
+
+IF
+	OR(2)
+		Global("VP_Xan_Test2","GLOBAL",1)
+		Global("VP_XanGnoll_Set","MYAREA",1)
+	Allegiance("XanGnoll",ENEMY)
+	!Global("SPRITE_IS_DEADXanGnoll","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_XanGnoll_Set","MYAREA",0)
+		SetGlobal("VP_Xan_Test2","GLOBAL",0)
+END
+
+IF
+	OR(2)
+		Global("VP_Xan_Test2","GLOBAL",1)
+		Global("VP_XanOgre_Set","MYAREA",1)
+	Allegiance("XanOgre",ENEMY)
+	!Global("SPRITE_IS_DEADXanOgre","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_XanOgre_Set","MYAREA",0)
+		SetGlobal("VP_Xan_Test2","GLOBAL",0)
+END
+
+IF
+	OR(2)
+		Global("VP_Xan_Test2","GLOBAL",1)
+		Global("VP_XanSirin_Set","MYAREA",1)
+	Allegiance("XanSirin",ENEMY)
+	!Global("SPRITE_IS_DEADXanSirin","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_XanSirin_Set","MYAREA",0)
+		SetGlobal("VP_Xan_Test2","GLOBAL",0)
+END
+
+IF
+	Global("VP_XanGiber_Set","MYAREA",1)
+	Global("VP_XanGnoll_Set","MYAREA",1)
+	Global("VP_XanOgre_Set","MYAREA",1)
+	Global("VP_XanSirin_Set","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Xan_Test2","GLOBAL",1)
+END
+
+IF
+	InMyArea(Player1)
+	HPLT(Player1,30)
+	Global("VP_Break_CharmTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_CharmTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutEP1")
+END
+
+IF
+	InMyArea(Player2)
+	HPLT(Player1,30)
+	Global("VP_Break_CharmTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_CharmTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutEP2")
+END
+
+IF
+	InMyArea(Player3)
+	HPLT(Player1,30)
+	Global("VP_Break_CharmTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_CharmTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutEP3")
+END
+
+IF
+	InMyArea(Player4)
+	HPLT(Player1,30)
+	Global("VP_Break_CharmTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_CharmTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutEP4")
+END
+
+IF
+	InMyArea(Player5)
+	HPLT(Player1,30)
+	Global("VP_Break_CharmTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_CharmTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutEP5")
+END
+
+IF
+	InMyArea(Player6)
+	HPLT(Player1,30)
+	Global("VP_Break_CharmTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_CharmTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutEP6")
+END

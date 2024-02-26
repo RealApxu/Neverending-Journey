@@ -1,0 +1,87 @@
+IF
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+		MoveToPoint([1127.928])
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~"For blade and faith."~)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",2)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",3)
+		MoveToPoint([1274.806])
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~"My duty is clear."~)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",4)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",4)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",5)
+		MoveToPoint([1127.928])
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",5)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~"The needs of the many..."~)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",6)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",6)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+		MoveToPoint([1274.806])
+END

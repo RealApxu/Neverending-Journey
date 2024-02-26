@@ -1,0 +1,20 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_TT5004","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_TT5004","MYAREA",1)
+		Explore()
+		Continue()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END
+
+

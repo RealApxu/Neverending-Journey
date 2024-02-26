@@ -1,0 +1,68 @@
+IF
+	Global("5001_Alert_1","MYAREA",0)
+	OR(2)
+		See(NearestEnemyOf(Myself))
+		See([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("5001_Alert_1","MYAREA",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		Attack(NearestEnemyOf(Myself))
+END
+
+IF
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		Help()
+		Attack(LastAttackerOf(Myself))
+END
+
+IF
+	Help([ANYONE])
+THEN
+	RESPONSE #100
+		Attack(LastAttackerOf(LastHelp(Myself)))
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		MoveToPoint([1532.952])
+		Face(14)
+		Wait(15)
+		MoveToPoint([1694.790])
+		Face(8)
+		MoveToPoint([1694.639])
+		Face(10)
+		Wait(15)
+		MoveToPoint([1594.539])
+		Face(4)
+		MoveToPoint([1356.539])
+		Face(6)
+		MoveToPoint([1282.464])
+		Face(4)
+		MoveToPoint([978.464])
+		Face(0)
+		Wait(15)
+		MoveToPoint([978.592])
+		Face(2)
+		MoveToPoint([846.725])
+		Face(0)
+		MoveToPoint([846.928])
+		Face(14)
+		MoveToPoint([870.952])
+		Face(2)
+		Wait(15)
+		MoveToPoint([1416.952])
+		Face(12)
+END
+
+

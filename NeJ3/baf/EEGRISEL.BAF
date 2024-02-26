@@ -1,0 +1,44 @@
+IF
+	OnCreation()
+	!Global("SPRITE_IS_DEADGrisella","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	See([PC])
+	Global("VP_Display_String","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Display_String","LOCALS",1)
+		DisplayStringHead(Myself,~Those one-eyed brutes best stay clear of my tavern.~)
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([PC])
+THEN
+	RESPONSE #100
+		Help()
+		RunAwayFromNoInterrupt(LastSeenBy(Myself),45)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Help()
+		RunAwayFromNoInterrupt(LastAttackerOf(Myself),45)
+END
+
+IF
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		RandomWalk()
+END
+
+

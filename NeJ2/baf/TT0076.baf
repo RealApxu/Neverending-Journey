@@ -1,0 +1,18 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_Area","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_Area","MYAREA",1)
+		Explore()
+END
+
+IF
+	Global("VP_Create_Garron","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Garron","GLOBAL",3)
+		SetGlobalTimer("VP_Reveal_Spies_C","GLOBAL",ONE_DAY)
+		SetGlobal("VP_Leaving_Halruaa","GLOBAL",3)
+		CreateCreature("Garron",[420.283],0)
+END

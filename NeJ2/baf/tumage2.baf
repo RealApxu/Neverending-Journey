@@ -1,0 +1,20 @@
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_HalruaaHostile","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	See("TuGuard")
+	!Dead("TuGuard")
+	Global("VP_HalruaaHostile","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		CreateCreatureDoor("TuMage3",[1021.2727],0) // Mage
+		CreateCreatureDoor("TuMage3",[1161.2814],0) // Mage
+END
+
+

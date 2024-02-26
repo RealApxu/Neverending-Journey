@@ -1,0 +1,46 @@
+IF
+	GlobalTimerExpired("VP_Confront_Timer","GLOBAL")
+	Global("VP_Necro_Test","GLOBAL",7)
+	OR(13)
+		AreaCheck("TT0070")
+		AreaCheck("TT0071")
+		AreaCheck("TT0072")
+		AreaCheck("TT0073")
+		AreaCheck("TT0074")
+		AreaCheck("TT0075")
+		AreaCheck("TT0076")
+		AreaCheck("TT0077")
+		AreaCheck("TT0078")
+		AreaCheck("TT0079")
+		AreaCheck("TT0069")
+		AreaCheck("TT0068")
+		AreaCheck("TT0067")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Necro_Test","GLOBAL",8)
+		CreateCreatureObjectOffScreen("Kharesse",Player1,0,0,0)
+		ActionOverride("Kharesse",StartDialogueNoSet([PC]))
+		Continue()
+END
+
+IF
+	RealGlobalTimerExpired("VP_Eurich_Timer","GLOBAL")
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	!See([ENEMY])
+	CombatCounter(0)
+	Global("VP_Eurich_Appears","GLOBAL",1)
+	OR(7)
+		AreaCheck("AR0300")
+		AreaCheck("AR0400")
+		AreaCheck("AR0500")
+		AreaCheck("AR0700")
+		AreaCheck("AR0900")
+		AreaCheck("AR1000")
+		AreaCheck("AR1100")
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Eurich_Appears","GLOBAL",2)
+		CreateCreatureObject("Eurich",Player1,0,0,0)  // Eurich
+END

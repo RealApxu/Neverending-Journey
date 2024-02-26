@@ -1,0 +1,143 @@
+IF
+	See([PC])
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~You cannot barge in here like this!~)
+		Shout(89)
+		Continue()
+END
+
+IF
+	OR(5)
+		AttackedBy([PC],DEFAULT)
+		AttackedBy([FAMILIAR],DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+		AttackedBy([CONTROLLED],DEFAULT)
+		AttackedBy([CHARMED],DEFAULT)
+THEN
+	RESPONSE #100
+		Shout(89)
+		Continue()
+END
+
+IF
+	Heard([ANYONE],89)
+	!Class(Myself,INNOCENT)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		MoveToObject(LastHeardBy(Myself))
+		Continue()
+END
+
+IF
+	ActionListEmpty()
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~Larrel has decreed that the dwarves are still not to be trusted.~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~We will vote on the next measure shortly.~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~Come to order.~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~The time has come to make a decision.~)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_STONE_SKIN)
+	Global("Prep","LOCALS",0)
+THEN
+	RESPONSE #100
+		ApplySpell(Myself,WIZARD_STONE_SKIN)
+		Spell(Myself,WIZARD_MIRROR_IMAGE)
+		SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+	HaveSpell(WIZARD_HOLD_PERSON)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_HOLD_PERSON)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_STONE_SKIN)
+	TookDamage()
+	CheckStatLT(Myself,1,STONESKINS)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_SKULL_TRAP)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_SKULL_TRAP)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MONSTER_SUMMONING_1)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_MONSTER_SUMMONING_1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_HORROR)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_HORROR)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHROMATIC_ORB)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_CHROMATIC_ORB)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	ActionListEmpty()
+	CombatCounter(0)
+	!See([PC])
+THEN
+	RESPONSE #100
+		RandomWalk()
+END

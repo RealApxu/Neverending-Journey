@@ -1,0 +1,23 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("TuTheod")
+		Wait(1)
+		FadeToColor([20.0],0)
+		Wait(1)
+		ActionOverride(Player1,MakeUnselectable(1500000))
+		ActionOverride(Player2,MakeUnselectable(1500000))
+		ActionOverride(Player3,MakeUnselectable(1500000))
+		ActionOverride(Player4,MakeUnselectable(1500000))
+		ActionOverride(Player5,MakeUnselectable(1500000))
+		ActionOverride(Player6,MakeUnselectable(1500000))
+		ActionOverride("Edwin",MakeUnselectable(1))
+		Wait(2)
+		ActionOverride("Edwin",LeaveAreaLUAPanic("TT0061","",[1000.170],2))
+		ActionOverride("Edwin",LeaveAreaLUA("TT0061","",[1000.170],2))
+		MultiPlayerSync()
+		FadeFromColor([20.0],0)
+		Wait(1)
+		EndCutSceneMode()
+END

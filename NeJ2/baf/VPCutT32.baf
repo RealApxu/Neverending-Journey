@@ -1,0 +1,22 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(7)
+		FadeToColor([30.0],0)
+		SmallWait(7)
+		LeaveAreaLUAPanic("TT0067","",[590.600],6)
+		LeaveAreaLUA("TT0067","",[590.600],6)
+		ActionOverride(Player2,LeaveAreaLUA("TT0067","",[550.630],7))
+		ActionOverride(Player3,LeaveAreaLUA("TT0067","",[660.550],5))
+		ActionOverride(Player4,LeaveAreaLUA("TT0067","",[590.630],6))
+		ActionOverride(Player5,LeaveAreaLUA("TT0067","",[650.570],6))
+		ActionOverride(Player6,LeaveAreaLUA("TT0067","",[630.620],6))
+		MultiPlayerSync()
+		SmallWait(7)
+		FadeFromColor([30.0],0)
+		Wait(1)
+		ActionOverride("TuEzek",StartDialogueNoSet([PC]))
+		EndCutSceneMode()
+END

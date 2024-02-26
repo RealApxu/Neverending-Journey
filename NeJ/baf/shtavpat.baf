@@ -1,0 +1,95 @@
+IF
+	!HasItem("RINGTOM",Myself)
+THEN
+	RESPONSE #100
+		GiveItemCreate("RINGTOM",Myself,1,0,0)
+		Continue()
+END
+
+IF
+	Range([PC],15)
+THEN
+	RESPONSE #100
+		EquipItem("RINGTOM")
+		Wait(3)
+		DestroySelf()
+END
+
+IF
+	ActionListEmpty()
+THEN
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Another round!"~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Some tough times ahead."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Been training hard?"~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"I can't.  I'm going to the shrine soon."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"I need to pick something up at Lehland's."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"I was out too late last night."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"The defenses need to be prepared soon."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"The last battle did not go well."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"So I said to her..."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"The dwarves still deny their betrayal."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"So that's what happened."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"I have to go soon."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"It's looking grim."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Do you think Larrel's plan will work?"~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"I haven't seen Evayne in some time."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"The last of our supplies are secure."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"The Hand must not fall."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"I told him..."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"That's funny."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"This isn't good."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Can I get another elven wine?"~)
+		Wait(3)
+	RESPONSE #550
+		Wait(3)
+END
+
+IF
+	AttackedBy([ANYTHING],DEFAULT)
+THEN
+	RESPONSE #100
+		EquipItem("RINGTOM")
+		Wait(3)
+		DestroySelf()
+END

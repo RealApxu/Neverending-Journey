@@ -1,0 +1,26 @@
+IF
+	!Allegiance(Myself,ENEMY)
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		RunAwayFromNoInterrupt(LastSeenBy(Myself),45)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
+		DisplayStringHead(Myself,~Fleezum! Flozem! Help me!~)
+		Enemy()
+		Continue()
+END

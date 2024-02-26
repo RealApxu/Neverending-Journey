@@ -1,0 +1,18 @@
+IF
+	OnCreation()
+THEN
+	RESPONSE #100
+		Explore()
+		OpenDoor("AR5104DOOR3")
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END
+
+

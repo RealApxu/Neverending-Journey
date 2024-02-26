@@ -1,0 +1,22 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("Norlinor")
+		FadeToColor([20.0],0)
+		Wait(2)
+		ReallyForceSpell(Player1,HEAL_NO_VISUAL)  // SPIN679.SPL (Heal)
+		ReallyForceSpell(Player2,HEAL_NO_VISUAL)  // SPIN679.SPL (Heal)
+		ReallyForceSpell(Player3,HEAL_NO_VISUAL)  // SPIN679.SPL (Heal)
+		ReallyForceSpell(Player4,HEAL_NO_VISUAL)  // SPIN679.SPL (Heal)
+		ReallyForceSpell(Player5,HEAL_NO_VISUAL)  // SPIN679.SPL (Heal)
+		ReallyForceSpell(Player6,HEAL_NO_VISUAL)  // SPIN679.SPL (Heal)
+		Wait(2)
+		RestParty()
+		MultiPlayerSync()
+		FadeFromColor([20.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
+
+

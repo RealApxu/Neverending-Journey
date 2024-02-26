@@ -1,0 +1,29 @@
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastSeenBy(Myself),30)
+		Continue()
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		Attack(LastAttackerOf(Myself))
+		Continue()
+END
+
+IF
+	Delay(10)
+	See(NearestEnemyOfType([0.UNDEAD]))
+	Range(LastSeenBy(Myself),5)
+	!Died(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		Turn()
+		Continue()
+END
+
+

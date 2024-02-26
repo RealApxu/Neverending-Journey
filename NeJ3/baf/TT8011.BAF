@@ -1,0 +1,38 @@
+IF
+	Global("MAIDEN_BADGE","GLOBAL",0)
+	PartyHasItem("MAIDEN") // Maiden Ilmadia's Badge
+THEN
+	RESPONSE #100
+		SetGlobal("MAIDEN_BADGE","GLOBAL",1)
+		AddexperienceParty(60000)
+		DisplayStringHead(Player1,~You have retrieved Ilmadia's Badge.~)
+		Continue()
+END
+
+IF
+	GlobalLT("BEORN_QUEST","GLOBAL",3)
+	GlobalGT("SPRITE_IS_DEADsal8008","GLOBAL",11)
+	!Global("SPRITE_IS_DEADShikata","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("BEORN_QUEST","GLOBAL",3)
+		Continue()
+END
+
+IF
+	Global("MAP_GROUP_HOSTILE2","MYAREA",0)
+	!Global("SPRITE_IS_DEADIlmadia","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE2","MYAREA",1)
+		Continue()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END

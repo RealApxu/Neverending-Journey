@@ -1,0 +1,100 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_Area","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_Area","MYAREA",1)
+		CreateCreature("VortSpid",[612.411],10)
+		CreateCreature("VortSpid",[945.432],7)
+		CreateCreature("WraiSpid",[532.596],10)
+		CreateCreature("WraiSpid",[660.596],10)
+		CreateCreature("WraiSpid",[785.272],11)
+		CreateCreature("WraiSpid",[837.325],9)
+		CreateCreature("SworSpid",[596.596],10)
+		CreateCreature("SworSpid",[982.404],7)
+		CreateCreature("SworSpid",[1020.374],3)
+		Explore()
+END
+
+IF
+	Global("SPRITE_IS_DEADVortSpid","GLOBAL",2)
+	Global("SPRITE_IS_DEADWraiSpid","GLOBAL",4)
+	Global("SPRITE_IS_DEADSworSpid","GLOBAL",3)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Invoker_Test","GLOBAL",1)
+END
+
+IF
+	InMyArea(Player1)
+	HPPercentLT(Player1,50)
+	Global("VP_Break_AlterTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_AlterTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutAP1")
+END
+
+IF
+	InMyArea(Player2)
+	HPPercentLT(Player2,50)
+	Global("VP_Break_AlterTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_AlterTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutAP2")
+END
+
+IF
+	InMyArea(Player3)
+	HPPercentLT(Player3,50)
+	Global("VP_Break_AlterTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_AlterTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutAP3")
+END
+
+IF
+	InMyArea(Player4)
+	HPPercentLT(Player4,50)
+	Global("VP_Break_AlterTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_AlterTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutAP4")
+END
+
+IF
+	InMyArea(Player5)
+	HPPercentLT(Player5,50)
+	Global("VP_Break_AlterTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_AlterTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutAP5")
+END
+
+IF
+	InMyArea(Player6)
+	HPPercentLT(Player6,50)
+	Global("VP_Break_AlterTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_AlterTest","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutAP6")
+END
+
+

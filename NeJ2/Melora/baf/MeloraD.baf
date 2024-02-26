@@ -1,0 +1,38 @@
+IF
+	OR(2)
+		Global("VP_Mel_Immy_Heist","LOCALS",3)
+		Global("VP_Mel_Imoen2","LOCALS",6)
+	Global("Chapter","GLOBAL",6)
+	InParty(Myself)
+	InParty("Imoen2")
+	!Dead("Imoen2")
+	OR(2)
+		!InParty("Leina")
+		Dead("Leina")
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Mel_Imoen2","LOCALS",7)
+		SetGlobal("VP_Mel_Immy_Heist","LOCALS",4)
+		RealSetGlobalTimer("VP_Mel_Heist_Timer","GLOBAL",1)
+		Interact("Imoen2")
+END
+
+IF
+	OR(2)
+		Global("VP_Mel_Immy_Heist","LOCALS",3)
+		Global("VP_Mel_Imoen2","LOCALS",6)
+	Global("Chapter","GLOBAL",6)
+	InParty(Myself)
+	InParty("Imoen2")
+	!Dead("Imoen2")
+	InParty("Leina")
+	!Dead("Leina")
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Mel_Immy_Heist","LOCALS",5)
+		RealSetGlobalTimer("VP_Mel_Heist_Timer","GLOBAL",1)
+		Interact("Imoen2")
+END
+

@@ -1,0 +1,23 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(7)
+		FadeToColor([30.0],0)
+		SmallWait(7)
+		ActionOverride("TuLevel",DestroySelf())
+		SmallWait(7)
+		LeaveAreaLUAPanic("TT0057","",[434.620],8)
+		LeaveAreaLUA("TT0057","",[434.620],8)
+		ActionOverride(Player2,LeaveAreaLUA("TT0057","",[490.581],8))
+		ActionOverride(Player3,LeaveAreaLUA("TT0057","",[537.546],8))
+		ActionOverride(Player4,LeaveAreaLUA("TT0057","",[490.657],8))
+		ActionOverride(Player5,LeaveAreaLUA("TT0057","",[533.630],8))
+		ActionOverride(Player6,LeaveAreaLUA("TT0057","",[582.583],8))
+		MultiPlayerSync()
+		SmallWait(7)
+		FadeFromColor([30.0],0)
+		Wait(1)
+		EndCutSceneMode()
+END

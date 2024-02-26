@@ -1,0 +1,24 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		ScreenShake([4.4],30)
+		Wait(2)
+		FadeToColor([20.0],0)
+		Wait(2)
+		LeaveAreaLUAPanic("TT5105","",[400.470],10)
+		LeaveAreaLUA("TT5105","",[400.470],10)
+		ActionOverride(Player2,LeaveAreaLUA("TT5105","",[446.594],9))
+		ActionOverride(Player3,LeaveAreaLUA("TT5105","",[640.590],7))
+		ActionOverride(Player4,LeaveAreaLUA("TT5105","",[725.504],6))
+		ActionOverride(Player5,LeaveAreaLUA("TT5105","",[660.450],5))
+		ActionOverride(Player6,LeaveAreaLUA("TT5105","",[577.500],6))
+		MultiPlayerSync()
+		Wait(1)
+		FadeFromColor([20.0],0)
+		EndCutSceneMode()
+END
+
+

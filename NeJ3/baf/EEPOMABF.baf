@@ -1,0 +1,317 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+		IncrementGlobal("FAKE_POMAB_DEAD","GLOBAL",1)
+		DestroySelf()
+END
+
+IF
+	Global("VP_PomabTalks","MYAREA",0)
+	OR(2)
+		See([PC])
+		Detect([PC])
+	!Die()
+THEN
+	RESPONSE #100
+		SetGlobal("VP_PomabTalks","MYAREA",1)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	RandomNum(9,1)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",1)
+		JumpToPoint([211.509])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~I am over here.~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_DISINTEGRATE)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",1)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([631.575])
+		Continue()
+END
+
+IF
+	RandomNum(9,2)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",2)
+		JumpToPoint([631.575])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",2)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~Only one of us is real... but which one?~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_MAZE)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",2)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([499.334])
+		Continue()
+END
+
+IF
+	RandomNum(9,3)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",3)
+		JumpToPoint([499.334])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",3)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~No, not him.  I am the real Pomab.~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_ENERGY_DRAIN)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",3)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([565.758])
+		Continue()
+END
+
+IF
+	RandomNum(9,4)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",4)
+		JumpToPoint([565.758])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",4)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~I am over here.~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_SUNSCORCH)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",4)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([364.436])
+		Continue()		
+END
+
+IF
+	RandomNum(9,5)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",5)
+		JumpToPoint([364.436])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",5)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~You cannot win.  I am invincible!~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_SHATTER_BONES)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",5)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([416.672])
+		Continue()
+END
+
+IF
+	RandomNum(9,6)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",6)
+		JumpToPoint([416.672])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",6)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~The power of Cryshal-Tirith is magnificent, is it not?~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_EYE_BITE)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",6)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([556.433])
+		Continue()
+END
+
+IF
+	RandomNum(9,7)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",7)
+		JumpToPoint([556.433])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",7)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~My sentries shall cut you down.~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_IMPRISONMENT)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",7)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([221.612])
+		Continue()
+END
+
+IF
+	RandomNum(9,8)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",8)
+		JumpToPoint([221.612])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",8)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~Ha ha ha!  Admit it... you are beaten.~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_POWER_WORD_KILL)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",8)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([797.488])
+		Continue()
+END
+
+IF
+	RandomNum(9,9)
+	OR(2)
+		GlobalLT("FAKE_POMAB_DEAD","GLOBAL",7)
+		GlobalLT("SPRITE_IS_DEADPOMABR","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",9)
+		JumpToPoint([797.488])
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",9)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		DisplayStringHead(Myself,~What is the matter?  Your eyes playing tricks on you?~)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)
+		Continue()
+END
+
+IF
+	Global("VP_Jump","LOCALS",9)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jump","LOCALS",0)
+		MoveToPoint([211.509])
+		Continue()
+END
+

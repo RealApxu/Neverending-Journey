@@ -1,0 +1,28 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		StorePartyLocations()
+		FadeToColor([20.0],0)
+		Wait(1)
+		ActionOverride("Trebois",EscapeArea())
+		ActionOverride("TrebHun1",EscapeArea())
+		ActionOverride("TrebHun2",EscapeArea())
+		ActionOverride("TrebHun3",EscapeArea())
+		Wait(1)
+		LeaveAreaLUAPanic("TT9000","",[580.153],0)
+		LeaveAreaLUA("TT9000","",[580.153],0)
+		ActionOverride(Player2,LeaveAreaLUA("TT9000","",[521.162],1))
+		ActionOverride(Player3,LeaveAreaLUA("TT9000","",[650.126],15))
+		ActionOverride(Player4,LeaveAreaLUA("TT9000","",[503.103],2))
+		ActionOverride(Player5,LeaveAreaLUA("TT9000","",[571.97],1))
+		ActionOverride(Player6,LeaveAreaLUA("TT9000","",[625.83],0))
+		Wait(1)
+		MultiPlayerSync()
+		Wait(1)
+		FadeFromColor([20.0],0)
+		Wait(2)
+		ActionOverride("Trebois",StartDialogueNoSet([PC]))
+		EndCutSceneMode()
+END

@@ -1,0 +1,65 @@
+IF
+	Global("HF_Create_Hrothgar","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("HF_Create_Hrothgar","GLOBAL",1)
+		CreateCreature("EHHROTH",[590.557],0)
+		MultiPlayerSync()
+		StartCutSceneMode()
+		ClearAllActions()
+		StartCutScene("EHHROTHT")
+END
+
+IF
+	Global("MURDER_ALARM","GLOBAL",0)
+	!Global("EVERARD_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Global("MURDER_ALARM","GLOBAL",0)
+	!Global("POMAB_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Global("MURDER_ALARM","GLOBAL",0)
+	!Global("AREA_HOSTILE","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Global("AREA_HOSTILE","MYAREA",0)
+	!Global("MURDER_ALARM","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("AREA_HOSTILE","MYAREA",1)
+		Continue()
+END
+
+IF
+	!Global("TOWNIE_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("EHTOWNIE_HOSTILE","MYAREA",0)
+		SetGlobal("TOWNIE_DEAD","GLOBAL",0)
+		Continue()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END

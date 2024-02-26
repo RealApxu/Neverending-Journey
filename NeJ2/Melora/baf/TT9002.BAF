@@ -1,0 +1,17 @@
+IF
+	OnCreation()
+	Global("VP_First_Visit","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_First_Visit","MYAREA",1)
+END
+
+IF
+	OnCreation()
+	Global("VP_First_Visit","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_First_Visit","MYAREA",2)
+END
+
+

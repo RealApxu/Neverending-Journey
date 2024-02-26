@@ -1,0 +1,47 @@
+IF
+	See([PC])
+	OR(5)
+		NumTimesTalkedTo(0)
+		Global("VP_Illusion_Quest","GLOBAL",3)
+		Global("VP_Illusion_Quest","GLOBAL",4)
+		Global("VP_Illusion_Quest","GLOBAL",5)
+		Global("VP_Illusion_Quest","GLOBAL",7)
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_HalruaaHostile","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Die()
+	Global("VP_HalruaaHostile","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END
+
+IF
+	Global("VP_Leaving_Halruaa","GLOBAL",5)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END

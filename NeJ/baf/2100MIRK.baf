@@ -1,0 +1,53 @@
+IF
+	GlobalGT("MIREK_QUEST","GLOBAL",3)
+THEN
+	RESPONSE #100
+		MoveToPoint([2084.1714])
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END
+
+IF
+	OR(2)
+		See([ENEMY])
+		See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		RunAwayFrom(LastSeenBy(Myself),45)
+END
+
+IF
+	OR(2)
+		AttackedBy([ENEMY],DEFAULT)
+		AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		RunAwayFrom(LastAttackerOf(Myself),45)
+END
+
+IF
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		Wait(7)
+		RandomWalk()
+END
+
+

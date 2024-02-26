@@ -1,0 +1,15 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		JumpToPoint([4600.2790])
+		ActionOverride(Player2,JumpToPoint([4664.2742]))
+		ActionOverride(Player3,JumpToPoint([4615.2693]))
+		ActionOverride(Player4,JumpToPoint([4552.2742]))
+		ActionOverride(Player5,JumpToPoint([4584.2718]))
+		ActionOverride(Player6,JumpToPoint([4631.2765]))
+		MoveViewPoint([4600.2790],INSTANT)
+END
+
+

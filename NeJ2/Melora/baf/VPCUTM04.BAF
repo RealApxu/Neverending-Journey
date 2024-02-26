@@ -1,0 +1,16 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		ActionOverride("Trebois",EscapeArea())
+		ActionOverride("TrebHun1",EscapeArea())
+		ActionOverride("TrebHun2",EscapeArea())
+		ActionOverride("TrebHun3",EscapeArea())
+		Wait(2)
+		ActionOverride("Melora",StartDialogueNoSet([PC]))
+		EndCutSceneMode()
+END
+
+

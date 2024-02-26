@@ -1,0 +1,17 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		ActionOverride("Dar",ChangeAIScript("",DEFAULT))
+		ActionOverride("Dar",SetLeavePartyDialogFile())
+		ActionOverride("Dar",LeaveParty())
+		ActionOverride("Dar",EscapeArea())
+		Wait(1)
+		MultiPlayerSync()
+		Wait(1)
+		StartCutScene("VP_Mov01")
+END
+
+

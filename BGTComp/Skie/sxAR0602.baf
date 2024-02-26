@@ -1,0 +1,10 @@
+IF
+	Global("VP_Join_Ski","GLOBAL",0)
+	Global("SkiPartyBG1","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Join_Ski","GLOBAL",1)
+		Lock("Cell05")
+		ActionOverride("Picture1",CreateItem("VPSkiKey",0,0,0)) // Key from Skie's cell
+		Continue()
+END

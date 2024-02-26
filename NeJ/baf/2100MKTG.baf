@@ -1,0 +1,10 @@
+IF
+	Global("Mirek_Trigger","GLOBAL",0)
+	IsOverMe([PC])
+THEN
+	RESPONSE #100
+		CreateCreature("kumirek",[3390.1674],4)
+		SetGlobal("Mirek_Trigger","GLOBAL",1)
+END
+
+

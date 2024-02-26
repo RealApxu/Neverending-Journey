@@ -1,0 +1,17 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_TT4002","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_TT4002","MYAREA",1)
+		Explore()
+		Continue()
+END
+
+IF
+	Global("EGENIA_MOVE","GLOBAL",0)
+	Global("Egenia_Talked","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("EGENIA_MOVE","GLOBAL",1)
+END

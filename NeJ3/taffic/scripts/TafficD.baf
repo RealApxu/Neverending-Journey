@@ -1,0 +1,42 @@
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	CombatCounter(0)
+	RealGlobalTimerExpired("VP_Taffic_Escapes","GLOBAL")
+	Global("VP_TafficQuest","GLOBAL",11)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TafficQuest","GLOBAL",12)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Aerie_Timer","GLOBAL")
+	Global("VP_Taffic_Aerie","LOCALS",1)
+	InParty(Myself)
+	!Dead("Taffic")
+	InParty("Aerie")
+	!Dead("Aerie")
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Aerie","LOCALS",2)
+		Interact("Aerie")
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Mazz_Timer","GLOBAL")
+	Global("VP_Taffic_Mazzy","LOCALS",1)
+	InParty(Myself)
+	!Dead("Taffic")
+	InParty("Mazzy")
+	!Dead("Mazzy")
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Mazzy","LOCALS",2)
+		Interact("Mazzy")
+END

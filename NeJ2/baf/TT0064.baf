@@ -1,0 +1,30 @@
+IF
+	Global("VP_Reveal_TT0064","MYAREA",0)
+	Global("VP_Lavallins_Plot","GLOBAL",8)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_TT0064","MYAREA",1)
+		CreateCreature("TuPung",[1011.1603],5) // Pung - Goblin
+		Explore()
+		Continue()
+END
+
+IF
+	PartyHasItem("TuKey") // Wardstone
+	Global("VP_Portal_Locked","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Portal_Locked","MYAREA",0)
+		TriggerActivation("Tr0066",TRUE)
+END
+
+IF
+	!PartyHasItem("TuKey") // Wardstone
+	Global("VP_Portal_Locked","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Portal_Locked","MYAREA",1)
+		TriggerActivation("Tr0066",FALSE)
+END
+
+

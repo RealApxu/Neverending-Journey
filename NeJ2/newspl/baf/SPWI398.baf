@@ -1,0 +1,226 @@
+IF
+	Detect([ANYONE])
+	CheckStatGT(LastSeenBy(Myself),19,STR)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),19,STR)
+THEN
+	RESPONSE #95
+		DestroySelf()
+	RESPONSE #5
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStatGT(LastSeenBy(Myself),17,STR)
+	CheckStatLT(LastSeenBy(Myself),19,STR)
+THEN
+	RESPONSE #90
+		DestroySelf()
+	RESPONSE #10
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),17,STR)
+THEN
+	RESPONSE #85
+		DestroySelf()
+	RESPONSE #15
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),16,STR)
+THEN
+	RESPONSE #80
+		DestroySelf()
+	RESPONSE #20
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),15,STR)
+THEN
+	RESPONSE #75
+		DestroySelf()
+	RESPONSE #25
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),14,STR)
+THEN
+	RESPONSE #70
+		DestroySelf()
+	RESPONSE #30
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),13,STR)
+THEN
+	RESPONSE #65
+		DestroySelf()
+	RESPONSE #35
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),12,STR)
+THEN
+	RESPONSE #60
+		DestroySelf()
+	RESPONSE #40
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),11,STR)
+THEN
+	RESPONSE #55
+		DestroySelf()
+	RESPONSE #45
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),10,STR)
+THEN
+	RESPONSE #50
+		DestroySelf()
+	RESPONSE #50
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),9,STR)
+THEN
+	RESPONSE #45
+		DestroySelf()
+	RESPONSE #55
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),8,STR)
+THEN
+	RESPONSE #40
+		DestroySelf()
+	RESPONSE #60
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),7,STR)
+THEN
+	RESPONSE #35
+		DestroySelf()
+	RESPONSE #65
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),6,STR)
+THEN
+	RESPONSE #30
+		DestroySelf()
+	RESPONSE #70
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),5,STR)
+THEN
+	RESPONSE #25
+		DestroySelf()
+	RESPONSE #75
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),4,STR)
+THEN
+	RESPONSE #20
+		DestroySelf()
+	RESPONSE #80
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),3,STR)
+THEN
+	RESPONSE #15
+		DestroySelf()
+	RESPONSE #85
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),2,STR)
+THEN
+	RESPONSE #10
+		DestroySelf()
+	RESPONSE #90
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	Detect([ANYONE])
+	CheckStat(LastSeenBy(Myself),1,STR)
+THEN
+	RESPONSE #5
+		DestroySelf()
+	RESPONSE #95
+		ActionOverride(LastSeenBy(Myself),PlayDead(6))
+		DestroySelf()
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+

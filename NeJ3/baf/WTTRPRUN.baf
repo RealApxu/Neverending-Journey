@@ -1,0 +1,57 @@
+IF
+	!Global("KERISH_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+	!Global("SLAVES_FREE_1","GLOBAL",0)
+THEN
+	RESPONSE #80
+		DisplayStringHead(Myself,~Traitor!~)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+		Continue()
+	RESPONSE #80
+		DisplayStringHead(Myself,~Betrayer!~)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+		Continue()
+	RESPONSE #80
+		DisplayStringHead(Myself,~You freed the slaves. Traitor!~)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+		Continue()
+	RESPONSE #80
+		DisplayStringHead(Myself,~I will free your soul.~)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+		Continue()
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+		Continue()
+END
+
+IF
+	OR(2)
+		See(NearestEnemyOf(Myself))
+		See([ALLY])
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	OR(2)
+		AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+THEN
+	RESPONSE #100
+		MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		RandomWalk()
+		Wait(5)
+END

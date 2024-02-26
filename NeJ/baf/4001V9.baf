@@ -1,0 +1,30 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Global("LKingDead","GLOBAL",1)
+	Global("Liz_King_Quest","GLOBAL",0)
+	!See(NearestEnemyOf(Myself))
+	See([PC])
+	CombatCounter(0)
+	!Die()
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END
+
+IF
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #50
+		DisplayStringHead(Myself,~Shhh!~) // "Shhh!"
+		Wait(3)
+	RESPONSE #50
+		DisplayStringHead(Myself,~I lost my dolly.~) // "I lost my dolly."
+		Wait(3)
+END
+
+

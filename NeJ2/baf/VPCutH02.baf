@@ -1,0 +1,14 @@
+IF
+	Range([PC],15)
+	InParty("Hrothgar")
+	Global("VP_Hrothgar_Tilorn","GLOBAL",0)
+	Global("VP_Delay_HT_Dialog","MYAREA",0)
+	Global("PostCutSpeak","AR0700",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Hrothgar_Tilorn","GLOBAL",1)
+		SetGlobal("VP_Delay_HT_Dialog","MYAREA",1)
+		RealSetGlobalTimer("VP_First_HT_Dialog","MYAREA",5)
+END
+
+

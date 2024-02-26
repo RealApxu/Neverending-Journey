@@ -1,0 +1,84 @@
+IF
+	OnCreation()
+	Global("VP_In_Dragon_Eye","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_In_Dragon_Eye","GLOBAL",1)
+END
+
+IF
+	OnCreation()
+	Global("VP_Erevain_RaiseDe","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Erevain_RaiseDe","GLOBAL",2)
+		ActionOverride("ErevDead",DestroySelf())
+		CreateCreature("ErevainS",[1880.2300],12)
+END
+
+IF
+	GlobalGT("VP_Erevain_RaiseDe","GLOBAL",1)
+	Global("VP_DestroyEreItems","MYAREA",0)
+	Contains("EREVAIN","Erevain's Body")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_DestroyEreItems","MYAREA",1)
+		ActionOverride("Erevain's Body",DestroyItem("EREVAIN"))
+END
+
+IF
+	GlobalGT("VP_Erevain_RaiseDe","GLOBAL",1)
+	Global("VP_DestroyEreItems","MYAREA",0)
+	Contains("EREVCHAN","Erevain's Body")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_DestroyEreItems","MYAREA",1)
+		ActionOverride("Erevain's Body",DestroyItem("EREVCHAN"))
+END
+
+IF
+	GlobalGT("VP_Erevain_RaiseDe","GLOBAL",1)
+	Global("VP_DestroyEreItems","MYAREA",0)
+	Contains("SHLD03","Erevain's Body")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_DestroyEreItems","MYAREA",1)
+		ActionOverride("Erevain's Body",DestroyItem("SHLD03"))
+END
+
+IF
+	GlobalGT("VP_Erevain_RaiseDe","GLOBAL",1)
+	Global("VP_DestroyEreItems","MYAREA",0)
+	Contains("BOW03","Erevain's Body")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_DestroyEreItems","MYAREA",1)
+		ActionOverride("Erevain's Body",DestroyItem("BOW03"))
+END
+
+IF
+	GlobalGT("VP_Erevain_RaiseDe","GLOBAL",1)
+	Global("VP_DestroyEreItems","MYAREA",0)
+	Contains("EREJOUR","Erevain's Body")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_DestroyEreItems","MYAREA",1)
+		ActionOverride("Erevain's Body",DestroyItem("EREJOUR"))
+END
+
+IF
+	Global("SPRITE_IS_DEADLizard_King","GLOBAL",1)
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("LKingDead","GLOBAL",1)
+END
+
+IF
+	Global("VP_ErevainJournal","GLOBAL",0)
+	PartyHasItem("EREJOUR")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_ErevainJournal","GLOBAL",1)
+		RealSetGlobalTimer("VP_EreJournalDelay","GLOBAL",5)
+END

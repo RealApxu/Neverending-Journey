@@ -1,0 +1,30 @@
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_Know_Caius","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("VP_Know_Caius","GLOBAL",1)
+	See([PC])
+	See("TuMage5")
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Know_Caius","GLOBAL",2)
+		StartDialogueNoSet("TuMage5")
+END
+
+IF
+	Global("VP_Leaving_Halruaa","GLOBAL",5)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+

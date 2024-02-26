@@ -1,0 +1,23 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("Dar")
+		StorePartyLocations()
+		MoveViewPoint([1352.1350],VERY_FAST)
+		Wait(2)
+		MoveToPoint([1366.1380])
+		Wait(3)
+		MoveViewObject(Myself,VERY_FAST)
+		Wait(2)
+		FaceObject("Otho")
+		Wait(2)
+		MoveToObject(Player1)
+		Wait(3)
+		FaceObject(Player1)
+		Wait(1)
+		Dialogue(Player1)
+		EndCutSceneMode()
+END
+
+

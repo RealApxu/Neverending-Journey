@@ -1,0 +1,32 @@
+IF
+	See([NEUTRAL])
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+	Help(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastHelp(Myself),75)
+END
+
+

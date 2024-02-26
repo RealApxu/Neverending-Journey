@@ -1,0 +1,72 @@
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Shout(89)
+		AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([PC])
+THEN
+	RESPONSE #100
+		Shout(89)
+		AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		Attack(LastAttackerOf(Myself))
+		Continue()
+END
+
+IF
+	Heard([ANYONE],89)
+	Allegiance(Myself,NEUTRAL)
+	!Class(Myself,INNOCENT)
+THEN
+	RESPONSE #100
+		Enemy()
+		MoveToObject(LastHeardBy(Myself))
+END
+
+IF
+	Heard([ANYONE],89)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Heard([ANYONE],89)
+	!Class(Myself,INNOCENT)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		MoveToObject(LastHeardBy(Myself))
+		Continue()
+END
+
+IF
+	GlobalLT("Yeti_Killed","GLOBAL",2)
+	Killed(Myself)
+THEN
+	RESPONSE #100
+		IncrementGlobal("Yeti_Killed","GLOBAL",1)
+END
+
+

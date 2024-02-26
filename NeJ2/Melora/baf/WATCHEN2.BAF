@@ -1,0 +1,16 @@
+IF
+	Heard("WatcherEnforcer",1)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Heard("WatcherEnforcer",2)
+THEN
+	RESPONSE #100
+		EscapeAreaDestroy(90)
+END
+
+

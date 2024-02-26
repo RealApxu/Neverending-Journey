@@ -1,0 +1,11 @@
+IF
+	Opened([ANYONE])
+	!StateCheck(LastTrigger,STATE_INVISIBLE)
+	!StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+	!Dead("Bartlemy")
+THEN
+	RESPONSE #100
+		DisplayString("Bartlemy",~How dare you are to steal my stuff!~)
+		ActionOverride("Bartlemy",Enemy())
+		ActionOverride("TuPung",Enemy())
+END

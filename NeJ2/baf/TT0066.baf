@@ -1,0 +1,85 @@
+IF
+	Global("SPRITE_IS_DEADGraeme","GLOBAL",1)
+	OR(3)
+		PartyHasItem("TuMace") // Rithtellium Mace +5
+		PartyHasItem("TuSw1H01") // Rithtellium Long Sword +5
+		PartyHasItem("TuSw1H02") // Rithtellium Short Sword +5
+	Global("VP_Create_Dealer","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Dealer","MYAREA",1)
+		CreateCreature("TuMage4",[2118.629],14) // Mage
+END
+
+IF
+	Global("VP_Meeting_Delrysia","GLOBAL",1)
+	Global("VP_Create_Delrysia","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Delrysia","MYAREA",1)
+		CreateCreature("Delrysia",[175.487],12) // Delrysia
+END
+
+IF
+	OnCreation()
+	Global("VP_Reveal_TT0066","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_TT0066","MYAREA",1)
+		CreateCreature("Graeme",[1970.2424],7) // Graeme
+		CreateCreature("TuSmug",[2021.2410],7) // Smuggler
+		CreateCreature("TuSmug",[1942.2424],7) // Smuggler
+		Explore()
+		Continue()
+END
+
+IF
+	Global("VP_Necro_Test","GLOBAL",1)
+	Global("VP_Open_Mausoleum","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Open_Mausoleum","MYAREA",1)
+		TriggerActivation("Tr0058",TRUE)
+END
+
+IF
+	OR(2)
+		GlobalGT("VP_Create_Garron","GLOBAL",2)
+		GlobalGT("VP_Leveller_Quest","GLOBAL",4)
+	Global("VP_Open_SecretHall","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Open_SecretHall","MYAREA",1)
+		TriggerActivation("Tr0060",TRUE)
+END
+
+IF
+	OR(2)
+		GlobalGT("VP_Leveller_Quest","GLOBAL",6)
+		PartyHasItem("TuLette8") // Letter
+	Global("VP_Create_DoorWard","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_DoorWard","MYAREA",1)
+		CreateCreature("TuLevel",[625.3060],8) // Magic Ward
+END
+
+IF
+	!PartyHasItem("TuKey") // Wardstone
+	Global("VP_Portal_Locked","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Portal_Locked","MYAREA",1)
+		TriggerActivation("Tr0064",FALSE)
+END
+
+IF
+	PartyHasItem("TuKey") // Wardstone
+	Global("VP_Portal_Locked","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Portal_Locked","MYAREA",0)
+		TriggerActivation("Tr0064",TRUE)
+END
+
+

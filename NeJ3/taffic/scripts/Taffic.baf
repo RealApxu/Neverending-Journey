@@ -1,0 +1,738 @@
+//Start quest in Promenade
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_Start_My_Quest","LOCALS",0)
+	!See([ENEMY])
+	AreaCheck("AR0700")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Start_My_Quest","LOCALS",1)
+		StartDialogueNoSet([PC])
+END
+
+//Player doesn't go to Deidre in 600 sec --> Taffic leaves
+IF
+	Global("VP_Find_Rithelium","GLOBAL",0)
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_Start_My_Quest","LOCALS",2)
+	RealGlobalTimerExpired("VP_GoToDreideDelay","GLOBAL")
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Start_My_Quest","LOCALS",3)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+	Detect(Player1)
+	PartyHasItem("balblood")
+	GlobalLT("VP_TafficQuest","GLOBAL",3)
+	!Global("VP_TafficQuest","GLOBAL",0)
+	Global("SPRITE_IS_DEADBalor","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TafficQuest","GLOBAL",3)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+	See([PC])
+	Global("SPRITE_IS_DEADRhezon","GLOBAL",1)
+	Global("VP_TafficQuest","GLOBAL",5)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TafficQuest","GLOBAL",6)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	See([PC])
+	CombatCounter(0)
+	Global("VP_GoTo_Thalantyr","GLOBAL",7)
+	Global("VP_TafficQuest","GLOBAL",0)
+	Global("VP_TafficIsLeaving","LOCALS",0)
+	GlobalTimerExpired("VP_BackToTrademeet","GLOBAL")
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TafficIsLeaving","LOCALS",1)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	See([PC])
+	CombatCounter(0)
+	Global("VP_NecriasDead","GLOBAL",0)
+	Global("SPRITE_IS_DEADNecrias","GLOBAL",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_NecriasDead","GLOBAL",1)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	See([PC])
+	CombatCounter(0)
+	Global("VP_ThalantyrDead","GLOBAL",0)
+	Global("SPRITE_IS_DEADThalantyr","GLOBAL",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_ThalantyrDead","GLOBAL",1)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	See([PC])
+	CombatCounter(0)
+	Global("VP_Taffic_Grumbles","GLOBAL",1)
+	RealGlobalTimerExpired("VP_TfGrumblesDelay","GLOBAL")
+	Global("VP_Find_Rithelium","GLOBAL",1)
+	!See([ENEMY])
+	!See("walmart2")
+	!PartyHasItem("rithtel") // Rithtellium Ore
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Grumbles","GLOBAL",2)
+		RealSetGlobalTimer("VP_TfGrumblesDelay","GLOBAL",1800)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	See([PC])
+	CombatCounter(0)
+	Global("VP_Taffic_Grumbles","GLOBAL",3)
+	RealGlobalTimerExpired("VP_TfGrumblesDelay","GLOBAL")
+	Global("VP_Find_Rithelium","GLOBAL",1)
+	!See([ENEMY])
+	!See("walmart2")
+	!PartyHasItem("rithtel") // Rithtellium Ore
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Grumbles","GLOBAL",4)
+		RealSetGlobalTimer("VP_TfGrumblesDelay","GLOBAL",1800)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	See([PC])
+	CombatCounter(0)
+	Global("VP_Taffic_Grumbles","GLOBAL",5)
+	RealGlobalTimerExpired("VP_TfGrumblesDelay","GLOBAL")
+	Global("VP_Find_Rithelium","GLOBAL",1)
+	!See([ENEMY])
+	!See("walmart2")
+	!PartyHasItem("rithtel") // Rithtellium Ore
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Grumbles","GLOBAL",6)
+		RealSetGlobalTimer("VP_TfGrumblesDelay","GLOBAL",1800)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	See([PC])
+	CombatCounter(0)
+	Global("VP_Taffic_Grumbles","GLOBAL",7)
+	RealGlobalTimerExpired("VP_TfGrumblesDelay","GLOBAL")
+	Global("VP_Find_Rithelium","GLOBAL",1)
+	!See([ENEMY])
+	!See("walmart2")
+	!PartyHasItem("rithtel") // Rithtellium Ore
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Grumbles","GLOBAL",8)
+		RealSetGlobalTimer("VP_TfGrumblesDelay","GLOBAL",1800)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	Detect(Player1)
+	CombatCounter(0)
+	RealGlobalTimerExpired("VP_Taffic_Warns","GLOBAL")
+	Global("VP_TafficQuest","GLOBAL",9)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TafficQuest","GLOBAL",10)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See([PC])
+	Global("VP_TafficQuest","GLOBAL",14)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TafficQuest","GLOBAL",15)
+		Dialogue([PC])
+END
+
+IF
+	InParty(Myself)
+	!Dead("Taffic")
+	!StateCheck(Player1,STATE_SLEEPING)
+	See([PC])
+	CombatCounter(0)
+	!See([ENEMY])
+	RealGlobalTimerExpired("VP_Taffic_End_Time","GLOBAL")
+	OR(2)
+		Global("VP_TafficQuest","GLOBAL",17)
+		Global("VP_TafficQuest","GLOBAL",23)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TafficQuest","GLOBAL",18)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	Global("VP_Taffic_Player","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Player","LOCALS",1)
+		SetGlobalTimer("VP_Taffic_PC_Timer","GLOBAL",ONE_DAY)
+END
+
+IF
+	GlobalTimerExpired("VP_Taffic_PC_Timer","GLOBAL")
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	!AreaCheck("AR2000")
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_Taffic_Player","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Player","LOCALS",2)
+		Interact(Player1)
+END
+
+IF
+	InParty(Myself)
+	InParty("Yoshimo")
+	InParty("Kachiko")
+	Global("VP_Taffic_Yoshimo","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Yoshimo","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Yoshi_Timer","GLOBAL",TWO_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Yoshi_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Yoshimo","LOCALS",1)
+	InParty(Myself)
+	InParty("Yoshimo")
+	InParty("Kachiko")
+	See("Yoshimo")
+	!Dead("Yoshimo")
+	!StateCheck("Yoshimo",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Yoshimo","LOCALS",2)
+		Interact("Yoshimo")
+END
+
+IF
+	InParty(Myself)
+	InParty("Leina")
+	Global("VP_Taffic_Leina","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Leina","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Leina_Timer","GLOBAL",THREE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Leina_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Leina","LOCALS",1)
+	InParty(Myself)
+	InParty("Leina")
+	See("Leina")
+	!Dead("Leina")
+	!StateCheck("Leina",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Leina","LOCALS",2)
+		Interact("Leina")
+END
+
+IF
+	InParty(Myself)
+	InParty("Melora")
+	Global("VP_Taffic_Melora","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Melora","LOCALS",1)
+		SetGlobalTimer("VP_Taff_Mel_Timer","GLOBAL",FOUR_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taff_Mel_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Melora","LOCALS",1)
+	InParty(Myself)
+	InParty("Melora")
+	See("Melora")
+	!Dead("Melora")
+	!StateCheck("Melora",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Melora","LOCALS",2)
+		Interact("Melora")
+END
+
+IF
+	InParty(Myself)
+	InParty("Hrothgar")
+	Global("VP_Taffic_Hrothgar","LOCALS",0)
+	Global("VP_InHalruaa","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Hrothgar","LOCALS",1)
+		RealSetGlobalTimer("VP_Taf_Hroth_Timer","GLOBAL",30)
+END
+
+IF
+	RealGlobalTimerExpired("VP_Taf_Hroth_Timer","GLOBAL")
+	Global("VP_Taffic_Hrothgar","LOCALS",1)
+	Global("VP_InHalruaa","GLOBAL",1)
+	InParty(Myself)
+	InParty("Hrothgar")
+	See("Hrothgar")
+	!Dead("Hrothgar")
+	!StateCheck("Hrothgar",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Hrothgar","LOCALS",2)
+		Interact("Hrothgar")
+END
+
+IF
+	InParty(Myself)
+	InParty("Melora")
+	Global("VP_Taffic_Melora","LOCALS",3)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Melora","LOCALS",4)
+		SetGlobalTimer("VP_Taff_Mel_Time2","GLOBAL",THREE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taff_Mel_Time2","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Melora","LOCALS",4)
+	InParty(Myself)
+	InParty("Melora")
+	See("Melora")
+	!Dead("Melora")
+	!StateCheck("Melora",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Melora","LOCALS",5)
+		Interact("Melora")
+END
+
+IF
+	InParty(Myself)
+	InParty("Jan")
+	Global("VP_Taffic_Jan","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Jan","LOCALS",1)
+		SetGlobalTimer("VP_Taff_Jan_Timer","GLOBAL",FIVE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taff_Jan_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Jan","LOCALS",1)
+	InParty(Myself)
+	InParty("Jan")
+	See("Jan")
+	!Dead("Jan")
+	!StateCheck("Jan",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Jan","LOCALS",2)
+		Interact("Jan")
+END
+
+IF
+	InParty(Myself)
+	InParty("Minsc")
+	Global("VP_Taffic_Minsc","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Minsc","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Minsc_Timer","GLOBAL",SIX_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Minsc_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Minsc","LOCALS",1)
+	InParty(Myself)
+	InParty("Minsc")
+	See("Minsc")
+	!Dead("Minsc")
+	!StateCheck("Minsc",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Minsc","LOCALS",2)
+		Interact("Minsc")
+END
+
+IF
+	InParty(Myself)
+	InParty("Keldorn")
+	Global("VP_Taffic_Keldorn","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Keldorn","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Keld_Timer","GLOBAL",SEVEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Keld_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Keldorn","LOCALS",1)
+	InParty(Myself)
+	InParty("Keldorn")
+	See("Keldorn")
+	!Dead("Keldorn")
+	!StateCheck("Keldorn",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Keldorn","LOCALS",2)
+		Interact("Keldorn")
+END
+
+IF
+	InParty(Myself)
+	InParty("Edwin")
+	Global("VP_Taffic_Edwin","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Edwin","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Edwin_Timer","GLOBAL",EIGHT_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Edwin_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Edwin","LOCALS",1)
+	InParty(Myself)
+	InParty("Edwin")
+	See("Edwin")
+	!Dead("Edwin")
+	!StateCheck("Edwin",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Edwin","LOCALS",2)
+		Interact("Edwin")
+END
+
+IF
+	InParty(Myself)
+	InParty("Nalia")
+	Global("VP_Taffic_Nalia","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Nalia","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Nalia_Timer","GLOBAL",NINE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Nalia_Timer","GLOBAL")
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Nalia","LOCALS",1)
+	InParty(Myself)
+	InParty("Nalia")
+	See("Nalia")
+	!Dead("Nalia")
+	!StateCheck("Nalia",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Nalia","LOCALS",2)
+		Interact("Nalia")
+END
+
+IF
+	InParty(Myself)
+	InParty("Aerie")
+	Global("VP_Taffic_Aerie","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Aerie","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Aerie_Timer","GLOBAL",TEN_DAYS)
+END
+
+IF
+	InParty(Myself)
+	InParty("Jaheira")
+	Global("VP_Taffic_Jaheira","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Jaheira","LOCALS",1)
+		SetGlobalTimer("VP_Taff_Jahi_Timer","GLOBAL",ELEVEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taff_Jahi_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Jaheira","LOCALS",1)
+	InParty(Myself)
+	InParty("Jaheira")
+	See("Jaheira")
+	!Dead("Jaheira")
+	!StateCheck("Jaheira",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Jaheira","LOCALS",2)
+		Interact("Jaheira")
+END
+
+IF
+	InParty(Myself)
+	InParty("Valygar")
+	Global("VP_Taffic_Valygar","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Valygar","LOCALS",1)
+		SetGlobalTimer("VP_Taff_Val_Timer","GLOBAL",TWELVE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taff_Val_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Valygar","LOCALS",1)
+	InParty(Myself)
+	InParty("Valygar")
+	See("Valygar")
+	!Dead("Valygar")
+	!StateCheck("Valygar",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Valygar","LOCALS",2)
+		Interact("Valygar")
+END
+
+IF
+	InParty(Myself)
+	InParty("Viconia")
+	Global("VP_Taffic_Viconia","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Viconia","LOCALS",1)
+		SetGlobalTimer("VP_Taff_Vic_Timer","GLOBAL",THIRTEEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taff_Vic_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Viconia","LOCALS",1)
+	InParty(Myself)
+	InParty("Viconia")
+	See("Viconia")
+	!Dead("Viconia")
+	!StateCheck("Viconia",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Viconia","LOCALS",2)
+		Interact("Viconia")
+END
+
+IF
+	InParty(Myself)
+	InParty("Korgan")
+	Global("VP_Taffic_Korgan","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Korgan","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Korg_Timer","GLOBAL",FOURTEEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Korg_Timer","GLOBAL")
+	Global("VP_Taffic_Korgan","LOCALS",1)
+	InParty(Myself)
+	InParty("Korgan")
+	See("Korgan")
+	!Dead("Korgan")
+	!StateCheck("Korgan",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Korgan","LOCALS",2)
+		Interact("Korgan")
+END
+
+IF
+	InParty(Myself)
+	InParty("Mazzy")
+	Global("VP_Taffic_Mazzy","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Mazzy","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Mazz_Timer","GLOBAL",FIFTEEN_DAYS)
+END
+
+IF
+	InParty(Myself)
+	InParty("HaerDalis")
+	Global("VP_Taffic_HaerDal","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_HaerDal","LOCALS",1)
+		SetGlobalTimer("VP_Taf_HaerD_Timer","GLOBAL",THIRTY_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_HaerD_Timer","GLOBAL")
+	Global("VP_Taffic_HaerDal","LOCALS",1)
+	InParty(Myself)
+	InParty("HaerDalis")
+	See("HaerDalis")
+	!Dead("HaerDalis")
+	!StateCheck("HaerDalis",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+	PartyRested()
+	TimeGT(DAWN_START)
+	TimeLT(DUSK_START)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_HaerDal","LOCALS",2)
+		Interact("HaerDalis")
+END
+
+IF
+	InParty(Myself)
+	InParty("Anomen")
+	Global("VP_Taffic_Anomen","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Anomen","LOCALS",1)
+		SetGlobalTimer("VP_Taf_Anom_Timer","GLOBAL",FIFTEEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Anom_Timer","GLOBAL")
+	Global("VP_Taffic_Anomen","LOCALS",1)
+	InParty(Myself)
+	InParty("Anomen")
+	See("Anomen")
+	!Dead("Anomen")
+	!StateCheck("Anomen",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Anomen","LOCALS",2)
+		Interact("Anomen")
+END
+
+IF
+	InParty(Myself)
+	InParty("Yoshimo")
+	InParty("Kachiko")
+	Global("VP_Taffic_Yoshimo","LOCALS",3)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Yoshimo","LOCALS",4)
+		SetGlobalTimer("VP_Taf_Yoshi_Timer","GLOBAL",THREE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Taf_Yoshi_Timer","GLOBAL")
+	!AreaCheck("AR2000")
+	Global("VP_Taffic_Yoshimo","LOCALS",4)
+	InParty(Myself)
+	InParty("Yoshimo")
+	InParty("Kachiko")
+	See("Yoshimo")
+	!Dead("Yoshimo")
+	!StateCheck("Yoshimo",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Taffic_Yoshimo","LOCALS",5)
+		Interact("Yoshimo")
+END

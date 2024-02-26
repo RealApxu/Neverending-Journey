@@ -1,0 +1,61 @@
+IF
+	Global("8001_FENGLA_REMOVE","GLOBAL",0)
+	Global("ARROW_MESSAGE","MYAREA",1)
+	GlobalTimerExpired("ARROW_TIMER","MYAREA")
+THEN
+	RESPONSE #100
+		DisplayString(Myself,~Hey, stupid, get out of here!~)
+		SetGlobal("ARROW_MESSAGE","MYAREA",0)
+		SetGlobalTimer("ARROW_TIMER","MYAREA",2)
+		Continue()
+	RESPONSE #100
+		DisplayString(Myself,~Ha ha!  Idiot!  Take that!~)
+		SetGlobal("ARROW_MESSAGE","MYAREA",0)
+		SetGlobalTimer("ARROW_TIMER","MYAREA",2)
+		Continue()
+	RESPONSE #100
+		DisplayString(Myself,~How'd you like a gut full of arrows, friend?~)
+		SetGlobal("ARROW_MESSAGE","MYAREA",0)
+		SetGlobalTimer("ARROW_TIMER","MYAREA",2)
+		Continue()
+	RESPONSE #100
+		DisplayString(Myself,~Wooo!  Ha ha ha!~)
+		SetGlobal("ARROW_MESSAGE","MYAREA",0)
+		SetGlobalTimer("ARROW_TIMER","MYAREA",2)
+		Continue()
+	RESPONSE #100
+		DisplayString(Myself,~Why don't you try to come storm the tower, moron?~)
+		SetGlobal("ARROW_MESSAGE","MYAREA",0)
+		SetGlobalTimer("ARROW_TIMER","MYAREA",2)
+		Continue()
+	RESPONSE #100
+		DisplayString(Myself,~Hee hee ha ha!~)
+		SetGlobal("ARROW_MESSAGE","MYAREA",0)
+		SetGlobalTimer("ARROW_TIMER","MYAREA",2)
+		Continue()
+	RESPONSE #100
+		DisplayString(Myself,~This is easier than shooting deep gnomes in a cattle pen!~)
+		SetGlobal("ARROW_MESSAGE","MYAREA",0)
+		SetGlobalTimer("ARROW_TIMER","MYAREA",2)
+		Continue()
+END
+
+IF
+	Global("8001_FENGLA_REMOVE","GLOBAL",0)
+	Entered([PC])
+THEN
+	RESPONSE #100
+		DisplayString(LastTrigger,14381) // Trap Sprung
+		ReallyForceSpell(LastTrigger,TRAP_ARROW_BITING)
+		SetGlobal("ARROW_MESSAGE","MYAREA",1)
+END
+
+IF
+	Global("8001_FENGLA_REMOVE","GLOBAL",0)
+	Opened([PC])
+THEN
+	RESPONSE #100
+		DisplayString(LastTrigger,14381) // Trap Sprung
+		ReallyForceSpell(LastTrigger,TRAP_ARROW_BITING)
+		SetGlobal("ARROW_MESSAGE","MYAREA",1)
+END

@@ -1,0 +1,16 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("EHHROTH")
+		SetGlobal("Know_Hrothgar","GLOBAL",1)
+		StartCutSceneMode()
+		ClearAllActions()
+		MultiPlayerSync()
+		Wait(2)
+		TextScreen("SCENE09")
+		Wait(1)
+		FaceObject([PC])
+		SmallWait(10)
+		StartDialogueNoSet([PC])
+END

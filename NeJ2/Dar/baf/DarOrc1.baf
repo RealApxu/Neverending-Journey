@@ -1,0 +1,8 @@
+IF
+	NumTimesTalkedTo(0)
+	See("Dar")
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Dialogue("Dar")
+END

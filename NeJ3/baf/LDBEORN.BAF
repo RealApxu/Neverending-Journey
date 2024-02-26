@@ -1,0 +1,146 @@
+IF
+	Global("GOING_TO_TEMPLE","LOCALS",0)
+	!NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+		SetGlobal("GOING_TO_TEMPLE","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	!Global("MAP_GROUP_HOSTILE3","MYAREA",0)
+THEN
+	RESPONSE #100
+		Enemy()
+		SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",1)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	!Allegiance(Myself,ENEMY)
+	Global("MAP_GROUP_HOSTILE3","MYAREA",0)
+THEN
+	RESPONSE #100
+		Enemy()
+		SetGlobal("MAP_GROUP_HOSTILE3","MYAREA",1)
+		Continue()
+END
+
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",0)
+	Global("GOING_TO_TEMPLE","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",1)
+		MoveToPointNoInterrupt([960.1280])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",1)
+	Global("GOING_TO_TEMPLE","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",2)
+		MoveToPointNoInterrupt([960.1000])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",2)
+	Global("GOING_TO_TEMPLE","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",3)
+		MoveToPointNoInterrupt([800.800])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",3)
+	Global("GOING_TO_TEMPLE","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",4)
+		MoveToPointNoInterrupt([835.735])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",4)
+	Global("GOING_TO_TEMPLE","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",5)
+		MoveToPointNoInterrupt([1140.735])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",5)
+	Global("GOING_TO_TEMPLE","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",6)
+		MoveToPointNoInterrupt([1430.500])
+		Face(0)
+END
+
+//I'm not sure the following blocks with saving location of Beorn at the Temple ruins may help
+
+//IF
+//	Global("MOVEMENT_LIST_1_LOC","LOCALS",6)
+//  Global("GOING_TO_TEMPLE","LOCALS",1)
+//  ActionListEmpty()
+//THEN
+//  RESPONSE #100
+//     	SetGlobal("GOING_TO_TEMPLE","LOCALS",2)
+//     	SaveObjectLocation("LOCALS","TemplePlace",Myself)
+//END
+
+//IF
+//	GlobalLT("MOVEMENT_LIST_1_LOC","LOCALS",6)
+//	GlobalLT("GOING_TO_TEMPLE","LOCALS",2)
+//	ActionListEmpty()
+//THEN
+//	RESPONSE #100
+//		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",1)
+//		SetGlobal("GOING_TO_TEMPLE","LOCALS",1)
+//		MoveToPointNoInterrupt([960.1280])
+//		Continue()
+//END
+
+//IF
+//  Global("GOING_TO_TEMPLE","LOCALS",2)
+//  GlobalLT("MOVEMENT_LIST_1_LOC","LOCALS",6)
+//  ActionListEmpty()
+//THEN
+//	RESPONSE #50
+//		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",6)
+//      MoveToSavedLocationn("TemplePlace","LOCALS")
+//END

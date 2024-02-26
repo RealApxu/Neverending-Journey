@@ -1,0 +1,165 @@
+IF
+	Detect([PC])
+	OR(2)
+		StateCheck([PC],STATE_IMPROVEDINVISIBILITY)
+		StateCheck([PC],STATE_INVISIBLE)
+THEN
+	RESPONSE #100
+		ReallyForceSpell([PC],CLERIC_INVISIBILITY_PURGE)
+		Continue()
+END
+
+IF
+	Global("Lysan_Escaped","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Polymorph(CLERIC_FEMALE_HUMAN)
+		Continue()
+END
+
+IF
+	OR(2)
+		Global("KRESS_QUEST","GLOBAL",3)
+		Die()
+THEN
+	RESPONSE #100
+		Unlock("BOX1")
+		Unlock("BOX2")
+		Unlock("BOX3")
+		Unlock("BOX4")
+		Continue()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Lysan_Lair_Hit","MYAREA",1)
+		Enemy()
+		Shout(0)
+		Continue()
+END
+
+IF
+	Global("VP_Lysan_Lair_Hit","MYAREA",1)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	HaveSpell(CLERIC_SILENCE_15_FOOT)
+	OR(9)
+		See([PC.0.0.CLERIC_MAGE])
+		See([PC.0.0.CLERIC_THIEF])
+		See([PC.0.0.FIGHTER_CLERIC])
+		See([PC.0.0.FIGHTER_MAGE])
+		See([PC.0.0.FIGHTER_MAGE_CLERIC])
+		See([PC.0.0.FIGHTER_MAGE_THIEF])
+		See([PC.0.0.CLERIC_RANGER])
+		See([PC.0.0.MAGE])
+		See([PC.0.0.CLERIC])
+	!StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+	Global("VP_Lysan_Lair_Hit","MYAREA",1)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+		Wait(0)
+		Continue()
+END
+
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+	!Dead("Lysan") // Lysan
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		ClearAllActions()
+		MultiPlayerSync()
+		Dialogue([PC])
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	ActionListEmpty()
+	!See([PC])
+	GlobalLT("VP_Lysan_Conjures","GLOBAL",6)
+THEN
+	RESPONSE #100
+		IncrementGlobal("VP_Lysan_Conjures","GLOBAL",1)
+		ForceSpell(Myself,CLERIC_CONJURE_ANIMALS)
+		Continue()
+END
+
+IF
+	See([PC])
+	Global("Lysan_Talked","GLOBAL",0)
+	Global("Lysan_Escaped","GLOBAL",1)
+	!Allegiance(Myself,ENEMY)
+	!Dead("Lysan") // Lysan
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See([PC])
+	Global("Lysan_Talked","GLOBAL",2)
+	GlobalGT("Kress_Quest","GLOBAL",0)
+	!Allegiance(Myself,ENEMY)
+	!Dead("Lysan") // Lysan
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!StateCheck(NearestEnemyOf(Myself),STATE_SLEEPING)
+	!StateCheck(NearestEnemyOf(Myself),STATE_HELPLESS)
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_COMMAND)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!StateCheck(NearestEnemyOf(Myself),STATE_SLEEPING)
+	!StateCheck(NearestEnemyOf(Myself),STATE_HELPLESS)
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(NearestEnemyOf(Myself),75)
+		Continue()
+END
+
+IF
+	HPPercentLT(Myself,50)
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+		Continue()
+END
+
+

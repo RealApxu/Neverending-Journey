@@ -1,0 +1,18 @@
+IF
+	Global("VP_Eurich_Appears","GLOBAL",2)
+	Global("VP_InitiateTalk","LOCALS",0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+	InParty("Hrothgar")  // Hrothgar
+	!Dead("Hrothgar")  // Hrothgar
+	!See([ENEMY])
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_InitiateTalk","LOCALS",1)
+		ClearAllActions()
+		MoveToObject("Hrothgar")  // Hrothgar
+		StartDialogNoSet([PC])
+END
+
+

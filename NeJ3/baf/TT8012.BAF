@@ -1,0 +1,38 @@
+IF
+	!Global("SPRITE_IS_DEADIDOL","GLOBAL",0)
+	Global("VP_LDD_Door_Is_Open","GLOBAL",0)
+THEN
+	RESPONSE #100
+		OpenDoor("AR8012STATUE")
+		SetGlobal("VP_LDD_Door_Is_Open","GLOBAL",1)
+		Continue()
+END
+
+IF
+	!Global("SPRITE_IS_DEADIDOL","GLOBAL",0)
+	Global("Crazy_Priests","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("Crazy_Priests","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Global("PERDIEM_BADGE","GLOBAL",0)
+	PartyHasItem("PERDIEM") // Brother Perdiem's Badge
+THEN
+	RESPONSE #100
+		SetGlobal("PERDIEM_BADGE","GLOBAL",1)
+		AddexperienceParty(18500)
+		DisplayStringHead(Player1,~You have retrieved Brother Perdiem's badge.~)
+		Continue()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END

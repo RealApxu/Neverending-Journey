@@ -1,0 +1,25 @@
+IF
+	OnCreation()
+THEN
+	RESPONSE #100
+		Explore()
+END
+
+IF
+	GlobalGT("SPRITE_IS_DEADSdElfAc","GLOBAL",24)
+	Global("PriestsDead","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("PriestsDead","GLOBAL",25)
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END
+
+

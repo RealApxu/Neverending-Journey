@@ -1,0 +1,72 @@
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,9)
+	Global("VP_StartIWD2","GLOBAL",0)
+	Global("VP_TeleportDialog","GLOBAL",0)
+THEN
+	RESPONSE #100
+		ActionOverride(Player1,DisplayStringHead(Myself,61938))  // This shimmering portal reveals a twisted landscape obscured by large, shadow-like forms.
+		SetGlobal("VP_TeleportDialog","GLOBAL",1)
+END
+
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,12)
+	Global("VP_StartIWD2","GLOBAL",0)
+	Global("VP_TeleportDialog","GLOBAL",1)
+	OR(2)
+		!CombatCounter(0)
+		!InParty("Hrothgar")  // Hrothgar
+THEN
+	RESPONSE #100
+		ActionOverride(Player1,DisplayStringHead(Myself,61938))  // This shimmering portal reveals a twisted landscape obscured by large, shadow-like forms.
+		SetGlobal("VP_TeleportDialog","GLOBAL",0)
+END
+
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,12)
+	Global("VP_StartIWD_2","GLOBAL",0)
+	Global("VP_TeleportDialog","GLOBAL",1)
+	Global("VP_In_IWD_Part2","GLOBAL",0)
+	InParty("Hrothgar")  // Hrothgar
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_In_IWD_Part2","GLOBAL",1)
+		SetGlobal("VP_StartIWD2","GLOBAL",1)
+		SetGlobal("VP_TeleportDialog","GLOBAL",2)
+		SetGlobal("VP_CameFromDrows","GLOBAL",1)
+		HideGUI()
+		PlaySound("PORTAL3")
+		Wait(1)
+		CreateVisualEffectObject("SPCLOUD1",Player1)
+		CreateVisualEffectObject("SPCLOUD1",Player2)
+		CreateVisualEffectObject("SPCLOUD1",Player3)
+		CreateVisualEffectObject("SPCLOUD1",Player4)
+		CreateVisualEffectObject("SPCLOUD1",Player5)
+		CreateVisualEffectObject("SPCLOUD1",Player6)
+		SmallWait(7)
+		FadeToColor([30.0],0)
+		SmallWait(7)
+		ActionOverride(Player1,LeaveAreaLUAPanic("TT2117","",[168.330],14))
+		ActionOverride(Player1,LeaveAreaLUA("TT2117","",[168.330],14))
+		ActionOverride(Player2,LeaveAreaLUA("TT2117","",[248.294],12))
+		ActionOverride(Player3,LeaveAreaLUA("TT2117","",[184.198],0))
+		ActionOverride(Player4,LeaveAreaLUA("TT2117","",[231.330],14))
+		ActionOverride(Player5,LeaveAreaLUA("TT2117","",[215.221],0))
+		ActionOverride(Player6,LeaveAreaLUA("TT2117","",[247.257],12))
+		SmallWait(7)
+		FadeFromColor([30.0],0)
+		UnhideGUI()
+		Wait(1)
+		ActionOverride("Hrothgar",StartDialogNoSet([PC]))
+END
+
+IF
+	Clicked([ANYONE])
+	!Range(LastTrigger,12)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,14702)  // You are too far away to use that.
+END

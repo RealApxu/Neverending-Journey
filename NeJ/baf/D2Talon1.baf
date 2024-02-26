@@ -1,0 +1,126 @@
+IF
+	See("Egenia")
+	Global("VP_TaloniteAttacks","LOCALS",0)
+	See([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TaloniteAttacks","LOCALS",1)
+		Enemy()
+		EquipMostDamagingMelee()
+		AttackReevaluate("Egenia",75)
+END
+
+IF
+	Global("prep","LOCALS",0)
+	See(NearestEnemyOf(Myself))
+	See(NearestMyGroupOfType)
+THEN
+	RESPONSE #100
+		SetGlobal("prep","LOCALS",1)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_CHANT)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_STRENGTH_OF_ONE)
+END
+
+IF
+	Die()
+THEN
+	RESPONSE #100
+		IncrementGlobal("Talonite_Dead","GLOBAL",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_CLOAK_OF_FEAR)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CLOAK_OF_FEAR)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	See(NearestMyGroupOfType)
+	HaveSpell(CLERIC_MASS_CURE)
+	HPPercentLT(Myself,80)
+	OR(3)
+		HPPercentLT(LastSeenBy(Myself),80)
+		HPPercentLT(SecondNearestMyGroupOfType,80)
+		HPPercentLT(ThirdNearestMyGroupOfType,80)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_MASS_CURE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_HOLD_PERSON)
+	!StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	See(NearestMyGroupOfType)
+	HPPercentLT(LastSeenBy(Myself),60)
+	HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	See(NearestMyGroupOfType)
+	HPPercentLT(LastSeenBy(Myself),10)
+	HaveSpell(CLERIC_HEAL)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_HEAL)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Range(LastSeenBy(Myself),4)
+	HPPercentLT(Myself,60)
+	HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Range(LastSeenBy(Myself),4)
+	HPPercentLT(Myself,10)
+	HaveSpell(CLERIC_HEAL)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_HEAL)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),75)
+END
+
+

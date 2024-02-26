@@ -1,0 +1,45 @@
+IF
+	See(NearestEnemyOf(Myself))
+	Range(NearestEnemyOf(Myself),15)
+	Delay(15)
+	OR(4)
+		!StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+		!StateCheck(LastSeenBy(Myself),STATE_BLIND)
+		!Died(LastSeenBy(Myself))
+		!HasImmunityEffects(LastSeenBy(Myself))
+THEN
+	RESPONSE #100
+		ReallyForceSpell(LastSeenBy(Myself),BEETLE_BOMB)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Range(NearestEnemyOf(Myself),4)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	HPLT(Myself,21)
+	Global("VP_LastChanceBomb","LOCALS",0)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("VP_LastChanceBomb","LOCALS",1)
+		ReallyForceSpell(NearestEnemyOf(Myself),BEETLE_BOMB)
+END
+
+IF
+	Die()
+	Global("VP_LastChancePoison","LOCALS",0)
+	See(NearestEnemyOf(Myself))
+	Range(NearestEnemyOf(Myself),30)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_LastChancePoison","LOCALS",1)
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DEATH_FOG)
+END
+
+

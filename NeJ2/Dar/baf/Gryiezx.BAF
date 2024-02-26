@@ -1,0 +1,45 @@
+IF
+	!Allegiance(Myself,ENEMY)
+	!See([PC])
+	OR(6)
+		AttackedBy([PC],DEFAULT)
+		AttackedBy([FAMILIAR],DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+		AttackedBy([CONTROLLED],DEFAULT)
+		AttackedBy([CHARMED],DEFAULT)
+		AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Slavers_Fight","GLOBAL",1)
+		SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+		Shout(111)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	See([PC])
+	NumTimesTalkedTo(0)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	!Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+	!See([PC])
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Slavers_Fight","GLOBAL",1)
+		MoveToObject([PC])
+		Dialogue([PC])
+END

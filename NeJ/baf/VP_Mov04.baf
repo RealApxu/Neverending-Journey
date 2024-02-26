@@ -1,0 +1,34 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SetGlobal("VP_Hrothgar_Interjects","GLOBAL",1)
+		FadeToColor([30.0],0)
+		Wait(1)
+		ApplySpell(Player2,NOHOLD_PARTY)
+		ApplySpell(Player3,NOHOLD_PARTY)
+		ApplySpell(Player4,NOHOLD_PARTY)
+		ApplySpell(Player5,NOHOLD_PARTY)
+		ApplySpell(Player6,NOHOLD_PARTY)
+		ActionOverride(Player2,MakeUnselectable(1))
+		ActionOverride(Player3,MakeUnselectable(1))
+		ActionOverride(Player4,MakeUnselectable(1))
+		ActionOverride(Player5,MakeUnselectable(1))
+		ActionOverride(Player6,MakeUnselectable(1))
+		Wait(1)
+		LeaveAreaLUAPanic("AR0602","",[3148.754],0)
+		LeaveAreaLUA("AR0602","",[3148.754],0)
+		ActionOverride(Player2,LeaveAreaLUA("AR0602","",[3000.640],0))
+		ActionOverride(Player3,LeaveAreaLUA("AR0602","",[3013.738],0))
+		ActionOverride(Player4,LeaveAreaLUA("AR0602","",[3136.715],0))
+		ActionOverride(Player5,LeaveAreaLUA("AR0602","",[3100.628],0))
+		ActionOverride(Player6,LeaveAreaLUA("AR0602","",[3036.650],0))
+		MultiPlayerSync()
+		FadeFromColor([30.0],0)
+		SaveGame(0)
+		EndCutSceneMode()
+		ActionOverride(Player1,StartDialog("Player1",Myself))
+END
+
+

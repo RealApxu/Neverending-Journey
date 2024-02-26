@@ -1,0 +1,11 @@
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	See("RayVon")
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet("RayVon")
+END
+
+

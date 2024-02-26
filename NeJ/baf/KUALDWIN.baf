@@ -1,0 +1,69 @@
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,WIZARD_INVISIBILITY)
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,WIZARD_INVISIBILITY)
+		MoveToObject(LastAttackerOf(Myself))
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+	ActionListEmpty()
+	GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("MOVEMENT_LIST_0_TIMER","LOCALS",10)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+	ActionListEmpty()
+	GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",2)
+		MoveToPoint([396.311])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",2)
+	ActionListEmpty()
+	GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+	RESPONSE #100
+		Face(14)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",3)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",3)
+	ActionListEmpty()
+	GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("MOVEMENT_LIST_0_TIMER","LOCALS",3)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",4)
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",4)
+	ActionListEmpty()
+	GlobalTimerExpired("MOVEMENT_LIST_0_TIMER","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+		Continue()
+END
+
+

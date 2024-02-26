@@ -1,0 +1,26 @@
+IF
+	Global("Uligar_Attacks","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Attack(Player1)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Range(NearestEnemyOf(Myself),5)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+

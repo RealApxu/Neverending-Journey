@@ -1,0 +1,169 @@
+IF
+	OnCreation()
+THEN
+	RESPONSE #100
+		SetGlobal("DID_FADEOUT","MYAREA",2)
+		Explore()
+		Continue()
+END
+
+IF
+	!Global("DID_FADEOUT","MYAREA",0)
+	Global("ASTRO1","GLOBAL",0)
+	Global("ASTRO2","GLOBAL",0)
+	Global("ASTRO3","GLOBAL",0)
+	Global("ASTRO4","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("DID_FADEOUT","MYAREA",0)
+		Continue()
+END
+
+IF
+	Global("DID_FADEOUT","MYAREA",0)
+	Global("ASTRO1","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("DID_FADEOUT","MYAREA",1)
+		Continue()
+END
+
+IF
+	Global("DID_FADEOUT","MYAREA",0)
+	Global("ASTRO2","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("DID_FADEOUT","MYAREA",1)
+		Continue()
+END
+
+IF
+	Global("DID_FADEOUT","MYAREA",0)
+	Global("ASTRO3","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("DID_FADEOUT","MYAREA",1)
+		Continue()
+END
+
+IF
+	Global("DID_FADEOUT","MYAREA",0)
+	Global("ASTRO4","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("DID_FADEOUT","MYAREA",1)
+		Continue()
+END
+
+IF
+	Global("DID_FADEOUT","MYAREA",1)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		ClearAllActions()
+		FadeToColor([30.0],0)
+		Wait(1)
+		Continue()
+END
+
+IF
+	!Global("ASTRO1","GLOBAL",0)
+	!Global("DID_FADEOUT","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("ASTRO1","GLOBAL",2)
+		AmbientActivate("5103MS4",TRUE)
+		Continue()
+END
+
+IF
+	!Global("ASTRO2","GLOBAL",0)
+	!Global("DID_FADEOUT","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("ASTRO2","GLOBAL",2)
+		AmbientActivate("5103MS3",TRUE)
+		Continue()
+END
+
+IF
+	!Global("ASTRO3","GLOBAL",0)
+	!Global("DID_FADEOUT","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("ASTRO3","GLOBAL",2)
+		AmbientActivate("5103MS1",TRUE)
+		AmbientActivate("5103MS2",TRUE)
+		Continue()
+END
+
+IF
+	!Global("ASTRO4","GLOBAL",0)
+	!Global("DID_FADEOUT","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("ASTRO4","GLOBAL",2)
+		AmbientActivate("5103MS5",TRUE)
+		Continue()
+END
+
+IF
+	Global("DID_FADEOUT","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("ASTRO_NO_TALK","GLOBAL",0)
+		FadeFromColor([30.0],0)
+		EndCutSceneMode()
+		Continue()
+END
+
+IF
+	!Global("ASTRO_NO_TALK","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("ASTRO_NO_TALK","GLOBAL",0)
+		Continue()
+END
+
+IF
+	!Global("DID_FADEOUT","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("DID_FADEOUT","MYAREA",0)
+END
+
+IF
+	Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+	!Global("LARREL_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",1)
+		Continue()
+END
+
+IF
+	Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+	!Global("GELARITH_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",1)
+		Continue()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END
+
+IF
+	Global("VP_Gelarith_Gone","MYAREA",0)
+	Global("VP_TeleportDialog","GLOBAL",4)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Gelarith_Gone","MYAREA",1)
+		ActionOverride("Gelarith",DestroySelf())
+END

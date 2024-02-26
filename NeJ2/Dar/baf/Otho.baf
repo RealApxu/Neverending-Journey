@@ -1,0 +1,70 @@
+IF
+	OnCreation()
+	!Global("VP_Slave_Released","GLOBAL",0)
+	Global("VP_Dar_Quest","GLOBAL",20)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Global("VP_Slave_Released","GLOBAL",0)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Global("VP_Slave_Released","GLOBAL",0)
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	OR(2)
+		!InParty("Dar")
+		Dead("Dar")
+	Global("SPRITE_IS_DEADGryiezx","GLOBAL",1)
+	!See([ENEMY])
+	!See([PC])
+	CombatCounter(0)
+	Global("VP_I_Am_Freed","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_I_Am_Freed","LOCALS",1)
+		Dialogue([PC])
+END
+
+IF
+	Global("VP_Sell_Slaves","GLOBAL",0)
+	OR(3)
+		Global("VP_Dar_Quest","GLOBAL",99)
+		Global("VP_Dar_Quest","GLOBAL",97)
+		Global("VP_Dar_Quest","GLOBAL",95)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Sell_Slaves","GLOBAL",1)
+		EscapeArea()
+END
+
+IF
+	Global("VP_Destroy_Self","LOCALS",0)
+	Global("VP_Dar_Quest","GLOBAL",97)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Destroy_Self","LOCALS",1)
+		DestroySelf()
+END

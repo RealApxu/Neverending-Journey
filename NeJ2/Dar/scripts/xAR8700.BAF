@@ -1,0 +1,54 @@
+IF
+	Global("VP_CreateCreatures","MYAREA",0)
+	!Global("VP_Create_Dar","GLOBAL",0)
+	!Global("VP_IN_BG1","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_CreateCreatures","MYAREA",1)
+		CreateCreature("NEJBAND1",[3400.1312],0) // Bandit
+		CreateCreature("NEJBAND1",[1805.575],0) // Bandit
+		CreateCreature("NEJBAND1",[1285.788],0) // Bandit
+		CreateCreature("NEJBAND1",[1631.601],0) // Bandit
+		CreateCreature("NEJBAND1",[1829.724],0) // Bandit
+		CreateCreature("NEJBAND1",[1364.1044],0) // Bandit
+		CreateCreature("NEJBAND1",[1605.1144],0) // Bandit
+		CreateCreature("NEJBAND1",[2487.1168],0) // Bandit
+		CreateCreature("NEJBAND",[3061.1136],0) // Bandit
+		CreateCreature("NEJBAND",[3165.1564],0) // Bandit
+		CreateCreature("NEJBAND",[2670.1445],0) // Bandit
+		CreateCreature("NEJBAND",[2167.1231],0) // Bandit
+		CreateCreature("NEJBAND",[3988.1300],0) // Bandit
+		CreateCreature("NEJBAND",[4197.1071],0) // Bandit
+		CreateCreature("NEJBAND",[3527.1132],0) // Bandit
+		CreateCreature("NEJBAND",[1362.1413],0) // Bandit
+		CreateCreature("NEJBAND",[3716.1022],0) // Bandit
+		CreateCreature("NEJBAND1",[2268.821],0) // Bandit
+		CreateCreature("NEJBAND",[3195.1325],0) // Bandit
+		CreateCreature("NEJBAND",[3025.1403],0) // Bandit
+		CreateCreature("SLAVEOF1",[1310.1140],0) // Half-Orc Slave
+		CreateCreature("SLAVEOM6",[1407.1115],0) // Half-Orc Slave
+		CreateCreature("SLAVEOF2",[1366.1183],0) // Half-Orc Slave
+		CreateCreature("SLAVEOF3",[1478.1191],0) // Half-Orc Slave
+		CreateCreature("SLAVEOM4",[1299.1242],0) // Half-Orc Slave
+		CreateCreature("SLAVEOF4",[1458.1239],0) // Half-Orc Slave
+		CreateCreature("SLAVEOM5",[1427.1173],0) // Orc Slave
+		CreateCreature("SLAVEOF5",[1467.1146],0) // Half-Orc Slave
+		CreateCreature("SLAVEOF6",[1347.1302],0) // Half-Orc Slave
+		CreateCreature("SLAVEOM3",[1413.1290],0) // Orc Slave
+		CreateCreature("SLAVEOM2",[1464.1289],0) // Orc Slave
+		CreateCreature("SLAVEOF7",[1289.1305],0) // Half-Orc Slave
+		CreateCreature("OTHO",[1352.1305],0) // Slave
+		CreateCreature("SLAVEOM7",[1428.1344],0) // Half-Orc Slave
+		CreateCreature("SLAVODF1",[1195.1156],0) // Dead Slave
+		CreateCreature("SLAVODF2",[1108.1212],11) // Dead Slave
+		CreateCreature("SLAVODM3",[1096.1360],7) // Dead Slave
+		CreateCreature("SLAVODM1",[1054.1315],5) // Dead Slave
+		CreateCreature("SLAVODM3",[1023.1368],15) // Dead Slave
+		CreateCreature("SLAVODM3",[1274.1557],7) // Dead Slave
+		CreateCreature("SLAVODM2",[1296.1513],13) // Dead Slave
+		CreateCreature("SLAVODM2",[1544.1492],10) // Dead Slave
+		CreateCreature("SLAVODM1",[1782.1241],4) // Dead Slave
+		CreateCreature("SLAVODM3",[1851.1242],14) // Dead Slave
+		CreateCreature("SLAVODM3",[1337.1567],2) // Dead Slave
+		CreateCreature("GRYIEZX",[1723.1080],2) // Gryiezx
+END

@@ -1,0 +1,17 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(5)
+		ActionOverride("Delrysia",TakePartyItem("TuPotnD1")) // Potion Of Form Reversal
+		ActionOverride("Delrysia",GiveItem("DeRing",Player1)) // Ring of Might
+		ActionOverride("Delrysia",CreateVisualEffectObject("SPFLESHS",Myself))
+		ActionOverride("Delrysia",Polymorph(MAGE_FEMALE_HUMAN))
+		Wait(2)
+		ActionOverride("Delrysia",ReallyForceSpell(Myself,DRYAD_TELEPORT))
+		Wait(2)
+		EndCutSceneMode()
+END
+
+

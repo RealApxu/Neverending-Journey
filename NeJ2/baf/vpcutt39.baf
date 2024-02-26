@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    SmallWait(5)
+    ActionOverride("Bartlemy",TakePartyItem("DeRing"))
+    ActionOverride("Bartlemy",ReallyForceSpell(Myself,DRYAD_TELEPORT))
+    Wait(3)
+    ActionOverride("TuPung",Enemy())
+    SmallWait(5)
+    EndCutSceneMode()
+END
+

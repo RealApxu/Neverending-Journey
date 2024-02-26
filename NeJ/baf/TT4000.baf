@@ -1,0 +1,10 @@
+IF
+	Global("VP_DragonsEyeNotes","GLOBAL",0)
+	Global("VP_DE_NotesTimer","GLOBAL",0)
+	CombatCounter(0)
+	GlobalGT("SPRITE_IS_DEADTROLSN02","GLOBAL",4)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_DE_NotesTimer","GLOBAL",1)
+		RealSetGlobalTimer("VP_DragonsEye","GLOBAL",1)
+END

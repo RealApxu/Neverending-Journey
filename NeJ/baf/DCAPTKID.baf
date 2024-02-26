@@ -1,0 +1,30 @@
+IF
+	OnCreation()
+	GlobalGT("Sheemish_Escape","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	GlobalGT("Sheemish_Escape","GLOBAL",0)
+THEN
+	RESPONSE #100
+		EscapeArea()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		RunAwayFrom(NearestEnemyOf(Myself),150)
+END
+
+IF
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+

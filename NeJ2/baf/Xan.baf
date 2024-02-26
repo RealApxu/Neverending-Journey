@@ -1,0 +1,53 @@
+IF
+	Range([PC],12)
+	NumTimesTalkedTo(0)
+	See([PC])
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("VP_My_Test","LOCALS",1)
+	!GlobalTimerExpired("VP_Xan_Waiting","GLOBAL")
+	!RealGlobalTimerExpired("VP_Xan_Tests","GLOBAL")
+	Alignment("TuEnch",NEUTRAL)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_HalruaaHostile","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Die()
+	Global("VP_HalruaaHostile","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END
+
+IF
+	Global("VP_Leaving_Halruaa","GLOBAL",5)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END

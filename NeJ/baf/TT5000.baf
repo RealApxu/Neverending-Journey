@@ -1,0 +1,37 @@
+IF
+	Global("KULDAHAR_ATTACK","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("KULDAHAR_ATTACK","GLOBAL",3)
+		Continue()
+END
+
+IF
+	Global("KULDAHAR_FORCEREMOVE","GLOBAL",0)
+	GlobalGT("KULDAHAR_ATTACK","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("KULDAHAR_FORCEREMOVE","GLOBAL",1)
+		Continue()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END
+
+IF
+	OnCreation()
+	Global("VP_Reveal_TT5000","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_TT5000","MYAREA",1)
+		Explore()
+		Continue()
+END
+
+

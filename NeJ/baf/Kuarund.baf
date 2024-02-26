@@ -1,0 +1,10 @@
+IF
+	NumTimesTalkedTo(0)
+	Global("Dying_Arundel","GLOBAL",0)
+	Global("Arundel_Insulted","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+

@@ -1,0 +1,18 @@
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		RunAwayFromNoInterrupt(LastSeenBy(Myself),45)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
+		DisplayStringHead(Myself,~Oy! Fleezum! Flozem! We gots us a trouble-maker!~)
+		Enemy()
+		Continue()
+END
+
+

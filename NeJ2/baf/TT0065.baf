@@ -1,0 +1,80 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_TT0065","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_TT0065","MYAREA",1)
+		TriggerActivation("Tr0069",TRUE)
+		Explore()
+		Continue()
+END
+
+//Safety block - not to be stuck in Lavallin's store
+IF
+	OnCreation()
+	Global("VP_Portal_Locked","MYAREA",1)
+	OR(2)
+		Global("VP_Lavallins_Plot","GLOBAL",11)
+		Global("VP_Lavallins_Plot","GLOBAL",12)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Portal_Locked","MYAREA",0)
+		TriggerActivation("Tr0069",TRUE)
+		Continue()
+END
+
+IF
+	RealGlobalTimerExpired("VP_Lavallin_Leaves","GLOBAL")
+	Global("VP_Portal_Locked","MYAREA",0)
+	OR(2)
+		Global("VP_Lavallins_Plot","GLOBAL",1)
+		Global("VP_Lavallins_Plot","GLOBAL",6)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Portal_Locked","MYAREA",1)
+		TriggerActivation("Tr0069",FALSE)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutT36")
+END
+
+IF
+	Global("VP_Lavallins_Plot","GLOBAL",2)
+	Global("VP_Hrothgar_Lavallin","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Hrothgar_Lavallin","GLOBAL",3)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutT34")
+END
+
+IF
+	Global("VP_Lavallins_Plot","GLOBAL",5)
+	Global("VP_Portal_Locked","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Portal_Locked","MYAREA",1)
+		TriggerActivation("Tr0069",FALSE)
+END
+
+IF
+	Global("VP_Lavallins_Plot","GLOBAL",5)
+	RealGlobalTimerExpired("VP_Activate_Portal","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Lavallins_Plot","GLOBAL",7)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutT35")
+END
+
+IF
+	Global("VP_Lavallins_Plot","GLOBAL",9)
+	Global("VP_Delrisia_Letter","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Delrisia_Letter","GLOBAL",2)
+END
+
+

@@ -1,0 +1,38 @@
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("VP_Leaving_Halruaa","GLOBAL",5)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	OR(2)
+		Global("VP_HalruaaHostile","MYAREA",1)
+		Global("VP_HalruaaAlarm","MYAREA",1)
+THEN
+	RESPONSE #100
+		Shout(99)
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	OR(2)
+		AttackedBy([PC],DEFAULT)
+		SpellCast([PC],0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaAlarm","MYAREA",1)
+		Shout(99)
+		Enemy()
+END

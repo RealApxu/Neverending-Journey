@@ -1,0 +1,195 @@
+IF
+	Global("VP_Rune08","MYAREA",0)
+	OR(6)
+		IsOverMe(Player1)
+		IsOverMe(Player2)
+		IsOverMe(Player3)
+		IsOverMe(Player4)
+		IsOverMe(Player5)
+		IsOverMe(Player6)
+	OpenState("DOOR17",FALSE)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",1)
+		RealSetGlobalTimer("VP_Rune08_Close","MYAREA",180)
+		DisplayString(Myself,~When you step on this rune, it begins to glow.~)
+		OpenDoor("DOOR17")
+END
+
+IF
+	Global("VP_Rune08","MYAREA",1)
+	RealGlobalTimerExpired("VP_Rune08_Close","MYAREA")
+	OpenState("DOOR17",TRUE)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",0)
+		CloseDoor("DOOR17")
+END
+
+IF
+	Global("VP_Rune08","MYAREA",1)
+	IsOverMe(Player1)
+	OR(14)
+		Global("VP_Rune01","MYAREA",1)
+		Global("VP_Rune02","MYAREA",1)
+		Global("VP_Rune03","MYAREA",1)
+		Global("VP_Rune05","MYAREA",1)
+		Global("VP_Rune06","MYAREA",1)
+		Global("VP_Rune07","MYAREA",1)
+		Global("VP_Rune09","MYAREA",1)
+		Global("VP_Rune10","MYAREA",1)
+		Global("VP_Rune11","MYAREA",1)
+		Global("VP_Rune12","MYAREA",1)
+		Global("VP_Rune13","MYAREA",1)
+		Global("VP_Rune14","MYAREA",1)
+		Global("VP_Rune15","MYAREA",1)
+		Global("VP_Rune16","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",2)
+		RealSetGlobalTimer("VP_Rune08_Reset","MYAREA",10)
+		ReallyForceSpell(Player1,TRAP_FLAMESTRIKE)
+		PlaySound("EFF_M34")
+END
+
+IF
+	Global("VP_Rune08","MYAREA",1)
+	IsOverMe(Player2)
+	OR(14)
+		Global("VP_Rune01","MYAREA",1)
+		Global("VP_Rune02","MYAREA",1)
+		Global("VP_Rune03","MYAREA",1)
+		Global("VP_Rune05","MYAREA",1)
+		Global("VP_Rune06","MYAREA",1)
+		Global("VP_Rune07","MYAREA",1)
+		Global("VP_Rune09","MYAREA",1)
+		Global("VP_Rune10","MYAREA",1)
+		Global("VP_Rune11","MYAREA",1)
+		Global("VP_Rune12","MYAREA",1)
+		Global("VP_Rune13","MYAREA",1)
+		Global("VP_Rune14","MYAREA",1)
+		Global("VP_Rune15","MYAREA",1)
+		Global("VP_Rune16","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",2)
+		RealSetGlobalTimer("VP_Rune08_Reset","MYAREA",10)
+		ReallyForceSpell(Player2,TRAP_FLAMESTRIKE)
+		PlaySound("EFF_M34")
+END
+
+IF
+	Global("VP_Rune08","MYAREA",1)
+	IsOverMe(Player3)
+	OR(14)
+		Global("VP_Rune01","MYAREA",1)
+		Global("VP_Rune02","MYAREA",1)
+		Global("VP_Rune03","MYAREA",1)
+		Global("VP_Rune05","MYAREA",1)
+		Global("VP_Rune06","MYAREA",1)
+		Global("VP_Rune07","MYAREA",1)
+		Global("VP_Rune09","MYAREA",1)
+		Global("VP_Rune10","MYAREA",1)
+		Global("VP_Rune11","MYAREA",1)
+		Global("VP_Rune12","MYAREA",1)
+		Global("VP_Rune13","MYAREA",1)
+		Global("VP_Rune14","MYAREA",1)
+		Global("VP_Rune15","MYAREA",1)
+		Global("VP_Rune16","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",2)
+		RealSetGlobalTimer("VP_Rune08_Reset","MYAREA",10)
+		ReallyForceSpell(Player3,TRAP_FLAMESTRIKE)
+		PlaySound("EFF_M34")
+END
+
+IF
+	Global("VP_Rune08","MYAREA",1)
+	IsOverMe(Player4)
+	OR(14)
+		Global("VP_Rune01","MYAREA",1)
+		Global("VP_Rune02","MYAREA",1)
+		Global("VP_Rune03","MYAREA",1)
+		Global("VP_Rune05","MYAREA",1)
+		Global("VP_Rune06","MYAREA",1)
+		Global("VP_Rune07","MYAREA",1)
+		Global("VP_Rune09","MYAREA",1)
+		Global("VP_Rune10","MYAREA",1)
+		Global("VP_Rune11","MYAREA",1)
+		Global("VP_Rune12","MYAREA",1)
+		Global("VP_Rune13","MYAREA",1)
+		Global("VP_Rune14","MYAREA",1)
+		Global("VP_Rune15","MYAREA",1)
+		Global("VP_Rune16","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",2)
+		RealSetGlobalTimer("VP_Rune08_Reset","MYAREA",10)
+		ReallyForceSpell(Player4,TRAP_FLAMESTRIKE)
+		PlaySound("EFF_M34")
+END
+
+IF
+	Global("VP_Rune08","MYAREA",1)
+	IsOverMe(Player5)
+	OR(14)
+		Global("VP_Rune01","MYAREA",1)
+		Global("VP_Rune02","MYAREA",1)
+		Global("VP_Rune03","MYAREA",1)
+		Global("VP_Rune05","MYAREA",1)
+		Global("VP_Rune06","MYAREA",1)
+		Global("VP_Rune07","MYAREA",1)
+		Global("VP_Rune09","MYAREA",1)
+		Global("VP_Rune10","MYAREA",1)
+		Global("VP_Rune11","MYAREA",1)
+		Global("VP_Rune12","MYAREA",1)
+		Global("VP_Rune13","MYAREA",1)
+		Global("VP_Rune14","MYAREA",1)
+		Global("VP_Rune15","MYAREA",1)
+		Global("VP_Rune16","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",2)
+		RealSetGlobalTimer("VP_Rune08_Reset","MYAREA",10)
+		ReallyForceSpell(Player5,TRAP_FLAMESTRIKE)
+		PlaySound("EFF_M34")
+END
+
+IF
+	Global("VP_Rune08","MYAREA",1)
+	IsOverMe(Player6)
+	OR(14)
+		Global("VP_Rune01","MYAREA",1)
+		Global("VP_Rune02","MYAREA",1)
+		Global("VP_Rune03","MYAREA",1)
+		Global("VP_Rune05","MYAREA",1)
+		Global("VP_Rune06","MYAREA",1)
+		Global("VP_Rune07","MYAREA",1)
+		Global("VP_Rune09","MYAREA",1)
+		Global("VP_Rune10","MYAREA",1)
+		Global("VP_Rune11","MYAREA",1)
+		Global("VP_Rune12","MYAREA",1)
+		Global("VP_Rune13","MYAREA",1)
+		Global("VP_Rune14","MYAREA",1)
+		Global("VP_Rune15","MYAREA",1)
+		Global("VP_Rune16","MYAREA",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",2)
+		RealSetGlobalTimer("VP_Rune08_Reset","MYAREA",10)
+		ReallyForceSpell(Player6,TRAP_FLAMESTRIKE)
+		PlaySound("EFF_M34")
+END
+
+IF
+	Global("VP_Rune08","MYAREA",2)
+	RealGlobalTimerExpired("VP_Rune08_Reset","MYAREA")
+	OpenState("DOOR17",TRUE)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rune08","MYAREA",0)
+		CloseDoor("DOOR17")
+END
+
+

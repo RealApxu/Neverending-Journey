@@ -1,0 +1,23 @@
+IF
+	OR(2)
+		Global("ENDOFBG1","GLOBAL",2)
+		Global("VP_In_BG1","GLOBAL",0)
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	Global("VP_Hrothgar_In_CK","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Hrothgar_In_CK","GLOBAL",1)
+		SetGlobal("VP_Winthrop_In_NeJ","GLOBAL",1)
+		ActionOverride("Hrothgar",StartDialogueNoSet([PC]))
+		Continue()
+END
+
+IF
+	!Global("VP_DAR_QUEST","GLOBAL",0)
+	Global("VP_CK_Exit","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_CK_Exit","GLOBAL",1)
+		CreateCreature("WATCH7",[4154.2577],7)
+END

@@ -1,0 +1,38 @@
+IF
+	OnCreation()
+	Global("Liz_King_Quest","GLOBAL",1)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	Global("Liz_King_Quest","GLOBAL",1)
+	Global("VP_LizKing_Quest","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_LizKing_Quest","LOCALS",1)
+		EscapeArea()
+END
+
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		RunAwayFrom(NearestEnemyOf(Myself),150)
+END
+
+IF
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+

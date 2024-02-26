@@ -1,0 +1,24 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		ActionOverride("Accalia",DestroyItem("HammTemp"))
+		ActionOverride("Accalia",DestroyItem("AccShld"))
+		ActionOverride("Accalia",GivePartyAllEquipment()
+		ActionOverride("Accalia",ChangeAIScript("",DEFAULT))
+		ActionOverride("Accalia",SetLeavePartyDialogFile())
+		ActionOverride("Accalia",LeaveParty())
+		ActionOverride("Accalia",EscapeArea())
+		ActionOverride("Dar",ChangeAIScript("",DEFAULT))
+		ActionOverride("Dar",SetLeavePartyDialogFile())
+		ActionOverride("Dar",LeaveParty())
+		ActionOverride("Dar",EscapeArea())
+		Wait(1)
+		MultiPlayerSync()
+		Wait(1)
+		StartCutScene("VP_Mov01")
+END
+
+

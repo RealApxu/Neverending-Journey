@@ -1,0 +1,148 @@
+IF
+	!Global("RED_ESCAPE","GLOBAL",2)
+	HPPercentLT(Myself,20)
+THEN
+	RESPONSE #100
+		SetGlobal("RED_ESCAPE","GLOBAL",2)
+		Continue()
+END
+
+IF
+	Global("RED_ESCAPE","GLOBAL",2)
+THEN
+	RESPONSE #100
+		EscapeArea()
+END
+
+IF
+	Global("RED_MOVE","LOCALS",0)
+	Delay(3)
+THEN
+	RESPONSE #100
+		SetGlobal("RED_MOVE","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	See([PC])
+	Global("Red_Toe_Escape","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("Red_Toe_Escape","LOCALS",1)
+		DisplayStringHead(Myself,~Move out of the way!~) // Move out of the way!  
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([ANYTHING],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	!Global("RED_ESCAPE","GLOBAL",2)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	!Allegiance(Myself,ENEMY)
+	Range([PC],5)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+	!Dead("yself)")
+	Global("RED_ESCAPE","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("RED_ESCAPE","GLOBAL",1)
+		StartCutSceneMode()
+		ClearAllActions()
+		MultiPlayerSync()
+		Dialogue([PC])
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",0)
+	!Global("RED_MOVE","LOCALS",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",1)
+		MoveToPoint([720.532])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",1)
+	!Global("RED_MOVE","LOCALS",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",2)
+		Wait(1)
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",2)
+	!Global("RED_MOVE","LOCALS",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",3)
+		MoveToPoint([518.861])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",3)
+	!Global("RED_MOVE","LOCALS",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",4)
+		Wait(1)
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",4)
+	!Global("RED_MOVE","LOCALS",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",5)
+		MoveToPoint([517.919])
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",5)
+	!Global("RED_MOVE","LOCALS",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		Face(0)
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",6)
+		Wait(1)
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_0_LOC","LOCALS",6)
+	!Global("RED_MOVE","LOCALS",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		DestroySelf()
+		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
+END
+
+

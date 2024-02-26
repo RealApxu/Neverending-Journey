@@ -1,0 +1,38 @@
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		Enemy()
+		Continue()
+END
+
+IF
+	Help([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		FaceObject(LastHelp(Myself))
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(2)
+		Global("TOWNIE_HOSTILE","MYAREA",1)
+		Global("MURDER_ALARM","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+

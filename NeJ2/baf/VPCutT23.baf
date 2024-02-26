@@ -1,0 +1,13 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("RayVon")
+		Wait(1)
+		ActionOverride("TuAyana",ReallyForceSpell(Myself,DRYAD_TELEPORT))
+		ReallyForceSpell(Myself,DRYAD_TELEPORT)
+		Wait(2)
+		EndCutSceneMode()
+END
+
+

@@ -1,0 +1,30 @@
+IF
+	OnCreation()
+	GlobalGT("EGENIA_MOVE","GLOBAL",1)
+THEN
+	RESPONSE #100
+		EscapeArea()
+END
+
+IF
+	Global("EGENIA_MOVE","GLOBAL",3)
+THEN
+	RESPONSE #100
+		EscapeArea()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		RunAwayFrom(NearestEnemyOf(Myself),150)
+END
+
+IF
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+

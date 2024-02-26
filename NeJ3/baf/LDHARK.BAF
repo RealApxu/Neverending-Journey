@@ -1,0 +1,34 @@
+IF
+	Global("IDOL_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~...gauntlet, vambrace, couter, rerebrace, pauldron...~)
+		Wait(5)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~...tasset, greave, poleyn, sabaton...~)
+		Wait(5)
+		Continue()
+END
+
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END
+
+IF
+	NumTimesTalkedTo(0)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	!Allegiance(Myself,ENEMY)
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END
+
+

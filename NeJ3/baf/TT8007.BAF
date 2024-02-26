@@ -1,0 +1,73 @@
+IF
+	Global("TT8007_VISITED","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("TT8007_VISITED","GLOBAL",1)
+END
+
+IF
+	!Global("SPRITE_IS_DEADSeth","GLOBAL",0)
+THEN
+	RESPONSE #100
+		ActionOverride("Seth",DestroySelf())
+END
+
+IF
+	Global("Marketh_Gone","GLOBAL",1)
+	Global("MAP_GROUP_HOSTILE10","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
+END
+
+IF
+	Global("SPRITE_IS_DEADFleezum","GLOBAL",0)
+	!Global("FLEEZ_MOVED","GLOBAL",0)
+	Global("VP_Create_Fleezum","MYAREA",0)
+THEN
+	RESPONSE #100
+		CreateCreature("fleezum2",[1950.934],8)
+		SetGlobal("VP_Create_Fleezum","MYAREA",1)
+END
+
+IF
+	Global("SPRITE_IS_DEADFlozem","GLOBAL",0)
+	Global("Flozem_Gone","GLOBAL",0)
+	!Global("FLOZ_MOVED","GLOBAL",0)
+	Global("VP_Create_Flozem","MYAREA",0)
+THEN
+	RESPONSE #100
+		CreateCreature("flozem2",[2030.957],8)
+		SetGlobal("VP_Create_Flozem","MYAREA",1)
+END
+
+IF
+	Global("MARKETH_BADGE","GLOBAL",0)
+	PartyHasItem("MARKETH") // Marketh's Badge
+THEN
+	RESPONSE #100
+		SetGlobal("MARKETH_BADGE","GLOBAL",1)
+		AddexperienceParty(32500)
+		DisplayStringHead(Player1,~You have retrieved Marketh's badge.~)
+		Continue()
+END
+
+IF
+	Global("MAP_GROUP_HOSTILE10","MYAREA",0)
+	!Global("SPRITE_IS_DEADMarketh","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
+		Continue()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END
+
+

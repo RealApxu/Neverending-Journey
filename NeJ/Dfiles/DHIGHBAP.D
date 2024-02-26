@@ -1,0 +1,8 @@
+BEGIN ~DHIGHBAP~
+
+IF ~NumberOfTimesTalkedTo(0)
+~ THEN BEGIN 0
+  SAY ~Interlopers, you should *never* have come here. I don't know what harm you've already done to my kin, but you will pay for it when we twist your flesh into a histachii breeding machine.~
+  IF ~~ THEN DO ~Enemy()
+~ EXIT
+END

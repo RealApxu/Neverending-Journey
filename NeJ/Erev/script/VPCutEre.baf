@@ -1,0 +1,13 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("Erevain")
+		AddXPObject(Myself,100000)
+		Wait(1)
+		FadeFromColor([20.0],0)
+		StartDialogueNoSet([PC])
+		EndCutSceneMode()
+END
+
+

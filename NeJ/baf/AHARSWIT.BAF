@@ -1,0 +1,22 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		FadeToColor([20.0],0)
+		Wait(1)
+		LeaveAreaLUAPanic("TT2118","",[200.390],10)
+		LeaveAreaLUA("TT2118","",[200.390],10)
+		ActionOverride(Player2,LeaveAreaLUA("TT2118","",[184.330],10))
+		ActionOverride(Player3,LeaveAreaLUA("TT2118","",[232.306],10))
+		ActionOverride(Player4,LeaveAreaLUA("TT2118","",[232.366],10))
+		ActionOverride(Player5,LeaveAreaLUA("TT2118","",[152.354],10))
+		ActionOverride(Player6,LeaveAreaLUA("TT2118","",[264.330],10))
+		MultiPlayerSync()
+		Wait(1)
+		Explore()
+		FadeFromColor([20.0],0)
+		EndCutSceneMode()
+END
+
+

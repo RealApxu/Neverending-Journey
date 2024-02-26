@@ -1,0 +1,30 @@
+IF
+	Global("SPRITE_IS_DEADShendru","GLOBAL",1)
+	Global("VP_MeloraQuest_End","GLOBAL",0)
+	InParty("Melora")  // Melora
+	!Dead("Melora")  // Melora
+	OR(2)
+		Global("VP_Melora_Quest","GLOBAL",9)
+		Global("VP_EvilAct","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_MeloraQuest_End","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutM10")
+END
+
+IF
+	Global("SPRITE_IS_DEADShendru","GLOBAL",1)
+	Global("VP_MeloraQuest_End","GLOBAL",0)
+	OR(2)
+		Global("VP_Melora_Quest","GLOBAL",9)
+		Global("VP_EvilAct","GLOBAL",2)
+	OR(2)
+		!InParty("Melora")  // Melora
+		Dead("Melora")  // Melora
+THEN
+	RESPONSE #100
+		SetGlobal("VP_MeloraQuest_End","GLOBAL",1)
+		DestroyItem("lightgem")
+END

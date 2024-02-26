@@ -1,0 +1,36 @@
+IF
+	Clicked([ANYONE])
+	!Global("Dying_Arundel","GLOBAL",1)
+THEN
+	RESPONSE #100
+		ClearAllActions()
+		ActionOverride(Player1,LeaveAreaLUAPanic("TT2100","",[1312.2226],12))
+		ActionOverride(Player1,LeaveAreaLUA("TT2100","",[1312.2226],12))
+		ActionOverride(Player2,LeaveAreaLUA("TT2100","",[1312.2157],12))
+		ActionOverride(Player3,LeaveAreaLUA("TT2100","",[1312.2108],12))
+		ActionOverride(Player4,LeaveAreaLUA("TT2100","",[1350.2256],12))
+		ActionOverride(Player5,LeaveAreaLUA("TT2100","",[1304.2157],12))
+		ActionOverride(Player6,LeaveAreaLUA("TT2100","",[1300.2108],12))
+		ActionOverride(Player1,MultiPlayerSync())
+		ActionOverride(Player1,DisplayStringHead(Myself,~This entrance is locked. Arundel doesn't permit you to go upstairs.~))
+END
+
+IF
+	Clicked([ANYONE])
+	Global("Dying_Arundel","GLOBAL",1)
+THEN
+	RESPONSE #100
+		ClearAllActions()
+		FadeToColor([20.0],0)
+		ActionOverride(Player1,LeaveAreaLUAPanic("TT2116","",[192.148],2))
+		ActionOverride(Player1,LeaveAreaLUA("TT2116","",[192.148],2))
+		ActionOverride(Player2,LeaveAreaLUA("TT2116","",[229.155],2))
+		ActionOverride(Player3,LeaveAreaLUA("TT2116","",[210.112],2))
+		ActionOverride(Player4,LeaveAreaLUA("TT2116","",[328.180],2))
+		ActionOverride(Player5,LeaveAreaLUA("TT2116","",[384.220],2))
+		ActionOverride(Player6,LeaveAreaLUA("TT2116","",[415.248],2))
+		MultiPlayerSync()
+		FadeFromColor([20.0],0)
+END
+
+

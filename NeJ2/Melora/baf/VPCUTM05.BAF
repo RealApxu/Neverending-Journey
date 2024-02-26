@@ -1,0 +1,17 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		DayNight(MIDNIGHT)
+		Wait(1)
+		DisplayStringHead(Player1,~Night falls and Shendru appears.~)
+		Wait(2)
+		CreateCreatureObjectDoor("Shendru",Player1,0,0,0) // Faldorn
+		Wait(1)
+		ActionOverride("Shendru",StartDialogueNoSet([PC]))
+		EndCutSceneMode()
+END
+
+

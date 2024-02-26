@@ -1,0 +1,12 @@
+IF
+	OR(2)
+		Range([PC],6)
+		Entered([PC])
+	Global("VP_RoadTo_Kuldahar","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_RoadTo_Kuldahar","MYAREA",1)
+		DisplayStringHead([PC],~Road to Kuldahar~)
+END
+
+

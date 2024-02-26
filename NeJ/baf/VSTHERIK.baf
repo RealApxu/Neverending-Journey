@@ -1,0 +1,47 @@
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+	Global("THERIK_ATTACKED","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("THERIK_ATTACKED","GLOBAL",1)
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Shout(89)
+		AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([PC])
+THEN
+	RESPONSE #100
+		Shout(89)
+		AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		Attack(LastAttackerOf(Myself))
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	See([PC])
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+

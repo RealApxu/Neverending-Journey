@@ -1,0 +1,18 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #50
+		DisplayStringHead(Myself,~My husband needs me.~) // "My husband needs me."
+		Wait(3)
+	RESPONSE #50
+		DisplayStringHead(Myself,~I still have hope.~) // "I still have hope."
+		Wait(3)
+END
+
+

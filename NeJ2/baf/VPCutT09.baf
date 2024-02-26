@@ -1,0 +1,16 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(5)
+		ActionOverride("TuMage4",TakePartyItem("TuSw1H01")) // Rithtellium Long Sword +3
+		ActionOverride("TuMage4",TakePartyItem("TuSw1H02")) // Rithtellium Short Sword +1
+		ActionOverride("TuMage4",TakePartyItem("TuMace")) // Rithtellium Mace +3
+		GivePartyGold(10000)
+		ActionOverride("TuMage4",ReallyForceSpell(Myself,DRYAD_TELEPORT))
+		Wait(2)
+		EndCutSceneMode()
+END
+
+

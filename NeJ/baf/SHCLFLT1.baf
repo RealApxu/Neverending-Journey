@@ -1,0 +1,142 @@
+IF
+	See([PC])
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~"Invaders!"~)
+		Shout(89)
+		Continue()
+END
+
+IF
+	OR(5)
+		AttackedBy([PC],DEFAULT)
+		AttackedBy([FAMILIAR],DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+		AttackedBy([CONTROLLED],DEFAULT)
+		AttackedBy([CHARMED],DEFAULT)
+THEN
+	RESPONSE #100
+		Shout(89)
+		Continue()
+END
+
+IF
+	Heard([ANYONE],89)
+	!Class(Myself,INNOCENT)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		MoveToObject(LastHeardBy(Myself))
+		Continue()
+END
+
+IF
+	ActionListEmpty()
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~"The teachings show us the way."~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~"Offer praise."~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~"Let us pray."~)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("prep","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,CLERIC_FREE_ACTION)
+		ReallyForceSpell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+		Spell(Myself,NPC_BLADE_BARRIER)
+		SetGlobal("prep","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_PHYSICAL_MIRROR)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_PHYSICAL_MIRROR)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_ANIMATE_DEAD)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_ANIMATE_DEAD)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_DEATH_WARD)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_DEATH_WARD)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_CAUSE_SERIOUS_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CAUSE_SERIOUS_WOUNDS)
+		AttackOneRound(NearestEnemyOf(Myself))
+		AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+	HaveSpell(CLERIC_SILENCE_15_FOOT)
+	OR(2)
+		See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+		See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),6)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),6)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END

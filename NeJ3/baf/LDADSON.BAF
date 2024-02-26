@@ -1,0 +1,8 @@
+IF
+	Global("IDOL_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~...black...~)
+		Wait(5)
+		Continue()
+END

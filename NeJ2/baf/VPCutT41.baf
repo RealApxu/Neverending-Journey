@@ -1,0 +1,10 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("TuVashon")
+		Wait(1)
+		ReallyForceSpell(Myself,DRYAD_TELEPORT)
+		Wait(2)
+		EndCutSceneMode()
+END

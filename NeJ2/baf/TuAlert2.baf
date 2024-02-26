@@ -1,0 +1,10 @@
+IF
+	Opened([ANYONE])
+	!StateCheck(LastTrigger,STATE_INVISIBLE)
+	!StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Letter_Is_Found","MYAREA",1)
+		IncrementGlobal("VP_Create_Garron","GLOBAL",1)
+		CreateCreature("TuKimSia",[1401.1483],4)
+END

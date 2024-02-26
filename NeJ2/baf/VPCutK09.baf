@@ -1,0 +1,24 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("TuVashon")
+		Wait(1)
+		FadeToColor([20.0],0)
+		Wait(1)
+		ActionOverride(Player1,MakeUnselectable(1500000))
+		ActionOverride(Player2,MakeUnselectable(1500000))
+		ActionOverride(Player3,MakeUnselectable(1500000))
+		ActionOverride(Player4,MakeUnselectable(1500000))
+		ActionOverride(Player5,MakeUnselectable(1500000))
+		ActionOverride(Player6,MakeUnselectable(1500000))
+		ActionOverride("Kachiko",MakeUnselectable(1))
+		Wait(2)
+		ActionOverride("Kachiko",LeaveAreaLUAPanic("TT0070","",[2763.2589],10))
+		ActionOverride("Kachiko",LeaveAreaLUA("TT0070","",[2763.2589],10))
+		MultiPlayerSync()
+		Wait(1)
+		FadeFromColor([20.0],0)
+		Wait(1)
+		EndCutSceneMode()
+END

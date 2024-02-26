@@ -1,0 +1,12 @@
+IF
+	Global("SPRITE_IS_DEADIlriana","GLOBAL",1)
+	CombatCounter(0)
+	Global("VP_Mistress_Dead","LOCALS",0)
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Mistress_Dead","LOCALS",1)
+		StartDialogueNoSet([PC])
+END
+
+

@@ -1,0 +1,14 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(5)
+		CreateCreatureObjectDoor("Bartlemy","TuPung",0,0,0) // Bartlemy - Mage
+		Wait(3)
+		FaceObject("TuPung")
+		SmallWait(5)
+		EndCutSceneMode()
+END
+
+

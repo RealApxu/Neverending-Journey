@@ -1,0 +1,31 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_Area","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_Area","MYAREA",1)
+		Explore()
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("TuNecro")
+END
+
+IF
+	Global("VP_Necro_Test","GLOBAL",3)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Necro_Test","GLOBAL",4)
+		TriggerActivation("Tr0066",FALSE)
+		CreateVisualEffect("SPRAISED",[550.350])
+		Wait(4)
+		CreateCreature("TuNeLich",[550.350],2)
+END
+
+IF
+	GlobalGT("VP_Necro_Test","GLOBAL",4)
+	Global("VP_OpenTheDoor","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_OpenTheDoor","MYAREA",1)
+		TriggerActivation("Tr0066",TRUE)
+END

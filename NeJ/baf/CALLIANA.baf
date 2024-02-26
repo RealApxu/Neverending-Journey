@@ -1,0 +1,38 @@
+IF
+	HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
+	!Die()
+	HPPercentLT(Myself,50)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+		Wait(3)
+		Continue()
+END
+
+IF
+	HaveSpell(CLERIC_STRENGTH_OF_ONE)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		ForceSpell(Myself,CLERIC_STRENGTH_OF_ONE)
+		RemoveSpell(CLERIC_STRENGTH_OF_ONE)
+		Wait(2)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		MoveToObject(LastAttackerOf(Myself))
+END
+
+

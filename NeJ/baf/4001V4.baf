@@ -1,0 +1,30 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #16
+		DisplayStringHead(Myself,~You distract them, Maud, and I'll...~) // "You distract them, Maud, and I'll..."
+		Wait(3)
+	RESPONSE #20
+		DisplayStringHead(Myself,~SOMEONE HELP US!~) // "SOMEONE HELP US!"
+		Wait(3)
+	RESPONSE #16
+		DisplayStringHead(Myself,~Why aren't we being saved?~) // "Why aren't we being saved?"
+		Wait(3)
+	RESPONSE #16
+		DisplayStringHead(Myself,~I'll not be food for these...beasts.~) // "I'll not be food for these...beasts."
+		Wait(3)
+	RESPONSE #16
+		DisplayStringHead(Myself,~The nerve of these lizard men...~) // "The nerve of these lizard men..."
+		Wait(3)
+	RESPONSE #16
+		DisplayStringHead(Myself,~Why, if I had a stout sword in my hand...~) // "Why, if I had a stout sword in my hand..."
+		Wait(3)
+END
+
+

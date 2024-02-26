@@ -1,0 +1,21 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("TuPhin")
+		Wait(1)
+		ReallyForceSpell(Myself,HEAL_NO_VISUAL)
+		DisplayString(Myself,36209) // Contingency - Minor Spell Turning
+		Spell(Myself,WIZARD_MINOR_SPELL_TURNING)
+		Spell(Myself,WIZARD_PROTECTION_FROM_NORMAL_WEAPONS)
+		Spell(Myself,WIZARD_PROTECTION_FROM_THE_ELEMENTS)
+		Wait(1)
+		DisplayString(Myself,30942) // Contingency - Spell Immunity
+		Spell(Myself,WIZARD_SPELL_IMMUNITY_INVOCATION)
+		Spell(Myself,WIZARD_PROTECTION_FROM_FIRE)
+		Wait(1)
+		StartDialogueNoSet("Aerie")
+		EndCutSceneMode()
+END
+
+

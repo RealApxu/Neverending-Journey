@@ -1,0 +1,10 @@
+IF
+	!Global("VP_DAR_QUEST","GLOBAL",0)
+	Global("VP_PrepareDarQuest","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_PrepareDarQuest","MYAREA",1)
+		CreateCreature("Bardo",[556.199],0) // Bardo
+		CreateCreature("Marky",[454.238],12) // Marky
+		ActionOverride("Reevor",DestroySelf())
+END

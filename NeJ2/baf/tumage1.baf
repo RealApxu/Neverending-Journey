@@ -1,0 +1,41 @@
+IF
+	Allegiance(Myself,NEUTRAL)
+	OR(2)
+		Global("VP_HalruaaHostile","GLOBAL",1)
+		Global("VP_HalruaaAlarm","MYAREA",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaAlarm","MYAREA",1)
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	HPPercentLT(Myself,50)
+	Global("VP_HalruaaHostile","GLOBAL",0)
+THEN
+	RESPONSE #100
+		ChangeEnemyAlly(Myself,NEUTRAL)
+		MoveToPointNoInterrupt([1056.2791])
+END
+
+IF
+	See("TuGuard")
+	!Dead("TuGuard")
+	Global("VP_HalruaaHostile","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		CreateCreatureDoor("TuMage3",[1021.2727],0) // Mage
+		CreateCreatureDoor("TuMage3",[1161.2814],0) // Mage
+END
+
+

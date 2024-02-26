@@ -1,0 +1,67 @@
+IF
+	!Global("YXUN_ATTACK","MYAREA",0)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	Global("D5_GIRL_NO_TALK","GLOBAL",0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END
+
+IF
+	!Global("D5_GIRL_NO_TALK","GLOBAL",0)
+	Global("D5_GIRL_MOVE_LOC","GLOBAL",1)
+THEN
+	RESPONSE #100
+		ForceSpellPoint([1235.2071],WIZARD_DIMENSION_DOOR)
+		Wait(5)
+		SetGlobal("D5_GIRL_NO_TALK","GLOBAL",0)
+END
+
+IF
+	!Global("D5_GIRL_NO_TALK","GLOBAL",0)
+	Global("D5_GIRL_MOVE_LOC","GLOBAL",2)
+THEN
+	RESPONSE #100
+		ForceSpellPoint([1801.2078],WIZARD_DIMENSION_DOOR)
+		Wait(5)
+		SetGlobal("D5_GIRL_NO_TALK","GLOBAL",0)
+END
+
+IF
+	!Global("D5_GIRL_NO_TALK","GLOBAL",0)
+	Global("D5_GIRL_MOVE_LOC","GLOBAL",3)
+THEN
+	RESPONSE #100
+		ForceSpellPoint([2079.1515],WIZARD_DIMENSION_DOOR)
+		Wait(5)
+		SetGlobal("D5_GIRL_NO_TALK","GLOBAL",0)
+END
+
+IF
+	!Global("D5_GIRL_NO_TALK","GLOBAL",0)
+	Global("D5_GIRL_MOVE_LOC","GLOBAL",4)
+THEN
+	RESPONSE #100
+		ForceSpellPoint([2015.1005],WIZARD_DIMENSION_DOOR)
+		Wait(5)
+		SetGlobal("D5_GIRL_NO_TALK","GLOBAL",0)
+END
+
+IF
+	!Global("D5_GIRL_NO_TALK","GLOBAL",0)
+	Global("D5_GIRL_MOVE_LOC","GLOBAL",5)
+THEN
+	RESPONSE #100
+		ForceSpellPoint([3350.350],WIZARD_DIMENSION_DOOR)
+		Wait(5)
+		DestroySelf()
+END
+
+

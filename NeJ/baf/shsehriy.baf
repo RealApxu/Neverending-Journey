@@ -1,0 +1,203 @@
+IF
+	Global("MOVEMENT_DEST","LOCALS",0)
+THEN
+	RESPONSE #100
+		MoveToPoint([2312.858])
+		SetGlobal("MOVEMENT_DEST","LOCALS",1)
+	RESPONSE #100
+		MoveToPoint([2312.858])
+		SetGlobal("MOVEMENT_DEST","LOCALS",2)
+	RESPONSE #100
+		MoveToPoint([2312.858])
+		SetGlobal("MOVEMENT_DEST","LOCALS",3)
+END
+
+IF
+	Global("MOVEMENT_DEST","LOCALS",4)
+THEN
+	RESPONSE #50
+		SetGlobal("MOVEMENT_DEST","LOCALS",0)
+		DisplayStringHead(Myself,~"Hehehe."~)
+	RESPONSE #50
+		SetGlobal("MOVEMENT_DEST","LOCALS",0)
+		DisplayStringHead(Myself,~"Is my ball here?"~)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		RunAwayFromNoInterrupt(LastSeenBy(Myself),45)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		RunAwayFromNoInterrupt(LastAttackerOf(Myself),45)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",0)
+	Global("MOVEMENT_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		Face(6)
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",1)
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",1)
+	Global("MOVEMENT_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",2)
+		MoveToPoint([2248.748])
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",2)
+	Global("MOVEMENT_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",3)
+END
+
+IF
+	Global("MOVEMENT_LIST_1_LOC","LOCALS",3)
+	Global("MOVEMENT_DEST","LOCALS",1)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_DEST","LOCALS",4)
+		SetGlobal("MOVEMENT_LIST_1_LOC","LOCALS",0)
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",0)
+	Global("MOVEMENT_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		Face(14)
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",1)
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",1)
+	Global("MOVEMENT_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",2)
+		MoveToPoint([2449.1002])
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",2)
+	Global("MOVEMENT_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		Face(12)
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",3)
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",3)
+	Global("MOVEMENT_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",4)
+		MoveToPoint([2567.992])
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",4)
+	Global("MOVEMENT_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",5)
+END
+
+IF
+	Global("MOVEMENT_LIST_2_LOC","LOCALS",5)
+	Global("MOVEMENT_DEST","LOCALS",2)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_DEST","LOCALS",4)
+		SetGlobal("MOVEMENT_LIST_2_LOC","LOCALS",0)
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",0)
+	Global("MOVEMENT_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		Face(8)
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",1)
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",1)
+	Global("MOVEMENT_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",2)
+		MoveToPoint([2352.772])
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",2)
+	Global("MOVEMENT_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		Face(10)
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",3)
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",3)
+	Global("MOVEMENT_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",4)
+		MoveToPoint([2431.882])
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",4)
+	Global("MOVEMENT_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",5)
+END
+
+IF
+	Global("MOVEMENT_LIST_3_LOC","LOCALS",5)
+	Global("MOVEMENT_DEST","LOCALS",3)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("MOVEMENT_DEST","LOCALS",4)
+		SetGlobal("MOVEMENT_LIST_3_LOC","LOCALS",0)
+END

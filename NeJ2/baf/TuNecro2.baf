@@ -1,0 +1,18 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("TuKimSia")
+		Wait(1)
+		ActionOverride("TuEzek",MoveToObjectNoInterrupt([PC]))
+		Wait(4)
+		CreateVisualEffect("SPRAISED",[2033.1080])
+		CreateVisualEffect("SPRAISED",[2193.1088])
+		Wait(4)
+		CreateCreature("RDUNDEAD",[2033.1080],9) // Doom Guard
+		CreateCreature("RDUNDEA3",[2193.1088],9) // Doom Guard
+		ActionOverride("TuEzek",Enemy())
+		Enemy()
+		MultiPlayerSync()
+		EndCutSceneMode()
+END

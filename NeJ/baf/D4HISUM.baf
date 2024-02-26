@@ -1,0 +1,155 @@
+IF
+	!Allegiance(Myself,ENEMY)
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("YUANTI_INFERNO","GLOBAL",0)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("YUANTI_INFERNO","GLOBAL",1)
+		Enemy()
+		Continue()
+END
+
+IF
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Allegiance(Myself,ENEMY)
+	ActionListEmpty()
+	!See([PC])
+THEN
+	RESPONSE #100
+		MoveToObject([PC])
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Global("VP_Defensive_Phase","LOCALS",0)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,40199) // Chain Contingency - Mirror Image
+		ForceSpell(Myself,WIZARD_MIRROR_IMAGE)
+		DisplayString(Myself,3302) // Chain Contingency - Spell Turning
+		ForceSpell(Myself,WIZARD_SPELL_TURNING)
+		DisplayString(Myself,40240) // Chain Contingency - Mislead
+		ForceSpell(Myself,WIZARD_MISLEAD)
+		DisplayString(Myself,29736) // Contingency - Stoneskin
+		ForceSpell(Myself,WIZARD_STONE_SKIN)
+		SetGlobal("VP_Defensive_Phase","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Global("VP_Summoning_Phase","LOCALS",0)
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_CONJURE_FIRE_ELEMENTAL)
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_CONJURE_FIRE_ELEMENTAL)
+		ForceSpell(SecondNearestEnemyOf(Myself),CLERIC_CONJURE_FIRE_ELEMENTAL)
+		ForceSpell(SecondNearestEnemyOf(Myself),CLERIC_CONJURE_FIRE_ELEMENTAL)
+		SetGlobal("VP_Summoning_Phase","LOCALS",1)
+		Wait(2)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Global("VP_Summoning_Phase","LOCALS",1)
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_AERIAL_SERVANT)
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_AERIAL_SERVANT)
+		ForceSpell(SecondNearestEnemyOf(Myself),CLERIC_AERIAL_SERVANT)
+		ForceSpell(SecondNearestEnemyOf(Myself),CLERIC_AERIAL_SERVANT)
+		ForceSpell(ThirdNearestEnemyOf(Myself),CLERIC_AERIAL_SERVANT)
+		ForceSpell(ThirdNearestEnemyOf(Myself),CLERIC_AERIAL_SERVANT)
+		SetGlobal("VP_Summoning_Phase","LOCALS",2)
+		Wait(2)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Global("VP_Summoning_Phase","LOCALS",2)
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,WIZARD_TIME_STOP)
+		ForceSpell(LastAttackerOf(Myself),WIZARD_INVISIBLE_STALKER)
+		ForceSpell(LastAttackerOf(Myself),WIZARD_INVISIBLE_STALKER)
+		ForceSpell(LastAttackerOf(Myself),WIZARD_INVISIBLE_STALKER)
+		SetGlobal("VP_Summoning_Phase","LOCALS",3)
+		Wait(2)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Global("VP_Defensive_Phase","LOCALS",1)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,40199) // Chain Contingency - Mirror Image
+		ForceSpell(Myself,WIZARD_MIRROR_IMAGE)
+		DisplayString(Myself,3302) // Chain Contingency - Spell Turning
+		ForceSpell(Myself,WIZARD_SPELL_TURNING)
+		DisplayString(Myself,40240) // Chain Contingency - Mislead
+		ForceSpell(Myself,WIZARD_MISLEAD)
+		DisplayString(Myself,29736) // Contingency - Stoneskin
+		ForceSpell(Myself,WIZARD_STONE_SKIN)
+		SetGlobal("VP_Defensive_Phase","LOCALS",2)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Global("VP_Summoning_Phase","LOCALS",3)
+THEN
+	RESPONSE #100
+		ForceSpell(SecondNearestEnemyOf(Myself),CLERIC_CALL_WOODLAND_BEINGS)
+		ForceSpell(ThirdNearestEnemyOf(Myself),CLERIC_CALL_WOODLAND_BEINGS)
+		ForceSpell(FourthNearestEnemyOf(Myself),CLERIC_CALL_WOODLAND_BEINGS)
+		SetGlobal("VP_Summoning_Phase","LOCALS",4)
+		Wait(2)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Global("VP_Summoning_Phase","LOCALS",4)
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+		ForceSpell(SecondNearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+		ForceSpell(SecondNearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+		ForceSpell(ThirdNearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+		ForceSpell(ThirdNearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+		ForceSpell(FourthNearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+		ForceSpell(FourthNearestEnemyOf(Myself),WIZARD_FLAME_ARROW)
+		SetGlobal("VP_Summoning_Phase","LOCALS",5)
+		Wait(2)
+END
+
+IF
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END

@@ -1,0 +1,67 @@
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_Know_KimSia","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Know_KimSia","GLOBAL",1)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("VP_Know_KimSia","GLOBAL",2)
+	RealGlobalTimerExpired("VP_Reveal_Spies","GLOBAL")
+	Allegiance(Myself,NEUTRAL)
+	See([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("TuNecro2")
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_HalruaaHostile","MYAREA",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_HalruaaHostile","MYAREA",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Die()
+	Global("VP_HalruaaHostile","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","MYAREA",1)
+		Enemy()
+END
+
+IF
+	Global("VP_Leaving_Halruaa","GLOBAL",5)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END
+
+

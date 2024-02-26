@@ -1,0 +1,42 @@
+IF
+	OnCreation()
+	Global("KULDAHAR_ATTACK","GLOBAL",3)
+THEN
+	RESPONSE #100
+		Deactivate(Myself)
+		DestroySelf()
+END
+
+IF
+	!Global("KULDAHAR_FORCEREMOVE","GLOBAL",0)
+THEN
+	RESPONSE #100
+		Deactivate(Myself)
+		DestroySelf()
+END
+
+IF
+	!IsActive(Myself)
+	!Global("KULDAHAR_ATTACK","GLOBAL",0)
+THEN
+	RESPONSE #100
+		Activate(Myself)
+		Continue()
+END
+
+IF
+	!IsActive(Myself)
+THEN
+	RESPONSE #100
+		NoAction()
+END
+
+IF
+	!IsActive(Myself)
+	AttackedBy([ANYTHING],DEFAULT)
+THEN
+	RESPONSE #100
+		ChangeAIScript("KUATKREM",GENERAL)
+END
+
+

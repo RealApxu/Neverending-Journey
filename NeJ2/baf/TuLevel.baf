@@ -1,0 +1,11 @@
+IF
+	See([PC])
+	NumTimesTalkedTo(0)
+	Range([PC],6)
+THEN
+	RESPONSE #100
+		SmallWait(2)
+		StartDialog("TuLevel",[PC])
+END
+
+

@@ -1,0 +1,20 @@
+IF
+	AttackedBy([PC],DEFAULT)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Being_Attacked","MYAREA",1)
+		Enemy()
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(2)
+		Global("VP_PickPockFailed","MYAREA",1)
+		Global("VP_Being_Attacked","MYAREA",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END

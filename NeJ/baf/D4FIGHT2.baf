@@ -1,0 +1,184 @@
+IF
+	!Global("YXUNOMEI_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	AttackedBy([PC],DEFAULT)
+	OR(3)
+		Allegiance(Myself,GOODBUTBLUE)
+		Allegiance(Myself,NEUTRAL)
+		Allegiance(Myself,0)
+	Global("VP_MyPartyResponse","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_MyPartyResponse","MYAREA",1)
+		Shout(151)
+		Enemy()
+		EquipMostDamagingMelee()
+		AttackReevaluate([PC],75)
+END
+
+IF
+	OR(3)
+		Allegiance(Myself,GOODBUTBLUE)
+		Allegiance(Myself,NEUTRAL)
+		Allegiance(Myself,0)
+	OR(2)
+		Heard([ANYONE],151)
+		Global("VP_MyPartyResponse","MYAREA",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		EquipMostDamagingMelee()
+		AttackReevaluate([PC],75)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	See([ENEMY])
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([ENEMY],DEFAULT)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+	InParty("Hrothgar")
+	Global("VP_KnightsHelp","GLOBAL",2)
+	!Range([PC],4)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		MoveToObject("Hrothgar")
+END
+
+IF
+	!InParty("Hrothgar")
+	Global("VP_KnightsHelp","GLOBAL",2)
+	!Range([PC],4)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		MoveToObject(Player1)
+END
+
+IF
+	Global("VP_KnightsHelp","GLOBAL",0)
+THEN
+	RESPONSE #100
+		NoAction()
+END
+
+IF
+	HitBy([GOODCUTOFF],CRUSHING)
+	Global("VP_MyGroupAttacked","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_MyGroupAttacked","MYAREA",1)
+		Continue()
+END
+
+IF
+	See([GOODCUTOFF])
+	Allegiance(Myself,ENEMY)
+	Global("VP_MyGroupAttacked","MYAREA",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		SetGlobal("VP_MyGroupAttacked","MYAREA",1)
+		Continue()
+END
+
+IF
+	Global("VP_MyGroupAttacked","MYAREA",1)
+	OR(2)
+		Allegiance(Myself,GOODBUTBLUE)
+		Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("VP_MyGroupAttacked","MYAREA",1)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		MoveToObject(NearestEnemyOf(Myself))
+		Continue()
+END
+
+IF
+	General(Myself,HUMANOID)
+	HPPercentLT(Myself,20)
+	HPGT(Myself,1)
+	!Died(Myself)
+	Global("whined","LOCALS",0)
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #50
+		SetGlobal("whined","LOCALS",1)
+		DisplayStringHead(Myself,46151) // help!
+	RESPONSE #50
+		SetGlobal("whined","LOCALS",1)
+		DisplayStringHead(Myself,49763) // I require assistance
+	RESPONSE #50
+		SetGlobal("whined","LOCALS",1)
+		DisplayStringHead(Myself,49764) // Defend me!
+	RESPONSE #50
+		SetGlobal("whined","LOCALS",1)
+		DisplayStringHead(Myself,49765) // Slay my attacker!
+END
+
+IF
+	Global("VP_MyGroupAttacked","MYAREA",1)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	BreakingPoint()
+	Global("Panic","LOCALS",0)
+THEN
+	RESPONSE #50
+		SetGlobal("Panic","LOCALS",1)
+		DisplayStringHead(Myself,49766) // I can't take this
+	RESPONSE #50
+		SetGlobal("Panic","LOCALS",1)
+		DisplayStringHead(Myself,49767) // No more
+	RESPONSE #50
+		SetGlobal("Panic","LOCALS",1)
+		DisplayStringHead(Myself,49768) // Mercy!
+END

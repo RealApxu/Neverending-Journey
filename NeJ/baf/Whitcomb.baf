@@ -1,0 +1,65 @@
+IF
+	OR(2)
+		See([ENEMY])
+		See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		Help()
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+IF
+	Help(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastHelp(Myself),75)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Help([PC])
+THEN
+	RESPONSE #100
+		FaceObject(LastHelp(Myself))
+		Continue()
+END
+
+IF
+	Global("TOWNIE_HOSTILE","MYAREA",0)
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("TOWNIE_HOSTILE","MYAREA",1)
+		Help()
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("TOWNIE_HOSTILE","MYAREA",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+

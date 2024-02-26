@@ -1,0 +1,61 @@
+IF
+	ActionListEmpty()
+	CombatCounter(0)
+THEN
+	RESPONSE #90
+		DisplayStringHead(Myself,~"We follow their teachings."~)
+		Continue()
+	RESPONSE #90
+		DisplayStringHead(Myself,~"We give them praise."~)
+		Continue()
+	RESPONSE #90
+		DisplayStringHead(Myself,~"We give thanks."~)
+		Continue()
+	RESPONSE #40
+		Continue()
+END
+
+IF
+	See([PC])
+THEN
+	RESPONSE #100
+		Shout(89)
+		Continue()
+END
+
+IF
+	OR(5)
+		AttackedBy([PC],DEFAULT)
+		AttackedBy([FAMILIAR],DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+		AttackedBy([CONTROLLED],DEFAULT)
+		AttackedBy([CHARMED],DEFAULT)
+THEN
+	RESPONSE #100
+		Shout(89)
+		Continue()
+END
+
+IF
+	Heard([ANYONE],89)
+	!Class(Myself,INNOCENT)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		MoveToObject(LastHeardBy(Myself))
+		Continue()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(LastAttackerOf(Myself))
+END

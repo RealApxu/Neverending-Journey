@@ -1,0 +1,18 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(5)
+		CreateCreatureDoor("Lavallin",[421.451],15) // Lavallin - Mage
+		Wait(1)
+		FadeToColor([30.0],0)
+		Wait(3)
+		FadeFromColor([30.0],0)
+		SmallWait(7)
+		FaceObject(Player1)
+		ActionOverride("Lavallin",StartDialogueNoSet(Player1))
+		EndCutSceneMode()
+END
+
+

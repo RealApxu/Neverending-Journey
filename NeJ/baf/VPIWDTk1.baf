@@ -1,0 +1,11 @@
+IF
+	Range([PC],15)
+	InParty("Jaheira")
+	Global("VP_NPC_Notes_IWD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_NPC_Notes_IWD","GLOBAL",1)
+		ActionOverride("Jaheira",StartDialogueNoSet([PC]))
+END
+
+

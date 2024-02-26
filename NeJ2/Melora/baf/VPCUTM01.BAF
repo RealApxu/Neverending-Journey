@@ -1,0 +1,16 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		CreateCreatureObjectOffScreen("Trebois",Player1,0,0,0)
+		CreateCreatureObjectOffScreen("TrebHun1",Player1,0,0,0)
+		CreateCreatureObjectOffScreen("TrebHun2",Player2,0,0,0)
+		CreateCreatureObjectOffScreen("TrebHun3",Player2,0,0,0)
+		Wait(1)
+		ActionOverride("Trebois",StartDialogueNoSet([PC]))
+		EndCutSceneMode()	
+END
+
+

@@ -1,0 +1,15 @@
+IF
+	IsOverMe([ANYONE])
+THEN
+	RESPONSE #100
+		SaveGame(0)
+		ActionOverride(Player1,LeaveAreaLUAPanic("TT3503","",[2244.1312],8))
+		ActionOverride(Player1,LeaveAreaLUA("TT3503","",[2244.1312],8))
+		ActionOverride(Player2,LeaveAreaLUA("TT3503","",[2271.1308],8))
+		ActionOverride(Player3,LeaveAreaLUA("TT3503","",[2287.1271],8))
+		ActionOverride(Player4,LeaveAreaLUA("TT3503","",[2322.1288],8))
+		ActionOverride(Player5,LeaveAreaLUA("TT3503","",[2341.1249],8))
+		ActionOverride(Player6,LeaveAreaLUA("TT3503","",[2262.1246],8))
+END
+
+

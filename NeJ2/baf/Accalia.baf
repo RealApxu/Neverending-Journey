@@ -1,0 +1,327 @@
+IF
+	Allegiance(Myself,ENEMY)
+	!InParty(Myself)
+	Global("NPCFight","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("NPCFight","LOCALS",1)
+		ChangeAIScript("ehaccali",CLASS)
+		ChangeAIScript("useitem",GENERAL)
+		ChangeAIScript("",DEFAULT)
+		SetDialog("")
+		Continue()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		ChangeAIScript("ehaccali",CLASS)
+		ChangeAIScript("useitem",GENERAL)
+		ChangeAIScript("",DEFAULT)
+		Enemy()
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	!InParty(Myself)
+	Global("NPCFight","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("NPCFight","LOCALS",0)
+		ChangeAIScript("",CLASS)
+		ChangeAIScript("",GENERAL)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(2)
+		Global("EHTOWNIE_HOSTILE","MYAREA",1)
+		Global("MURDER_ALARM","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+//Banter with Hrothgar - Day 2
+IF
+	InParty(Myself)
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	Global("VP_BHrothgar","LOCALS",0)
+	Global("VP_In_IWD_Part1","GLOBAL",1)
+	Global("VP_Start_Banters","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",1)
+		SetGlobalTimer("VP_Accalia_Hrothgar","GLOBAL",TWO_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Accalia_Hrothgar","GLOBAL")
+	InParty(Myself)
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	CombatCounter(0)
+	Global("VP_Two_Days_Plus","LOCALS",0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Two_Days_Plus","LOCALS",1)
+		RealSetGlobalTimer("VP_Accalia_H_RTime","GLOBAL",300)
+END
+
+IF
+	RealGlobalTimerExpired("VP_Accalia_H_RTime","GLOBAL")
+	InParty(Myself)
+	InParty("Hrothgar")
+	See("Hrothgar")
+	!Dead("Hrothgar")
+	!StateCheck("Hrothgar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BHrothgar","LOCALS",1)
+	Global("VP_Two_Days_Plus","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",2)
+		Interact("Hrothgar")
+END
+
+IF
+	InParty(Myself)
+	Global("VP_BPC","LOCALS",0)
+	Global("VP_In_IWD_Part1","GLOBAL",1)
+	Global("VP_Start_Banters","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",1)
+		SetGlobalTimer("VP_Accalia_PC","GLOBAL",EIGHT_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Accalia_PC","GLOBAL")
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",2)
+		Interact(Player1)
+END
+
+IF
+	InParty(Myself)
+	InParty("Dar")
+	!Dead("Dar")
+	Global("VP_BDar","LOCALS",0)
+	Global("VP_In_IWD_Part1","GLOBAL",1)
+	Global("VP_Start_Banters","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BDar","LOCALS",1)
+		SetGlobalTimer("VP_Accalia_Dar","GLOBAL",TEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Accalia_Dar","GLOBAL")
+	InParty(Myself)
+	InParty("Dar")
+	See("Dar")
+	!Dead("Dar")
+	!StateCheck("Dar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BDar","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BDar","LOCALS",2)
+		Interact("Dar")
+END
+
+IF
+	InParty(Myself)
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	Global("VP_BHrothgar","LOCALS",3)
+	AreaCheck("TT5004")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",4)
+		RealSetGlobalTimer("VP_Accalia_Hrothgar","GLOBAL",10)
+END
+
+IF
+	RealGlobalTimerExpired("VP_Accalia_Hrothgar","GLOBAL")
+	InParty(Myself)
+	InParty("Hrothgar")
+	See("Hrothgar")
+	!Dead("Hrothgar")
+	!StateCheck("Hrothgar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BHrothgar","LOCALS",4)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",5)
+		Interact("Hrothgar")
+END
+
+IF
+	RealGlobalTimerExpired("VP_Accalia_Hrothgar","GLOBAL")
+	InParty(Myself)
+	InParty("Hrothgar")
+	See("Hrothgar")
+	!Dead("Hrothgar")
+	!StateCheck("Hrothgar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BHrothgar","LOCALS",5)
+	Global("VP_Force_Banter","LOCALS",0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Force_Banter","LOCALS",1)
+		Interact("Hrothgar")
+END
+
+IF
+	RealGlobalTimerExpired("VP_Accalia_PC","GLOBAL")
+	Global("VP_Astrolabe_Talks","GLOBAL",1)
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC","LOCALS",3)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",4)
+		Interact(Player1)
+END
+
+IF
+	RealGlobalTimerExpired("VP_Accalia_Hrothgar","GLOBAL")
+	Global("VP_Astrolabe_Talks","GLOBAL",2)
+	InParty(Myself)
+	InParty("Hrothgar")
+	See("Hrothgar")
+	!Dead("Hrothgar")
+	!StateCheck("Hrothgar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BHrothgar","LOCALS",6)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",7)
+		Interact("Hrothgar")
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	Global("VP_Enough_IsEnough","LOCALS",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,1)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76827) // I wouldn't try that again. Thieves are not welcome in these parts.
+		SetGlobal("VP_Enough_IsEnough","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,2)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76828) // That better not have been your hand I felt in my pocket.
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,3)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76829) // You thieving scoundrel. I'll let you off this time with a warning, but next time...
+		SetGlobal("VP_Enough_IsEnough","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,4)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76830) // Watch yourself, stranger. Pickpocketing is risky business - especially when your as clumsy as you seem to be.
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,5)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76831) // Hey, watch it! Keep your hands to yourself, friend.
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,6)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76832) // I don't appreciate the attempt at theft. You'd better behave yourself.
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,7)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76833) // You're lucky I'm a forgiving person. Don't try to steal from me again.
+		SetGlobal("VP_Enough_IsEnough","LOCALS",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,8)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76834) // Keep your distance. You think I can't tell what you were doing just now?
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	PickPocketFailed([PC])
+	RandomNum(9,9)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,76835) // What were you just doing? I'd like to ask that you step away, thank you.
+		Continue()
+END

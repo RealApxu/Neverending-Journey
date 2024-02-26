@@ -1,0 +1,6 @@
+IF
+  Global("VP_In_BG1","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("VP_In_BG1","GLOBAL",1) // Imoen script fix
+END

@@ -1,0 +1,73 @@
+IF
+	!Global("YXUN_ATTACK","MYAREA",0)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Global("YXUN_CAST_SPECIAL","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("YXUN_CAST_SPECIAL","MYAREA",1)
+		SetGlobal("YXUN_ATTACK","MYAREA",1)
+		Polymorph(IC_MERILITH)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	!Allegiance(Myself,ENEMY)
+	See([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	NumTimesTalkedTo(0)
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Prep","LOCALS",0)
+THEN
+	RESPONSE #100
+		ApplySpell(Myself,CLERIC_ANIMATE_DEAD)
+		ApplySpell(Myself,CLERIC_ANIMATE_DEAD)
+		ApplySpell(Myself,CLERIC_ANIMATE_DEAD)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_CLOUDKILL)
+		SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Prep","LOCALS",1)
+	Global("SpellSequencer","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("SpellSequencer","LOCALS",1)
+		DisplayString(Myself,39968) // No such index
+		DisplayString(Myself,40244) // No such index
+		ReallyForceSpell(Myself,WIZARD_STONE_SKIN)
+		DisplayString(Myself,40248) // No such index
+		ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
+		DisplayString(Myself,2469) // 
+		ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+

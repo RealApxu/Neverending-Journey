@@ -1,0 +1,13 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Myself)
+		Wait(1)
+		ActionOverride("TuMord",ReallyForceSpell(Myself,DRYAD_TELEPORT))
+		ActionOverride("TuConj",ReallyForceSpell(Myself,DRYAD_TELEPORT))
+		ReallyForceSpell(Myself,DRYAD_TELEPORT)
+		MultiPlayerSync()
+		Wait(1)
+		EndCutSceneMode()
+END

@@ -1,0 +1,21 @@
+IF
+	Global("VP_WelcomeTheater","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_WelcomeTheater","GLOBAL",1)
+		TriggerActivation("ToKuldahar",FALSE)
+END
+
+IF
+	Global("DisablePortal","AR0510",2)
+	Global("PlanarPrison","GLOBAL",2)
+	GlobalGT("VP_TeleportDialog","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("DisablePortal","AR0510",3)
+		PlaySound("PORTAL2")
+		AmbientActivate("AM0510A",FALSE)
+		SoundActivate("AM_Portal",FALSE)
+		TriggerActivation("PlanarTransition",FALSE)
+		TriggerActivation("ToKuldahar",FALSE)
+END

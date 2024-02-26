@@ -1,0 +1,10 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_TT00Lv","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_TT00Lv","MYAREA",1)
+		Explore()
+END
+
+

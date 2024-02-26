@@ -1,0 +1,44 @@
+IF
+	Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(2)
+		Global("VP_Slavers_Fight","GLOBAL",2)
+		!Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	ActionListEmpty()
+	Allegiance(Myself,ENEMY)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		MoveToObject(NearestEnemyOf(Myself))
+END
+
+IF
+	Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+	OR(6)
+		AttackedBy([PC],DEFAULT)
+		AttackedBy([FAMILIAR],DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+		AttackedBy([CONTROLLED],DEFAULT)
+		AttackedBy([CHARMED],DEFAULT)
+		AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+		Continue()
+END

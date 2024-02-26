@@ -1,0 +1,41 @@
+IF
+	Global("MALAVON_DOOR","GLOBAL",0)
+	!Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+THEN
+	RESPONSE #100
+		TriggerActivation("To8009",FALSE)
+		SetGlobal("MALAVON_DOOR","GLOBAL",1)
+		Continue()
+END
+
+IF
+	!Global("SPRITE_IS_DEADMALAVON","GLOBAL",0)
+	Global("VP_Open_Door","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Open_Door","MYAREA",1)
+		TriggerActivation("To8009",TRUE)
+		Continue()
+END
+
+IF
+	Global("MALAVON_BADGE","GLOBAL",0)
+	PartyHasItem("MALAVON") // Malavon's Badge
+THEN
+	RESPONSE #100
+		SetGlobal("MALAVON_BADGE","GLOBAL",1)
+		AddexperienceParty(85200)
+		DisplayStringHead(Player1,~You have retrieved Malavon's Badge.~)
+		Continue()
+END
+
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END
+
+

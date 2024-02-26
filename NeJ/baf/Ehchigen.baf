@@ -1,0 +1,60 @@
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		RunAwayFrom(NearestEnemyOf(Myself),45)
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		RunAwayFrom(LastAttackerOf(Myself),45)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		Enemy()
+		Continue()
+END
+
+IF
+	Help([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		FaceObject(LastHelp(Myself))
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(2)
+		Global("EHTOWNIE_HOSTILE","MYAREA",1)
+		Global("MURDER_ALARM","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		RandomWalk()
+		Wait(3)
+END
+
+

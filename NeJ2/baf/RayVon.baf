@@ -1,0 +1,12 @@
+IF
+	See([PC])
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_Leaving_Halruaa","GLOBAL",4)
+	Global("VP_You_Are_Spies","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_You_Are_Spies","LOCALS",1)
+		StartDialogueNoSet([PC])
+END
+
+

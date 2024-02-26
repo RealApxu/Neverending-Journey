@@ -1,0 +1,18 @@
+IF
+	Global("VP_GoTo_Thalantyr","GLOBAL",6)
+	Global("VP_CreateNecrias","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_CreateNecrias","MYAREA",1)
+		CreateCreature("Necrias",[1644.1686],2) // Necrias
+		CreateCreature("SKELWAN",[1513.1593],14) // Skeleton Archer
+		CreateCreature("SKELWAN",[1500.1652],14) // Skeleton Archer
+		CreateCreature("SKELWAN",[1550.1728],13) // Skeleton Archer
+		CreateCreature("SKELWAN",[1623.1794],0) // Skeleton Archer
+		CreateCreature("SKELWAN",[1702.1794],1) // Skeleton Archer
+		CreateCreature("SKELWAN",[1766.1775],1) // Skeleton Archer
+		CreateCreature("SKELWAN",[1786.1640],2) // Skeleton Archer
+		CreateCreature("SKELWAN",[1809.1717],2) // Skeleton Archer
+END
+
+

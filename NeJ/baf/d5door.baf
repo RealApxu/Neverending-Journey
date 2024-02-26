@@ -1,0 +1,10 @@
+IF
+	OR(2)
+		!Global("YXUN_ATTACK","MYAREA",0)
+		!Global("YXUNOMEI_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		OpenDoor(Myself)
+END
+
+

@@ -1,0 +1,15 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("Eurich")
+		Wait(1)
+		FadeFromColor([30.0],0)
+		ActionOverride(Player1,PlayDead(1260))
+		MoveViewPoint([343.294],VERY_FAST)
+		Wait(1)
+		EndCutSceneMode()
+		StartDialogueNoSet("Tilorn")
+END
+
+

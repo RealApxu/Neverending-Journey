@@ -1,0 +1,10 @@
+IF
+	NumTimesTalkedTo(0)
+	Global("VP_Necro_Test","GLOBAL",4)
+	Global("SPRITE_IS_DEADTuNeLich","GLOBAL",1)
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Necro_Test","GLOBAL",5)
+		StartDialogNoSet([PC])
+END

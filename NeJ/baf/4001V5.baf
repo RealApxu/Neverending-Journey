@@ -1,0 +1,21 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #33
+		DisplayStringHead(Myself,~Oh, shut up, Earl!~) // "Oh, shut up, Earl!"
+		Wait(3)
+	RESPONSE #34
+		DisplayStringHead(Myself,~Can't you be quiet?~) // "Can't you be quiet?"
+		Wait(3)
+	RESPONSE #33
+		DisplayStringHead(Myself,~Oh, shut up, Earl!~) // "Oh, shut up, Earl!"
+		Wait(3)
+END
+
+

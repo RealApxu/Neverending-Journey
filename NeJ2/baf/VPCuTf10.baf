@@ -1,0 +1,26 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("TuVashon")
+		FadeToColor([20.0],0)
+		Wait(1)
+		ActionOverride(Player1,MakeUnselectable(1))
+		ActionOverride(Player2,MakeUnselectable(1))
+		ActionOverride(Player3,MakeUnselectable(1))
+		ActionOverride(Player4,MakeUnselectable(1))
+		ActionOverride(Player5,MakeUnselectable(1))
+		ActionOverride(Player6,MakeUnselectable(1))
+		MultiPlayerSync()
+		Wait(2)
+		TakePartyItem("shadbfak")
+		GiveItemCreate("shadbolt","Taffic",1,0,0)
+		GiveItemCreate("dimdoor","Taffic",1,0,0)
+		GiveItemCreate("invcloak","Taffic",1,0,0)
+		AddXPObject("Taffic",12500)
+		FadeFromColor([20.0],0)
+		Wait(1)
+		ReallyForceSpell(Myself,DRYAD_TELEPORT)
+		Wait(2)
+		EndCutSceneMode()
+END

@@ -1,0 +1,125 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_Area","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_Area","MYAREA",1)
+		Explore()
+END
+
+IF
+	Global("VP_Transmuter_Test","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Transmuter_Test","GLOBAL",2)
+		CreateCreature("TuTraGol",[253.327],12)
+END
+
+IF
+	Global("VP_Break_TransTest","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_TransTest","GLOBAL",2)
+		CreateCreature("TuTraGol",[253.327],12)
+END
+
+IF
+	Global("VP_Activate_Traps","MYAREA",0)
+	OR(2)
+		Global("VP_RobbedGolem","GLOBAL",1)
+		Global("VP_Break_TransTest","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Activate_Traps","MYAREA",1)
+		TriggerActivation("TuTrap1",TRUE)
+		TriggerActivation("TuTrap2",TRUE)
+		TriggerActivation("TuTrap3",TRUE)
+		TriggerActivation("TuTrap4",TRUE)
+		TriggerActivation("TuTrap5",TRUE)
+		TriggerActivation("TuTrap6",TRUE)
+		TriggerActivation("TuTrap7",TRUE)
+		TriggerActivation("TuTrap8",TRUE)
+		TriggerActivation("TuTrap9",TRUE)
+		TriggerActivation("TuTrap10",TRUE)
+		TriggerActivation("TuTrap11",TRUE)
+		TriggerActivation("TuTrap12",TRUE)
+	
+END
+
+IF
+	InMyArea(Player1)
+	HPLT(Player1,30)
+	GlobalLT("VP_Break_TransTest","GLOBAL",3)
+	GlobalGT("VP_Transmuter_Test","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_TransTest","GLOBAL",3)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutTP1")
+END
+
+IF
+	InMyArea(Player2)
+	HPLT(Player2,30)
+	GlobalLT("VP_Break_TransTest","GLOBAL",3)
+	GlobalGT("VP_Transmuter_Test","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_TransTest","GLOBAL",3)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutTP2")
+END
+
+IF
+	InMyArea(Player3)
+	HPLT(Player3,30)
+	GlobalLT("VP_Break_TransTest","GLOBAL",3)
+	GlobalGT("VP_Transmuter_Test","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_TransTest","GLOBAL",3)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutTP3")
+END
+
+IF
+	InMyArea(Player4)
+	HPLT(Player4,30)
+	GlobalLT("VP_Break_TransTest","GLOBAL",3)
+	GlobalGT("VP_Transmuter_Test","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_TransTest","GLOBAL",3)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutTP4")
+END
+
+IF
+	InMyArea(Player5)
+	HPLT(Player5,30)
+	GlobalLT("VP_Break_TransTest","GLOBAL",3)
+	GlobalGT("VP_Transmuter_Test","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_TransTest","GLOBAL",3)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutTP5")
+END
+
+IF
+	InMyArea(Player6)
+	HPLT(Player6,30)
+	GlobalLT("VP_Break_TransTest","GLOBAL",3)
+	GlobalGT("VP_Transmuter_Test","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_TransTest","GLOBAL",3)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutTP6")
+END

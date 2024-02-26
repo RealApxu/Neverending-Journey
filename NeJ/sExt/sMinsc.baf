@@ -1,0 +1,114 @@
+IF
+	InParty(Myself)
+	Global("VP_BPC","LOCALS",0)
+	Global("VP_In_IWD_Part1","GLOBAL",1)
+	Global("VP_Start_Banters","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",1)
+		SetGlobalTimer("VP_Minsc_PC","GLOBAL",FOURTEEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Minsc_PC","GLOBAL")
+	Global("VP_In_IWD_Part1","GLOBAL",1)
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",2)
+		Interact(Player1)
+END
+
+IF
+	InParty(Myself)
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	Global("VP_BHrothgar","LOCALS",0)
+	Global("VP_BPC","LOCALS",3)
+	Global("VP_In_IWD_Part1","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",1)
+		RealSetGlobalTimer("VP_Minsc_Hrothgar","GLOBAL",300)
+END
+
+IF
+	RealGlobalTimerExpired("VP_Minsc_Hrothgar","GLOBAL")
+	Global("VP_In_IWD_Part1","GLOBAL",1)
+	InParty(Myself)
+	InParty("Hrothgar")
+	See("Hrothgar")
+	!Dead("Hrothgar")
+	!StateCheck("Hrothgar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BHrothgar","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",2)
+		Interact("Hrothgar")
+END
+
+IF
+	InParty(Myself)
+	InParty("Dar")
+	!Dead("Dar")
+	Global("VP_BDar","LOCALS",0)
+	Global("VP_Start_Banters","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BDar","LOCALS",1)
+		SetGlobalTimer("VP_Minsc_Dar","GLOBAL",FOUR_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Minsc_Dar","GLOBAL")
+	InParty(Myself)
+	InParty("Dar")
+	See("Dar")
+	!Dead("Dar")
+	!StateCheck("Dar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BDar","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BDar","LOCALS",2)
+		Interact("Dar")
+END
+
+IF
+	PartyHasItem("TuLette5") // Letter
+	InParty(Myself)
+	See(Player1)
+	CombatCounter(0)
+	!StateCheck(Player1,STATE_SLEEPING)
+	!See([ENEMY])
+	Global("VP_Leveller_Quest","GLOBAL",2)
+	Global("VP_Letter5_Found","GLOBAL",0)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("VP_Letter5_Timer","GLOBAL",10)
+		SetGlobal("VP_Letter5_Found","GLOBAL",1)
+END
+
+IF
+	PartyHasItem("TuLette5") // Letter
+	InParty(Myself)
+	See(Player1)
+	CombatCounter(0)
+	!StateCheck(Player1,STATE_SLEEPING)
+	!See([ENEMY])
+	Global("VP_Leveller_Quest","GLOBAL",2)
+	RealGlobalTimerExpired("VP_Letter5_Timer","GLOBAL")
+	Global("VP_Letter5_Found","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Leveller_Quest","GLOBAL",3)
+		StartDialogueNoSet(Player1)
+END

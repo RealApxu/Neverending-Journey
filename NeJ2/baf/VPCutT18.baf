@@ -1,0 +1,25 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("TuPhin")
+		Wait(1)
+		ActionOverride(Player2,MakeUnselectable(1500000))
+		ActionOverride(Player3,MakeUnselectable(1500000))
+		ActionOverride(Player4,MakeUnselectable(1500000))
+		ActionOverride(Player5,MakeUnselectable(1500000))
+		ActionOverride(Player6,MakeUnselectable(1500000))
+		Wait(1)
+		ReallyForceSpell(Player1,HEAL_NO_VISUAL)
+		SmallWait(5)
+		Spell(Player1,WIZARD_CHROMATIC_ORB)
+		Wait(1)
+		Spell(Player1,WIZARD_MAGIC_MISSILE)
+		Wait(1)
+		Spell(Player1,WIZARD_FLAME_ARROW)
+		Wait(1)
+		StartDialogueNoSet(Player1)
+		EndCutSceneMode()
+END
+
+

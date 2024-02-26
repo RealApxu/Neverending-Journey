@@ -1,0 +1,21 @@
+IF
+	Global("YUANTI_CARPET","GLOBAL",0)
+	Entered([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("YUANTI_CARPET","GLOBAL",1)
+		SetGlobal("YUANTI_SURPRISE","GLOBAL",1)
+		Calm(LastTrigger)
+END
+
+IF
+	Global("YUANTI_CARPET","GLOBAL",0)
+	Opened([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("YUANTI_CARPET","GLOBAL",1)
+		SetGlobal("YUANTI_SURPRISE","GLOBAL",1)
+		Calm(LastTrigger)
+END
+
+

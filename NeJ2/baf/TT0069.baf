@@ -1,0 +1,345 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_Area","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_Area","MYAREA",1)
+		TriggerActivation("Tr0025",FALSE)
+		TriggerActivation("Tr0035",FALSE)
+		TriggerActivation("Tr0045",FALSE)
+		TriggerActivation("Tr0055",FALSE)
+		Explore()
+END
+
+IF
+	Global("VP_SwitchTrigger1","MYAREA",0)
+	Global("VP_LvQuest_Botched","GLOBAL",0)
+	OR(3)
+		Global("VP_Lavallins_Plot","GLOBAL",1)
+		Global("VP_Lavallins_Plot","GLOBAL",6)
+		Global("VP_Lavallins_Plot","GLOBAL",9)
+	OR(2)
+		PartyHasItem("DELETTER") // Letter
+		PartyHasItem("VPAMULET") // Damon‘s Original Amulet of Power
+THEN
+	RESPONSE #100
+		SetGlobal("VP_SwitchTrigger1","MYAREA",1)
+		TriggerActivation("Tr0025",FALSE)
+		TriggerActivation("Tr0035",FALSE)
+		TriggerActivation("Tr0045",FALSE)
+		TriggerActivation("Tr0055",TRUE)
+		TriggerActivation("Tr0065",FALSE)
+END
+
+IF
+	Global("VP_SwitchTrigger2","MYAREA",0)
+	Global("VP_LvQuest_Botched","GLOBAL",0)
+	OR(3)
+		Global("VP_Lavallins_Plot","GLOBAL",1)
+		Global("VP_Lavallins_Plot","GLOBAL",6)
+		Global("VP_Lavallins_Plot","GLOBAL",9)
+	!PartyHasItem("DELETTER") // Letter
+	!PartyHasItem("VPAMULET") // Damon‘s Original Amulet of Power
+THEN
+	RESPONSE #100
+		SetGlobal("VP_SwitchTrigger2","MYAREA",1)
+		TriggerActivation("Tr0025",FALSE)
+		TriggerActivation("Tr0035",FALSE)
+		TriggerActivation("Tr0045",TRUE)
+		TriggerActivation("Tr0055",FALSE)
+		TriggerActivation("Tr0065",FALSE)
+END
+
+IF
+	Global("VP_SwitchTrigger3","MYAREA",0)
+	Global("VP_Lavallins_Plot","GLOBAL",9)
+	OR(2)
+		Global("VP_LvQuest_Botched","GLOBAL",1)
+		Global("VP_LvQuest_Done","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_SwitchTrigger3","MYAREA",1)
+		TriggerActivation("Tr0025",FALSE)
+		TriggerActivation("Tr0035",TRUE)
+		TriggerActivation("Tr0045",FALSE)
+		TriggerActivation("Tr0055",FALSE)
+		TriggerActivation("Tr0065",FALSE)
+END
+
+IF
+	Global("VP_SwitchTrigger4","MYAREA",0)
+	Global("VP_Lavallins_Plot","GLOBAL",10)
+	Global("VP_Meeting_Delrysia","GLOBAL",4)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_SwitchTrigger3","MYAREA",1)
+		TriggerActivation("Tr0025",TRUE)
+		TriggerActivation("Tr0035",FALSE)
+		TriggerActivation("Tr0045",FALSE)
+		TriggerActivation("Tr0055",FALSE)
+		TriggerActivation("Tr0065",FALSE)
+END
+
+IF
+	Global("VP_TT0067_Visited","GLOBAL",1)
+	Global("VP_Caius_Fixed","MYAREA",0)
+	InMyArea("TuCaius")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Caius_Fixed","MYAREA",1)
+		ActionOverride("TuCaius",DestroySelf())
+		Continue()
+END
+
+IF
+	GlobalTimerExpired("VP_Xan_Waiting","GLOBAL")
+	Exists("Xan")
+	Exists("TuEnch")
+THEN
+	RESPONSE #100
+		ActionOverride("Xan",DestroySelf())
+		ActionOverride("TuEnch",DestroySelf())
+END
+
+IF
+	RealGlobalTimerExpired("VP_Xan_Tests","GLOBAL")
+	Exists("Xan")
+	Exists("TuEnch")
+THEN
+	RESPONSE #100
+		ActionOverride("Xan",EscapeArea())
+		ActionOverride("TuEnch",EscapeArea())
+END
+
+IF
+	!HasItem("mindflay",Player1) // Attack
+	!HasItem("mindflay",Player2) // Attack
+	!HasItem("mindflay",Player3) // Attack
+	!HasItem("mindflay",Player4) // Attack
+	!HasItem("mindflay",Player5) // Attack
+	!HasItem("mindflay",Player6) // Attack
+	!HasItem("goliro",Player1) // Attack
+	!HasItem("goliro",Player2) // Attack
+	!HasItem("goliro",Player3) // Attack
+	!HasItem("goliro",Player4) // Attack
+	!HasItem("goliro",Player5) // Attack
+	!HasItem("goliro",Player6) // Attack
+	!HasItem("trollall",Player1) // Attack
+	!HasItem("trollall",Player2) // Attack
+	!HasItem("trollall",Player3) // Attack
+	!HasItem("trollall",Player4) // Attack
+	!HasItem("trollall",Player5) // Attack
+	!HasItem("trollall",Player6) // Attack
+	!HasItem("wolfgr",Player1) // Attack
+	!HasItem("wolfgr",Player2) // Attack
+	!HasItem("wolfgr",Player3) // Attack
+	!HasItem("wolfgr",Player4) // Attack
+	!HasItem("wolfgr",Player5) // Attack
+	!HasItem("wolfgr",Player6) // Attack
+	!HasItem("firern",Player1) // Attack
+	!HasItem("firern",Player2) // Attack
+	!HasItem("firern",Player3) // Attack
+	!HasItem("firern",Player4) // Attack
+	!HasItem("firern",Player5) // Attack
+	!HasItem("firern",Player6) // Attack
+	!HasItem("earthrn",Player1) // Attack
+	!HasItem("earthrn",Player2) // Attack
+	!HasItem("earthrn",Player3) // Attack
+	!HasItem("earthrn",Player4) // Attack
+	!HasItem("earthrn",Player5) // Attack
+	!HasItem("earthrn",Player6) // Attack
+	!HasItem("plybass",Player1) // Lesser Basilisk
+	!HasItem("plybass",Player2) // Lesser Basilisk
+	!HasItem("plybass",Player3) // Lesser Basilisk
+	!HasItem("plybass",Player4) // Lesser Basilisk
+	!HasItem("plybass",Player5) // Lesser Basilisk
+	!HasItem("plybass",Player6) // Lesser Basilisk
+	!HasItem("plybear1",Player1) // Attack
+	!HasItem("plybear1",Player2) // Attack
+	!HasItem("plybear1",Player3) // Attack
+	!HasItem("plybear1",Player4) // Attack
+	!HasItem("plybear1",Player5) // Attack
+	!HasItem("plybear1",Player6) // Attack
+	!HasItem("plyfist",Player1) // Attack
+	!HasItem("plyfist",Player2) // Attack
+	!HasItem("plyfist",Player3) // Attack
+	!HasItem("plyfist",Player4) // Attack
+	!HasItem("plyfist",Player5) // Attack
+	!HasItem("plyfist",Player6) // Attack
+	!HasItem("plyjelly",Player1) // Attack
+	!HasItem("plyjelly",Player2) // Attack
+	!HasItem("plyjelly",Player3) // Attack
+	!HasItem("plyjelly",Player4) // Attack
+	!HasItem("plyjelly",Player5) // Attack
+	!HasItem("plyjelly",Player6) // Attack
+	!HasItem("plysala",Player1) // Fire Salamander
+	!HasItem("plysala",Player2) // Fire Salamander
+	!HasItem("plysala",Player3) // Fire Salamander
+	!HasItem("plysala",Player4) // Fire Salamander
+	!HasItem("plysala",Player5) // Fire Salamander
+	!HasItem("plysala",Player6) // Fire Salamander
+	!HasItem("plyspid",Player1) // Sword Spider
+	!HasItem("plyspid",Player2) // Sword Spider
+	!HasItem("plyspid",Player3) // Sword Spider
+	!HasItem("plyspid",Player4) // Sword Spider
+	!HasItem("plyspid",Player5) // Sword Spider
+	!HasItem("plyspid",Player6) // Sword Spider
+	!HasItem("plytroll",Player1) // Troll
+	!HasItem("plytroll",Player2) // Troll
+	!HasItem("plytroll",Player3) // Troll
+	!HasItem("plytroll",Player4) // Troll
+	!HasItem("plytroll",Player5) // Troll
+	!HasItem("plytroll",Player6) // Troll
+	!HasItem("plywolf1",Player1) // Attack
+	!HasItem("plywolf1",Player2) // Attack
+	!HasItem("plywolf1",Player3) // Attack
+	!HasItem("plywolf1",Player4) // Attack
+	!HasItem("plywolf1",Player5) // Attack
+	!HasItem("plywolf1",Player6) // Attack
+	!HasItem("plywyvrn",Player1) // Baby Wyvern
+	!HasItem("plywyvrn",Player2) // Baby Wyvern
+	!HasItem("plywyvrn",Player3) // Baby Wyvern
+	!HasItem("plywyvrn",Player4) // Baby Wyvern
+	!HasItem("plywyvrn",Player5) // Baby Wyvern
+	!HasItem("plywyvrn",Player6) // Baby Wyvern
+	OR(6)
+		HasWeaponEquiped(Player1)
+		HasWeaponEquiped(Player2)
+		HasWeaponEquiped(Player3)
+		HasWeaponEquiped(Player4)
+		HasWeaponEquiped(Player5)
+		HasWeaponEquiped(Player6)
+	!GlobalTimerExpired("VP_RayVon_Attacks","GLOBAL")
+	!Global("VP_Leveller_Quest","GLOBAL",12)
+	!Global("VP_Leaving_Halruaa","GLOBAL",3)
+	Global("VP_Breaking_Rules","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Breaking_Rules","GLOBAL",1)
+		CreateCreatureObjectDoor("TuGuard2",Player1,0,0,0) // Wizard Guard
+END
+
+IF
+	!HasItem("mindflay",Player1) // Attack
+	!HasItem("mindflay",Player2) // Attack
+	!HasItem("mindflay",Player3) // Attack
+	!HasItem("mindflay",Player4) // Attack
+	!HasItem("mindflay",Player5) // Attack
+	!HasItem("mindflay",Player6) // Attack
+	!HasItem("goliro",Player1) // Attack
+	!HasItem("goliro",Player2) // Attack
+	!HasItem("goliro",Player3) // Attack
+	!HasItem("goliro",Player4) // Attack
+	!HasItem("goliro",Player5) // Attack
+	!HasItem("goliro",Player6) // Attack
+	!HasItem("trollall",Player1) // Attack
+	!HasItem("trollall",Player2) // Attack
+	!HasItem("trollall",Player3) // Attack
+	!HasItem("trollall",Player4) // Attack
+	!HasItem("trollall",Player5) // Attack
+	!HasItem("trollall",Player6) // Attack
+	!HasItem("wolfgr",Player1) // Attack
+	!HasItem("wolfgr",Player2) // Attack
+	!HasItem("wolfgr",Player3) // Attack
+	!HasItem("wolfgr",Player4) // Attack
+	!HasItem("wolfgr",Player5) // Attack
+	!HasItem("wolfgr",Player6) // Attack
+	!HasItem("firern",Player1) // Attack
+	!HasItem("firern",Player2) // Attack
+	!HasItem("firern",Player3) // Attack
+	!HasItem("firern",Player4) // Attack
+	!HasItem("firern",Player5) // Attack
+	!HasItem("firern",Player6) // Attack
+	!HasItem("earthrn",Player1) // Attack
+	!HasItem("earthrn",Player2) // Attack
+	!HasItem("earthrn",Player3) // Attack
+	!HasItem("earthrn",Player4) // Attack
+	!HasItem("earthrn",Player5) // Attack
+	!HasItem("earthrn",Player6) // Attack
+	!HasItem("plybass",Player1) // Lesser Basilisk
+	!HasItem("plybass",Player2) // Lesser Basilisk
+	!HasItem("plybass",Player3) // Lesser Basilisk
+	!HasItem("plybass",Player4) // Lesser Basilisk
+	!HasItem("plybass",Player5) // Lesser Basilisk
+	!HasItem("plybass",Player6) // Lesser Basilisk
+	!HasItem("plybear1",Player1) // Attack
+	!HasItem("plybear1",Player2) // Attack
+	!HasItem("plybear1",Player3) // Attack
+	!HasItem("plybear1",Player4) // Attack
+	!HasItem("plybear1",Player5) // Attack
+	!HasItem("plybear1",Player6) // Attack
+	!HasItem("plyfist",Player1) // Attack
+	!HasItem("plyfist",Player2) // Attack
+	!HasItem("plyfist",Player3) // Attack
+	!HasItem("plyfist",Player4) // Attack
+	!HasItem("plyfist",Player5) // Attack
+	!HasItem("plyfist",Player6) // Attack
+	!HasItem("plyjelly",Player1) // Attack
+	!HasItem("plyjelly",Player2) // Attack
+	!HasItem("plyjelly",Player3) // Attack
+	!HasItem("plyjelly",Player4) // Attack
+	!HasItem("plyjelly",Player5) // Attack
+	!HasItem("plyjelly",Player6) // Attack
+	!HasItem("plysala",Player1) // Fire Salamander
+	!HasItem("plysala",Player2) // Fire Salamander
+	!HasItem("plysala",Player3) // Fire Salamander
+	!HasItem("plysala",Player4) // Fire Salamander
+	!HasItem("plysala",Player5) // Fire Salamander
+	!HasItem("plysala",Player6) // Fire Salamander
+	!HasItem("plyspid",Player1) // Sword Spider
+	!HasItem("plyspid",Player2) // Sword Spider
+	!HasItem("plyspid",Player3) // Sword Spider
+	!HasItem("plyspid",Player4) // Sword Spider
+	!HasItem("plyspid",Player5) // Sword Spider
+	!HasItem("plyspid",Player6) // Sword Spider
+	!HasItem("plytroll",Player1) // Troll
+	!HasItem("plytroll",Player2) // Troll
+	!HasItem("plytroll",Player3) // Troll
+	!HasItem("plytroll",Player4) // Troll
+	!HasItem("plytroll",Player5) // Troll
+	!HasItem("plytroll",Player6) // Troll
+	!HasItem("plywolf1",Player1) // Attack
+	!HasItem("plywolf1",Player2) // Attack
+	!HasItem("plywolf1",Player3) // Attack
+	!HasItem("plywolf1",Player4) // Attack
+	!HasItem("plywolf1",Player5) // Attack
+	!HasItem("plywolf1",Player6) // Attack
+	!HasItem("plywyvrn",Player1) // Baby Wyvern
+	!HasItem("plywyvrn",Player2) // Baby Wyvern
+	!HasItem("plywyvrn",Player3) // Baby Wyvern
+	!HasItem("plywyvrn",Player4) // Baby Wyvern
+	!HasItem("plywyvrn",Player5) // Baby Wyvern
+	!HasItem("plywyvrn",Player6) // Baby Wyvern
+	OR(6)
+		HasWeaponEquiped(Player1)
+		HasWeaponEquiped(Player2)
+		HasWeaponEquiped(Player3)
+		HasWeaponEquiped(Player4)
+		HasWeaponEquiped(Player5)
+		HasWeaponEquiped(Player6)
+	!GlobalTimerExpired("VP_RayVon_Attacks","GLOBAL")
+	!Global("VP_Leveller_Quest","GLOBAL",12)
+	!Global("VP_Leaving_Halruaa","GLOBAL",3)
+	Global("VP_Breaking_Rules","GLOBAL",1)
+	RealGlobalTimerExpired("VP_Last_Warning","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Breaking_Rules","GLOBAL",2)
+		CreateCreatureObjectDoor("TuGuard2",Player1,0,0,0) // Wizard Guard
+END
+
+IF
+	OR(7)
+		GlobalTimerExpired("VP_Reveal_Spies_A","GLOBAL")
+		GlobalTimerExpired("VP_Reveal_Spies_B","GLOBAL")
+		GlobalTimerExpired("VP_Reveal_Spies_C","GLOBAL")
+		GlobalTimerExpired("VP_Reveal_Spies_D","GLOBAL")
+		GlobalTimerExpired("VP_Reveal_Spies_E","GLOBAL")
+		GlobalTimerExpired("VP_RayVon_Attacks","GLOBAL")
+		Global("VP_Leveller_Quest","GLOBAL",12)
+	Global("VP_Leaving_Halruaa","GLOBAL",3)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Leaving_Halruaa","GLOBAL",4)
+		CreateCreatureObjectDoor("RayVon",Player1,0,0,0) // RayVon
+END

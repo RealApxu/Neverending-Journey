@@ -1,0 +1,25 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("Xan")
+		ActionOverride("TuEnch",ReallyForceSpell(Myself,DRYAD_TELEPORT))
+		Wait(1)
+		FadeToColor([20.0],0)
+		Wait(1)
+		GiveItem("EYEBITE","Jan") // Eye Bite
+	  ActionOverride(Player1,MakeUnselectable(1500000))
+		ActionOverride(Player2,MakeUnselectable(1500000))
+		ActionOverride(Player3,MakeUnselectable(1500000))
+		ActionOverride(Player4,MakeUnselectable(1500000))
+		ActionOverride(Player5,MakeUnselectable(1500000))
+		ActionOverride(Player6,MakeUnselectable(1500000))
+		ActionOverride("Jan",MakeUnselectable(1))
+		Wait(2)
+		ActionOverride("Jan",LeaveAreaLUAPanic("TT0062","",[707.692],14))
+		ActionOverride("Jan",LeaveAreaLUA("TT0062","",[707.692],14))
+		MultiPlayerSync()
+		FadeFromColor([20.0],0)
+		Wait(1)
+		EndCutSceneMode()
+END

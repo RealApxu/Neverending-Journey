@@ -1,0 +1,57 @@
+IF
+	Global("BRIDGE_FIXED","MYAREA",0)
+	PartyHasItem("BOOKENG") // Engineering Manual
+	Entered([PC])
+THEN
+	RESPONSE #100
+		TakePartyItem("BOOKENG") // Engineering Manual
+		OpenDoor("AR7005BRIDGE")
+		AddexperienceParty(33500)
+		DisplayString(Myself,~The bridge is in poor shape but you manage to repair it using the engineering manual.~)
+		EraseJournalEntry(%Wyrm’s Tooth.
+
+The scholar Soth gave us a book on dwarven engineering. With it we hope to repair the rope bridge that spans the southwest chasm.%)
+EraseJournalEntry(%Wyrm’s Tooth.
+
+We talked to a scholar named Soth who has been studying the books in the Wyrm’s Tooth library. He says that they are works dedicated to dwarven engineering.%) 
+		SetGlobal("BRIDGE_FIXED","MYAREA",1)
+END
+
+IF
+	Global("BRIDGE_FIXED","MYAREA",0)
+	PartyHasItem("BOOKENG") // Engineering Manual
+	Opened([PC])
+THEN
+	RESPONSE #100
+		TakePartyItem("BOOKENG") // Engineering Manual
+		OpenDoor("AR7005BRIDGE")
+		AddexperienceParty(33500)
+		DisplayString(Myself,~The bridge is in poor shape but you manage to repair it using the engineering manual.~)
+		EraseJournalEntry(%Wyrm’s Tooth.
+
+The scholar Soth gave us a book on dwarven engineering. With it we hope to repair the rope bridge that spans the southwest chasm.%)
+EraseJournalEntry(%Wyrm’s Tooth.
+
+We talked to a scholar named Soth who has been studying the books in the Wyrm’s Tooth library. He says that they are works dedicated to dwarven engineering.%)  
+		SetGlobal("BRIDGE_FIXED","MYAREA",1)
+END
+
+IF
+	Global("BRIDGE_FIXED","MYAREA",0)
+	!PartyHasItem("BOOKENG") // Engineering Manual
+	Entered([PC])
+THEN
+	RESPONSE #100
+		DisplayString(Myself,~The bridge is in poor shape and may collapse. You cannot cross it.~)
+		SetGlobal("BRIDGE_BROKEN","GLOBAL",1)
+END
+
+IF
+	Global("BRIDGE_FIXED","MYAREA",0)
+	!PartyHasItem("BOOKENG") // Engineering Manual
+	Opened([PC])
+THEN
+	RESPONSE #100
+		DisplayString(Myself,~The bridge is in poor shape and may collapse. You cannot cross it.~)
+		SetGlobal("BRIDGE_BROKEN","GLOBAL",1)
+END

@@ -1,0 +1,797 @@
+IF
+	Global("VP_Create_Dar","GLOBAL",1)
+	AreaCheck("TT1200")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Dar","GLOBAL",2)
+		Activate(Myself)
+		CreateCreatureObject("WolfDar",Myself,0,0,0) // Winter Wolf
+		CreateCreatureObject("WolfDar",Myself,0,0,0) // Winter Wolf
+		CreateCreatureObject("WolfDar",Myself,0,0,0) // Winter Wolf
+		CreateCreatureObject("WolfDar",Myself,0,0,0) // Winter Wolf
+		CreateCreatureObject("WolfDar",Myself,0,0,0) // Winter Wolf
+END
+
+IF
+	GlobalLT("SPRITE_IS_DEADWolfDar","GLOBAL",5)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		DisplayStringHead(Myself,~Damn you beasts! You think to make Dar your next meal! I'll make sure you don't all get a taste of my flesh this day!~)
+		AttackReevaluate(LastAttackerOf(Myself),75)
+		Continue()
+END
+
+IF
+	See([PC])
+	Global("VP_Create_Dar","GLOBAL",2)
+	GlobalLT("SPRITE_IS_DEADWolfDar","GLOBAL",5)
+	HPPercentLT(Myself,20)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Dar","GLOBAL",3)
+		DisplayStringHead(Myself,~Ha! Then again perhaps none of you will! Are you going to aid me friends or does it amuse you to stand and watch these beasts feast on Half Orc flesh?~)
+		AttackReevaluate(LastAttackerOf(Myself),75)
+		Continue()
+END
+
+IF
+	See([PC])
+	Global("SPRITE_IS_DEADWolfDar","GLOBAL",5)
+	GlobalLT("VP_Create_Dar","GLOBAL",6)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Dar","GLOBAL",6)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	!InParty(Myself)
+	Global("NPCFight","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("NPCFight","LOCALS",1)
+		ChangeAIScript("",DEFAULT)
+		ChangeAIScript("useitem",GENERAL)
+		ChangeAIScript("darx",SPECIFICS)
+		SetDialog("")
+		Continue()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		ChangeAIScript("darx",SPECIFICS)
+		ChangeAIScript("useitem",GENERAL)
+		ChangeAIScript("",DEFAULT)
+		Enemy()
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	!InParty(Myself)
+	Global("NPCFight","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("NPCFight","LOCALS",0)
+		ChangeAIScript("",GENERAL)
+		ChangeAIScript("",SPECIFICS)
+		Continue()
+END
+
+IF
+	InParty(Myself)
+	GlobalTimerExpired("VP_Dar_PC","GLOBAL")
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	!AreaCheck("AR1300")
+	!See([ENEMY])
+	Global("VP_BPC","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",1)
+		Interact(Player1)
+END
+
+IF
+	InParty(Myself)
+	InParty("Melora")
+	!Dead("Melora")
+	Global("VP_BMelora","LOCALS",0)
+	Global("VP_In_IWD_Part1","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BMelora","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Melora","GLOBAL",TWO_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Melora","GLOBAL")
+	InParty(Myself)
+	InParty("Melora")
+	See("Melora")
+	!Dead("Melora")
+	!StateCheck("Melora",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BMelora","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BMelora","LOCALS",2)
+		Interact("Melora")
+END
+
+IF
+	InParty(Myself)
+	Race(Player1,HALFORC)
+	Global("VP_BPC","LOCALS",2)
+	Global("VP_In_IWD_Part1","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",3)
+		SetGlobalTimer("VP_Dar_PCHalfOrc","GLOBAL",NINE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_PCHalfOrc","GLOBAL")
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC","LOCALS",3)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",4)
+		Interact(Player1)
+END
+
+IF
+	InParty(Myself)
+	!Race(Player1,HALFORC)
+	Global("VP_BPC","LOCALS",2)
+	Global("VP_In_IWD_Part1","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",3)
+		SetGlobalTimer("VP_Dar_PC","GLOBAL",NINE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_PC","GLOBAL")
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC","LOCALS",3)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",4)
+		Interact(Player1)
+END
+
+IF
+	InParty(Myself)
+	InParty("Hrothgar")
+	!Dead("Hrothgar")
+	Global("VP_BHrothgar","LOCALS",0)
+	Global("VP_In_IWD_Part1","GLOBAL",1)
+	AreaCheck("TT2112")
+	Global("VP_Start_Banters","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",1)
+		RealSetGlobalTimer("VP_Dar_Hrothgar","GLOBAL",300)
+END
+
+IF
+	RealGlobalTimerExpired("VP_Dar_Hrothgar","GLOBAL")
+	InParty(Myself)
+	InParty("Hrothgar")
+	See("Hrothgar")
+	!Dead("Hrothgar")
+	!StateCheck("Hrothgar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BHrothgar","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BHrothgar","LOCALS",2)
+		Interact("Hrothgar")
+END
+
+IF
+	InParty(Myself)
+	InParty("Kachiko")
+	!Dead("Kachiko")
+	Global("VP_BKachiko","LOCALS",0)
+	Global("VP_In_IWD_Part1","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BKachiko","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Kachiko","GLOBAL",ONE_DAY)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Kachiko","GLOBAL")
+	InParty(Myself)
+	InParty("Kachiko")
+	See("Kachiko")
+	!Dead("Kachiko")
+	!StateCheck("Kachiko",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BKachiko","LOCALS",1)
+	!See([ENEMY])
+	!AreaCheck("AR0700")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BKachiko","LOCALS",2)
+		Interact("Kachiko")
+END
+
+IF
+	InParty(Myself)
+	InParty("Yoshimo")
+	!Dead("Yoshimo")
+	Global("VP_BYoshimo","LOCALS",0)
+	Global("VP_In_IWD_Part1","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BYoshimo","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Yoshimo","GLOBAL",SIX_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Yoshimo","GLOBAL")
+	InParty(Myself)
+	InParty("Yoshimo")
+	See("Yoshimo")
+	!Dead("Yoshimo")
+	!StateCheck("Yoshimo",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BYoshimo","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BYoshimo","LOCALS",2)
+		Interact("Yoshimo")
+END
+
+IF
+	PartyHasItem("TuLette5") // Letter
+	InParty(Myself)
+	See(Player1)
+	OR(2)
+		!InParty("Minsc")
+		!See("Minsc")
+	CombatCounter(0)
+	!StateCheck(Player1,STATE_SLEEPING)
+	!See([ENEMY])
+	Global("VP_Leveller_Quest","GLOBAL",2)
+	Global("VP_Letter5_Found","GLOBAL",0)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("VP_Letter5_Timer","GLOBAL",10)
+		SetGlobal("VP_Letter5_Found","GLOBAL",1)
+END
+
+IF
+	PartyHasItem("TuLette5") // Letter
+	InParty(Myself)
+	See(Player1)
+	OR(2)
+		!InParty("Minsc")
+		!See("Minsc")
+	CombatCounter(0)
+	!StateCheck(Player1,STATE_SLEEPING)
+	!See([ENEMY])
+	Global("VP_Leveller_Quest","GLOBAL",2)
+	RealGlobalTimerExpired("VP_Letter5_Timer","GLOBAL")
+	Global("VP_Letter5_Found","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Leveller_Quest","GLOBAL",3)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	Global("VP_BPC_Halruaa","LOCALS",0)
+	Global("VP_InHalruaa","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC_Halruaa","LOCALS",1)
+		SetGlobalTimer("VP_DarInHalruaa","GLOBAL",TWO_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_DarInHalruaa","GLOBAL")
+	Global("VP_InHalruaa","GLOBAL",1)
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC_Halruaa","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC_Halruaa","LOCALS",2)
+		Interact(Player1)
+END
+
+IF
+	Global("VP_Dar_Quest","GLOBAL",1)
+	InParty(Myself)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Quest","GLOBAL",2)
+		StartDialogueNoSet(Player1)
+END
+
+
+IF
+	Global("VP_Dar_Quest","GLOBAL",4)
+	Global("SPRITE_IS_DEADGryiezx","GLOBAL",1)
+	InParty(Myself)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Quest","GLOBAL",5)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+	Global("VP_Dar_Quest","GLOBAL",7)
+	OR(2)
+		Global("VP_Talked_to_Ottho","GLOBAL",1)
+		Global("VP_Slave_Released","GLOBAL",2)
+	Global("VP_Dar_Reminds","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Reminds","LOCALS",1)
+		SetGlobalTimer("VP_DarRemindsTimer","GLOBAL",TWO_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_DarRemindsTimer","GLOBAL")
+	Global("VP_Dar_Quest","GLOBAL",7)
+	OR(2)
+		Global("VP_Talked_to_Ottho","GLOBAL",1)
+		Global("VP_Slave_Released","GLOBAL",2)
+	OR(2)
+		Global("VP_Dar_Reminds","LOCALS",1)
+		Global("VP_Dar_Reminds","LOCALS",3)
+	InParty(Myself)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		IncrementGlobal("VP_Dar_Reminds","LOCALS",1)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+	PartyHasItem("DrBook3")
+	InParty(Myself)
+	Detect(Player1)
+	CombatCounter(0)
+	!StateCheck(Player1,STATE_SLEEPING)
+	!See([ENEMY])
+	Global("VP_DrBook_Found","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_DrBook_Found","GLOBAL",1)
+		StartDialogueNoSet(Player1)
+END
+
+//////////////////
+//New Banters
+//////////////////
+
+IF
+	InParty(Myself)
+	InParty("Melora")
+	Global("VP_Dar_Melora","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Melora","LOCALS",1)
+		RealSetGlobalTimer("VP_Dar_Melora_Time","GLOBAL",1800)
+END
+
+IF
+	InParty(Myself)
+	InParty("Keldorn")
+	See("Keldorn")
+	!Dead("Keldorn")
+	!StateCheck("Keldorn",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+	Global("VP_Dar_Keldor_Talk","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Keldor_Talk","GLOBAL",2)
+		Interact("Keldorn")
+END
+
+IF
+	RealGlobalTimerExpired("VP_Dar_Keldor_Time","GLOBAL")
+	Global("VP_Dar_Keldorn","LOCALS",0)
+	InParty(Myself)
+	InParty("Keldorn")
+	See("Keldorn")
+	!Dead("Keldorn")
+	!StateCheck("Keldorn",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+	TimeGT(DAWN_START)
+	TimeLT(DUSK_END)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Keldorn","LOCALS",1)
+		Interact("Keldorn")
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Keldor_Time","GLOBAL")
+	Global("VP_Dar_Keldorn","LOCALS",2)
+	InParty(Myself)
+	InParty("Keldorn")
+	See("Keldorn")
+	!Dead("Keldorn")
+	!StateCheck("Keldorn",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Keldorn","LOCALS",3)
+		Interact("Keldorn")
+END
+
+IF
+	InParty(Myself)
+	InParty("Nalia")
+	Global("VP_Dar_Nalia","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Nalia","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Nalia_Timer","GLOBAL",THREE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Nalia_Timer","GLOBAL")
+	Global("VP_Dar_Nalia","LOCALS",1)
+	InParty(Myself)
+	InParty("Nalia")
+	See("Nalia")
+	!Dead("Nalia")
+	!StateCheck("Nalia",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+	OR(2)
+		InParty("Imoen")
+		InParty("Imoen2")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Nalia","LOCALS",2)
+		Interact("Nalia")
+END
+
+IF
+	InParty(Myself)
+	InParty("Aerie")
+	Global("VP_Dar_Aerie","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Aerie","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Aerie_Timer","GLOBAL",FOUR_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Aerie_Timer","GLOBAL")
+	Global("VP_Dar_Aerie","LOCALS",1)
+	InParty(Myself)
+	InParty("Aerie")
+	See("Aerie")
+	!Dead("Aerie")
+	!StateCheck("Aerie",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+	OR(2)
+		InParty("Imoen")
+		InParty("Imoen2")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Aerie","LOCALS",2)
+		Interact("Aerie")
+END
+
+IF
+	InParty(Myself)
+	InParty("Anomen")
+	Global("VP_Dar_Anomen","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Anomen","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Anomen_Time","GLOBAL",FIVE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Anomen_Time","GLOBAL")
+	Global("VP_Dar_Anomen","LOCALS",1)
+	InParty(Myself)
+	InParty("Anomen")
+	See("Anomen")
+	!Dead("Anomen")
+	!StateCheck("Anomen",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Anomen","LOCALS",2)
+		Interact("Anomen")
+END
+
+IF
+	InParty(Myself)
+	Global("VP_BPC","LOCALS",5)
+	!Global("VP_In_IWD_Part2","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",6)
+		SetGlobalTimer("VP_Dar_PC","GLOBAL",ONE_DAY)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_PC","GLOBAL")
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC","LOCALS",6)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",7)
+		Interact(Player1)
+END
+
+IF
+	InParty(Myself)
+	InParty("Korgan")
+	Global("VP_Dar_Korgan","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Korgan","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Korgan_Time","GLOBAL",SIX_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Korgan_Time","GLOBAL")
+	Global("VP_Dar_Korgan","LOCALS",1)
+	InParty(Myself)
+	InParty("Korgan")
+	See("Korgan")
+	!Dead("Korgan")
+	!StateCheck("Korgan",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Korgan","LOCALS",2)
+		Interact("Korgan")
+END
+
+IF
+	InParty(Myself)
+	InParty("Edwin")
+	Global("VP_Dar_Edwin","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Edwin","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Edwin_Time","GLOBAL",SEVEN_DAYS)
+END
+
+IF
+	InParty(Myself)
+	InParty("Valygar")
+	Global("VP_Dar_Valygar","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Valygar","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Valyg_Timer","GLOBAL",EIGHT_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Valyg_Timer","GLOBAL")
+	Global("VP_Dar_Valygar","LOCALS",1)
+	InParty(Myself)
+	InParty("Valygar")
+	See("Valygar")
+	!Dead("Valygar")
+	!StateCheck("Valygar",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Valygar","LOCALS",2)
+		Interact("Valygar")
+END
+
+IF
+	InParty(Myself)
+	InParty("Mazzy")
+	Global("VP_Dar_Mazzy","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Mazzy","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Mazzy_Time","GLOBAL",NINE_DAYS)
+END
+
+IF
+	InParty(Myself)
+	InParty("HaerDalis")
+	Global("VP_Dar_HaerDalis","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_HaerDalis","LOCALS",1)
+		SetGlobalTimer("VP_Dar_HaerD_Timer","GLOBAL",TEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_HaerD_Timer","GLOBAL")
+	Global("VP_Dar_HaerDalis","LOCALS",1)
+	InParty(Myself)
+	InParty("HaerDalis")
+	See("HaerDalis")
+	!Dead("HaerDalis")
+	!StateCheck("HaerDalis",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_HaerDalis","LOCALS",2)
+		Interact("HaerDalis")
+END
+
+IF
+	InParty(Myself)
+	InParty("Jan")
+	Global("VP_Dar_Jan","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Jan","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Jan_Timer","GLOBAL",ELEVEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Jan_Timer","GLOBAL")
+	Global("VP_Dar_Jan","LOCALS",1)
+	InParty(Myself)
+	InParty("Jan")
+	See("Jan")
+	!Dead("Jan")
+	!StateCheck("Jan",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Jan","LOCALS",2)
+		Interact("Jan")
+END
+
+IF
+	InParty(Myself)
+	InParty("Viconia")
+	Global("VP_Dar_Viconia","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Viconia","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Viccy_Timer","GLOBAL",TWELVE_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Viccy_Timer","GLOBAL")
+	Global("VP_Dar_Viconia","LOCALS",1)
+	InParty(Myself)
+	InParty("Viconia")
+	See("Viconia")
+	!Dead("Viconia")
+	!StateCheck("Viconia",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Viconia","LOCALS",2)
+		Interact("Viconia")
+END
+
+IF
+	InParty(Myself)
+	InParty("Jaheira")
+	Global("VP_Dar_Jaheira","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Jaheira","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Jaheira_Time","GLOBAL",THIRTEEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Jaheira_Time","GLOBAL")
+	Global("VP_Dar_Jaheira","LOCALS",1)
+	InParty(Myself)
+	InParty("Jaheira")
+	See("Jaheira")
+	!Dead("Jaheira")
+	!StateCheck("Jaheira",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Jaheira","LOCALS",2)
+		Interact("Jaheira")
+END
+
+IF
+	InParty(Myself)
+	InParty("Taffic")
+	Global("VP_Dar_Taffic","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Taffic","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Taffic_Time","GLOBAL",SIX_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Taffic_Time","GLOBAL")
+	Global("VP_Taffic_Taffic","LOCALS",1)
+	InParty(Myself)
+	InParty("Taffic")
+	See("Taffic")
+	!Dead("Taffic")
+	!StateCheck("Taffic",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Taffic","LOCALS",2)
+		Interact("Taffic")
+END
+
+IF
+	InParty(Myself)
+	InParty("Imoen2")
+	Global("VP_Imoen_Returns","GLOBAL",1)
+	Global("VP_Dar_Imoen2","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Imoen2","LOCALS",1)
+		SetGlobalTimer("VP_Dar_Imoen2_Time","GLOBAL",ONE_DAY)
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Imoen2_Time","GLOBAL")
+	Global("VP_Dar_Imoen2","LOCALS",1)
+	InParty(Myself)
+	InParty("Imoen2")
+	See("Imoen2")
+	!Dead("Imoen2")
+	!StateCheck("Taffic",STATE_SLEEPING)
+	CombatCounter(0)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Imoen2","LOCALS",2)
+		Interact("Imoen2")
+END

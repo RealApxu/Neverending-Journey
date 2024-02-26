@@ -1,0 +1,18 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SetGlobal("VP_SoW_Portal_Talk","GLOBAL",3)
+		SetGlobal("VP_In_IWD_Part1","GLOBAL",0)
+		SetGlobal("TrBack0602","GLOBAL",2)
+		Wait(1)
+		ActionOverride("Dar",ChangeAIScript("",DEFAULT))
+		ActionOverride("Dar",SetLeavePartyDialogFile())
+		ActionOverride("Dar",LeaveParty())
+		ActionOverride("Dar",EscapeArea())
+		Wait(1)
+		MultiPlayerSync()
+		Wait(1)
+		StartCutScene("VP_Mov01")
+END

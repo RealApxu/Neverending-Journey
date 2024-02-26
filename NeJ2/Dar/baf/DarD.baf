@@ -1,0 +1,41 @@
+IF
+	InParty(Myself)
+	InParty("Melora")
+	!Dead("Melora")
+	Detect("Melora")
+	CombatCounter(0)
+	Global("VP_Dar_Melora","LOCALS",1)
+	RealGlobalTimerExpired("VP_Dar_Melora_Time","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Melora","LOCALS",2)
+		Interact("Melora")
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Edwin_Time","GLOBAL")
+	Global("VP_Dar_Edwin","LOCALS",1)
+	InParty(Myself)
+	InParty("Edwin")
+	!Dead("Edwin")
+	Detect("Edwin")
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Edwin","LOCALS",2)
+		Interact("Edwin")
+END
+
+IF
+	GlobalTimerExpired("VP_Dar_Mazzy_Time","GLOBAL")
+	Global("VP_Dar_Mazzy","LOCALS",1)
+	InParty(Myself)
+	InParty("Mazzy")
+	!Dead("Mazzy")
+	Detect("Mazzy")
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Dar_Mazzy","LOCALS",2)
+		Interact("Mazzy")
+END

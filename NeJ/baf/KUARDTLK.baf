@@ -1,0 +1,13 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("ARUNDEL")
+		ClearAllActions()
+		MultiPlayerSync()
+		ChangeAIScript("NONE",SPECIFICS)
+		Wait(1)
+		Dialogue([PC])
+END
+
+

@@ -1,0 +1,19 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		ActionOverride("Balor",ForceSpell("Maia",WIZARD_FINGER_OF_DEATH_IGNORE_RESISTANCE))
+		Wait(1)
+		ActionOverride("Balor",ForceSpell("MaiaGr1",WIZARD_FINGER_OF_DEATH_IGNORE_RESISTANCE))
+		Wait(1)
+		ActionOverride("Balor",ForceSpell("MaiaGr2",WIZARD_FINGER_OF_DEATH_IGNORE_RESISTANCE))
+		Wait(1)
+		ActionOverride("Balor",ForceSpell("MaiaGr3",WIZARD_FINGER_OF_DEATH_IGNORE_RESISTANCE))
+		Wait(2)
+		ActionOverride("Balor",StartDialogueNoSet([PC]))
+		EndCutSceneMode()
+END
+
+

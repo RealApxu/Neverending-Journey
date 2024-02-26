@@ -1,0 +1,111 @@
+IF
+	OnCreation()
+	OR(3)
+		!Global("FLOZ_MOVED","GLOBAL",0)
+		!Global("FLOZEM_GONE","GLOBAL",0)
+		Global("SPRITE_IS_DEADFlozem","GLOBAL",1)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	!Global("FLEEZ_MOVED","GLOBAL",0)
+	Global("FLOZ_MOVED","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("FLOZ_MOVED","GLOBAL",1)
+		DestroySelf()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	Global("SPRITE_IS_DEADFleezum","GLOBAL",1)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~You killed my brother! You'll pay for that!~)
+		Enemy()
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	!Global("SPRITE_IS_DEADFleezum","GLOBAL",1)
+	!Global("MAP_GROUP_HOSTILE10","MYAREA",0)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("MAP_GROUP_HOSTILE10","MYAREA",0)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	!Global("MAP_GROUP_HOSTILE10","MYAREA",0)
+THEN
+	RESPONSE #100
+		Enemy()
+		SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
+		DisplayStringHead(Myself,~Fleezum! Your assistance, please!~)
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		MoveToObject([PC])
+END
+
+IF
+	Global("FLOZEM_GONE","GLOBAL",0)
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		RandomWalk()
+END
+
+

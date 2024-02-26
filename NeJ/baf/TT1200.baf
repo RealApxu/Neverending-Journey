@@ -1,0 +1,52 @@
+IF
+	!Global("RETURN_TO_LONELYWOOD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("keRtrnLW")
+		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
+END
+
+IF
+	Global("VP_Create_Dar","GLOBAL",0)
+	XPLT(Player1,130000)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Dar","GLOBAL",1)
+		CreateCreature("Dar67",[351.277],14) // Dar 
+		Continue()
+END
+
+IF
+	Global("VP_Create_Dar","GLOBAL",0)
+	XPGT(Player1,129999)
+	XPLT(Player1,180000)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Dar","GLOBAL",1)
+		CreateCreature("Dar77",[351.277],14) // Dar 
+		Continue()
+END
+
+IF
+	Global("VP_Create_Dar","GLOBAL",0)
+	XPGT(Player1,179999)
+	XPLT(Player1,250000)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Dar","GLOBAL",1)
+		CreateCreature("Dar78",[351.277],14) // Dar 
+		Continue()
+END
+
+IF
+	Global("VP_Create_Dar","GLOBAL",0)
+	XPGT(Player1,249999)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Dar","GLOBAL",1)
+		CreateCreature("Dar88",[351.277],14) // Dar 
+		Continue()
+END
+
+

@@ -1,0 +1,128 @@
+IF
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Allegiance(Myself,ENEMY)
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		Dialogue([PC])
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("DONE_HERE","LOCALS",0)
+	HPPercentLT(Myself,50)
+THEN
+	RESPONSE #100
+		SetGlobal("DONE_HERE","LOCALS",1)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("LDPOQUEC")
+END
+
+IF
+	Global("POQUELIN_HOSTILE","GLOBAL",0)
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("POQUELIN_HOSTILE","GLOBAL",1)
+		CloseDoor("8013_HIDE_STAIRS")
+		DisplayStringHead(Myself,~Enough!~)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("POQUELIN_HOSTILE","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("POQUELIN_HOSTILE","GLOBAL",2)
+		ReallyForceSpell(LastSeenBy(Myself),WIZARD_DISINTEGRATE)
+		Wait(2)
+END
+
+IF
+	Global("POQUELIN_HOSTILE","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("POQUELIN_HOSTILE","GLOBAL",3)
+		ForceSpellPoint([817.551],WIZARD_DIMENSION_DOOR)
+		Wait(2)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #80
+		SetGlobal("POQUE_ATTACK","GLOBAL",0)
+		Continue()
+	RESPONSE #20
+		SetGlobal("POQUE_ATTACK","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("LOCAL_CAST_SPELL","LOCALS",0)
+		Continue()
+	RESPONSE #100
+		SetGlobal("LOCAL_CAST_SPELL","LOCALS",1)
+		Continue()
+	RESPONSE #100
+		SetGlobal("LOCAL_CAST_SPELL","LOCALS",2)
+		Continue()
+	RESPONSE #100
+		SetGlobal("LOCAL_CAST_SPELL","LOCALS",3)
+		Continue()
+END
+
+IF
+	GlobalLT("LOCAL_CAST_SPELL","LOCALS",1)
+	See(NearestEnemyOf(Myself))
+	Global("POQUE_ATTACK","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("LOCAL_CAST_SPELL","LOCALS",1)
+		ReallyForceSpell(LastSeenBy(Myself),WIZARD_FLESH_TO_STONE)
+		Wait(2)
+END
+
+IF
+	GlobalLT("LOCAL_CAST_SPELL","LOCALS",2)
+	See(NearestEnemyOf(Myself))
+	Global("POQUE_ATTACK","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("LOCAL_CAST_SPELL","LOCALS",2)
+		ReallyForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
+		Wait(2)
+END
+
+IF
+	GlobalLT("LOCAL_CAST_SPELL","LOCALS",3)
+	See(NearestEnemyOf(Myself))
+	Global("POQUE_ATTACK","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("LOCAL_CAST_SPELL","LOCALS",3)
+		ReallyForceSpell(LastSeenBy(Myself),WIZARD_FINGER_OF_DEATH)
+		Wait(2)
+END
+
+IF
+	Global("POQUE_ATTACK","GLOBAL",1)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),210)
+END

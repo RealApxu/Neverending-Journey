@@ -1,0 +1,18 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(5)
+		ActionOverride("Lavallin",ReallyForceSpell(Myself,DRYAD_TELEPORT))
+		Wait(2)
+		FadeToColor([30.0],0)
+		Wait(3)
+		FadeFromColor([30.0],0)
+		MultiPlayerSync()
+		Wait(2)
+		ActionOverride("Hrothgar",StartDialogueNoSet(Player1))
+		EndCutSceneMode()
+END
+
+

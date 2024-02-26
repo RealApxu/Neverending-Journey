@@ -1,0 +1,25 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player3)
+		SmallWait(7)
+		DestroyItem("shadbfak")
+		DisplayStringHead(Player3,~The scroll has been warded and disintegrated with a considerable force irreversibly decreasing your dexterity.~)
+		PlaySound("EFF_P19")
+		Wait(2)
+		FadeToColor([30.0],0)
+		SmallWait(7)
+		ReallyForceSpell(Player3,HELL_DAMAGE_HALF)
+		ReallyForceSpell(Player3,HELL_LOSE_DEX)
+		ReallyForceSpell(Player3,HELL_LOSE_DEX)
+		ReallyForceSpell(Player3,HELL_LOSE_DEX)
+		SmallWait(7)
+		LeaveAreaLUAPanic("TT0068","",[197.715],10)
+		LeaveAreaLUA("TT0068","",[197.715],10)
+		MultiPlayerSync()
+		SmallWait(7)
+		FadeFromColor([30.0],0)
+		Wait(1)
+		EndCutSceneMode()
+END

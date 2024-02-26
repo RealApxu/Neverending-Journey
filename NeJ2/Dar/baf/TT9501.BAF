@@ -1,0 +1,10 @@
+IF
+	OnCreation()
+	Global("VP_Rt_Mine_Visited","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Rt_Mine_Visited","GLOBAL",1)
+		ActionOverride(Player1,StartDialog("Player1",Myself))
+END
+
+

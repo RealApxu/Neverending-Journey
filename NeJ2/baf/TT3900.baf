@@ -1,0 +1,10 @@
+IF
+	OnCreation()
+	Global("VP_CreateTilorn","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_CreateTilorn","GLOBAL",1)
+		CreateCreature("Tilorn2",[605.3335],0) // Tilorn
+END
+
+

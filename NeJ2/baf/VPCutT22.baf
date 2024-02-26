@@ -1,0 +1,11 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		ActionOverride("TuMage5",EscapeArea())
+		ActionOverride("TuCaius",EscapeArea())
+		Wait(1)
+		EndCutSceneMode()
+END

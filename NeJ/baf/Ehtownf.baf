@@ -1,0 +1,77 @@
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		RunAwayFrom(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		Help()
+		RunAwayFrom(LastAttackerOf(Myself),75)
+END
+
+IF
+	Help(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		RunAwayFrom(LastHelp(Myself),75)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Help([PC])
+THEN
+	RESPONSE #100
+		FaceObject(LastHelp(Myself))
+		Continue()
+END
+
+IF
+	IsValidForPartyDialog(Myself)
+THEN
+	RESPONSE #100
+		MoveToObject(LastHelp(Myself))
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		Enemy()
+		Continue()
+END
+
+IF
+	Help([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("MURDER_ALARM","GLOBAL",1)
+		FaceObject(LastHelp(Myself))
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(2)
+		Global("EHTOWNIE_HOSTILE","MYAREA",1)
+		Global("MURDER_ALARM","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+

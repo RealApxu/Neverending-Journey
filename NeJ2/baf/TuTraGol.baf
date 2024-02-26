@@ -1,0 +1,9 @@
+IF
+	Allegiance(Myself,NEUTRAL)
+	OR(2)
+		Global("VP_RobbedGolem","GLOBAL",1)
+		Global("VP_Break_TransTest","GLOBAL",2)
+THEN
+	RESPONSE #100
+		Enemy()
+END

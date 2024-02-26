@@ -1,0 +1,14 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(5)
+		ActionOverride("Delrysia",CreateVisualEffectObject("SPFLESHS",Myself))
+		ActionOverride("Delrysia",Polymorph(MAGE_FEMALE_HUMAN))
+		Wait(2)
+		ActionOverride("Delrysia",Enemy())
+		EndCutSceneMode()
+END
+
+

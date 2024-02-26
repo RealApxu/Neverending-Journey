@@ -1,0 +1,32 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		SmallWait(5)
+		PlaySound("PORTAL3")
+		Wait(1)
+		CreateVisualEffectObject("SPCLOUD1",Player1)
+		CreateVisualEffectObject("SPCLOUD1",Player2)
+		CreateVisualEffectObject("SPCLOUD1",Player3)
+		CreateVisualEffectObject("SPCLOUD1",Player4)
+		CreateVisualEffectObject("SPCLOUD1",Player5)
+		CreateVisualEffectObject("SPCLOUD1",Player6)
+		SmallWait(7)
+		FadeToColor([30.0],0)
+		SmallWait(7)
+		LeaveAreaLUAPanic("TT0064","",[1004.1115],0)
+		LeaveAreaLUA("TT0064","",[1004.1115],0)
+		ActionOverride(Player2,LeaveAreaLUA("TT0064","",[1050.1050],14))
+		ActionOverride(Player3,LeaveAreaLUA("TT0064","",[943.1071],2))
+		ActionOverride(Player4,LeaveAreaLUA("TT0064","",[1000.1100],9))
+		ActionOverride(Player5,LeaveAreaLUA("TT0064","",[977.1044],7))
+		ActionOverride(Player6,LeaveAreaLUA("TT0064","",[1019.1073],5))
+		MultiPlayerSync()
+		FadeFromColor([30.0],0)
+		Wait(3)
+		ActionOverride(Player1,StartDialog("Player1",Myself))
+		EndCutSceneMode()
+END
+
+

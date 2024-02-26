@@ -1,0 +1,9 @@
+IF
+	Opened([ANYONE])
+	!StateCheck(LastTrigger,STATE_INVISIBLE)
+	!StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+	GlobalLT("VP_Necro_Test","GLOBAL",3)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Necro_Test","GLOBAL",3)
+END

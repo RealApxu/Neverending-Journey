@@ -1,0 +1,122 @@
+IF
+	See([PC])
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~We are under attack!~)
+		Shout(89)
+		Continue()
+END
+
+IF
+	OR(5)
+		AttackedBy([PC],DEFAULT)
+		AttackedBy([FAMILIAR],DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+		AttackedBy([CONTROLLED],DEFAULT)
+		AttackedBy([CHARMED],DEFAULT)
+THEN
+	RESPONSE #100
+		Shout(89)
+		Continue()
+END
+
+IF
+	Heard([ANYONE],89)
+	!Class(Myself,INNOCENT)
+	!See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		MoveToObject(LastHeardBy(Myself))
+		Continue()
+END
+
+IF
+	ActionListEmpty()
+	CombatCounter(0)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,~The attack will commence here.~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~Our forces will lie in wait here.~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~They will charge from this point.~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~They will come from the rear here.~)
+		Continue()
+	RESPONSE #100
+		DisplayStringHead(Myself,~The archers will support from this point.~)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("prep","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,CLERIC_FREE_ACTION)
+		ReallyForceSpell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
+		Spell(Myself,NPC_BLADE_BARRIER)
+		SetGlobal("prep","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_PHYSICAL_MIRROR)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_PHYSICAL_MIRROR)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_ANIMATE_DEAD)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_ANIMATE_DEAD)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_DEATH_WARD)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_DEATH_WARD)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_FLAME_STRIKE)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_CAUSE_SERIOUS_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CAUSE_SERIOUS_WOUNDS)
+		AttackOneRound(NearestEnemyOf(Myself))
+		AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+	HaveSpell(CLERIC_SILENCE_15_FOOT)
+	OR(2)
+		See(NearestEnemyOfType([0.0.0.LONG_BOW]))
+		See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END

@@ -1,0 +1,24 @@
+IF
+	OnCreation()
+	Global("VP_Create_Aldair","MYAREA",0)
+	GlobalLT("VP_Dar_Quest","GLOBAL",80)
+	OR(2)
+		PartyHasItem("DrBook1") 
+		Global("VP_Dar_Quest","GLOBAL",12)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Create_Aldair","MYAREA",1)
+		CreateCreature("Aldair",[216.822],6)
+END
+
+IF
+	Global("VP_Kill_Aldair","MYAREA",0)
+	OR(2)
+		Dead("Aldair")
+		Global("SPRITE_IS_DEADAldair","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Kill_Aldair","MYAREA",1)
+		ReputationInc(-10)
+END
+

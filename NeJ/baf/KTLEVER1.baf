@@ -1,0 +1,21 @@
+IF
+	Opened([ANYTHING])
+	Global("TT3502_Solved","GLOBAL",0)
+THEN
+	RESPONSE #100
+		Unlock("3502HIDE")
+		OpenDoor("3502HIDE")
+		SetGlobal("TT3502_Solved","GLOBAL",1)
+END
+
+IF
+	Closed([ANYTHING])
+	Global("TT3502_Solved","GLOBAL",1)
+THEN
+	RESPONSE #100
+		CloseDoor("3502HIDE")
+		Lock("3502HIDE")
+		SetGlobal("TT3502_Solved","GLOBAL",0)
+END
+
+

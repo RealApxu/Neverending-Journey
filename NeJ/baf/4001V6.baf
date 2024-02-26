@@ -1,0 +1,18 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #50
+		DisplayStringHead(Myself,~What's going to happen to us?~) // "What's going to happen to us?"
+		Wait(3)
+	RESPONSE #50
+		DisplayStringHead(Myself,~Don't be afraid, children. We'll be okay.~) // "Don't be afraid, children.  We'll be okay."
+		Wait(3)
+END
+
+

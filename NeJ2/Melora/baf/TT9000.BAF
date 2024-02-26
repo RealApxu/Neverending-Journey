@@ -1,0 +1,62 @@
+IF
+	OnCreation()
+	Global("VP_DeactivateExits","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_DeactivateExits","GLOBAL",1)
+		TriggerActivation("To66001",FALSE)
+		TriggerActivation("To66002",FALSE)
+		TriggerActivation("To66003",FALSE)
+END
+
+IF
+	PartyHasItem("lightgem")  // Light Gem
+	!Global("SPRITE_IS_DEADShendru","GLOBAL",1)
+	Global("VP_Shendru_Appears","MYAREA",0)
+	OR(2)
+		Global("VP_Melora_Quest","GLOBAL",9)
+		Global("VP_EvilAct","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Shendru_Appears","MYAREA",1)
+		RealSetGlobalTimer("VP_Shendru_Timer","GLOBAL",10)
+END
+
+IF
+	PartyHasItem("lightgem")  // Light Gem
+	!Global("SPRITE_IS_DEADShendru","GLOBAL",1)
+	Global("VP_Shendru_Appears","MYAREA",1)
+	RealGlobalTimerExpired("VP_Shendru_Timer","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Shendru_Appears","MYAREA",2)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("VPCutM12")
+END
+
+IF
+	PartyHasItem("lightgem")  // Light Gem
+	Global("SPRITE_IS_DEADShendru","GLOBAL",1)
+	Global("VP_Back_To_CKeep","GLOBAL",0)
+	Global("VP_Back_To_CKeep2","GLOBAL",0)
+	OR(2)
+		Global("VP_Melora_Quest","GLOBAL",9)
+		Global("VP_EvilAct","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Back_To_CKeep2","GLOBAL",1)
+END
+
+IF
+	PartyHasItem("lightgem")  // Light Gem
+	Global("SPRITE_IS_DEADShendru","GLOBAL",1)
+	Global("VP_Back_To_CKeep","GLOBAL",0)
+	Global("VP_Back_To_CKeep2","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Back_To_CKeep","GLOBAL",1)
+		TriggerActivation("To66001",TRUE)
+		TriggerActivation("To66002",TRUE)
+		TriggerActivation("To66003",TRUE)
+END

@@ -1,0 +1,50 @@
+IF
+	!HasItem("RINGTOM",Myself)
+THEN
+	RESPONSE #100
+		GiveItemCreate("RINGTOM",Myself,1,0,0)
+		Continue()
+END
+
+IF
+	Range([PC],15)
+THEN
+	RESPONSE #100
+		EquipItem("RINGTOM")
+		Wait(3)
+		DestroySelf()
+END
+
+IF
+	ActionListEmpty()
+THEN
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Another, Telanis!"~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"That's my favorite one."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Fine work, minstrel."~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Sing us a song!"~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"Long live Telanis and his tales!"~)
+		Wait(3)
+	RESPONSE #75
+		DisplayStringHead(Myself,~"A fine voice, indeed."~)
+		Wait(3)
+	RESPONSE #175
+		Wait(3)
+END
+
+IF
+	AttackedBy([ANYTHING],DEFAULT)
+THEN
+	RESPONSE #100
+		EquipItem("RINGTOM")
+		Wait(3)
+		DestroySelf()
+END

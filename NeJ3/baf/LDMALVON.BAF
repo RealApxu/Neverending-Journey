@@ -1,0 +1,446 @@
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(2)
+		!StateCheck(Myself,STATE_INVISIBLE)
+		!StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+	GlobalLT("SPRITE_IS_DEADMGolem","GLOBAL",2)
+	GlobalLT("SPRITE_IS_DEADMUmbHlk","GLOBAL",4)
+	GlobalLT("SPRITE_IS_DEADMSimulac","GLOBAL",1)
+	Global("VP_Malavon_Is_Hidding","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Malavon_Is_Hidding","LOCALS",1)
+		ApplySpell(Myself,WIZARD_INVISIBILITY)  // SPWI206.SPL (Invisibility)
+		Continue()
+END
+
+IF
+	CombatCounter(0)
+	!Allegiance(Myself,ENEMY)
+	GlobalGT("SPRITE_IS_DEADMGolem","GLOBAL",1)
+	GlobalGT("SPRITE_IS_DEADMUmbHlk","GLOBAL",3)
+	!Global("SPRITE_IS_DEADMSimulac","GLOBAL",0)
+	NumTimesTalkedTo(0)
+	See([PC])
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		StartDialogNoSet([PC])
+END
+
+IF
+	CombatCounter(0)
+	!Allegiance(Myself,ENEMY)
+	GlobalGT("SPRITE_IS_DEADMGolem","GLOBAL",1)
+	GlobalGT("SPRITE_IS_DEADMUmbHlk","GLOBAL",3)
+	!Global("SPRITE_IS_DEADMSimulac","GLOBAL",0)
+	NumTimesTalkedTo(0)
+	!See([PC])
+	!Died(Myself)
+THEN
+	RESPONSE #100
+		MoveToObject([PC])
+		Dialog([PC])
+END
+
+IF
+	Global("MAP_GROUP_HOSTILE5","MYAREA",0)
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		SetGlobal("MAP_GROUP_HOSTILE5","MYAREA",1)
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	Global("Prep","LOCALS",0)
+	HPGT(Myself,0)
+THEN
+	RESPONSE #100
+		ApplySpell(Myself,WIZARD_IMPROVED_MANTLE)  // SPWI808.SPL (Improved Mantle)
+		ApplySpell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+		SetGlobal("Prep","LOCALS",1)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	Global("SpellTrigger","LOCALS",0)
+	HPGT(Myself,0)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,39968)  // Spell Trigger - Fired
+		DisplayString(Myself,43046)  // Spell Trigger - Mislead
+		ReallyForceSpell(Myself,WIZARD_MISLEAD)  // SPWI607.SPL (Mislead)
+		DisplayString(Myself,43047)  // Spell Trigger - Fire Shield Red
+		ReallyForceSpell(Myself,WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield (Red))
+		DisplayString(Myself,40245)  // Spell Trigger - Globe of Invulnerability
+		ReallyForceSpell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
+		ReallyForceSpell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
+		SetGlobal("SpellTrigger","LOCALS",1)
+END
+
+IF
+	!Died(Myself)
+	See(NearestEnemyOf(Myself))
+	Global("VP_MalavonsRage","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_MalavonsRage","LOCALS",1)
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_MALAVONS_RAGE)  // SPWI797.SPL (Malavon's Rage)
+		Wait(2)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_SILENCED)
+	HaveSpell(WIZARD_VOCALIZE)  // SPWI219.SPL (Vocalize)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_VOCALIZE)  // SPWI219.SPL (Vocalize)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Detect([PC])
+	!See(LastSeenBy(Myself))
+	HaveSpell(WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	Global("Prep","LOCALS",1)
+	HPGT(Myself,0)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
+		SetGlobal("Prep","LOCALS",2)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	Global("VP_TimeStop","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TimeStop","LOCALS",1)
+		ReallyForceSpell(Myself,WIZARD_TIME_STOP)  // SPWI909.SPL (Time Stop)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	!HasBounceEffects(Myself)
+	!HasImmunityEffects(Myself)
+	HaveSpell(WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	TookDamage()
+	Global("Prep2","LOCALS",0)
+	HPGT(Myself,0)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,43050)  // Chain Contingency - Improved Mantle
+		ApplySpell(Myself,WIZARD_IMPROVED_MANTLE)  // SPWI808.SPL (Improved Mantle)
+		DisplayString(Myself,3302)  // Chain Contingency - Spell Turning
+		ApplySpell(Myself,WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
+		DisplayString(Myself,40240)  // Chain Contingency - Mislead
+		ApplySpell(Myself,WIZARD_MISLEAD)  // SPWI607.SPL (Mislead)
+		SetGlobal("Prep2","LOCALS",1)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	TookDamage()
+	Global("Prep2","LOCALS",1)
+	HPGT(Myself,0)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,40252)  // Contingency - Protection from Magical Weapons
+		ApplySpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)  // SPWI611.SPL (Protection From Magical Weapons)
+		SetGlobal("Prep2","LOCALS",2)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([GOODCUTOFF.0.0.0.0.SUMMONED])
+	Global("summon","LOCALS",0)
+THEN
+	RESPONSE #100
+		FaceObject(LastSeenBy(Myself))
+		ReallyForceSpell(LastSeenBy(Myself),WIZARD_DEATH_SPELL)  // SPWI605.SPL (Death Spell)
+		SetGlobal("summon","LOCALS",1)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	!HasBounceEffects(Myself)
+	!HasImmunityEffects(Myself)
+	HaveSpell(WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	Global("VP_Imprisonment","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Imprisonment","LOCALS",1)
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_IMPRISONMENT)  // SPWI910.SPL (Imprisonment)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_NPC_SYMBOL_STUN)  // SPWI898.SPL (Symbol, Stun)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)  // SPWI898.SPL (Symbol, Stun)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_NPC_SYMBOL_FEAR)  // SPWI899.SPL (Symbol, Fear)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_FEAR)  // SPWI899.SPL (Symbol, Fear)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_TIME_STOP)  // SPWI909.SPL (Time Stop)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_TIME_STOP)  // SPWI909.SPL (Time Stop)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	Global("VP_Pertrify","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Pertrify","LOCALS",1)
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)  // SPWI604.SPL (Flesh to Stone)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(SecondNearestEnemyOf(Myself))
+	Global("VP_Pertrify","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Pertrify","LOCALS",2)
+		ReallyForceSpell(SecondNearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)  // SPWI604.SPL (Flesh to Stone)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(ThirdNearestEnemyOf(Myself))
+	Global("VP_Desintegrate","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Desintegrate","LOCALS",1)
+		ReallyForceSpell(ThirdNearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)  // SPWI604.SPL (Flesh to Stone)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_WAIL_OF_THE_BANSHEE)  // SPWI913.SPL (Wail of the Banshee)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_WAIL_OF_THE_BANSHEE)  // SPWI913.SPL (Wail of the Banshee)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_SUN_FIRE)  // SPWI523.SPL (Sunfire)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_SUN_FIRE)  // SPWI523.SPL (Sunfire)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAZE)  // SPWI813.SPL (Maze)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_MAZE)  // SPWI813.SPL (Maze)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	Global("VP_TimeStop","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TimeStop","LOCALS",2)
+		ReallyForceSpell(Myself,WIZARD_TIME_STOP)  // SPWI909.SPL (Time Stop)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)  // SPWI812.SPL (Abi-Dalzim's Horrid Wilting)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)  // SPWI812.SPL (Abi-Dalzim's Horrid Wilting)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAZE)  // SPWI813.SPL (Maze)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_MAZE)  // SPWI813.SPL (Maze)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FINGER_OF_DEATH)  // SPWI713.SPL (Finger of Death)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_FINGER_OF_DEATH)  // SPWI713.SPL (Finger of Death)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_PRISMATIC_SPRAY)  // SPWI714.SPL (Prismatic Spray)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_PRISMATIC_SPRAY)  // SPWI714.SPL (Prismatic Spray)
+END
+
+IF
+	HPLT(Myself,30)
+	!Died(Myself)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,WIZARD_MALAVONS_RAGE)  // SPWI797.SPL (Malavon's Rage)
+		Wait(2)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_SUMMON_EFREET)  // SPWI717.SPL (Summon Efreeti)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_SUMMON_EFREET)  // SPWI717.SPL (Summon Efreeti)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_NPC_SYMBOL_STUN)  // SPWI898.SPL (Symbol, Stun)
+THEN
+	RESPONSE #100
+		SetGlobal("MALAVON_ATTACK","MYAREA",1)
+		Spell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_STUN)  // SPWI898.SPL (Symbol, Stun)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	Global("VP_TimeStop","LOCALS",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TimeStop","LOCALS",3)
+		ReallyForceSpell(Myself,WIZARD_TIME_STOP)  // SPWI909.SPL (Time Stop)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(0)
+THEN
+	RESPONSE #100
+		SetGlobal("MALAVON_ATTACK","MYAREA",1)
+		Spell(NearestEnemyOf(Myself),WIZARD_MAZE)  // SPWI813.SPL (Maze)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FLESH_TO_STONE)  // SPWI604.SPL (Flesh to Stone)
+THEN
+	RESPONSE #100
+		SetGlobal("MALAVON_ATTACK","MYAREA",1)
+		Spell(NearestEnemyOf(Myself),WIZARD_FLESH_TO_STONE)  // SPWI604.SPL (Flesh to Stone)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_DISINTEGRATE)  // SPWI616.SPL (Disintegrate)
+THEN
+	RESPONSE #100
+		SetGlobal("MALAVON_ATTACK","MYAREA",1)
+		Spell(NearestEnemyOf(Myself),WIZARD_DISINTEGRATE)  // SPWI616.SPL (Disintegrate)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_DOMINATION)  // SPWI506.SPL (Domination)
+THEN
+	RESPONSE #100
+		SetGlobal("MALAVON_ATTACK","MYAREA",1)
+		Spell(NearestEnemyOf(Myself),WIZARD_DOMINATION)  // SPWI506.SPL (Domination)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_SUMMON_EFREET)  // SPWI717.SPL (Summon Efreeti)
+THEN
+	RESPONSE #100
+		SetGlobal("MALAVON_ATTACK","MYAREA",1)
+		Spell(Myself,WIZARD_SUMMON_EFREET)  // SPWI717.SPL (Summon Efreeti)
+END
+
+IF
+	HPLT(Myself,30)
+	!Died(Myself)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,WIZARD_MALAVONS_RAGE)  // SPWI797.SPL (Malavon's Rage)
+		Wait(2)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+

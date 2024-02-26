@@ -1,0 +1,47 @@
+IF
+	!Allegiance(Myself,ENEMY)
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+THEN
+	RESPONSE #100
+		Polymorph(IC_YUANTI3)
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("YUANTI_INFERNO","GLOBAL",0)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("YUANTI_INFERNO","GLOBAL",1)
+		Polymorph(IC_YUANTI3)
+		Enemy()
+		Continue()
+END
+
+IF
+	!Global("YUANTI_INFERNO","GLOBAL",0)
+	Allegiance(Myself,ENEMY)
+	ActionListEmpty()
+	!See([PC])
+THEN
+	RESPONSE #100
+		MoveToObject([PC])
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Help()
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastAttackerOf(Myself),75)
+END
+
+

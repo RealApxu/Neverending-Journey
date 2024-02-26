@@ -1,0 +1,27 @@
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("Know_Presio","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	!See([PC])
+THEN
+	RESPONSE #100
+		MoveToObject([PC])
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+

@@ -1,0 +1,29 @@
+IF
+	OnCreation()
+	InParty("Jaheira")
+	!Dead("Jaheira")
+	Global("VP_JaheiraComment","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_JaheiraComment","MYAREA",1)
+		ActionOverride("Jaheira",StartDialogueNoSet([PC]))
+		Continue()
+END
+
+IF
+	GlobalLT("VP_Dar_Quest","GLOBAL",10)
+	Global("VP_Deactivate_Mines","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Deactivate_Mines","MYAREA",1)
+		TriggerActivation("To9501",FALSE)
+END
+		
+IF
+	GlobalGT("VP_Dar_Quest","GLOBAL",9)
+	Global("VP_Activate_Mines","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Activate_Mines","MYAREA",1)
+		TriggerActivation("To9501",TRUE)
+END

@@ -1,0 +1,17 @@
+IF
+	OR(2)
+		Opened([ANYONE])
+		Clicked([ANYONE])
+	Range(LastTrigger,1)
+	CombatCounter(0)
+	!StateCheck(LastTrigger,STATE_INVISIBLE)
+	!StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+	Global("MAP_GROUP_HOSTILE1","MYAREA",0)
+THEN
+	RESPONSE #100
+		DisplayString(LastTrigger,~The frost giants have noticed you!~)
+		Wait(1)
+		SetGlobal("MAP_GROUP_HOSTILE1","MYAREA",1)
+END
+
+

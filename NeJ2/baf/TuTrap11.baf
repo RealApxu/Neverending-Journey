@@ -1,0 +1,12 @@
+IF
+	OR(2)
+		Entered([PC])
+		Opened([PC])
+THEN
+	RESPONSE #100
+		DisplayString(LastTrigger,14381) // Trap Sprung
+		DisplayString(LastTrigger,22177) // Otiluke's Resilient Sphere
+		ForceSpell(LastTrigger,WIZARD_OTILUKES_RESILIENT_SPHERE)
+END
+
+

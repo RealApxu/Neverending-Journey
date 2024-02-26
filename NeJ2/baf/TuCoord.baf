@@ -1,0 +1,404 @@
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("VP_HalruaaHostile","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Die()
+	Global("VP_HalruaaHostile","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END
+
+IF
+	Global("VP_Leaving_Halruaa","GLOBAL",5)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([PC],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		Enemy()
+END
+
+IF
+	See([PC])
+	Allegiance(Myself,NEUTRAL)
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #0
+		StartDialogueNoSet([PC])
+END
+
+IF
+	See([PC])
+	Global("VP_HalruaaTour","GLOBAL",1)
+	Global("mover","LOCALS",0)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([2000.2666])
+		SetGlobal("mover","LOCALS",1)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",1)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",1)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",2)
+	Global("mover","LOCALS",1)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([2688.2656])
+		Face(2)
+		SetGlobal("mover","LOCALS",2)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",2)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",2)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",3)
+	Global("mover","LOCALS",2)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([3822.2270])
+		SetGlobal("mover","LOCALS",3)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",3)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",3)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",4)
+	Global("mover","LOCALS",3)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([3020.565])
+		SetGlobal("mover","LOCALS",4)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",4)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",4)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",5)
+	Global("mover","LOCALS",4)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([2357.2742])
+		SetGlobal("mover","LOCALS",5)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",5)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",5)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",6)
+	Global("mover","LOCALS",5)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([735.1903])
+		SetGlobal("mover","LOCALS",6)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",6)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",6)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",7)
+	Global("mover","LOCALS",6)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([2191.978])
+		Face(12)
+		SetGlobal("mover","LOCALS",7)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",7)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",7)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",8)
+	Global("mover","LOCALS",7)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([2565.491])
+		Face(6)
+		SetGlobal("mover","LOCALS",8)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",8)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",8)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",9)
+	Global("mover","LOCALS",8)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([4367.1639])
+		SetGlobal("mover","LOCALS",9)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",9)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",9)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",10)
+	Global("mover","LOCALS",9)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([4364.1463])
+		SetGlobal("mover","LOCALS",10)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",10)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",10)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",11)
+	Global("mover","LOCALS",10)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([3696.1727])
+		SetGlobal("mover","LOCALS",11)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",11)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",11)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",12)
+	Global("mover","LOCALS",11)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([3787.1970])
+		SetGlobal("mover","LOCALS",12)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",12)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",12)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",13)
+	Global("mover","LOCALS",12)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([2676.1123])
+		SetGlobal("mover","LOCALS",13)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",13)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",13)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",14)
+	Global("mover","LOCALS",13)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([1192.1610])
+		SetGlobal("mover","LOCALS",14)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",14)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",14)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",15)
+	Global("mover","LOCALS",14)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([1058.2039])
+		SetGlobal("mover","LOCALS",15)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",15)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",15)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",16)
+	Global("mover","LOCALS",15)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([1924.772])
+		Face(2)
+		SetGlobal("mover","LOCALS",16)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",16)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",16)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",17)
+	Global("mover","LOCALS",16)
+THEN
+	RESPONSE #100
+		MoveToPointNoInterrupt([2774.1362])
+		SetGlobal("mover","LOCALS",17)
+END
+
+IF
+	Global("VP_HalruaaTour","GLOBAL",17)
+	See([PC])
+	Range(LastSeenBy(Myself),6)
+	Global("mover","LOCALS",17)
+THEN
+	RESPONSE #100
+		DialogInterrupt(TRUE)
+		StartDialogueNoSet(LastSeenBy(Myself))
+		DialogInterrupt(FALSE)
+END

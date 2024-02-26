@@ -1,0 +1,31 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		ActionOverride("Melora",ChangeAIScript("",DEFAULT))
+		ActionOverride("Melora",LeaveParty())
+		ActionOverride("Melora",EscapeArea())
+		Wait(1)
+		FadeToColor([20.0],0)
+		Wait(1)
+		ActionOverride("Balor",DestroySelf())
+		Wait(1)
+		LeaveAreaLUAPanic("TT9002","",[520.606],11)
+		LeaveAreaLUA("TT9002","",[520.606],11)
+		ActionOverride(Player2,LeaveAreaLUA("TT9002","",[424.666],10))
+		ActionOverride(Player3,LeaveAreaLUA("TT9002","",[472.702],10))
+		ActionOverride(Player4,LeaveAreaLUA("TT9002","",[472.642],10))
+		ActionOverride(Player5,LeaveAreaLUA("TT9002","",[567.654],9))
+		ActionOverride(Player6,LeaveAreaLUA("TT9002","",[520.678],10))
+		Wait(1)
+		CreateCreature("Balor",[500.500],15)
+		MultiPlayerSync()
+		Wait(1)
+		FadeFromColor([20.0],0)
+		Wait(1)
+		ActionOverride("Maia",StartDialogueNoSet([PC]))
+		EndCutSceneMode()
+END
+
+

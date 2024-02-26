@@ -1,0 +1,49 @@
+IF
+	Global("SAY_LINE","LOCALS",0)
+	LOS([PC],25)
+THEN
+	RESPONSE #100
+		SetGlobal("SAY_LINE","LOCALS",1)
+		DisplayStringHead(Myself,~COME OUT, STOOPID HOOMUN!~)		
+		Wait(2)
+END
+
+IF
+	Global("SAY_LINE","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("SAY_LINE","LOCALS",2)
+		DisplayStringHead(Myself,~ME NO SQUISH YOU IF YOU COME OUT NOW.~)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		MoveToObject(LastAttackerOf(Myself))
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		RandomWalk()
+		Wait(5)
+END
+
+

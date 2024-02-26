@@ -1,0 +1,61 @@
+IF
+	Global("VP_See_Intruders","MYAREA",0)
+	OR(2)
+		See(NearestEnemyOf(Myself))
+		AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_See_Intruders","MYAREA",1)
+		DisplayStringHead(Myself,~Holy sh... Wow! How'd you get in here? Get 'em, boys! Get 'em!~)
+END
+
+IF
+	ActionListEmpty()
+	AttackedBy([ANYONE],DEFAULT)
+	Range(LastAttackerOf(Myself),4)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+	ActionListEmpty()
+	See(NearestEnemyOf(Myself))
+	!Range(NearestEnemyOf(Myself),4)
+	Range(NearestEnemyOf(Myself),10)
+THEN
+	RESPONSE #100
+		RunAwayFrom(NearestEnemyOf(Myself),45)
+END
+
+IF
+	ActionListEmpty()
+	See(NearestEnemyOf(Myself))
+	!Range(NearestEnemyOf(Myself),10)
+THEN
+	RESPONSE #100
+		EquipRanged()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	ActionListEmpty()
+	See(NearestEnemyOf(Myself))
+	Range(NearestEnemyOf(Myself),4)
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	ActionListEmpty()
+	See(NearestEnemyOf(Myself))
+	!Range(NearestEnemyOf(Myself),4)
+THEN
+	RESPONSE #100
+		EquipRanged()
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END

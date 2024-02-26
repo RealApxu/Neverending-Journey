@@ -1,0 +1,10 @@
+IF
+	See([PC])
+	Global("Know_Sheemish","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("Know_Sheemish","LOCALS",1)
+		StartDialogueNoSet([PC])
+END
+
+

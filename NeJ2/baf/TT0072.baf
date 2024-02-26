@@ -1,0 +1,39 @@
+IF
+	OnCreation()
+	Global("VP_Reveal_Area","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Reveal_Area","MYAREA",1)
+		Explore()
+END
+
+IF
+	RealGlobalTimerExpired("VP_Conjurer_Tests","GLOBAL")
+	InMyArea("TuMord")
+	InMyArea("TuConj")
+THEN
+	RESPONSE #100
+		ActionOverride("TuMord",EscapeArea())
+		ActionOverride("TuConj",EscapeArea())
+END
+
+IF
+	Global("VP_Restore_Ring","GLOBAL",6)
+	Global("VP_Enhance_Ring","GLOBAL",0)
+	PartyHasItem("DeRing2")
+THEN
+	RESPONSE #100
+		IncrementGlobal("VP_Enhance_Ring","GLOBAL",1)
+		CreateCreature("TuFire",[516.593],10)
+END
+
+IF
+	GlobalTimerExpired("VP_Genevra_Returns","GLOBAL")
+	Global("VP_Enhance_Ring","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Enhance_Ring","GLOBAL",3)
+		CreateCreature("TuFire",[516.593],10)
+END
+
+

@@ -1,0 +1,19 @@
+IF
+	Global("VP_Sell_Slaves","GLOBAL",1)
+	OR(3)
+		Global("VP_Dar_Quest","GLOBAL",99)
+		Global("VP_Dar_Quest","GLOBAL",97)
+		Global("VP_Dar_Quest","GLOBAL",95)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Sell_Slaves","GLOBAL",2)
+		CreateCreature("Feilton",[420.1590],12) // Feilton
+		CreateCreature("FeilGrd1",[420.1590],12) // Bandit
+		CreateCreature("FeilGrd2",[420.1590],12) // Bandit
+		CreateCreature("FeilGrd3",[420.1590],12) // Bandit
+		ActionOverride("Feilton",MoveToPointNoInterrupt([1115.11465]))
+		ActionOverride("FeilGrd1",MoveToPointNoInterrupt([1047.1464]))
+		ActionOverride("FeilGrd2",MoveToPointNoInterrupt([1129.1529]))
+		ActionOverride("FeilGrd3",MoveToPointNoInterrupt([1165.1441]))
+END
+

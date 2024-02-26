@@ -1,0 +1,88 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("Egenia")
+		Explore()
+		Wait(1)
+		MoveViewPoint([2020.2630],VERY_FAST)
+		Wait(1)
+		MoveToPointNoInterrupt([2020.2630])
+		Face(10)
+		Wait(10)
+		DisplayStringHead("EgeQues2",~Mother Egenia you're safe!~) 
+		Wait(1)
+		DisplayStringHead("EgeQuest",~Mother Egenia, can we leave now? Is it safe?~) 
+		Wait(1)
+		DisplayStringHead(Myself,~Everything is okay now my children. Hrothgar and his friends have freed us.~)
+		Wait(1)
+		DisplayStringHead(Myself,~You may all leave safely back to Kuldahar. The way is clear for you now.~)
+		Wait(1)
+		DisplayStringHead(Myself,~I will stay here and help support Hrothgar and his friends to end this threat once and for all!~)
+		Wait(1)
+		DisplayStringHead("EgeQues2",~Oh, thank you! Thank you!~)
+		Wait(1)
+		DisplayStringHead("EgeQuest",~We're free... we're finally free!~)
+		Wait(1)
+		DisplayStringHead("EgeQues2",~Thank Waukeen we're out of that. I sure hope someone knows the way down to the village.~)
+		Wait(1)
+		SetGlobal("EGENIA_MOVE","GLOBAL",3)
+		EndCutSceneMode()
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		MoveToPointNoInterrupt([2070.2465])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player2)
+		Wait(1)
+		MoveToPointNoInterrupt([2119.2489])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player3)
+		Wait(1)
+		MoveToPointNoInterrupt([2060.2561])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player4)
+		Wait(1)
+		MoveToPointNoInterrupt([2042.2517])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player5)
+		Wait(1)
+		MoveToPointNoInterrupt([2088.2538])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player6)
+		Wait(1)
+		MoveToPointNoInterrupt([2115.2573])
+END
+
+		
+				

@@ -1,0 +1,107 @@
+IF
+	NumTimesTalkedTo(0)
+	OR(2)
+		See([PC])
+		Detect([PC])
+THEN
+	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(2)
+		Global("VP_LKing_Alarm","MYAREA",1)
+		Global("THRONE_ROOM_ATTACK","MYAREA",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	Global("VP_LKing_Alarm","MYAREA",0)
+	Global("THRONE_ROOM_ATTACK","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_LKing_Alarm","MYAREA",1)
+		SetGlobal("THRONE_ROOM_ATTACK","MYAREA",1)
+END
+
+IF
+	Detect([PC])
+	!See([PC])
+	Global("VP_Detect_Player","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Detect_Player","LOCALS",1)
+		ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
+		Continue()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	OR(6)
+		AttackedBy([PC],DEFAULT)
+		AttackedBy([FAMILIAR],DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+		AttackedBy([CONTROLLED],DEFAULT)
+		AttackedBy([CHARMED],DEFAULT)
+		AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_LKing_Alarm","MYAREA",1)
+		SetGlobal("THRONE_ROOM_ATTACK","MYAREA",1)
+		Shout(89)
+		Enemy()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Prep","LOCALS",0)
+	!StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+	!StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+	!HasBounceEffects(LastSeenBy(Myself))
+	HPGT(LastSeenBy(Myself),20)
+THEN
+	RESPONSE #100
+		SetGlobal("Prep","LOCALS",1)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_CLOAK_OF_FEAR)
+		ReallyForceSpell(LastSeenBy(Myself),WIZARD_CHAOS)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Prep","LOCALS",1)
+	Global("SpellSequencer","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("SpellSequencer","LOCALS",1)
+		DisplayString(Myself,39968) // Spell Trigger - Fired
+		DisplayString(Myself,3302) // Chain Contingency - Spell Turning
+		ReallyForceSpell(Myself,WIZARD_SPELL_TURNING)
+		DisplayString(Myself,40244) // Spell Trigger - Stoneskins
+		ReallyForceSpell(Myself,WIZARD_STONE_SKIN)
+		DisplayString(Myself,40248) // Spell Trigger - True Sight
+		ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
+		ReallyForceSpell(LastSeenBy(Myself),WIZARD_CHAOS)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),75)
+END
+
+IF
+	HPPercentLT(Myself,20)
+	HasItem("POTN55",Myself) // Potion of Superior Healing
+THEN
+	RESPONSE #100
+		DisplayStringHead(Myself,46150) // quaffs a potion
+		UseItem("POTN55",Myself) // Potion of Superior Healing
+		Continue()
+END

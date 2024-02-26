@@ -1,0 +1,23 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		PlayDead(30)
+		ActionOverride(Player2,PlayDead(60))
+		ActionOverride(Player3,PlayDead(60))
+		ActionOverride(Player4,PlayDead(60))
+		ActionOverride(Player5,PlayDead(60))
+		ActionOverride(Player6,PlayDead(60))
+		SmallWait(5)
+		FadeToColor([20.0],0)
+		Wait(3)
+		MultiPlayerSync()
+		SmallWait(7)
+		Wait(1)
+		FadeFromColor([20.0],0)
+		EndCutSceneMode()
+		StartDialog("Player1",Myself)
+END
+
+

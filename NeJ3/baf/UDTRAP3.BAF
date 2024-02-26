@@ -1,0 +1,88 @@
+IF
+	PartyHasItem("TERIKAN") // Terikan's Phylactery
+	Entered(Player1)
+THEN
+	RESPONSE #100
+		TakePartyItem("TERIKAN") // Terikan's Phylactery
+		SetGlobal("6006_LICH_SPAWN","GLOBAL",0)
+		SetGlobal("FORGE_ON","GLOBAL",1)
+		AddexperienceParty(52500)
+		DisplayString(LastTrigger,~Terikan's phylactery is suddenly whisked from your possession, and disintegrates in midair.  A horrible howling is heard through the area, continuing for a small eternity.~)
+		TriggerActivation(Myself,FALSE)
+		DestroyItem("TERIKAN") 
+		Wait(2)
+END
+
+IF
+	PartyHasItem("TERIKAN") // Terikan's Phylactery
+	Entered(Player2)
+THEN
+	RESPONSE #100
+		TakePartyItem("TERIKAN") // Terikan's Phylactery
+		SetGlobal("6006_LICH_SPAWN","GLOBAL",0)
+		SetGlobal("FORGE_ON","GLOBAL",1)
+		AddexperienceParty(52500)
+		DisplayString(LastTrigger,~Terikan's phylactery is suddenly whisked from your possession, and disintegrates in midair.  A horrible howling is heard through the area, continuing for a small eternity.~)
+		TriggerActivation(Myself,FALSE)
+		DestroyItem("TERIKAN") 
+		Wait(2)
+END
+
+IF
+	PartyHasItem("TERIKAN") // Terikan's Phylactery
+	Entered(Player3)
+THEN
+	RESPONSE #100
+		TakePartyItem("TERIKAN") // Terikan's Phylactery
+		SetGlobal("6006_LICH_SPAWN","GLOBAL",0)
+		SetGlobal("FORGE_ON","GLOBAL",1)
+		AddexperienceParty(52500)
+		DisplayString(LastTrigger,~Terikan's phylactery is suddenly whisked from your possession, and disintegrates in midair.  A horrible howling is heard through the area, continuing for a small eternity.~)
+		TriggerActivation(Myself,FALSE)
+		DestroyItem("TERIKAN") 
+		Wait(2)
+END
+
+IF
+	PartyHasItem("TERIKAN") // Terikan's Phylactery
+	Entered(Player4)
+THEN
+	RESPONSE #100
+		TakePartyItem("TERIKAN") // Terikan's Phylactery
+		SetGlobal("6006_LICH_SPAWN","GLOBAL",0)
+		SetGlobal("FORGE_ON","GLOBAL",1)
+		AddexperienceParty(52500)
+		DisplayString(LastTrigger,~Terikan's phylactery is suddenly whisked from your possession, and disintegrates in midair.  A horrible howling is heard through the area, continuing for a small eternity.~)
+		TriggerActivation(Myself,FALSE)
+		DestroyItem("TERIKAN") 
+		Wait(2)
+END
+
+IF
+	PartyHasItem("TERIKAN") // Terikan's Phylactery
+	Entered(Player5)
+THEN
+	RESPONSE #100
+		TakePartyItem("TERIKAN") // Terikan's Phylactery
+		SetGlobal("6006_LICH_SPAWN","GLOBAL",0)
+		SetGlobal("FORGE_ON","GLOBAL",1)
+		AddexperienceParty(52500)
+		DisplayString(LastTrigger,~Terikan's phylactery is suddenly whisked from your possession, and disintegrates in midair.  A horrible howling is heard through the area, continuing for a small eternity.~)
+		TriggerActivation(Myself,FALSE)
+		DestroyItem("TERIKAN")
+		Wait(2)
+END
+
+IF
+	PartyHasItem("TERIKAN") // Terikan's Phylactery
+	Entered(Player6)
+THEN
+	RESPONSE #100
+		TakePartyItem("TERIKAN") // Terikan's Phylactery
+		SetGlobal("6006_LICH_SPAWN","GLOBAL",0)
+		SetGlobal("FORGE_ON","GLOBAL",1)
+		AddexperienceParty(52500)
+		DisplayString(LastTrigger,~Terikan's phylactery is suddenly whisked from your possession, and disintegrates in midair.  A horrible howling is heard through the area, continuing for a small eternity.~)		TriggerActivation(Myself,FALSE)
+		DestroyItem("TERIKAN")
+		Wait(2)
+END

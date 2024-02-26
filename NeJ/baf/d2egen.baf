@@ -1,0 +1,169 @@
+IF
+	Global("EGENIA_MOVE","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("EGENIA_MOVE","GLOBAL",2)
+		ClearAllActions()
+		StartCutSceneMode()
+		StartCutScene("EGENMOVE")
+END
+
+IF
+	!Global("YXUNOMEI_DEAD","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	!Allegiance(Myself,ENEMY)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([PC])
+THEN
+	RESPONSE #100
+		RunAwayFromNoInterrupt(LastSeenBy(Myself),45)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	AttackedBy([GOODCUTOFF],DEFAULT)
+THEN
+	RESPONSE #100
+		RunAwayFromNoInterrupt(LastAttackerOf(Myself),45)
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	See([ENEMY])
+	Global("Talonites_Attack","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("Talonites_Attack","GLOBAL",1)
+		ReallyForceSpell(Myself,CLERIC_IRONSKIN)
+		ReallyForceSpell(Myself,CLERIC_ARMOR_OF_FAITH)
+		ReallyForceSpell(Myself,CLERIC_PROTECTION_FROM_FIRE)
+		ReallyForceSpell(Myself,CLERIC_REGENERATE)
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	See([ENEMY])
+	Global("VP_Egenia_Fights","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Egenia_Fights","LOCALS",1)
+		ReallyForceSpell(Myself,CLERIC_ANIMAL_SUMMONING_3)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_BOLT_OF_GLORY)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("startAttack","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("startAttack","LOCALS",1)
+		ForceSpell(Myself,CLERIC_HARM)
+END
+
+IF
+	See([ENEMY])
+	Global("startAttack2","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("startAttack2","LOCALS",1)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_SLAY_LIVING)
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	See([ENEMY])
+	Global("VP_Egenia_Fights","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Egenia_Fights","LOCALS",2)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_BOLT_OF_GLORY)
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	See([ENEMY])
+	Global("VP_Egenia_Fights","LOCALS",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Egenia_Fights","LOCALS",3)
+		ApplySpell(Myself,CLERIC_PHYSICAL_MIRROR)
+		ReallyForceSpell(Myself,CLERIC_REGENERATE)
+END
+
+IF
+	HPPercentLT(Myself,20)
+	Global("VP_Heal_Myself","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Heal_Myself","LOCALS",1)
+		ReallyForceSpell(Myself,CLERIC_HEAL)
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	See([ENEMY])
+	Global("VP_Egenia_Fights","LOCALS",3)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Egenia_Fights","LOCALS",4)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_ENERGY_DRAIN)
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	See([ENEMY])
+	Global("Talonites_Attack","GLOBAL",1)
+THEN
+	RESPONSE #100
+		AttackReevaluate(LastSeenBy(Myself),15)
+END
+
+IF
+	Global("startAttack2","LOCALS",6)
+THEN
+	RESPONSE #100
+		SetGlobal("startAttack2","LOCALS",0)
+		AttackOneRound(LastAttackerOf(Myself))
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	See([ENEMY])
+	Global("VP_Egenia_Fights","LOCALS",4)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Egenia_Fights","LOCALS",1)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_BOLT_OF_GLORY)
+END
+
+IF
+	CombatCounter(0)
+	GlobalGT("SPRITE_IS_DEADTalona","GLOBAL",4)
+	GlobalLT("Talonites_Attack","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("Talonites_Attack","GLOBAL",2)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	StateCheck(Myself,STATE_SILENCED)
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,WIZARD_VOCALIZE)
+END
+
+

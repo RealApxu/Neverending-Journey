@@ -1,0 +1,292 @@
+IF
+	See("Egenia")
+	Global("VP_TaloniteAttacks","LOCALS",0)
+	See([PC])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_TaloniteAttacks","LOCALS",1)
+		Enemy()
+END
+
+IF
+	Die()
+THEN
+	RESPONSE #100
+		IncrementGlobal("Talonite_Dead","GLOBAL",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	See(NearestMyGroupOfType)
+	Global("prep","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_DEFENSIVE_HARMONY)
+		ApplySpell(Myself,CLERIC_RIGHTEOUS_MAGIC)
+		Spell(LastSeenBy(Myself),CLERIC_STRENGTH_OF_ONE)
+		SetGlobal("prep","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	GlobalLT("flame","LOCALS",7)
+THEN
+	RESPONSE #100
+		IncrementGlobal("flame","LOCALS",1)
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	See(NearestMyGroupOfType)
+	HaveSpell(CLERIC_MASS_CURE)
+	HPPercentLT(Myself,80)
+	OR(3)
+		HPPercentLT(LastSeenBy(Myself),80)
+		HPPercentLT(SecondNearestMyGroupOfType,80)
+		HPPercentLT(ThirdNearestMyGroupOfType,80)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_MASS_CURE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_DISPEL_MAGIC)
+	Global("magedispel","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DISPEL_MAGIC)
+		SetGlobal("magedispel","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_FREE_ACTION)
+	See(NearestMyGroupOfType)
+	StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_FREE_ACTION)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_TRUE_SIGHT)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_TRUE_SIGHT)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_CHARM_PERSON)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_CHARM_PERSON)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	See(NearestMyGroupOfType)
+	HPPercentLT(LastSeenBy(Myself),60)
+	HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!Range(LastSeenBy(Myself),4)
+	HPPercentLT(Myself,60)
+	HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_CURE_SERIOUS_WOUNDS)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_MENTAL_DOMINATION)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_MENTAL_DOMINATION)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipRanged()
+		AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+	HPLT(Myself,40)
+	Global("Recoup","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,CLERIC_SANCTUARY)
+		ReallyForceSpell(Myself,CLERIC_HEAL)
+		ReallyForceSpell(Myself,CLERIC_PROTECTION_FROM_FIRE)
+		SetGlobal("Recoup","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Spell","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",1)
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_MENTAL_DOMINATION)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Spell","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",2)
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("startAttack","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("startAttack","LOCALS",1)
+		ForceSpell(Myself,CLERIC_CAUSE_SERIOUS_WOUNDS)
+END
+
+IF
+	GlobalLT("startAttack","LOCALS",6)
+THEN
+	RESPONSE #100
+		IncrementGlobal("startAttack","LOCALS",1)
+		AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+	HPLT(Myself,40)
+	Global("Recoup","LOCALS",1)
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,CLERIC_SANCTUARY)
+		ForceSpell(Myself,CLERIC_HEAL)
+		SetGlobal("Recoup","LOCALS",2)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Spell","LOCALS",2)
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",3)
+		ReallyForceSpell(NearestEnemyOf(Myself),CLERIC_BOLT_OF_GLORY)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Spell","LOCALS",3)
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",4)
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_NPC_SYMBOL_FEAR)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("flame","LOCALS",0)
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+		SetGlobal("flame","LOCALS",1)
+END
+
+IF
+	Detect(NearestEnemyOf(Myself))
+	!See(NearestEnemyOf(Myself))
+	Global("Spell","LOCALS",4)
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",5)
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_TRUE_SIGHT)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("startAttack2","LOCALS",0)
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,CLERIC_SLAY_LIVING)
+		SetGlobal("startAttack2","LOCALS",1)
+END
+
+IF
+	GlobalLT("startAttack2","LOCALS",6)
+THEN
+	RESPONSE #100
+		IncrementGlobal("startAttack2","LOCALS",1)
+		AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Spell","LOCALS",5)
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",6)
+		ReallyForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("blade","LOCALS",0)
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,NPC_BLADE_BARRIER)
+		SetGlobal("blade","LOCALS",1)
+END
+
+IF
+	Global("Spell","LOCALS",6)
+	OR(2)
+		See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+		See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",7)
+		ForceSpell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Spell","LOCALS",7)
+	!StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",8)
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_CHARM_PERSON)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("Spell","LOCALS",8)
+	!StateCheck(LastSeenBy(Myself),STATE_HELPLESS)
+THEN
+	RESPONSE #100
+		SetGlobal("Spell","LOCALS",9)
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipRanged()
+		AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+

@@ -1,0 +1,18 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #50
+		DisplayStringHead(Myself,~Why hasn't anyone come to save us?~) // "Why hasn't anyone come to save us?"
+		Wait(3)
+	RESPONSE #50
+		DisplayStringHead(Myself,~I'm afraid, Richon.~) // "I'm afraid, Richon."
+		Wait(3)
+END
+
+

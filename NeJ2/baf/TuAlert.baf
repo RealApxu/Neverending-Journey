@@ -1,0 +1,11 @@
+IF
+	Opened([ANYONE])
+	!StateCheck(LastTrigger,STATE_INVISIBLE)
+	!StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_HalruaaHostile","GLOBAL",1)
+		DisplayString(LastTrigger,~A magical ward has detected your theft! You see a guard is teleporting to this area!~)
+		Wait(3)
+		CreateCreatureObjectDoor("TuAlert",LastTrigger,0,0,0)
+END

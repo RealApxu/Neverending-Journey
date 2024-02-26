@@ -1,0 +1,92 @@
+IF
+	Global("Lysan_Escaped","GLOBAL",0)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Lysan_Group_Hit","MYAREA",1)
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("VP_Lysan_Group_Hit","MYAREA",1)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Lysan_Lair_Hit","MYAREA",1)
+		Enemy()
+		Continue()
+END
+
+IF
+	Global("VP_Lysan_Lair_Hit","MYAREA",1)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Shout(89)
+		AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+	Allegiance(Myself,ENEMY)
+	See([PC])
+THEN
+	RESPONSE #100
+		Shout(89)
+		AttackReevaluate(LastSeenBy(Myself),45)
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		Attack(LastAttackerOf(Myself))
+		Continue()
+END
+
+IF
+	Heard([ANYONE],89)
+	Global("Lysan_Escaped","GLOBAL",0)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		MoveToObject(LastHeardBy(Myself))
+		Enemy()
+		Continue()
+END
+
+IF
+	Allegiance(Myself,NEUTRAL)
+	Global("Lysan_Fight","GLOBAL",1)
+THEN
+	RESPONSE #100
+		Enemy()
+		Continue()
+END
+
+IF
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		RandomWalk()
+END
+
+

@@ -1,0 +1,8 @@
+IF
+	Opened([ANYONE])
+	!StateCheck(LastTrigger,STATE_INVISIBLE)
+	!StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+THEN
+	RESPONSE #100
+		DisplayString("TuEzek",~Please leave my drawer, there is nothing to loot!~)
+END

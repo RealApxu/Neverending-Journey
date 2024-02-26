@@ -1,0 +1,25 @@
+IF
+	See(NearestEnemyOf(Myself))
+	Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #30
+		RunAwayFrom(LastSeenBy(Myself),10)
+	RESPONSE #30
+		ForceSpell(LastSeenBy(Myself),WIZARD_LARLOCH_MINOR_DRAIN)
+	RESPONSE #30
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+	RESPONSE #30
+		AttackReevaluate(WorstAC(Myself),30)
+	RESPONSE #100
+		AttackReevaluate(MostDamagedOf(Myself),30)
+END
+
+IF
+	!See([GOODCUTOFF])
+	Range(Player1,40)
+THEN
+	RESPONSE #100
+		MoveToObject(Player1)
+END
+
+

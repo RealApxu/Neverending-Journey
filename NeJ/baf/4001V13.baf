@@ -1,0 +1,18 @@
+IF
+	Die()
+THEN
+	RESPONSE #100
+END
+
+IF
+	Global("LKingDead","GLOBAL",0)
+THEN
+	RESPONSE #50
+		DisplayStringHead(Myself,~Can't anyone hear us down here?~) // "Can't anyone hear us down here?"
+		Wait(3)
+	RESPONSE #50
+		DisplayStringHead(Myself,~My sister's sick, lady.~) // "My sister's sick, lady."
+		Wait(3)
+END
+
+

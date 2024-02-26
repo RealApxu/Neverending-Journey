@@ -1,0 +1,30 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		FadeToColor([20.0],0)
+		Wait(1)
+		ActionOverride("Trebois",EscapeArea())
+		ActionOverride("TrebHun1",EscapeArea())
+		ActionOverride("TrebHun2",EscapeArea())
+		ActionOverride("TrebHun3",EscapeArea())
+		ActionOverride("Melora",LeaveParty())
+		ActionOverride("Melora",EscapeArea())
+		Wait(1)
+		LeaveAreaLUAPanic("AR6600","",[2088.3702],4)
+		LeaveAreaLUA("AR6600","",[2088.3702],4)
+		ActionOverride(Player2,LeaveAreaLUA("AR6600","",[1960.3702],6))
+		ActionOverride(Player3,LeaveAreaLUA("AR6600","",[2040.3690],4))
+		ActionOverride(Player4,LeaveAreaLUA("AR6600","",[1992.3666],4))
+		ActionOverride(Player5,LeaveAreaLUA("AR6600","",[2008.3738],6))
+		ActionOverride(Player6,LeaveAreaLUA("AR6600","",[2056.3750],4))
+		Wait(1)
+		MultiPlayerSync()
+		Wait(1)
+		RestorePartyLocations()
+		FadeFromColor([20.0],0)
+		EndCutSceneMode()
+END
+
+

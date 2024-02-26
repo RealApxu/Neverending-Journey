@@ -1,0 +1,229 @@
+IF
+	InParty(Myself)
+	Global("VP_Jaheira_In_IWD","GLOBAL",1)
+	Global("VP_EH_Warning","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_EH_Warning","LOCALS",1)
+		RealSetGlobalTimer("VP_EH_WarningTimer","GLOBAL",5)
+END
+
+IF
+	InParty(Myself)
+	Global("VP_Jaheira_In_IWD","GLOBAL",1)
+	Global("VP_EH_Warning","LOCALS",1)
+	RealGlobalTimerExpired("VP_EH_WarningTimer","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Jaheira_In_IWD","GLOBAL",2)
+		StartDialogueNoSet(Player1)
+END
+
+IF
+	InParty(Myself)
+	Global("VP_NPC_Notes_IWD","GLOBAL",1)
+	AreaCheck("TT1000")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_NPC_Notes_IWD","GLOBAL",2)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	InParty(Myself)
+	InParty("Minsc")
+	!Dead("Minsc")
+	Global("VP_BMinsc","LOCALS",0)
+	Global("VP_Start_Banters","GLOBAL",1)
+	Global("VP_16_Days_Timer","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_16_Days_Timer","GLOBAL",1)
+		SetGlobalTimer("VP_Jaheira_Minsc","GLOBAL",TEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Jaheira_Minsc","GLOBAL")
+	Global("VP_16_Days_Timer","GLOBAL",1)
+	InParty(Myself)
+	InParty("Minsc")
+	!Dead("Minsc")
+	Global("VP_BMinsc","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BMinsc","LOCALS",1)
+		SetGlobal("VP_16_Days_Timer","GLOBAL",2)
+		SetGlobalTimer("VP_Jaheira_Minsc","GLOBAL",SIX_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Jaheira_Minsc","GLOBAL")
+	Global("VP_16_Days_Timer","GLOBAL",2)
+	InParty(Myself)
+	InParty("Minsc")
+	See("Minsc")
+	!Dead("Minsc")
+	!StateCheck("Minsc",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BMinsc","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BMinsc","LOCALS",2)
+		Interact("Minsc")
+END
+
+IF
+	InParty(Myself)
+	InParty("Dar")
+	!Dead("Dar")
+	Global("VP_BDar","LOCALS",0)
+	Global("VP_Start_Banters","GLOBAL",1)
+	Global("VP_17_Days_Timer","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_17_Days_Timer","GLOBAL",1)
+		SetGlobalTimer("VP_Jaheira_Dar","GLOBAL",TEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Jaheira_Dar","GLOBAL")
+	Global("VP_17_Days_Timer","GLOBAL",1)
+	InParty(Myself)
+	InParty("Dar")
+	!Dead("Dar")
+	Global("VP_BDar","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BDar","LOCALS",1)
+		SetGlobal("VP_17_Days_Timer","GLOBAL",2)
+		SetGlobalTimer("VP_Jaheira_Dar","GLOBAL",SEVEN_DAYS)
+END
+
+IF
+	GlobalTimerExpired("VP_Jaheira_Dar","GLOBAL")
+	Global("VP_17_Days_Timer","GLOBAL",2)
+	InParty(Myself)
+	InParty("Dar")
+	See("Dar")
+	!Dead("Dar")
+	!StateCheck("Dar",STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BDar","LOCALS",1)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BDar","LOCALS",2)
+		Interact("Dar")
+END
+
+IF
+	InParty(Myself)
+	Global("VP_BPC","LOCALS",0)
+	OR(22)
+		AreaCheck("TT5000")
+		AreaCheck("TT5001")
+		AreaCheck("TT5002")
+		AreaCheck("TT5003")
+		AreaCheck("TT5004")
+		AreaCheck("TT5101")
+		AreaCheck("TT5102")
+		AreaCheck("TT5103")
+		AreaCheck("TT5104")
+		AreaCheck("TT5201")
+		AreaCheck("TT5202")
+		AreaCheck("TT5203")
+		AreaCheck("TT5204")
+		AreaCheck("TT5301")
+		AreaCheck("TT5302")
+		AreaCheck("TT5303")
+		AreaCheck("TT5304")
+		AreaCheck("TT5401")
+		AreaCheck("TT5402")
+		AreaCheck("TT5403")
+		AreaCheck("TT5404")
+		AreaCheck("TT5502")  
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",1)
+		RealSetGlobalTimer("VP_Jaheira_PC","GLOBAL",300)
+END
+
+IF
+	RealGlobalTimerExpired("VP_Jaheira_PC","GLOBAL")
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC","LOCALS",1)
+	!See([ENEMY])
+	OR(22)
+		AreaCheck("TT5000")
+		AreaCheck("TT5001")
+		AreaCheck("TT5002")
+		AreaCheck("TT5003")
+		AreaCheck("TT5004")
+		AreaCheck("TT5101")
+		AreaCheck("TT5102")
+		AreaCheck("TT5103")
+		AreaCheck("TT5104")
+		AreaCheck("TT5201")
+		AreaCheck("TT5202")
+		AreaCheck("TT5203")
+		AreaCheck("TT5204")
+		AreaCheck("TT5301")
+		AreaCheck("TT5302")
+		AreaCheck("TT5303")
+		AreaCheck("TT5304")
+		AreaCheck("TT5401")
+		AreaCheck("TT5402")
+		AreaCheck("TT5403")
+		AreaCheck("TT5404")
+		AreaCheck("TT5502") 
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",2)
+		Interact(Player1)
+END
+
+IF
+	InParty(Myself)
+	OR(2)
+		Global("VP_BPC","LOCALS",0)
+		Global("VP_BPC","LOCALS",3)
+	OR(15)
+		AreaCheck("AR0700")
+		AreaCheck("AR0701")
+		AreaCheck("AR0702")
+		AreaCheck("AR0703")
+		AreaCheck("AR0704")
+		AreaCheck("AR0705")
+		AreaCheck("AR0706")
+		AreaCheck("AR0707")
+		AreaCheck("AR0708")
+		AreaCheck("AR0709")
+		AreaCheck("AR0710")
+		AreaCheck("AR0711")
+		AreaCheck("AR0712")
+		AreaCheck("AR0713")
+		AreaCheck("AR0714")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BPC","LOCALS",4)
+		SetGlobalTimer("VP_Jaheira_PC","GLOBAL",ONE_DAY)
+END
+
+IF
+	GlobalTimerExpired("VP_Jaheira_PC","GLOBAL")
+	Global("VP_NPC_Notes_Hroth","GLOBAL",0)
+	InParty(Myself)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("VP_BPC","LOCALS",4)
+	!See([ENEMY])
+THEN
+	RESPONSE #100
+		SetGlobal("VP_NPC_Notes_Hroth","GLOBAL",1)
+		StartDialogueNoSet(Player1)
+END

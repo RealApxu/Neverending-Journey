@@ -1,0 +1,23 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		FadeToColor([20.0],0)
+		Wait(1)
+		ActionOverride(Player2,MakeUnselectable(1500000))
+		ActionOverride(Player3,MakeUnselectable(1500000))
+		ActionOverride(Player4,MakeUnselectable(1500000))
+		ActionOverride(Player5,MakeUnselectable(1500000))
+		ActionOverride(Player6,MakeUnselectable(1500000))
+		Wait(1)
+		LeaveAreaLUAPanic("TT0061","",[1000.170],2)
+		LeaveAreaLUA("TT0061","",[1000.170],2)
+		MultiPlayerSync()
+		FadeFromColor([20.0],0)
+		Wait(1)
+		EndCutSceneMode()
+END
+
+

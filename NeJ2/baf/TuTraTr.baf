@@ -1,0 +1,30 @@
+IF
+	!Contains("dweowarp",Myself)
+	Global("VP_RobbedGolem","GLOBAL",0)
+	Global("VP_Transmuter_Test","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_RobbedGolem","GLOBAL",1)
+END
+
+IF
+	Opened([ANYONE])
+	!StateCheck(LastTrigger,STATE_INVISIBLE)
+	!StateCheck(LastTrigger,STATE_IMPROVEDINVISIBILITY)
+	Global("VP_RobbedGolem","GLOBAL",0)
+	Global("VP_Transmuter_Test","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_RobbedGolem","GLOBAL",1)
+END
+
+IF
+	OR(2)
+		!Contains("dweowarp",Myself)
+		Opened([ANYONE])
+	GlobalLT("VP_Transmuter_Test","GLOBAL",2)
+	Global("VP_Break_TransTest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("VP_Break_TransTest","GLOBAL",1)
+END

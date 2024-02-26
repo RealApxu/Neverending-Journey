@@ -1,0 +1,39 @@
+IF
+	InParty(Myself)
+	InParty("Imoen")
+	!Dead("Imoen")
+	Detect("Imoen")
+	CombatCounter(0)
+	Global("VP_BImoen","LOCALS",7)
+	RealGlobalTimerExpired("VP_Erevain_Imoen","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BImoen","LOCALS",8)
+		Interact("Imoen")
+END
+
+IF
+	InParty(Myself)
+	InParty("Imoen2")
+	!Dead("Imoen2")
+	Detect("Imoen2")
+	CombatCounter(0)
+	Global("VP_BImoen2","LOCALS",7)
+	RealGlobalTimerExpired("VP_Erevain_Imoen","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("VP_BImoen2","LOCALS",8)
+		Interact("Imoen2")
+END
+
+IF
+	RealGlobalTimerExpired("VP_MyTalks_Timer","GLOBAL")
+	InParty(Myself)
+	Detect(Player1)
+	CombatCounter(0)
+	Global("VP_MyTalks","LOCALS",7)
+THEN
+	RESPONSE #100
+		IncrementGlobal("VP_MyTalks","LOCALS",1)
+		Interact(Player1)
+END

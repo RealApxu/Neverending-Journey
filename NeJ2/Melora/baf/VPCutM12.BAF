@@ -1,0 +1,12 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		CreateCreatureObjectDoor("Shendru",Player1,0,0,0) // Shendru
+		Wait(5)
+		ActionOverride("Shendru",Dialogue(Player1))
+		EndCutSceneMode()
+END
+
+
