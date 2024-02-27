@@ -56,7 +56,7 @@ END
 IF ~~ THEN BEGIN 6
   SAY ~I sincerely thank you.  The door to my shop is just around the corner here.  Please get rid of that demonic canine as soon as possible, and bring me his pelt.~
   IF ~~ THEN UNSOLVED_JOURNAL ~Get rid of the wolf in Apsel's workshop.
-  
+
 We've agreed to help the old scrimshander, Apsel, by breaking into his shop and dispatching the wolf that has somehow found its way inside.~ EXIT
 END
 
@@ -99,7 +99,7 @@ GivePartyGold(25)
 AddexperienceParty(400)
 GiveItemCreate("EHDag",Player1,1,1,1)
 EraseJournalEntry(%Get rid of the wolf in Apsel's workshop.
-  
+
 We've agreed to help the old scrimshander, Apsel, by breaking into his shop and dispatching the wolf that has somehow found its way inside.%)~ SOLVED_JOURNAL ~Get rid of the wolf in Apsel's workshop.
 
 We succeeded in getting rid of the wolf in Apsel's workshop.  Apparently the beast had chewed its way inside to get at the fish bones the old man had stored inside.  Apsel was quite relieved and graciously rewarded us with some gold and carved scrimshaw dagger.~ EXIT

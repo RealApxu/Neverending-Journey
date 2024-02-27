@@ -3,7 +3,7 @@ BEGIN ~DAMELIA~ 86162 // non-zero flags may indicate non-pausing dialogue
 IF ~GlobalGT("Kuldahar_Attack", "GLOBAL", 0)
 GlobalLT("Kuldahar_Attack", "GLOBAL", 3)
 Global("Kuldahar_Murder", "GLOBAL", 0)~ THEN BEGIN 0 // from:
-  SAY ~You're one of those adventurers who went up into Dragon's Eye, aren't you?! Well, who told you to stir up the hells and drive all those beasts into town?! ~ 
+  SAY ~You're one of those adventurers who went up into Dragon's Eye, aren't you?! Well, who told you to stir up the hells and drive all those beasts into town?! ~
   IF ~Global("Arundel_Belhifet", "GLOBAL", 0)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a meal, if the kitchen's open.~  GOTO 10
   IF ~GlobalGT("Arundel_Belhifet", "GLOBAL", 0)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a meal, if the kitchen's open.~  GOTO 10
   IF ~~ THEN REPLY ~Have a care where your words fall, woman, or your tongue will follow. Now leave me to my work.~ EXIT
@@ -11,13 +11,13 @@ END
 
 IF ~NumTimesTalkedTo(0)
 Global("Kuldahar_Murder", "GLOBAL", 0)~ THEN BEGIN 1 // from:
-  SAY ~Keep your damn horses stabled, I'll get to you in a momen...! Eh? What's this -- some sort of magery? ~ 
+  SAY ~Keep your damn horses stabled, I'll get to you in a momen...! Eh? What's this -- some sort of magery? ~
   IF ~~ THEN REPLY ~Uh... excuse me?~  GOTO 2
   IF ~~ THEN REPLY ~What the hells are you blathering about, woman?~  GOTO 2
 END
 
 IF ~~ THEN BEGIN 2 // from: 1.1 1.0
-  SAY ~Ha! I'm just surprised to see a new face in Kuldahar is all - thought I'd never see another customer, the pass buried in snow as it is. You must be looking for something fierce to brave the winter's chill like that.~ 
+  SAY ~Ha! I'm just surprised to see a new face in Kuldahar is all - thought I'd never see another customer, the pass buried in snow as it is. You must be looking for something fierce to brave the winter's chill like that.~
   IF ~~ THEN REPLY ~I'm looking for a meal, if the kitchen's still open.~  GOTO 10
   IF ~Global("Kuldahar_Attack", "GLOBAL", 0)~ THEN REPLY ~I'm part of an expedition - from Easthaven, looking for troubles in Kuldahar.~  GOTO 11
   IF ~~ THEN REPLY ~I'm looking for a room for the night.~  GOTO 4
@@ -26,7 +26,7 @@ END
 
 IF ~NumTimesTalkedToGT(0)
 Global("Kuldahar_Murder", "GLOBAL", 0)~ THEN BEGIN 3 // from:
-  SAY ~Back again? What'll it be this time?~ 
+  SAY ~Back again? What'll it be this time?~
   IF ~~ THEN REPLY ~I'm looking for a meal, if the kitchen's still open.~  GOTO 10
   IF ~Global("Kuldahar_Attack", "GLOBAL", 0)~ THEN REPLY ~I'm part of an expedition - from Easthaven, looking for troubles in Kuldahar.~  GOTO 11
   IF ~~ THEN REPLY ~I'm looking for a room for the night.~  GOTO 4
@@ -34,7 +34,7 @@ Global("Kuldahar_Murder", "GLOBAL", 0)~ THEN BEGIN 3 // from:
 END
 
 IF ~~ THEN BEGIN 4 // from: 13.1 12.2 10.1 3.2 2.2
-  SAY ~Well, you're in and out of luck. We don't have any rooms, but that pug-nosed knee-high at the Evening Shade, Aldwin, has some rooms for let, if you're interested. Better hope you have enough coin, though... I doubt a pile of gold would be enough for that copper-clenching mole.~ 
+  SAY ~Well, you're in and out of luck. We don't have any rooms, but that pug-nosed knee-high at the Evening Shade, Aldwin, has some rooms for let, if you're interested. Better hope you have enough coin, though... I doubt a pile of gold would be enough for that copper-clenching mole.~
   IF ~Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~I... take it you don't like halflings.~  GOTO 5
   IF ~Race(Player1, HALFLING)
 Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~I don't care much for your tone... or your choice of words. Do you have some sort of problem with halflings?~  GOTO 5
@@ -44,7 +44,7 @@ Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~I don't care much for your tone
 END
 
 IF ~~ THEN BEGIN 5 // from: 4.2 4.1 4.0
-  SAY ~It's nothing to do with him being half a man - if so, then most of Kuldahar would be guilty. It's his manner; that ill-mannered excuse for a gunny sack came into ownership of that inn recently, and it's a queer thing *how* he did, too.~ 
+  SAY ~It's nothing to do with him being half a man - if so, then most of Kuldahar would be guilty. It's his manner; that ill-mannered excuse for a gunny sack came into ownership of that inn recently, and it's a queer thing *how* he did, too.~
   IF ~!Alignment(Player1, MASK_EVIL)
 Global("Aldwin_Story", "GLOBAL", 0)~ THEN REPLY ~How so?~  DO ~SetGlobal("Aldwin_Story", "GLOBAL", 1)~ UNSOLVED_JOURNAL ~Claim for the Evening Shade.
 
@@ -65,45 +65,45 @@ Amelia, a barmaid at the Kuldahar tavern mentioned that Aldwin, a halfling, had 
 END
 
 IF ~~ THEN BEGIN 6 // from: 5.3 5.2 5.1 5.0
-  SAY ~Well, the previous innkeeper, Eidan, is one of the folks who've gone missing of late - thing is, he's one of the only ones that seems to *know* he was going missing, 'cause he left a claim on who to pass the inn onto in case he needed to be put to sleep with a shovel.~ 
+  SAY ~Well, the previous innkeeper, Eidan, is one of the folks who've gone missing of late - thing is, he's one of the only ones that seems to *know* he was going missing, 'cause he left a claim on who to pass the inn onto in case he needed to be put to sleep with a shovel.~
   IF ~~ THEN REPLY ~Go on...~  GOTO 7
 END
 
 IF ~~ THEN BEGIN 7 // from: 6.0
-  SAY ~Then, barely a day after he's gone, Aldwin shows up like a winter wolf out of the fresh-fallen snow, with the claim in his paws and sets up shop, pretty as you please.~ 
+  SAY ~Then, barely a day after he's gone, Aldwin shows up like a winter wolf out of the fresh-fallen snow, with the claim in his paws and sets up shop, pretty as you please.~
   IF ~~ THEN REPLY ~Well, Eidan could have just been looking ahead. People leave legacies and wills all the time.~  GOTO 8
   IF ~Class(Player1, THIEF)~ THEN REPLY ~Hmmmm. Sounds like he's pulling a swindle... er, not that I would know anything about swindles. Maybe I should poke around the Evening Shade a little, see what I can find. Can you tell me anything else?~  GOTO 8
   IF ~~ THEN REPLY ~Sounds like one man's misfortune is another's good fortune. What else do you know about it?~  GOTO 8
 END
 
 IF ~~ THEN BEGIN 8 // from: 7.2 7.1 7.0
-  SAY ~Well, I knew Eidan, and the fool was a right enough fellow, but he had the palsy so bad he couldn't even write his own name, much less a claim - and that's even if he *was* in the know about his letters, which he *wasn't.* ~ 
+  SAY ~Well, I knew Eidan, and the fool was a right enough fellow, but he had the palsy so bad he couldn't even write his own name, much less a claim - and that's even if he *was* in the know about his letters, which he *wasn't.* ~
   IF ~~ THEN REPLY ~I see. Interesting. Maybe I'll ask Aldwin about the claim he has. In the meantime, where would I find a meal around here?~  GOTO 10
   IF ~Global("Kuldahar_Attack", "GLOBAL", 0)~ THEN REPLY ~That is strange. By the way, I'm part of an expedition - from Easthaven, looking for troubles in Kuldahar. I was wondering if you could help me.~  GOTO 11
   IF ~~ THEN REPLY ~Thanks, Amelia. You've been very helpful.~  EXIT
 END
 
 IF ~~ THEN BEGIN 9 // from: 5.4 4.4 4.3
-  SAY ~Hmmmph. Well, we'll see. I don't trust him, I don't. He could have killed Eidan himself, he could've. That little runt better watch himself around here, or I'll use him as a welcome mat.~ 
+  SAY ~Hmmmph. Well, we'll see. I don't trust him, I don't. He could have killed Eidan himself, he could've. That little runt better watch himself around here, or I'll use him as a welcome mat.~
   IF ~~ THEN REPLY ~I'm hungry, and a meal would suit me, if the kitchen's still open.~  GOTO 10
   IF ~Global("Kuldahar_Attack", "GLOBAL", 0)~ THEN REPLY ~I'm part of an expedition - from Easthaven, looking for troubles in Kuldahar. I was wondering if you could help me.~  GOTO 11
   IF ~~ THEN REPLY ~Very... well, then. Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 10 // from: 13.0 12.1 9.0 8.0 3.0 2.0 0.1 0.0
-  SAY ~If it's a meal you're after, tell that filthy goateed wine-spider squatting behind the bar to stop drinking the stock and fire up the oven. But you'd best shout - he's too deep in his cups to hear you if you talk civilized-like.~ 
+  SAY ~If it's a meal you're after, tell that filthy goateed wine-spider squatting behind the bar to stop drinking the stock and fire up the oven. But you'd best shout - he's too deep in his cups to hear you if you talk civilized-like.~
   IF ~Global("Kuldahar_Attack", "GLOBAL", 0)~ THEN REPLY ~I may do that - say, I'm part of an expedition - from Easthaven, looking for troubles in Kuldahar. I was wondering if you could help me.~  DO ~SetGlobal("Amelia_Whitcomb", "GLOBAL", 1)~ GOTO 11
   IF ~~ THEN REPLY ~I... see. Do you know where I could find a room for the night?~  DO ~SetGlobal("Amelia_Whitcomb", "GLOBAL", 1)~ GOTO 4
   IF ~~ THEN REPLY ~Very well, then. I will go speak to the barkeep.~  DO ~SetGlobal("Amelia_Whitcomb", "GLOBAL", 1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 11 // from: 10.0 9.1 8.1 3.1 2.1
-  SAY ~Oh, that so? Well, we should all be blessed, then, our bone-carving neighbors trudging through the drifts to make sure we're all right. What's Easthaven worried about us for?~ 
+  SAY ~Oh, that so? Well, we should all be blessed, then, our bone-carving neighbors trudging through the drifts to make sure we're all right. What's Easthaven worried about us for?~
   IF ~~ THEN REPLY ~We heard of strange events in the region - goblins, orcs, and other humanoids seem to be gathering in Easthaven... and Kuldahar. Do you have any idea why?~  GOTO 12
 END
 
 IF ~~ THEN BEGIN 12 // from: 11.0
-  SAY ~No, no, I don't - I mean, we've had our share of raiders before, but this year's been worse than any other I can recall.~ 
+  SAY ~No, no, I don't - I mean, we've had our share of raiders before, but this year's been worse than any other I can recall.~
   IF ~~ THEN REPLY ~How so?~  GOTO 13
   IF ~~ THEN REPLY ~Never mind. I'm more in the mood for a meal than talking at the moment.~  GOTO 10
   IF ~~ THEN REPLY ~Do you know where I can find a room for the night?~  GOTO 4
@@ -111,14 +111,14 @@ IF ~~ THEN BEGIN 12 // from: 11.0
 END
 
 IF ~~ THEN BEGIN 13 // from: 12.0
-  SAY ~Well, I've heard tell of raiders -- goblins and the like -- *never* seen in the Pass before. Folks, travelers, have gone missing, and no one knows where. Lots of strange goings-on, got a lot of folks worried. You might want to speak to Arundel - if his beard's any sign, he's got a lot of knowing to his years. You can find him at the base of the great tree - his is the two-storied house to the south and west.~ 
+  SAY ~Well, I've heard tell of raiders -- goblins and the like -- *never* seen in the Pass before. Folks, travelers, have gone missing, and no one knows where. Lots of strange goings-on, got a lot of folks worried. You might want to speak to Arundel - if his beard's any sign, he's got a lot of knowing to his years. You can find him at the base of the great tree - his is the two-storied house to the south and west.~
   IF ~~ THEN REPLY ~I see. Is there any place I could get a meal? ~  GOTO 10
   IF ~~ THEN REPLY ~Do you know where I can find a room for the night?~  GOTO 4
   IF ~~ THEN REPLY ~I'll go look for him, then. Thanks.~  EXIT
 END
 
 IF ~Global("Kuldahar_Murder", "GLOBAL", 1)~ THEN BEGIN 14 // from:
-  SAY ~You! You filthy butcher! You're no better than the raiders in the pass! Get out of this inn, or else I'll...~ 
+  SAY ~You! You filthy butcher! You're no better than the raiders in the pass! Get out of this inn, or else I'll...~
   IF ~~ THEN REPLY ~You'll do *nothing* except mind your tongue, shrew. Fetch me a drink, or else it'll be your blood on my hands.~  DO ~Enemy()~ EXIT
   IF ~~ THEN REPLY ~Very well. I'll leave... for now.~  EXIT
 END

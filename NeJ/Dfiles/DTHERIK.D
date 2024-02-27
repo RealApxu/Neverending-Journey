@@ -2,7 +2,7 @@ BEGIN ~DTHERIK~
 
 IF ~NumTimesTalkedTo(0)
 Global("THERIK_ATTACKED","GLOBAL",0)~ THEN BEGIN 0 // from:
-  SAY ~You are not welcome here.  Leave this place.~ 
+  SAY ~You are not welcome here.  Leave this place.~
   IF ~~ THEN REPLY ~Who are you?~  GOTO 2
   IF ~~ THEN REPLY ~Why am I not welcome here?~  GOTO 3
   IF ~~ THEN REPLY ~I have no intention of leaving here.~  GOTO 6
@@ -13,7 +13,7 @@ END
 
 IF ~NumTimesTalkedToGT(0)
 Global("THERIK_ATTACKED","GLOBAL",0)~ THEN BEGIN 1 // from:
-  SAY ~Why have you returned?  You are not welcome here.  Leave this place.~ 
+  SAY ~Why have you returned?  You are not welcome here.  Leave this place.~
   IF ~~ THEN REPLY ~Who are you?~  GOTO 2
   IF ~~ THEN REPLY ~Why am I not welcome here?~  GOTO 3
   IF ~~ THEN REPLY ~I have no intention of leaving here.~  GOTO 6
@@ -23,7 +23,7 @@ Global("THERIK_ATTACKED","GLOBAL",0)~ THEN BEGIN 1 // from:
 END
 
 IF ~~ THEN BEGIN 2 // from: 1.0 0.0
-  SAY ~I am...  Therik.  My brethren and I guard this crypt against intruders...  Leave this place.~ 
+  SAY ~I am...  Therik.  My brethren and I guard this crypt against intruders...  Leave this place.~
   IF ~~ THEN REPLY ~Why am I not welcome here?~  GOTO 3
   IF ~~ THEN REPLY ~I have no intention of leaving here.~  GOTO 6
   IF ~~ THEN REPLY ~I seek the evil that plagues Kuldahar. Would that be you?~  GOTO 7
@@ -32,7 +32,7 @@ IF ~~ THEN BEGIN 2 // from: 1.0 0.0
 END
 
 IF ~~ THEN BEGIN 3 // from: 2.0 1.1 0.1
-  SAY ~You are not one of the faithful.  Only a follower of the faith may enter here.  Leave this place.~ 
+  SAY ~You are not one of the faithful.  Only a follower of the faith may enter here.  Leave this place.~
   IF ~~ THEN REPLY ~What faith is it that you speak of?~  GOTO 4
   IF ~~ THEN REPLY ~I have no intention of leaving here.~  GOTO 6
   IF ~~ THEN REPLY ~I seek the evil that plagues Kuldahar. Would that be you?~  GOTO 7
@@ -41,7 +41,7 @@ IF ~~ THEN BEGIN 3 // from: 2.0 1.1 0.1
 END
 
 IF ~~ THEN BEGIN 4 // from: 3.0
-  SAY ~Myrkul, Lord of the Dead, holds sway here.  Embrace Myrkul, become one of the brethren.  Then you will be welcome among us.  Otherwise, leave this place.~ 
+  SAY ~Myrkul, Lord of the Dead, holds sway here.  Embrace Myrkul, become one of the brethren.  Then you will be welcome among us.  Otherwise, leave this place.~
   IF ~~ THEN REPLY ~Become undead? Is that what you are saying?~  GOTO 5
   IF ~~ THEN REPLY ~I have no intention of leaving here.~  GOTO 6
   IF ~~ THEN REPLY ~I seek the evil that plagues Kuldahar. Would that be you?~  GOTO 7
@@ -50,7 +50,7 @@ IF ~~ THEN BEGIN 4 // from: 3.0
 END
 
 IF ~~ THEN BEGIN 5 // from: 4.0
-  SAY ~Yes...  Embrace Myrkul.  Become one of the brethren.  Otherwise, leave this place.~ 
+  SAY ~Yes...  Embrace Myrkul.  Become one of the brethren.  Otherwise, leave this place.~
   IF ~~ THEN REPLY ~I have no intention of leaving here.~  GOTO 6
   IF ~~ THEN REPLY ~I seek the evil that plagues Kuldahar. Would that be you?~  GOTO 7
   IF ~!PartyHasItem("KeyGate")~ THEN REPLY ~Very well, farewell.~  DO ~StartCutScene("vstherc1")~ EXIT
@@ -58,13 +58,13 @@ IF ~~ THEN BEGIN 5 // from: 4.0
 END
 
 IF ~~ THEN BEGIN 6 // from: 12.0 11.0 10.0 9.0 8.0 7.1 5.0 4.1 3.1 2.1 1.2 0.2
-  SAY ~Then you shall die.  Make peace with your god in what little time you have on this earth...  Brethren!  Slay this intruder!~ 
+  SAY ~Then you shall die.  Make peace with your god in what little time you have on this earth...  Brethren!  Slay this intruder!~
   IF ~~ THEN REPLY ~So be it!~  DO ~Enemy()
 SetGlobal("THERIK_ATTACKED","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 7 // from: 5.1 4.2 3.2 2.2 1.3 0.3
-  SAY ~Kuldahar...  That name is not familiar to me.  I know nothing of Kuldahar.  Seek elsewhere.  Leave this place.~ 
+  SAY ~Kuldahar...  That name is not familiar to me.  I know nothing of Kuldahar.  Seek elsewhere.  Leave this place.~
   IF ~~ THEN REPLY ~If you are not responsible, then who is?~  GOTO 8
   IF ~~ THEN REPLY ~I have no intention of leaving here.~  GOTO 6
   IF ~!PartyHasItem("KeyGate")~ THEN REPLY ~Very well, farewell.~  DO ~StartCutScene("vstherc1")~ EXIT
@@ -72,14 +72,14 @@ IF ~~ THEN BEGIN 7 // from: 5.1 4.2 3.2 2.2 1.3 0.3
 END
 
 IF ~~ THEN BEGIN 8 // from: 7.0
-  SAY ~I... do not know.  I tire of these questions.  Leave this place.~ 
+  SAY ~I... do not know.  I tire of these questions.  Leave this place.~
   IF ~~ THEN REPLY ~I have no intention of leaving here.~  GOTO 6
   IF ~!PartyHasItem("KeyGate")~ THEN REPLY ~Very well, farewell.~  DO ~StartCutScene("vstherc1")~ EXIT
   IF ~PartyHasItem("KeyGate")~ THEN REPLY ~Very well, farewell.~  GOTO 9
 END
 
 IF ~~ THEN BEGIN 9 // from: 8.2 7.3 5.3 4.4 3.4 2.4 1.5 0.5
-  SAY ~Wait...  The key.  It is in your possession.  Give me the key, and then you may leave this place.~ 
+  SAY ~Wait...  The key.  It is in your possession.  Give me the key, and then you may leave this place.~
   IF ~~ THEN REPLY ~No, I will not give you the key.~  GOTO 6
   IF ~~ THEN REPLY ~What key is it that you speak of?~  GOTO 10
   IF ~~ THEN REPLY ~Can you tell me what this key is for?~  GOTO 11
@@ -88,7 +88,7 @@ StartCutScene("vstherc1")~ EXIT
 END
 
 IF ~~ THEN BEGIN 10 // from: 9.1
-  SAY ~The key.  You found it in the statue.  Give me the key, and then you may leave this place.~ 
+  SAY ~The key.  You found it in the statue.  Give me the key, and then you may leave this place.~
   IF ~~ THEN REPLY ~No, I will not give you the key.~  GOTO 6
   IF ~~ THEN REPLY ~Can you tell me what this key is for?~  GOTO 11
   IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate")
@@ -96,7 +96,7 @@ StartCutScene("vstherc1")~ EXIT
 END
 
 IF ~~ THEN BEGIN 11 // from: 10.1 9.2
-  SAY ~It unlocks the tomb...  You must not enter there.  It is forbidden.  Give me the key, and then you may leave this place.~ 
+  SAY ~It unlocks the tomb...  You must not enter there.  It is forbidden.  Give me the key, and then you may leave this place.~
   IF ~~ THEN REPLY ~No, I will not give you the key.~  GOTO 6
   IF ~~ THEN REPLY ~What tomb is it that you speak of?~  GOTO 12
   IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate")
@@ -104,7 +104,7 @@ StartCutScene("vstherc1")~ EXIT
 END
 
 IF ~~ THEN BEGIN 12 // from: 11.1
-  SAY ~I will not answer...  You must not enter there.  It is forbidden.  Give me the key, and then you may leave this place.~ 
+  SAY ~I will not answer...  You must not enter there.  It is forbidden.  Give me the key, and then you may leave this place.~
   IF ~~ THEN REPLY ~No, I will not give you the key.~  GOTO 6
   IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate")
 StartCutScene("vstherc1")~ EXIT

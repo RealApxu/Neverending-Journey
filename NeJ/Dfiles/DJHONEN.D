@@ -4,7 +4,7 @@ IF ~NumTimesTalkedTo(0)
 Global("Jhonen_Leaving", "GLOBAL", 0)
 GlobalLT("Siren_Quest", "GLOBAL", 3)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 0 // from:
-  SAY ~Hmmmm... eh?  Oh!  Sorry, friend... I didn't see you standing there.  Name's Jhonen.  Something I can do for you?~ 
+  SAY ~Hmmmm... eh?  Oh!  Sorry, friend... I didn't see you standing there.  Name's Jhonen.  Something I can do for you?~
   IF ~~ THEN REPLY ~Are you all right?  You seem preoccupied.~  GOTO 2
   IF ~~ THEN REPLY ~I'm surprised you saw me as deep into day-dreaming as you seem to be.  Your time might be better spent fishing in the lake than in your dreams.~  GOTO 3
   IF ~~ THEN REPLY ~Sorry for disturbing you.  I'll take my leave.~  EXIT
@@ -14,7 +14,7 @@ IF ~NumTimesTalkedToGT(0)
 Global("Jhonen_Leaving", "GLOBAL", 0)
 GlobalLT("Siren_Quest", "GLOBAL", 3)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 1 // from:
-  SAY ~Hmmm... eh?  Oh, greetings to you again.  Forget something last time we spoke?~ 
+  SAY ~Hmmm... eh?  Oh, greetings to you again.  Forget something last time we spoke?~
   IF ~Global("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~Jhonen, I think I found the reason for those dreams you're having.  ~  GOTO 9
   IF ~Global("Siren_Quest", "GLOBAL", 1)
 Global("Elisia_Vanish", "GLOBAL", 1)~ THEN REPLY ~Jhonen, I think I found the reason for those dreams you're having.  It was a sea spirit by the shore, and I drove her away.~  GOTO 17
@@ -24,37 +24,37 @@ Global("Elisia_Vanish", "GLOBAL", 1)~ THEN REPLY ~Jhonen, I think I found the re
 END
 
 IF ~~ THEN BEGIN 2 // from: 1.2 0.0
-  SAY ~No, no, I'm fine - just taking in the view of the lake for a bit, trying to shake these dreams out of my head... the lake's beautiful, isn't it?  ~ 
+  SAY ~No, no, I'm fine - just taking in the view of the lake for a bit, trying to shake these dreams out of my head... the lake's beautiful, isn't it?  ~
   IF ~Class(Protagonist, 5)~ THEN REPLY ~Ah, it is indeed.  Many a song has been written about light upon a lake's mirror.  It's like looking into the sky, isn't it?~  GOTO 4
   IF ~~ THEN REPLY ~Dreams?  Usually those fade upon waking, friend.  Mayhap a day's worth of fishing will chase them away.~  GOTO 6
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 3 // from: 1.3 0.1
-  SAY ~Well, perhaps so, but my luck's not been what it has been in the past.  I head farther out, but there's no fish to be found.  Even my dreams have been troubled by it.  ~ 
+  SAY ~Well, perhaps so, but my luck's not been what it has been in the past.  I head farther out, but there's no fish to be found.  Even my dreams have been troubled by it.  ~
   IF ~~ THEN REPLY ~What kind of dreams?~  GOTO 7
   IF ~~ THEN REPLY ~I must take my leave. Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 4 // from: 2.0
-  SAY ~Aye, you've hit on the head, you have!  Songs, you say?  Odd you should mention that; I've heard many a song in my dreams - mayhap it's part of a snippet I heard once before.  Would you know of it if I were to hum a few bars?~ 
+  SAY ~Aye, you've hit on the head, you have!  Songs, you say?  Odd you should mention that; I've heard many a song in my dreams - mayhap it's part of a snippet I heard once before.  Would you know of it if I were to hum a few bars?~
   IF ~~ THEN REPLY ~I may... my repertoire is somewhat limited, but go ahead.~  GOTO 5
   IF ~~ THEN REPLY ~As long as you don't mangle the tune too badly, I might.  Just be sure to stop when I tell you to.~  GOTO 5
 END
 
 IF ~~ THEN BEGIN 5 // from: 4.1 4.0
-  SAY ~It's kind of a hmmmnnn... srnnnn... srnnnn... ha-nnnnn... and then - it's... it's like -- damn, I can't quite get it!  And I hear it so clearly in my dreams, too; the tune's like crystal.~ 
+  SAY ~It's kind of a hmmmnnn... srnnnn... srnnnn... ha-nnnnn... and then - it's... it's like -- damn, I can't quite get it!  And I hear it so clearly in my dreams, too; the tune's like crystal.~
   IF ~~ THEN REPLY ~No, no, I think I recognize the general tone.  It's definitely not a human verse, though - the "srrnnn-srnnn" tempo there is more like ocean waves and currents - like sea elves, or sirens.  And you say you've been having strange dreams, too?  Hmmmm.  Tell me about them.~  GOTO 7
 END
 
 IF ~~ THEN BEGIN 6 // from: 2.1
-  SAY ~Ah, well, the dreams have been fishing in *me* of late, friend.  So much so I can barely catch a wink before they rouse me from it.  A frustration it is at times; sometimes, it seems like they're more real than the waking world.~ 
+  SAY ~Ah, well, the dreams have been fishing in *me* of late, friend.  So much so I can barely catch a wink before they rouse me from it.  A frustration it is at times; sometimes, it seems like they're more real than the waking world.~
   IF ~~ THEN REPLY ~What kind of dreams?~  GOTO 7
   IF ~~ THEN REPLY ~I must take my leave. Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 7 // from: 6.0 5.0 3.0
-  SAY ~Well, there's a woman... and don't give me that eye, it's not like you think... she walks upon the surface of the lake as if it were flagstones instead of waves.  She doesn't say anything, just sings - beautiful songs, but I can't understand a word.  ~ 
+  SAY ~Well, there's a woman... and don't give me that eye, it's not like you think... she walks upon the surface of the lake as if it were flagstones instead of waves.  She doesn't say anything, just sings - beautiful songs, but I can't understand a word.  ~
   IF ~Race(Protagonist, 2)~ THEN REPLY ~Some races that dwell beneath the sea, including the elves, don't speak as we do.  Perhaps the woman is speaking to you.  And speaking through dreams would not be beyond their talents.~  GOTO 8
   IF ~Global("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~The woman in your dreams is a sea spirit, Jhonen.  Her kind speak through song, which is why you couldn't understand her.~  GOTO 10
   IF ~Global("Know_Elisia", "GLOBAL", 1)
@@ -64,7 +64,7 @@ GlobalLT("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~Hmmm.  I think I may have met 
 END
 
 IF ~~ THEN BEGIN 8 // from: 7.3 7.2 7.0
-  SAY ~If truth be told, friend, I... th... dammit, there's no sense to it!  These dreams are eating at me like a starving wolf!  I can barely hold a daily thought in my head before the memory of the dreams hounds its way back in there.  I... by the hells, I don't know how much more of this I can take.~ 
+  SAY ~If truth be told, friend, I... th... dammit, there's no sense to it!  These dreams are eating at me like a starving wolf!  I can barely hold a daily thought in my head before the memory of the dreams hounds its way back in there.  I... by the hells, I don't know how much more of this I can take.~
   IF ~Global("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~The woman in your dreams is a sea spirit, Jhonen.  Her kind speak through song, which is why you couldn't understand her.~  GOTO 10
   IF ~Global("Know_Elisia", "GLOBAL", 1)
 GlobalLT("Siren_Quest", "GLOBAL", 2)
@@ -80,14 +80,14 @@ Global("Elisia_Vanish", "GLOBAL", 0)~ THEN REPLY ~I must take my leave. Farewell
 END
 
 IF ~~ THEN BEGIN 9 // from: 8.3 8.1 1.0
-  SAY ~Eh?  You're not playing on a man's hopes, are you?  I'd be grateful for just *one* night of peace.~ 
+  SAY ~Eh?  You're not playing on a man's hopes, are you?  I'd be grateful for just *one* night of peace.~
   IF ~Global("Elisia_Vanish", "GLOBAL", 1)~ THEN REPLY ~The woman in your dreams was a sea spirit, Jhonen.  I drove her away; she shouldn't be bothering you anymore.~  GOTO 17
   IF ~Global("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~The woman in your dreams is a sea spirit, Jhonen.  Her kind speak through song, which is why you couldn't understand her.~  GOTO 10
   IF ~GlobalLT("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~I'll see what I can do.  If I think of anything, I will return.~  EXIT
 END
 
 IF ~~ THEN BEGIN 10 // from: 9.1 8.0 7.1
-  SAY ~A... sea spirit?  Eh... what does she *want,* then?  Why the *dreams?*~ 
+  SAY ~A... sea spirit?  Eh... what does she *want,* then?  Why the *dreams?*~
   IF ~~ THEN REPLY ~She's one of the spirits of the lake that seek to lure men to their deaths, Jhonen - the dreams are "bait," if you will.  If you would be cursed with these dreams no longer, you must give up your worldly possessions and leave this town at once.  You can give your possessions to me, if you wish.  I will see that they're, uh, disposed of.~  DO ~GiveItemCreate("Fish", Protagonist, 0, 0, 0)
 GiveItemCreate("Fish", Protagonist, 0, 0, 0)
 GiveItemCreate("Fish", Protagonist, 0, 0, 0)
@@ -107,42 +107,42 @@ We told Jhonen why he was plagued with dreams, and we returned to him his ancest
 END
 
 IF ~~ THEN BEGIN 11 // from: 10.1
-  SAY ~One of my *ancestors?*  Why come to me, then?~ 
+  SAY ~One of my *ancestors?*  Why come to me, then?~
   IF ~~ THEN REPLY ~Your features remind her of him, and your heart is as strong, if not stronger.  She has come to love you, but she cannot let you see her in the flesh.  She wishes to give you something that belonged to your ancestor, if you would take it.~  DO ~AddExperienceParty(6000)
 SetGlobal("Siren_Quest", "GLOBAL", 3)~ GOTO 13
 END
 
 IF ~~ THEN BEGIN 12 // from: 10.0
-  SAY ~I was fearing it was such a thing - the song in my dreams was too beautiful to be anything else but trouble!  My father raised no fool, and he told me never to try and fight the spirits that lurk in the North.  I'll hate to leave this place, but it seems I have no choice.  At least I don't have much in the way of belongings... here, take these.  Farewell... and thanks, friend.  ~ 
+  SAY ~I was fearing it was such a thing - the song in my dreams was too beautiful to be anything else but trouble!  My father raised no fool, and he told me never to try and fight the spirits that lurk in the North.  I'll hate to leave this place, but it seems I have no choice.  At least I don't have much in the way of belongings... here, take these.  Farewell... and thanks, friend.  ~
   IF ~~ THEN REPLY ~Ah, some fish and a fisherman's knife.  I'll be sure these are disposed of... properly.  Now, if I were you, I'd hurry and leave, without speaking to anyone about this.  Farewell, Jhonen.~  DO ~SetGlobal("Jhonen_Leaving", "GLOBAL", 1)
 EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN 13 // from: 11.0
-  SAY ~Aye, I will.  Of course I will... sorry, it's... well, it's a bit much to be laid upon a fisherman all at once.  I... well, I'd be honored to accept anything she wishes me to have.~ 
+  SAY ~Aye, I will.  Of course I will... sorry, it's... well, it's a bit much to be laid upon a fisherman all at once.  I... well, I'd be honored to accept anything she wishes me to have.~
   IF ~~ THEN REPLY ~Here you are, then.  It's the blade your ancestor used against Icasaracht, the last of the white dragon matriarchs.  It lay within the dragon's heart for almost a century at the bottom of the waters.  Carry it well and know that Elisia loves you; your dreams shall trouble you no more.~  DO ~TakePartyItem("JhoSwd1")~ GOTO 14
 END
 
 IF ~~ THEN BEGIN 14 // from: 13.0
-  SAY ~By the Spine of the World... even shattered, this blade's a wonder.  But... no more dreams, you said?  I... well, I'll miss them, actually.  Her songs... beautiful.  Simply beautiful.~ 
+  SAY ~By the Spine of the World... even shattered, this blade's a wonder.  But... no more dreams, you said?  I... well, I'll miss them, actually.  Her songs... beautiful.  Simply beautiful.~
   IF ~~ THEN REPLY ~I'll tell her, Jhonen.  Farewell.   ~  EXIT
 END
 
 IF ~Global("Jhonen_Leaving", "GLOBAL", 1)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 15 // from:
-  SAY ~I'm on my way.  Nothing but the clothes on my back to take me to the next town.~ 
+  SAY ~I'm on my way.  Nothing but the clothes on my back to take me to the next town.~
   IF ~~ THEN REPLY ~Good.  Just be sure *not* to speak of what occurred - the dreams may come again if you do.~  DO ~EscapeArea()~ EXIT
 END
 
 IF ~GlobalGT("Siren_Quest", "GLOBAL", 2)
 Global("Jhonen_Leaving", "GLOBAL", 0)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 16 // from:
-  SAY ~Thanks again, friend.  It's like the dream dust was wiped from eyes.  I can't thank you enough for all you've done.~ 
+  SAY ~Thanks again, friend.  It's like the dream dust was wiped from eyes.  I can't thank you enough for all you've done.~
   IF ~~ THEN REPLY ~It was no trouble, Jhonen.  Glad I could help.~  EXIT
 END
 
 IF ~~ THEN BEGIN 17 // from: 9.0 8.2 1.1
-  SAY ~A... sea spirit?  Really?!  Many thanks to you, then... my father always warned me to be wary of creatures of the sea.  But - please, take these for your efforts.  It's all I can offer, but...~ 
+  SAY ~A... sea spirit?  Really?!  Many thanks to you, then... my father always warned me to be wary of creatures of the sea.  But - please, take these for your efforts.  It's all I can offer, but...~
   IF ~~ THEN REPLY ~Thank you, Jhonen.  Sleep well.~  DO ~GiveItemCreate("Fish", Protagonist, 0, 0, 0)
 GiveItemCreate("Fish", Protagonist, 0, 0, 0)
 GiveItemCreate("Fish", Protagonist, 0, 0, 0)
@@ -156,13 +156,13 @@ END
 
 IF ~GlobalGT("Know_Balance", "GLOBAL", 0)
 Global("Siren_Quest", "GLOBAL", 0)~ THEN BEGIN 18 // from:
-  SAY ~Stand right where you are - I don't know if you're with those giants, but if you are, you won't take me without a fight.~ 
+  SAY ~Stand right where you are - I don't know if you're with those giants, but if you are, you won't take me without a fight.~
   IF ~~ THEN REPLY ~Calm down, we're not with the giants.  We're the last remains of Hrothgar's expedition.~  GOTO 19
 END
 
 IF ~GlobalGT("Know_Balance", "GLOBAL", 0)
 GlobalGT("Siren_Quest", "GLOBAL", 0)~ THEN BEGIN 19 // from: 18.0
-  SAY ~You!  Thank the Gods you've returned!  I don't know what's happened, but the giants came out of nowhere - and the ice - it just - rose from the earth - and the villagers - the giants herded them up, and - and --~ 
+  SAY ~You!  Thank the Gods you've returned!  I don't know what's happened, but the giants came out of nowhere - and the ice - it just - rose from the earth - and the villagers - the giants herded them up, and - and --~
   IF ~Global("Siren_Quest", "GLOBAL", 0)~ THEN REPLY ~Calm down.  Where were the villagers taken?  ~  GOTO 20
   IF ~GlobalGT("Siren_Quest", "GLOBAL", 0)~ THEN REPLY ~Calm down, Jhonen.  Where were the villagers taken?  ~  GOTO 20
   IF ~GlobalGT("Freed_Everard", "GLOBAL", 0)
@@ -172,7 +172,7 @@ GlobalGT("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~I've freed the villagers.  You
 END
 
 IF ~~ THEN BEGIN 20 // from: 19.1 19.0
-  SAY ~They took them to a camp - they tore timbers out of the buildings and used them as a stockade in the southeast corner of town, on the island.  I don't know if they're okay --~ 
+  SAY ~They took them to a camp - they tore timbers out of the buildings and used them as a stockade in the southeast corner of town, on the island.  I don't know if they're okay --~
   IF ~GlobalGT("Freed_Everard", "GLOBAL", 0)
 GlobalLT("Siren_Quest", "GLOBAL", 3)~ THEN REPLY ~I've freed them and spoken to Everard.  I'm looking for a way to get into the tower.  You should seek safety as well.  There's nothing more you can do here.~  GOTO 23
   IF ~GlobalGT("Freed_Everard", "GLOBAL", 0)
@@ -181,19 +181,19 @@ GlobalGT("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~I've freed them and spoken to 
 END
 
 IF ~~ THEN BEGIN 21 // from: 20.2
-  SAY ~You have to free the villagers!  Everard's among them, and he may know of a way into the tower - I saw the giants drag him into the tower, then return him to the camp - I don't even know if he was breathing...~ 
+  SAY ~You have to free the villagers!  Everard's among them, and he may know of a way into the tower - I saw the giants drag him into the tower, then return him to the camp - I don't even know if he was breathing...~
   IF ~GlobalLT("Siren_Quest", "GLOBAL", 3)~ THEN REPLY ~I'll seek him out, then.  You should seek safety now; there's nothing more you can do here.~  GOTO 23
   IF ~GlobalGT("Siren_Quest", "GLOBAL", 2)~ THEN REPLY ~I'll seek him out, then.  You should seek safety now; there's nothing more you can do here.~  GOTO 22
 END
 
 IF ~~ THEN BEGIN 22 // from: 21.1 20.1 19.3
-  SAY ~There is one thing I can do - that blade you brought me, so long ago?  It's... healed.  I simply fell asleep with it on the table beside me one night - and in the dream, it melted together again.  When I awoke; it was restored.  I want you to use it.  Use it to defend Easthaven from these monsters.~ 
+  SAY ~There is one thing I can do - that blade you brought me, so long ago?  It's... healed.  I simply fell asleep with it on the table beside me one night - and in the dream, it melted together again.  When I awoke; it was restored.  I want you to use it.  Use it to defend Easthaven from these monsters.~
   IF ~~ THEN REPLY ~I will, Jhonen.  ~  DO ~GiveItemCreate("JhoSwd2", Protagonist, 0,0,0)
 AddExperienceParty(9000)~ GOTO 23
 END
 
 IF ~~ THEN BEGIN 23 // from: 22.0 21.0 20.0 19.2
-  SAY ~Thank you - please be careful.  That tower - there's something *evil* within it; I can feel the hate from here, it's like waves streaming off the tower.~ 
+  SAY ~Thank you - please be careful.  That tower - there's something *evil* within it; I can feel the hate from here, it's like waves streaming off the tower.~
   IF ~Alignment(Protagonist,3)~ THEN REPLY ~Jhonen, whatever's in that tower has *never* met an evil like me.  It's the one that'll need to careful.~  DO ~SetGlobal("Jhonen_Done", "GLOBAL", 1)
 EscapeArea()~ EXIT
   IF ~!Alignment(Protagonist,3)~ THEN REPLY ~I'll watch myself.  Take care, Jhonen.~  DO ~SetGlobal("Jhonen_Done", "GLOBAL", 1)
@@ -202,6 +202,6 @@ END
 
 IF ~GlobalGT("Jhonen_Done", "GLOBAL", 0)
 GlobalGT("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 24 // from:
-  SAY ~I'm going to head to the outskirts of town.  Please be careful - there are giants everywhere.~ 
+  SAY ~I'm going to head to the outskirts of town.  Please be careful - there are giants everywhere.~
   IF ~~ THEN REPLY ~I'll watch myself.  Take care, Jhonen.~  DO ~EscapeArea()~ EXIT
 END

@@ -30,98 +30,154 @@ END
 
 IF ~~ THEN BEGIN 4
   SAY ~My tale of Larrel it is.
-
-In time of growth,
-Did the elves deem so,
-That a haven in the north be made
-
-They searched for one,
-Strong of Mind,
-Strong of Will,
+
+
+In time of growth,
+
+Did the elves deem so,
+
+That a haven in the north be made
+
+
+
+They searched for one,
+
+Strong of Mind,
+
+Strong of Will,
+
 To bear this burdensome task.~
   IF ~~ THEN GOTO 5
 END
 
 IF ~~ THEN BEGIN 5
-  SAY ~Though the wizards were many
-And diligence all had,
-One of wisdom they found,
-Larrel shined above all
-
-Ride did he,
-Across frozen lands,
-Ascending the peaks,
+  SAY ~Though the wizards were many
+
+And diligence all had,
+
+One of wisdom they found,
+
+Larrel shined above all
+
+
+
+Ride did he,
+
+Across frozen lands,
+
+Ascending the peaks,
+
 In the Spine of the World.~
   IF ~~ THEN GOTO 6
 END
 
 IF ~~ THEN BEGIN 6
-  SAY ~Beasts did he battle, 
-And darkest of hordes,
-Forthright in his quest,
-Larrel conquered all
-
-Winters came,
-Winters went,
-Through darkest cold night,
+  SAY ~Beasts did he battle,
+
+And darkest of hordes,
+
+Forthright in his quest,
+
+Larrel conquered all
+
+
+
+Winters came,
+
+Winters went,
+
+Through darkest cold night,
+
 The one pushed through.~
   IF ~~ THEN GOTO 7
 END
 
 IF ~~ THEN BEGIN 7
-  SAY ~In midst of this tundra,
-A place he did find,
-Home for the elves,
+  SAY ~In midst of this tundra,
+
+A place he did find,
+
+Home for the elves,
+
 Larrel did crown.~
   IF ~~ THEN REPLY ~Can you tell me the tale of the dwarves and the elves?~ GOTO 8
   IF ~~ THEN REPLY ~Many thanks, Telanis.  Farewell.~ EXIT
 END
 
 IF ~~ THEN BEGIN 8
-  SAY ~Ahhh.  The tale of the elves and the dwarves.  Tis a sad one...
-
-In time of strife
-Against the dark horde
-A friend we found
-In the ones short and stout
-
-United as one
-Our forces did fight
-In battle we charged
+  SAY ~Ahhh.  The tale of the elves and the dwarves.  Tis a sad one...
+
+
+
+In time of strife
+
+Against the dark horde
+
+A friend we found
+
+In the ones short and stout
+
+
+
+United as one
+
+Our forces did fight
+
+In battle we charged
+
 And drove the dark back.~
   IF ~~ THEN GOTO 9
 END
 
 IF ~~ THEN BEGIN 9
-  SAY ~We danced and we drank
-With victory in hand
-An old enemy vanquished
-A new ally behind
-
-Agreement both made
-To craft items of light
-Weapons of Might
+  SAY ~We danced and we drank
+
+With victory in hand
+
+An old enemy vanquished
+
+A new ally behind
+
+
+
+Agreement both made
+
+To craft items of light
+
+Weapons of Might
+
 Artifacts of Power.~
   IF ~~ THEN GOTO 10
 END
 
 IF ~~ THEN BEGIN 10
-  SAY ~For years upon years
-Our bond remained strong
-In times of prosperity
-Even in adversity
-
-When the darkness returned
-Its form we were blind
-The dwarves had betrayed us
+  SAY ~For years upon years
+
+Our bond remained strong
+
+In times of prosperity
+
+Even in adversity
+
+
+
+When the darkness returned
+
+Its form we were blind
+
+The dwarves had betrayed us
+
 Weapons given to orc-kind.~
   IF ~~ THEN GOTO 11
 END
 
 IF ~~ THEN BEGIN 11
-  SAY ~Knife in back
-Deception instead of friendship
-That is what dwarves give
+  SAY ~Knife in back
+
+Deception instead of friendship
+
+That is what dwarves give
+
 To those of elvenkind.~
   IF ~~ THEN REPLY ~Will you sing us the tale of Larrel now?~ GOTO 4
   IF ~~ THEN REPLY ~Many thanks, Telanis.  Farewell.~ EXIT

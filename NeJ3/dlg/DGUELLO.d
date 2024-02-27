@@ -38,9 +38,9 @@ END
 IF ~Global("Beorn_Quest","GLOBAL",3)~ THEN BEGIN 4
   SAY ~Thank you for rescuing me from the mines.  Now that Shikata is dead, we are one step closer to saving our people.  You have our gratitude.~
 	IF ~~ THEN REPLY ~Don't mention it, Guello. I'm just glad that you're safe.~ DO ~SetGlobal("Beorn_Quest","GLOBAL",4)~ GOTO 5
-	IF ~~ THEN REPLY ~Yeah, sure.~ DO ~SetGlobal("Beorn_Quest","GLOBAL",4)~ GOTO 5 
-END 
-  
+	IF ~~ THEN REPLY ~Yeah, sure.~ DO ~SetGlobal("Beorn_Quest","GLOBAL",4)~ GOTO 5
+END
+
 IF ~~ THEN BEGIN 5
   SAY ~I hope that your courage is as remarkable as your charity.  By communing with the stones, we have learned that a pack of umber hulks is headed this way.  They are likely to find our camp within two surface days.  We need you to help defend us.~
   IF ~~ THEN REPLY ~Of course, I will protect you.~ GOTO 7

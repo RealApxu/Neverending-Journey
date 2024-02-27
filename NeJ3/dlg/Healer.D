@@ -1,6 +1,6 @@
 BEGIN ~Healer~
 
-IF ~True()~ THEN BEGIN 0 
+IF ~True()~ THEN BEGIN 0
   SAY ~You can rest here if you want.~
   IF ~~ THEN REPLY ~Yes, please.~ GOTO 1
   IF ~~ THEN REPLY ~Not at the momet, but thank you.~ GOTO 2

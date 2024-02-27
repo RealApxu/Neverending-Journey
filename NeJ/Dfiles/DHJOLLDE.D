@@ -2,14 +2,14 @@ BEGIN ~DHJOLLDE~
 
 IF ~NumTimesTalkedTo(0)
 Global("Know_Hjollder", "GLOBAL", 0)~ THEN BEGIN 0 // from:
-  SAY ~By Tempos!  The vision speaks true.  You *are* the heroes from my dreams.~ [HJOLL001] 
+  SAY ~By Tempos!  The vision speaks true.  You *are* the heroes from my dreams.~ [HJOLL001]
   IF ~~ THEN REPLY ~Do I know you?~  DO ~SetGlobal("Know_Hjollder", "GLOBAL", 1)~ GOTO 1
   IF ~~ THEN REPLY ~What are you talking about?~  DO ~SetGlobal("Know_Hjollder", "GLOBAL", 1)~ GOTO 2
   IF ~~ THEN REPLY ~You must have us confused with some other heroes.  Farewell.~  DO ~SetGlobal("Know_Hjollder", "GLOBAL", 1)~ GOTO 17
 END
 
 IF ~~ THEN BEGIN 1 // from: 0.0
-  SAY ~Our paths have not crossed until this day.  I am Hjollder[Yole-dare], son to Hrethric[Reth-rick], elder and shaman to the Tribe of the Bear.~ [HJOLL002] 
+  SAY ~Our paths have not crossed until this day.  I am Hjollder[Yole-dare], son to Hrethric[Reth-rick], elder and shaman to the Tribe of the Bear.~ [HJOLL002]
   IF ~~ THEN REPLY ~Well met, Hjollder.  What's this business about dreams and visions?~  GOTO 2
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~What's a tribesman doing here in Kuldahar?~  GOTO 2
   IF ~Global("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~What's a tribesman doing here in Lonelywood?~  GOTO 2
@@ -17,31 +17,31 @@ IF ~~ THEN BEGIN 1 // from: 0.0
 END
 
 IF ~~ THEN BEGIN 2 // from: 25.0 1.3 1.2 1.1 1.0 0.1
-  SAY ~The vision is why I have come to this place.  Tempos has guided me to you.~ [HJOLL003] 
+  SAY ~The vision is why I have come to this place.  Tempos has guided me to you.~ [HJOLL003]
   IF ~~ THEN REPLY ~For what purpose?~  GOTO 3
   IF ~Class(Player1, Paladin)~ THEN REPLY ~If your god has guided you to us, then your need must be great indeed.~  GOTO 8
   IF ~~ THEN REPLY ~Well you found us... now Tempos can guide you elsewhere.  Farewell.~  GOTO 17
 END
 
 IF ~~ THEN BEGIN 3 // from: 17.1 17.0 2.0
-  SAY ~This I cannot say.  I know only that the storm of war darkens the skies of my homeland.  My people are gathering in numbers greater than any have seen for generations.  ~ [HJOLL004] 
+  SAY ~This I cannot say.  I know only that the storm of war darkens the skies of my homeland.  My people are gathering in numbers greater than any have seen for generations.  ~ [HJOLL004]
   IF ~~ THEN GOTO 4
 END
 
 IF ~~ THEN BEGIN 4 // from: 8.0 3.0
-  SAY ~A king, both new and old, has risen to lead the tribes against the Ten-Towns.  Already the first snows of winter bear the dark stains of spilt blood.~ [HJOLL005] 
+  SAY ~A king, both new and old, has risen to lead the tribes against the Ten-Towns.  Already the first snows of winter bear the dark stains of spilt blood.~ [HJOLL005]
   IF ~~ THEN REPLY ~I don't see what any of this has to do with us.~  GOTO 5
   IF ~~ THEN REPLY ~Tell me more of this new *and* old king.~  DO ~SetGlobal("Know_Wylf", "GLOBAL", 1)~ GOTO 9
   IF ~~ THEN REPLY ~Speak plainly.  What do you want from us?~  GOTO 7
 END
 
 IF ~~ THEN BEGIN 5 // from: 16.2 16.1 12.3 10.1 4.0
-  SAY ~You must understand.  I have read the signs.  Tempos will not favor either side in the coming battles.  Both my people and those of the towns shall be haunted by countless deaths without honor.~ [HJOLL006] 
+  SAY ~You must understand.  I have read the signs.  Tempos will not favor either side in the coming battles.  Both my people and those of the towns shall be haunted by countless deaths without honor.~ [HJOLL006]
   IF ~~ THEN GOTO 6
 END
 
 IF ~~ THEN BEGIN 6 // from: 5.0
-  SAY ~I have cast my spirit into the nether realm in search of a way to prevent what must not be.  My vision quest led me here to find you.  *You* are the answer I seek.~ [HJOLL007] 
+  SAY ~I have cast my spirit into the nether realm in search of a way to prevent what must not be.  My vision quest led me here to find you.  *You* are the answer I seek.~ [HJOLL007]
   IF ~~ THEN REPLY ~I see.  So what can we do to help?~  GOTO 7
   IF ~Global("Know_Wylf", "GLOBAL", 1)~ THEN REPLY ~Tell me again of this new *and* old king.~  GOTO 9
   IF ~Global("Know_Wylf", "GLOBAL", 0)~ THEN REPLY ~Tell me again of this new *and* old king.~  DO ~SetGlobal("Know_Wylf", "GLOBAL", 1)~ GOTO 9
@@ -49,7 +49,7 @@ IF ~~ THEN BEGIN 6 // from: 5.0
 END
 
 IF ~~ THEN BEGIN 7 // from: 25.1 16.0 6.0 4.2
-  SAY ~You must come to Hengorot[hen-gore-oh]... to the great Mead Hall where the tribes have gathered.  You alone can forestall the war between our peoples.~ [HJOLL008] 
+  SAY ~You must come to Hengorot[hen-gore-oh]... to the great Mead Hall where the tribes have gathered.  You alone can forestall the war between our peoples.~ [HJOLL008]
   IF ~Global("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~Very well.  We shall accompany you.~  DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 2)~ JOURNAL ~Today we arrived at last in the town of Lonelywood.  We had hardly caught sight of the outlying buildings when we were approached by a large man clad in deerskins.  He introduced himself as Hjollder, shaman to the Tribe of the Bear.  He went on to explain that his people were on the brink of war with the Ten-Towns, and that visions had led him to believe that we could somehow prevent the conflict.  In any case, we agreed to accompany the shaman and aid him in any way we can.~  GOTO 18
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)
 LevelGT(Player1,8)~ THEN REPLY ~Very well.  We shall accompany you.~  DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 2)~ JOURNAL ~We met some sort of barbarian shaman sheltering in one of the abandoned buildings in Kuldahar.  He introduced himself as Hjollder, shaman to the Tribe of the Bear.  He went on to explain that his people were on the brink of war with the Ten-Towns, and that visions had led him to believe that we could somehow prevent the conflict.  In any case, we agreed to accompany the shaman and aid him in any way we can.~  GOTO 21
@@ -62,29 +62,29 @@ Global("Hjollder_Quest", "GLOBAL", 1)~ THEN REPLY ~Maybe some other time.  Farew
 END
 
 IF ~~ THEN BEGIN 8 // from: 2.1
-  SAY ~Yes.  The storm of war darkens the skies of my homeland.  My people are gathering in numbers greater than any have seen for generations.  ~ [HJOLL009] 
+  SAY ~Yes.  The storm of war darkens the skies of my homeland.  My people are gathering in numbers greater than any have seen for generations.  ~ [HJOLL009]
   IF ~~ THEN GOTO 4
 END
 
 IF ~~ THEN BEGIN 9 // from: 6.2 6.1 4.1
-  SAY ~Wylfdene[Wilf-dane] is his name.  He was a great warrior from an elder tribe who was slain in battle on the eve of last season.~ [HJOLL010] 
+  SAY ~Wylfdene[Wilf-dane] is his name.  He was a great warrior from an elder tribe who was slain in battle on the eve of last season.~ [HJOLL010]
   IF ~~ THEN GOTO 10
 END
 
 IF ~~ THEN BEGIN 10 // from: 9.0
-  SAY ~Now his body has returned from death's halls to lead my people once more... as king.  ~ [HJOLL011] 
+  SAY ~Now his body has returned from death's halls to lead my people once more... as king.  ~ [HJOLL011]
   IF ~~ THEN REPLY ~He came back from the grave?  What kind of undead monster is this king of yours?~  GOTO 11
   IF ~~ THEN REPLY ~Interesting... but I don't see what any of this has to do with us.~  GOTO 5
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~I've heard enough.  Go spin your yarns at the tavern if you like... we've got better things to do.~  EXIT
 END
 
 IF ~~ THEN BEGIN 11 // from: 10.0
-  SAY ~Wylfdene's flesh is but a vessel, a borrowed tool.  The spirit of the new king is much, much older than the form it now inhabits.~ [HJOLL012] 
+  SAY ~Wylfdene's flesh is but a vessel, a borrowed tool.  The spirit of the new king is much, much older than the form it now inhabits.~ [HJOLL012]
   IF ~~ THEN GOTO 12
 END
 
 IF ~~ THEN BEGIN 12 // from: 11.0
-  SAY ~It is said that the spirit of Jerrod governs his body.  It is this claim that has fueled the fires of vengeance among my people.~ [HJOLL013] 
+  SAY ~It is said that the spirit of Jerrod governs his body.  It is this claim that has fueled the fires of vengeance among my people.~ [HJOLL013]
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)
 GlobalGT("Jered_Stone", "GLOBAL", 0)~ THEN REPLY ~Jerrod?  Isn't he the barbarian hero entombed beneath the temple in Easthaven?~  GOTO 13
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)
@@ -94,63 +94,63 @@ Global("Jered_Stone", "GLOBAL", 0)~ THEN REPLY ~Jerrod?  Who is he?~  GOTO 14
 END
 
 IF ~~ THEN BEGIN 13 // from: 12.2 12.0
-  SAY ~[surprised]The same.  You know our history well.  ~ [HJOLL014] 
+  SAY ~[surprised]The same.  You know our history well.  ~ [HJOLL014]
   IF ~~ THEN GOTO 16
 END
 
 IF ~~ THEN BEGIN 14 // from: 12.1
-  SAY ~Jerrod was our greatest hero.  Centuries ago, he united the tribes and led us to victory against invaders from the south.~ [HJOLL015] 
+  SAY ~Jerrod was our greatest hero.  Centuries ago, he united the tribes and led us to victory against invaders from the south.~ [HJOLL015]
   IF ~~ THEN GOTO 15
 END
 
 IF ~~ THEN BEGIN 15 // from: 14.0
-  SAY ~He died on the battlefield in the embrace of infernal magicks, bravely sacrificing his life to save his people.~ [HJOLL016] 
+  SAY ~He died on the battlefield in the embrace of infernal magicks, bravely sacrificing his life to save his people.~ [HJOLL016]
   IF ~~ THEN GOTO 16
 END
 
 IF ~~ THEN BEGIN 16 // from: 15.0 13.0
-  SAY ~Now, after centuries of imprisonment, Jerrod's spirit is free and rallies the tribes once more in a common cause.~ [HJOLL017] 
+  SAY ~Now, after centuries of imprisonment, Jerrod's spirit is free and rallies the tribes once more in a common cause.~ [HJOLL017]
   IF ~~ THEN REPLY ~I see.  So what can we do to help?~  GOTO 7
   IF ~~ THEN REPLY ~If this Jerrod was such a great hero, surely his cause must be just.  So why are you here?~  GOTO 5
   IF ~~ THEN REPLY ~The ghost of one of your ancestors is leading your people to war?  Forgive me if I don't believe you.~  GOTO 5
 END
 
 IF ~~ THEN BEGIN 17 // from: 2.2 0.2
-  SAY ~Wait... I beg you.  I have risked much to find you.  I am certain the vision spoke true.  Only *you* can help my people.~ [HJOLL018] 
+  SAY ~Wait... I beg you.  I have risked much to find you.  I am certain the vision spoke true.  Only *you* can help my people.~ [HJOLL018]
   IF ~~ THEN REPLY ~You say a vision led you to us?  For what purpose?~  GOTO 3
   IF ~~ THEN REPLY ~What makes you think we can do anything to help your people?~  GOTO 3
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~Maybe some other time.  Farewell.~  JOURNAL ~We met some sort of barbarian shaman sheltering in one of the abandoned buildings in Kuldahar.  He kept harping on about visions and such, pleading with us to help him and his people.  Perhaps the poor fellow had been out in the snow for too long.  In any case, we gave him the brush off and left him in peace.~  EXIT
 END
 
 IF ~~ THEN BEGIN 18 // from: 27.0 7.0
-  SAY ~Though we journey towards the same destination, our paths are not one.  My place is at the side of my king.  Already I have been gone too long.~ [HJOLL019] 
+  SAY ~Though we journey towards the same destination, our paths are not one.  My place is at the side of my king.  Already I have been gone too long.~ [HJOLL019]
   IF ~~ THEN GOTO 19
 END
 
 IF ~~ THEN BEGIN 19 // from: 18.0
-  SAY ~From here, you must go alone.  The people of this town will know the way to the camp of my people.~ [HJOLL020] 
+  SAY ~From here, you must go alone.  The people of this town will know the way to the camp of my people.~ [HJOLL020]
   IF ~~ THEN GOTO 20
 END
 
 IF ~~ THEN BEGIN 20 // from: 19.0
-  SAY ~Travel swiftly and safely.  We shall meet again when you stand before the council in the great Mead Hall.~ [HJOLL021] 
+  SAY ~Travel swiftly and safely.  We shall meet again when you stand before the council in the great Mead Hall.~ [HJOLL021]
   IF ~~ THEN DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 4)
 MoveToPoint([273.306])
 EscapeArea()~ JOURNAL ~Before parting company, Hjollder instructed us to travel alone to the Great Mead Hall.  Once there, we must go before the council of his people and sue for peace.  He said the people of Lonelywood should know the way to the barbarian camp.~  EXIT
 END
 
 IF ~~ THEN BEGIN 21 // from: 25.5 7.1
-  SAY ~I am honored by your choice.  The journey is a long one, and our quest is urgent.  I shall summon the wind to carry us through the mountains and over the tundra.~ [HJOLL022] 
+  SAY ~I am honored by your choice.  The journey is a long one, and our quest is urgent.  I shall summon the wind to carry us through the mountains and over the tundra.~ [HJOLL022]
   IF ~~ THEN GOTO 22
 END
 
 IF ~~ THEN BEGIN 22 // from: 21.0
-  SAY ~Know this... should you wish to return to this place, it is within my power to bring you back.  But walking upon the wind taxes one's spirit greatly.  ~ [HJOLL023] 
+  SAY ~Know this... should you wish to return to this place, it is within my power to bring you back.  But walking upon the wind taxes one's spirit greatly.  ~ [HJOLL023]
   IF ~~ THEN GOTO 23
 END
 
 IF ~~ THEN BEGIN 23 // from: 22.0
-  SAY ~It may be days before I can make the journey again.  Now... are you prepared to depart?~ [HJOLL024] 
+  SAY ~It may be days before I can make the journey again.  Now... are you prepared to depart?~ [HJOLL024]
   IF ~~ THEN REPLY ~Yes.  Let us be off.~  DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 3)
 StartCutSceneMode()
 StartCutScene("KUTOLW")~ EXIT
@@ -158,12 +158,12 @@ StartCutScene("KUTOLW")~ EXIT
 END
 
 IF ~~ THEN BEGIN 24 // from: 25.6 23.1
-  SAY ~Very well.  I shall remain here until you return.  Mark well the passage of time.  The storm draws closer with each passing moment.~ [HJOLL025] 
+  SAY ~Very well.  I shall remain here until you return.  Mark well the passage of time.  The storm draws closer with each passing moment.~ [HJOLL025]
   IF ~~ THEN REPLY ~Farewell.~  EXIT
 END
 
 IF ~GlobalLT("Hjollder_Quest", "GLOBAL", 3)~ THEN BEGIN 25 // from:
-  SAY ~You have returned.  Again it is as the vision foretold.~ [HJOLL026] 
+  SAY ~You have returned.  Again it is as the vision foretold.~ [HJOLL026]
   IF ~Global("Hjollder_Quest", "GLOBAL", 0)~ THEN REPLY ~What is this vision you keep harping on about?~  GOTO 2
   IF ~Global("Hjollder_Quest", "GLOBAL", 1)~ THEN REPLY ~What is it with you and this vision?  What do you want from us?~  GOTO 7
   IF ~GlobalLT("Hjollder_Quest", "GLOBAL", 2)~ THEN REPLY ~Right.  We must be going now.  Farewell.~  EXIT
@@ -181,42 +181,42 @@ LevelGT(Player1,8)~ THEN REPLY ~We are ready to accompany you now.  Let us be of
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 3)~ THEN BEGIN 26 // from:
-  SAY ~We have arrived outside the settlement your people call Lonelywood.  Of the Ten-Towns, it is the nearest to my people's homeland and will no doubt fall first if my people heed Wylfdene's call to war.~ [HJOLL027] 
+  SAY ~We have arrived outside the settlement your people call Lonelywood.  Of the Ten-Towns, it is the nearest to my people's homeland and will no doubt fall first if my people heed Wylfdene's call to war.~ [HJOLL027]
   IF ~~ THEN GOTO 27
 END
 
 IF ~~ THEN BEGIN 27 // from: 26.0
-  SAY ~Now I must leave you, for I am not welcome among the homes of these southerners.~ [HJOLL028] 
+  SAY ~Now I must leave you, for I am not welcome among the homes of these southerners.~ [HJOLL028]
   IF ~~ THEN REPLY ~You're leaving?  I thought you were supposed to take us to this Mead Hall of yours.~  GOTO 18
 END
 
 IF ~~ THEN BEGIN 28 // from:
-  SAY ~Stay your hand, mighty Wylfdene.  These strangers bear our people no malice - upon my oath.~ [HJOLL029] 
+  SAY ~Stay your hand, mighty Wylfdene.  These strangers bear our people no malice - upon my oath.~ [HJOLL029]
   IF ~~ THEN GOTO 29
 END
 
 IF ~~ THEN BEGIN 29 // from: 28.0
-  SAY ~I know this, for it was I who bade them to appear before this council.~ [HJOLL030] 
+  SAY ~I know this, for it was I who bade them to appear before this council.~ [HJOLL030]
   IF ~~ THEN EXTERN ~DWYLF~ 41
 END
 
 IF ~~ THEN BEGIN 30 // from:
-  SAY ~Their coming was foretold by a vision.  I have been to the other side, great king.  The spirits have shown me these heroes and other images that speak the will of Tempos.~ [HJOLL031] 
+  SAY ~Their coming was foretold by a vision.  I have been to the other side, great king.  The spirits have shown me these heroes and other images that speak the will of Tempos.~ [HJOLL031]
   IF ~~ THEN GOTO 31
 END
 
 IF ~~ THEN BEGIN 31 // from: 30.0
-  SAY ~If Tempos has called these strangers to us, then surely we cannot dishonor ourselves by slaying them within the hallowed halls of Hengorot.~ [HJOLL032] 
+  SAY ~If Tempos has called these strangers to us, then surely we cannot dishonor ourselves by slaying them within the hallowed halls of Hengorot.~ [HJOLL032]
   IF ~~ THEN EXTERN ~DWYLF~ 42
 END
 
 IF ~~ THEN BEGIN 32 // from:
-  SAY ~I... I do not know.  The vision was unclear as to what purpose they must serve, but it must-~ [HJOLL033] 
+  SAY ~I... I do not know.  The vision was unclear as to what purpose they must serve, but it must-~ [HJOLL033]
   IF ~~ THEN DO ~SetGlobal("Body_Count", "GLOBAL", 1)~ EXTERN ~DWYLF~ 43
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 4)~ THEN BEGIN 33 // from:
-  SAY ~What's this?  More spirits come to torment my treasonous heart?  Be gone, vengeful ghosts!  Allow me to endure my shame in peace.~ [HJOLL034] 
+  SAY ~What's this?  More spirits come to torment my treasonous heart?  Be gone, vengeful ghosts!  Allow me to endure my shame in peace.~ [HJOLL034]
   IF ~~ THEN REPLY ~We're no ghosts, Hjollder.  We're flesh and blood like you.~  DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 5)
 SetGlobal("Body_Count", "GLOBAL", 2)
 AddExperienceParty(26308)~ GOTO 34
@@ -226,21 +226,21 @@ AddExperienceParty(26308)~ EXIT
 END
 
 IF ~~ THEN BEGIN 34 // from: 33.0
-  SAY ~How can this be?  Wylfdene expelled you from the camp.  Your quest was over before it began.  Why have you come to this place?~ [HJOLL035] 
+  SAY ~How can this be?  Wylfdene expelled you from the camp.  Your quest was over before it began.  Why have you come to this place?~ [HJOLL035]
   IF ~~ THEN REPLY ~We've come to rescue you.~  GOTO 35
   IF ~~ THEN REPLY ~Wylfdene did more than just expel us... he tried to have us killed!~  GOTO 42
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~That's right... our quest is over.  We'd like to return to Kuldahar now.~  GOTO 43
 END
 
 IF ~~ THEN BEGIN 35 // from: 34.0
-  SAY ~Rescue me?  You do not understand.  There shall be no rescue for me... only redemption found in death's embrace.  I belong here and shall remain until my spirit has been cleansed for the crossing.~ [HJOLL036] 
+  SAY ~Rescue me?  You do not understand.  There shall be no rescue for me... only redemption found in death's embrace.  I belong here and shall remain until my spirit has been cleansed for the crossing.~ [HJOLL036]
   IF ~~ THEN REPLY ~Are you saying you've decided to just give up and die here?~  GOTO 36
   IF ~~ THEN REPLY ~Look, we've come a long way to find you.  We're not about to just give up and go home.~  GOTO 36
   IF ~~ THEN REPLY ~So be it.  Farewell, Hjollder.~  EXIT
 END
 
 IF ~~ THEN BEGIN 36 // from: 43.1 43.0 42.1 42.0 35.1 35.0
-  SAY ~My fate has been decreed by Wylfdene.  An honest man accepts all judgments of his chosen king.~ [HJOLL037] 
+  SAY ~My fate has been decreed by Wylfdene.  An honest man accepts all judgments of his chosen king.~ [HJOLL037]
   IF ~Global("Know_Soul", "GLOBAL", 1)~ THEN REPLY ~What if we were to tell you Wylfdene isn't who he claims to be?~  GOTO 37
   IF ~Class(Player1, PALADIN)~ THEN REPLY ~You are indeed honest, but my faith has allowed me to see into the heart of your king.  The touch of evil is upon him.~  GOTO 45
   IF ~Global("Know_Soul", "GLOBAL", 0)
@@ -249,27 +249,27 @@ IF ~~ THEN BEGIN 36 // from: 43.1 43.0 42.1 42.0 35.1 35.0
 END
 
 IF ~~ THEN BEGIN 37 // from: 46.0 36.0
-  SAY ~What?  The king is false?  How is this known to you?~ [HJOLL038] 
+  SAY ~What?  The king is false?  How is this known to you?~ [HJOLL038]
   IF ~~ THEN REPLY ~We have spoken with the spirits of this island.  They have told us that the spirit that inhabits Wylfdene's body is corrupted by evil.~  GOTO 38
 END
 
 IF ~~ THEN BEGIN 38 // from: 37.0
-  SAY ~Yes... I see.  It is this corruption that has placed the spirits in turmoil.  These visions I have had of late are the manifestations of their anguish.~ [HJOLL039] 
+  SAY ~Yes... I see.  It is this corruption that has placed the spirits in turmoil.  These visions I have had of late are the manifestations of their anguish.~ [HJOLL039]
   IF ~~ THEN GOTO 39
 END
 
 IF ~~ THEN BEGIN 39 // from: 38.0
-  SAY ~However, I fear I have risked too much already based upon the word of spirits.  If I am to act against my king, I must have proof.~ [HJOLL040] 
+  SAY ~However, I fear I have risked too much already based upon the word of spirits.  If I am to act against my king, I must have proof.~ [HJOLL040]
   IF ~~ THEN REPLY ~Where can we find such proof?~  GOTO 40
 END
 
 IF ~~ THEN BEGIN 40 // from: 45.0 39.0
-  SAY ~If the soul that inhabits Wylfdene's body is indeed corrupt, then perhaps it may have left signs of its passing within the tomb of the dead king.~ [HJOLL041] 
+  SAY ~If the soul that inhabits Wylfdene's body is indeed corrupt, then perhaps it may have left signs of its passing within the tomb of the dead king.~ [HJOLL041]
   IF ~~ THEN GOTO 41
 END
 
 IF ~~ THEN BEGIN 41 // from: 40.0
-  SAY ~Seek your proof within the barrows of this island.  Should you discover anything of importance, return it here to me and we shall discuss our quest further.~ [HJOLL042] 
+  SAY ~Seek your proof within the barrows of this island.  Should you discover anything of importance, return it here to me and we shall discuss our quest further.~ [HJOLL042]
   IF ~PartyHasItem("wylfins")~ THEN REPLY ~We found this amulet within Wylfdene's tomb.  It appears to have been intentionally defaced.~  DO ~TakePartyItem("wylfins")
 SetGlobal("Hjollder_Quest", "GLOBAL", 7)
 AddExperienceParty(26309)~ JOURNAL ~We gave Hjollder the amulet we found in Wylfdene's tomb.  The defaced insignia coupled with the desecration of the tomb was proof enough to convince the shaman that the spirit inhabiting Wylfdene's body could not possibly be that of the barbarian hero, Jerrod.~  GOTO 48
@@ -277,31 +277,31 @@ AddExperienceParty(26309)~ JOURNAL ~We gave Hjollder the amulet we found in Wylf
 END
 
 IF ~~ THEN BEGIN 42 // from: 34.1
-  SAY ~Please... try not to judge my people so harshly.  It was my foolishness that put your lives in danger.  It is only right that I remain exiled here... until death frees me.~ [HJOLL043] 
+  SAY ~Please... try not to judge my people so harshly.  It was my foolishness that put your lives in danger.  It is only right that I remain exiled here... until death frees me.~ [HJOLL043]
   IF ~~ THEN REPLY ~Are you saying you've decided to just give up and die here?~  GOTO 36
   IF ~~ THEN REPLY ~Look, we've come a long way to find you.  We're not about to just give up and go home.~  GOTO 36
   IF ~~ THEN REPLY ~So be it.  Farewell, Hjollder.~  EXIT
 END
 
 IF ~~ THEN BEGIN 43 // from: 46.3 34.2
-  SAY ~I'm afraid that is not possible.  I have been banished to this place for my treason.  Here I must remain until death's shadow falls upon me.~ [HJOLL044] 
+  SAY ~I'm afraid that is not possible.  I have been banished to this place for my treason.  Here I must remain until death's shadow falls upon me.~ [HJOLL044]
   IF ~~ THEN REPLY ~Are you saying you've decided to just give up and die here?~  GOTO 36
   IF ~~ THEN REPLY ~Look, we've come a long way to find you.  We're not about to just give up and go home.~  GOTO 36
   IF ~~ THEN REPLY ~So be it.  Farewell, Hjollder.~  EXIT
 END
 
 IF ~~ THEN BEGIN 44 // from: 46.2 36.2
-  SAY ~I'm afraid not.  I have been banished by law.  No longer am I a shaman of the Tribe of the Bear.  I am even forbidden to commune with the spirits until my own is ready to join them.~ [HJOLL045] 
+  SAY ~I'm afraid not.  I have been banished by law.  No longer am I a shaman of the Tribe of the Bear.  I am even forbidden to commune with the spirits until my own is ready to join them.~ [HJOLL045]
   IF ~~ THEN REPLY ~Then we shall speak with the spirits of this island.  Perhaps they will tell us what to do.  Farewell.~  JOURNAL ~Despite the great lengths we've gone to rescue him from his banishment, Hjollder seems resigned to his fate.  Maybe the spirits of the Isle know something that might change his mind.~  EXIT
 END
 
 IF ~~ THEN BEGIN 45 // from: 46.1 36.1
-  SAY ~I suspect your vision to be true.  However, I have already risked too much on visions.  If I am to act against my king, I must have proof.~ [HJOLL046] 
+  SAY ~I suspect your vision to be true.  However, I have already risked too much on visions.  If I am to act against my king, I must have proof.~ [HJOLL046]
   IF ~~ THEN REPLY ~Where can we find such proof?~  GOTO 40
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 5)~ THEN BEGIN 46 // from:
-  SAY ~You should not remain on this island.  The shame of this banishment is mine alone to bear.  So my king has decreed.~ [HJOLL047] 
+  SAY ~You should not remain on this island.  The shame of this banishment is mine alone to bear.  So my king has decreed.~ [HJOLL047]
   IF ~Global("Know_Soul", "GLOBAL", 1)~ THEN REPLY ~What if we were to tell you that Wylfdene isn't who he claims to be?~  GOTO 37
   IF ~Class(Player1, PALADIN)~ THEN REPLY ~You are indeed honest, but my faith has allowed me to see into the heart of your king.  The touch of evil is upon him.~  GOTO 45
   IF ~Global("Know_Soul", "GLOBAL", 0)
@@ -311,7 +311,7 @@ IF ~Global("Hjollder_Quest", "GLOBAL", 5)~ THEN BEGIN 46 // from:
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 6)~ THEN BEGIN 47 // from:
-  SAY ~You have returned.  Have you found any clues within the barrows?~ [HJOLL048] 
+  SAY ~You have returned.  Have you found any clues within the barrows?~ [HJOLL048]
   IF ~PartyHasItem("wylfins")~ THEN REPLY ~We found this amulet within Wylfdene's tomb.  It appears to have been intentionally defaced.~  DO ~TakePartyItem("wylfins")
 SetGlobal("Hjollder_Quest", "GLOBAL", 7)
 AddExperienceParty(26309)~ JOURNAL ~We gave Hjollder the amulet we found in Wylfdene's tomb.  The defaced insignia coupled with the desecration of the tomb was proof enough to convince the shaman that the spirit inhabiting Wylfdene's body could not possibly be that of the barbarian hero, Jerrod.~  GOTO 48
@@ -319,34 +319,34 @@ AddExperienceParty(26309)~ JOURNAL ~We gave Hjollder the amulet we found in Wylf
 END
 
 IF ~~ THEN BEGIN 48 // from: 47.0 41.0
-  SAY ~This is Wylfdene's tribal insignia.  Such chains are worn by the kings of my people and are considered the most precious of worldly possessions.~ [HJOLL049] 
+  SAY ~This is Wylfdene's tribal insignia.  Such chains are worn by the kings of my people and are considered the most precious of worldly possessions.~ [HJOLL049]
   IF ~~ THEN REPLY ~So?~  GOTO 49
 END
 
 IF ~~ THEN BEGIN 49 // from: 48.0
-  SAY ~No true tribesman would dare to deface so sacred an object.  If Wylfdene is responsible for this desecration, then it is *not* the spirit of Jerrod that now inhabits his body.~ [HJOLL050] 
+  SAY ~No true tribesman would dare to deface so sacred an object.  If Wylfdene is responsible for this desecration, then it is *not* the spirit of Jerrod that now inhabits his body.~ [HJOLL050]
   IF ~~ THEN REPLY ~If not Jerrod, then who?~  GOTO 50
   IF ~~ THEN REPLY ~I see.  What do we do now?~  GOTO 51
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~We have provided you with the proof you needed... now we would like to return to Kuldahar.~  GOTO 60
 END
 
 IF ~~ THEN BEGIN 50 // from: 49.0
-  SAY ~This I do not know.  Even in my visions, the face of the king is obscured... almost as if my vision is opposed.~ [HJOLL051] 
+  SAY ~This I do not know.  Even in my visions, the face of the king is obscured... almost as if my vision is opposed.~ [HJOLL051]
   IF ~~ THEN GOTO 51
 END
 
 IF ~~ THEN BEGIN 51 // from: 63.0 50.0 49.1
-  SAY ~There is one who might help us in our quest.  If legend holds true, she may be able to see this soul for what it truly is.~ [HJOLL052] 
+  SAY ~There is one who might help us in our quest.  If legend holds true, she may be able to see this soul for what it truly is.~ [HJOLL052]
   IF ~~ THEN REPLY ~Who is this person you speak of?~  GOTO 52
 END
 
 IF ~~ THEN BEGIN 52 // from: 51.0
-  SAY ~She is known as the Gloomfrost Seer.  She was once a powerful channeler of spirits that lived among the Tribe of the Elk.~ [HJOLL053] 
+  SAY ~She is known as the Gloomfrost Seer.  She was once a powerful channeler of spirits that lived among the Tribe of the Elk.~ [HJOLL053]
   IF ~~ THEN DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 8)~ GOTO 53
 END
 
 IF ~~ THEN BEGIN 53 // from: 63.1 52.0
-  SAY ~The legend says that her gift of sight was so great it turned her eyes to dust.  It is said she fled north, to dwell within the darkness of the Gloomfrost.~ [HJOLL054] 
+  SAY ~The legend says that her gift of sight was so great it turned her eyes to dust.  It is said she fled north, to dwell within the darkness of the Gloomfrost.~ [HJOLL054]
   IF ~~ THEN REPLY ~You think this woman can help?~  GOTO 54
   IF ~~ THEN REPLY ~What is the Gloomfrost?~  GOTO 55
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~On second thought... we'd like to return to Kuldahar first.~ GOTO 60
@@ -354,43 +354,43 @@ IF ~~ THEN BEGIN 53 // from: 63.1 52.0
 END
 
 IF ~~ THEN BEGIN 54 // from: 53.0
-  SAY ~The Gloomfrost Seer sees many things that are kept from the eyes of mortals.  If she still lives, she may be the *only* help for us now.~ [HJOLL055] 
+  SAY ~The Gloomfrost Seer sees many things that are kept from the eyes of mortals.  If she still lives, she may be the *only* help for us now.~ [HJOLL055]
   IF ~~ THEN REPLY ~What exactly is the Gloomfrost?~  GOTO 55
   IF ~~ THEN REPLY ~So where can we find this witch?~  GOTO 55
   IF ~~ THEN REPLY ~On second thought... I think we've done enough for you and your people.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 55 // from: 54.1 54.0 53.1
-  SAY ~The Gloomfrost lies far to the northeast, beyond the Reghed Glacier.  It is an ancient place, as old as the world itself.~ [HJOLL056] 
+  SAY ~The Gloomfrost lies far to the northeast, beyond the Reghed Glacier.  It is an ancient place, as old as the world itself.~ [HJOLL056]
   IF ~~ THEN GOTO 56
 END
 
 IF ~~ THEN BEGIN 56 // from: 55.0
-  SAY ~The tales of my people say that the Gloomfrost marks the place where the sun was expelled from the womb of Toril when she was still a young mother.~ [HJOLL057] 
+  SAY ~The tales of my people say that the Gloomfrost marks the place where the sun was expelled from the womb of Toril when she was still a young mother.~ [HJOLL057]
   IF ~~ THEN GOTO 57
 END
 
 IF ~~ THEN BEGIN 57 // from: 56.0
-  SAY ~It is said that the heat of the infant sun scarred the glacier as it fled to the sky, turning the ice black as night and casting the surrounding land into darkness.  ~ [HJOLL058] 
+  SAY ~It is said that the heat of the infant sun scarred the glacier as it fled to the sky, turning the ice black as night and casting the surrounding land into darkness.  ~ [HJOLL058]
   IF ~~ THEN REPLY ~Sounds like a cheerful place.  How do we find it?~  GOTO 58
   IF ~~ THEN REPLY ~On second thought... I think we've done enough for you and your people.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 58 // from: 63.2 57.0
-  SAY ~I shall mark the way upon your map.  Make haste in your journey, but beware... the guardians of the Gloomfrost protect the Seer from the intrusions of man.  Only those who prove themselves worthy shall be granted her wisdom.~ [HJOLL059] 
+  SAY ~I shall mark the way upon your map.  Make haste in your journey, but beware... the guardians of the Gloomfrost protect the Seer from the intrusions of man.  Only those who prove themselves worthy shall be granted her wisdom.~ [HJOLL059]
   IF ~~ THEN REPLY ~Very well.  We'll make for the Gloomfrost without delay.~ JOURNAL ~In order to discover the true identity of the spirit inhabiting Wylfdene's body, Hjollder has asked us to seek out a tribal oracle known as the Gloomfrost Seer.  He marked the location of where to search for this seer on our map.  Once we have found her and learned the truth about Wylfdene, we are to return to the barbarian camp and demand an audience with the council.~  GOTO 59
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~On second thought... we'd like to return to Kuldahar first.~ GOTO 60
 END
 
 IF ~~ THEN BEGIN 59 // from: 58.0
-  SAY ~I shall defy banishment and return to the camp in secret.  If you are successful, go directly to the Mead Hall and demand an audience with Wylfdene.  Together, we shall expose him and put an end to his evil.~ [HJOLL060] 
+  SAY ~I shall defy banishment and return to the camp in secret.  If you are successful, go directly to the Mead Hall and demand an audience with Wylfdene.  Together, we shall expose him and put an end to his evil.~ [HJOLL060]
   IF ~~ THEN REPLY ~Farewell.~  DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 9)
 StartCutSceneMode()
 StartCutScene("HJescape2")~ JOURNAL ~Hjollder told us he was going to defy banishment and return to the barbarian camp in secret. The camp is well guarded and would be difficult, if not impossible, to enter. Perhaps he means to hide in the forest nearby. We should search for him there.~  EXIT
 END
 
 IF ~~ THEN BEGIN 60 // from: 81.0 79.2 75.1 58.1 53.3 53.2 49.2
-  SAY ~Very well.  I shall honor my word and return you to the town under the great tree.  ~ [HJOLL061] 
+  SAY ~Very well.  I shall honor my word and return you to the town under the great tree.  ~ [HJOLL061]
   IF ~!Global("Hjollder_Quest", "GLOBAL", 11)~ THEN REPLY ~Thank you.~  DO ~SetGlobal("Exp_Pause", "GLOBAL", 1)
 StartCutSceneMode()
 StartCutScene("BITOKU")~ EXIT
@@ -400,7 +400,7 @@ StartCutScene("BCTOKU")~ EXIT
 END
 
 IF ~Global("Exp_Pause", "GLOBAL", 1)~ THEN BEGIN 61 // from:
-  SAY ~I have done as you asked.  However, our quest is far from complete.  I shall remain here until you are ready to return to the task of saving my people.~ [HJOLL062] 
+  SAY ~I have done as you asked.  However, our quest is far from complete.  I shall remain here until you are ready to return to the task of saving my people.~ [HJOLL062]
   IF ~GlobalLT("Hjollder_Quest", "GLOBAL", 11)~ THEN REPLY ~We are ready to return to the north.  Let us be off.~  DO ~SetGlobal("Exp_Pause", "GLOBAL", 0)
 StartCutSceneMode()
 StartCutScene("KUTOBI")~ EXIT
@@ -411,7 +411,7 @@ StartCutScene("KUTOBC")~ EXIT
 END
 
 IF ~Global("Exp_Pause", "GLOBAL", 2)~ THEN BEGIN 62 // from:
-  SAY ~Welcome back, heroes.  Are you ready to resume our quest?~ [HJOLL063] 
+  SAY ~Welcome back, heroes.  Are you ready to resume our quest?~ [HJOLL063]
   IF ~GlobalLT("Hjollder_Quest", "GLOBAL", 11)~ THEN REPLY ~Yes.  Let us return to the north.~  DO ~SetGlobal("Exp_Pause", "GLOBAL", 0)
 StartCutSceneMode()
 StartCutScene("KUTOBI")~ EXIT
@@ -423,7 +423,7 @@ END
 
 IF ~GlobalGT("Hjollder_Quest", "GLOBAL", 6)
 GlobalLT("Hjollder_Quest", "GLOBAL", 9)~ THEN BEGIN 63 // from:
-  SAY ~We have little time.  We must discover the truth behind Wylfdene's treachery before it is too late.~ [HJOLL064] 
+  SAY ~We have little time.  We must discover the truth behind Wylfdene's treachery before it is too late.~ [HJOLL064]
   IF ~GlobalLT("Hjollder_Quest", "GLOBAL", 8)~ THEN REPLY ~Very well.  Tell us what needs to be done.~  GOTO 51
   IF ~Global("Hjollder_Quest", "GLOBAL", 8)~ THEN REPLY ~Tell us again of this Gloomfrost Seer.~  GOTO 53
   IF ~Global("Hjollder_Quest", "GLOBAL", 8)~ THEN REPLY ~Don't worry... we'll find this Seer and learn what we can.~  GOTO 58
@@ -431,12 +431,12 @@ GlobalLT("Hjollder_Quest", "GLOBAL", 9)~ THEN BEGIN 63 // from:
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 9)~ THEN BEGIN 64 // from:
-  SAY ~It is good to see you again, friend.  Take care... if we are discovered here together, our heads shall be mounted side by side before the entrance of Hengorot[Hen-gore-oh].~ [HJOLL065] 
+  SAY ~It is good to see you again, friend.  Take care... if we are discovered here together, our heads shall be mounted side by side before the entrance of Hengorot[Hen-gore-oh].~ [HJOLL065]
   IF ~~ THEN GOTO 65
 END
 
 IF ~~ THEN BEGIN 65 // from: 64.0
-  SAY ~I assume that your presence here means you have succeeded in your quest to find the Gloomfrost Seer.  What have you learned?~ [HJOLL066] 
+  SAY ~I assume that your presence here means you have succeeded in your quest to find the Gloomfrost Seer.  What have you learned?~ [HJOLL066]
   IF ~Global("Found_Seer", "GLOBAL", 0)~ THEN REPLY ~Actually, we were unable to locate the Seer.~  GOTO 66
   IF ~Global("Found_Seer", "GLOBAL", 1)
 !PartyHasItem("mirror")
@@ -448,95 +448,95 @@ PartyHasItem("mirror2")~ THEN REPLY ~We found the Seer and she gave us a mirror 
 END
 
 IF ~~ THEN BEGIN 66 // from: 65.0
-  SAY ~This is grave news.  Please... you must journey back to the Gloomfrost and find the Seer.  Her wisdom is the only hope for my people - and those of the Ten-Towns.~ [HJOLL067] 
+  SAY ~This is grave news.  Please... you must journey back to the Gloomfrost and find the Seer.  Her wisdom is the only hope for my people - and those of the Ten-Towns.~ [HJOLL067]
   IF ~~ THEN REPLY ~Very well.  We'll return when we've found her.~  EXIT
 END
 
 IF ~~ THEN BEGIN 67 // from: 65.1
-  SAY ~You must understand, the Seer lives between two worlds... ours and the realm of the spirits.  Her words contain the knowledge we seek.  You must journey back to the Gloomfrost and give ear to the meaning behind her riddles.~ [HJOLL068] 
+  SAY ~You must understand, the Seer lives between two worlds... ours and the realm of the spirits.  Her words contain the knowledge we seek.  You must journey back to the Gloomfrost and give ear to the meaning behind her riddles.~ [HJOLL068]
   IF ~~ THEN REPLY ~Very well.  We'll return when we know more.~  EXIT
 END
 
 IF ~~ THEN BEGIN 68 // from: 65.2
-  SAY ~Tempos has smiled upon our quest.  You must take this mirror to the Mead Hall and use it to expose Wylfdene before the council.~ [HJOLL069] 
+  SAY ~Tempos has smiled upon our quest.  You must take this mirror to the Mead Hall and use it to expose Wylfdene before the council.~ [HJOLL069]
   IF ~~ THEN REPLY ~Easier said than done.  How are we to get past the guards outside?~  GOTO 69
 END
 
 IF ~~ THEN BEGIN 69 // from: 68.0
-  SAY ~Here... take this chain.  It is the tribal insignia you found in Wylfdene's tomb.  Present it to Angaar[Ain-gar] at the entrance to the camp and demand an audience.  He would not dare refuse the bearer of such a token.~ [HJOLL070] 
+  SAY ~Here... take this chain.  It is the tribal insignia you found in Wylfdene's tomb.  Present it to Angaar[Ain-gar] at the entrance to the camp and demand an audience.  He would not dare refuse the bearer of such a token.~ [HJOLL070]
   IF ~~ THEN REPLY ~I hope you're right.  Farewell.~  DO ~GiveItemCreate("Wylfins", Player1, 1, 0, 0)
 SetGlobal("Hjollder_Quest", "GLOBAL", 10)~ JOURNAL ~We returned to the barbarian camp and told Hjollder about the mirror we obtained from the Gloomfrost Seer.  He instructed us to take the mirror to the Mead Hall and use its power to expose Wylfdene before the council.~  EXIT
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 10)~ THEN BEGIN 70 // from:
-  SAY ~Why have you returned?[anxious, worried]  We have little time... you must gain an audience with the council and present the mirror to Wylfdene.~ [HJOLL071] 
+  SAY ~Why have you returned?[anxious, worried]  We have little time... you must gain an audience with the council and present the mirror to Wylfdene.~ [HJOLL071]
   IF ~~ THEN REPLY ~How do we get past the guards again?~  GOTO 71
   IF ~~ THEN REPLY ~We'll get right on it.~  EXIT
 END
 
 IF ~~ THEN BEGIN 71 // from: 70.0
-  SAY ~Speak with Angaar[Ain-gar].  He commands the guards at the entrance to the camp.  Show him Wylfdene's insignia and he will grant you an audience with the council.~ [HJOLL072] 
+  SAY ~Speak with Angaar[Ain-gar].  He commands the guards at the entrance to the camp.  Show him Wylfdene's insignia and he will grant you an audience with the council.~ [HJOLL072]
   IF ~~ THEN REPLY ~Right.  Thank you, Hjollder.  Farewell.~  EXIT
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 11)~ THEN BEGIN 72 // from:
-  SAY ~You have succeeded, my friends!  The corrupt spirit has fled Wylfdene's body!  Your heroic deeds shall forever be sung by my people.~ [HJOLL073] 
+  SAY ~You have succeeded, my friends!  The corrupt spirit has fled Wylfdene's body!  Your heroic deeds shall forever be sung by my people.~ [HJOLL073]
   IF ~~ THEN DO ~SetGlobal("Body_Count", "GLOBAL", 4)~ GOTO 73
 END
 
 IF ~~ THEN BEGIN 73 // from: 72.0
-  SAY ~However, I'm afraid our journey is not at an end.  This spirit... this malevolent soul of a great wyrm has fled the field, but it is still free to pursue its mission of terror and vengeance.~ [HJOLL074] 
+  SAY ~However, I'm afraid our journey is not at an end.  This spirit... this malevolent soul of a great wyrm has fled the field, but it is still free to pursue its mission of terror and vengeance.~ [HJOLL074]
   IF ~~ THEN GOTO 74
 END
 
 IF ~~ THEN BEGIN 74 // from: 73.0
-  SAY ~I fear that until it is hunted down and destroyed, the threat of its return will hang over the heads of my people like an evil cloud.~ [HJOLL075] 
+  SAY ~I fear that until it is hunted down and destroyed, the threat of its return will hang over the heads of my people like an evil cloud.~ [HJOLL075]
   IF ~~ THEN GOTO 75
 END
 
 IF ~~ THEN BEGIN 75 // from: 74.0
-  SAY ~I would ask you to once again take up arms against this ancient hate, so that my people and yours can finally be at peace.~ [HJOLL076] 
+  SAY ~I would ask you to once again take up arms against this ancient hate, so that my people and yours can finally be at peace.~ [HJOLL076]
   IF ~~ THEN REPLY ~We'd like to help, but you said it yourself... the spirit has fled.  How are we to know where?~  DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 12)~ GOTO 76
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~Sorry, but we've done our part.  Now we wish to return to Kuldahar.~  GOTO 60
 END
 
 IF ~~ THEN BEGIN 76 // from: 75.0
-  SAY ~I have learned that just two days ago, Wylfdene ordered a score of virgins to be taken by ship to an island upon the Sea of Moving Ice.~ [HJOLL077] 
+  SAY ~I have learned that just two days ago, Wylfdene ordered a score of virgins to be taken by ship to an island upon the Sea of Moving Ice.~ [HJOLL077]
   IF ~~ THEN GOTO 77
 END
 
 IF ~~ THEN BEGIN 77 // from: 76.0
-  SAY ~The island was once a sacred site where an elder tribe made sacrifices to their patron spirit, the Great Wyrm.  ~ [HJOLL078] 
+  SAY ~The island was once a sacred site where an elder tribe made sacrifices to their patron spirit, the Great Wyrm.  ~ [HJOLL078]
   IF ~~ THEN GOTO 84
 END
 
 IF ~~ THEN BEGIN 78 // from: 84.0
-  SAY ~I believe that the spirit we routed today and the ancient spirit of the Great Wyrm are one and the same.  That is why Wylfdene ordered such a sacrifice.~ [HJOLL079] 
+  SAY ~I believe that the spirit we routed today and the ancient spirit of the Great Wyrm are one and the same.  That is why Wylfdene ordered such a sacrifice.~ [HJOLL079]
   IF ~~ THEN REPLY ~So you think the spirit may have fled to this island?~  GOTO 79
 END
 
 IF ~~ THEN BEGIN 79 // from: 78.0
-  SAY ~Yes.  A ship stands ready to take you to the island.  The warriors of the Tribe of the Grey Whale, our sea-faring cousins to the west, are prepared to show you the way.  ~ [HJOLL080] 
+  SAY ~Yes.  A ship stands ready to take you to the island.  The warriors of the Tribe of the Grey Whale, our sea-faring cousins to the west, are prepared to show you the way.  ~ [HJOLL080]
   IF ~~ THEN REPLY ~Very well.  We shall leave at once.~  GOTO 80
   IF ~~ THEN REPLY ~Actually... we're not up to the task just yet.~  GOTO 81
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~On second thought... I think we've done enough for you and your people.  Farewell.~  GOTO 60
 END
 
 IF ~~ THEN BEGIN 80 // from: 79.0
-  SAY ~Good luck, my friends.  May Tempos continue to show you favor upon the field of glory!~ [HJOLL081] 
+  SAY ~Good luck, my friends.  May Tempos continue to show you favor upon the field of glory!~ [HJOLL081]
   IF ~~ THEN REPLY ~Farewell, Hjollder.~  DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 13)
 StartCutSceneMode()
 StartCutScene("BCTOIL")~ JOURNAL ~By exposing Wylfdene before the council, we've succeeded in stopping the war between the barbarians and the Ten-Towns.  However, it seems our quest is far from over.  Hjollder believes that the corrupt spirit that fled Wylfdene's body may still pose a threat to his people.  We've agreed to journey by ship to an island on the Sea of Moving Ice.  Once there, we are to hunt down the flown spirit and put an end to its evil once and for all.~  EXIT
 END
 
 IF ~~ THEN BEGIN 81 // from: 82.1 79.1
-  SAY ~I understand.  Such a task is not to be taken lightly.  Take what time you need to prepare yourselves.  Return to me when you are ready and I shall see you to your ship.~ [HJOLL082] 
+  SAY ~I understand.  Such a task is not to be taken lightly.  Take what time you need to prepare yourselves.  Return to me when you are ready and I shall see you to your ship.~ [HJOLL082]
   IF ~GlobalGT("Join_Posse", "GLOBAL", 0)~ THEN REPLY ~On second thought... we'd like to return to Kuldahar first.~  GOTO 60
   IF ~~ THEN REPLY ~Thank you.  Farewell.~  EXIT
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 12)~ THEN BEGIN 82 // from:
-  SAY ~Everything is in order.  Your ship stands ready to take you to the Isle of the Great Wyrm.  Are you prepared to depart?~ [HJOLL083] 
+  SAY ~Everything is in order.  Your ship stands ready to take you to the Isle of the Great Wyrm.  Are you prepared to depart?~ [HJOLL083]
   IF ~~ THEN REPLY ~We are ready.  Let us be off.~  DO ~SetGlobal("Hjollder_Quest", "GLOBAL", 13)
 StartCutSceneMode()
 StartCutScene("BCTOIL")~ JOURNAL ~By exposing Wylfdene before the council, we've succeeded in stopping the war between the barbarians and the Ten-Towns.  However, it seems our quest is far from over.  Hjollder believes that the corrupt spirit that fled Wylfdene's body may still pose a threat to his people.  We've agreed to journey by ship to an island on the Sea of Moving Ice.  Once there, we are to hunt down the flown spirit and put an end to its evil once and for all.~  EXIT
@@ -544,18 +544,17 @@ StartCutScene("BCTOIL")~ JOURNAL ~By exposing Wylfdene before the council, we've
 END
 
 IF ~~ THEN BEGIN 83 // from: 25.4 7.2
-  SAY ~Although I am certain you are the heroes of my vision, I fear you are not yet strong enough for the task at hand.  Go forth and sharpen your skills upon the field of valor.  When you've grown stronger, return here and we shall speak more.~ [HJOLL084] 
+  SAY ~Although I am certain you are the heroes of my vision, I fear you are not yet strong enough for the task at hand.  Go forth and sharpen your skills upon the field of valor.  When you've grown stronger, return here and we shall speak more.~ [HJOLL084]
   IF ~~ THEN REPLY ~As you wish.  Farewell.~  JOURNAL ~We agreed to accompany the barbarian shaman, Hjollder on a quest to prevent a war between his people and the Ten-Towns.  However, he seems to feel we are not ready for the task at hand.  He asked us to return when we've grown stronger.~  EXIT
 END
 
 IF ~~ THEN BEGIN 84 // from: 77.0
-  SAY ~The ancient tribe died out long ago, and with them died the practice of sacrificing virgins to appease the Great Wyrm.~ [HJOLL085] 
+  SAY ~The ancient tribe died out long ago, and with them died the practice of sacrificing virgins to appease the Great Wyrm.~ [HJOLL085]
   IF ~~ THEN GOTO 78
 END
 
 IF ~Global("Hjollder_Quest", "GLOBAL", 11)
 Global("BC_Battle_Over", "GLOBAL", 0)~ THEN BEGIN 85 // from:
-  SAY ~Good luck, my friends.  May Tempos continue to show you favor upon the field of glory!~ [HJOLL081] 
+  SAY ~Good luck, my friends.  May Tempos continue to show you favor upon the field of glory!~ [HJOLL081]
   IF ~~ THEN EXIT
 END
- 

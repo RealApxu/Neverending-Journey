@@ -172,10 +172,10 @@ EraseJournalEntry(%Lower Dorn's Deep.
 In a deep gnome refugee camp, we encountered a deep gnome priest of Callarduran named Beorn. He was very suspicious of our presence in the camp.%)
 EraseJournalEntry(%Lower Dorn's Deep.
 
-Beorn informed us that Marketh enslaves the deep gnomes to serve Revered Brother Poquelin.  According to him, salamanders, led by one called "Shikata," abuse the gnomes, often burning them to death.%) 
+Beorn informed us that Marketh enslaves the deep gnomes to serve Revered Brother Poquelin.  According to him, salamanders, led by one called "Shikata," abuse the gnomes, often burning them to death.%)
 EraseJournalEntry(%Lower Dorn's Deep.
 
-Beorn asked us to help him protect the camp from an umber hulk attack and rescue the lost high priest of Callarduran, Guello. The man behind the umber hulk attack is a dark elf sorcerer named Malavon, who in turn works for Revered Brother Poquelin. Guello is believed to be held in Marketh's mines.%) 
+Beorn asked us to help him protect the camp from an umber hulk attack and rescue the lost high priest of Callarduran, Guello. The man behind the umber hulk attack is a dark elf sorcerer named Malavon, who in turn works for Revered Brother Poquelin. Guello is believed to be held in Marketh's mines.%)
 SetGlobal("Beorn_Quest","GLOBAL",6)~ EXIT
   IF ~~ THEN REPLY ~Thanks, Beorn. Glad we could be of service.~ DO ~AddXPObject(Player1,25000)
 AddXPObject(Player2,25000)
@@ -188,10 +188,10 @@ EraseJournalEntry(%Lower Dorn's Deep.
 In a deep gnome refugee camp, we encountered a deep gnome priest of Callarduran named Beorn. He was very suspicious of our presence in the camp.%)
 EraseJournalEntry(%Lower Dorn's Deep.
 
-Beorn informed us that Marketh enslaves the deep gnomes to serve Revered Brother Poquelin.  According to him, salamanders, led by one called "Shikata," abuse the gnomes, often burning them to death.%) 
+Beorn informed us that Marketh enslaves the deep gnomes to serve Revered Brother Poquelin.  According to him, salamanders, led by one called "Shikata," abuse the gnomes, often burning them to death.%)
 EraseJournalEntry(%Lower Dorn's Deep.
 
-Beorn asked us to help him protect the camp from an umber hulk attack and rescue the lost high priest of Callarduran, Guello. The man behind the umber hulk attack is a dark elf sorcerer named Malavon, who in turn works for Revered Brother Poquelin. Guello is believed to be held in Marketh's mines.%) 
+Beorn asked us to help him protect the camp from an umber hulk attack and rescue the lost high priest of Callarduran, Guello. The man behind the umber hulk attack is a dark elf sorcerer named Malavon, who in turn works for Revered Brother Poquelin. Guello is believed to be held in Marketh's mines.%)
 SetGlobal("Beorn_Quest","GLOBAL",6)
 GiveItemCreate("bootfor2",LastTalkedToBy,0,0,0)~ EXIT
 END

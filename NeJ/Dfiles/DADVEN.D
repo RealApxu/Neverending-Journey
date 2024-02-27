@@ -5,7 +5,7 @@ IF ~GlobalGT("VP_KnightsHelp","GLOBAL",1)~ THEN BEGIN 0
   IF ~GlobalGT("SPRITE_IS_DEADYUANTI","GLOBAL",28)~ THEN GOTO 1
   IF ~GlobalLT("SPRITE_IS_DEADYUANTI","GLOBAL",29)~ THEN GOTO 3
 END
-  
+
 IF ~~ THEN BEGIN 1
   SAY ~Thanks for saving me.  I thought we were done for.  Is there anything I can do to repay you?~
   IF ~~ THEN REPLY ~Could you watch over us while we sleep?  It's a long hike up to the mountainside.~ DO ~RestParty()~ EXIT

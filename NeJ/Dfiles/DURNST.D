@@ -1,14 +1,14 @@
 BEGIN ~DURNST~
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
-  SAY ~Wh-who are you?  What d-d-do you want with me?~ 
+  SAY ~Wh-who are you?  What d-d-do you want with me?~
   IF ~~ THEN REPLY ~Easy, friend... we're not going to hurt you.  We just have some questions.~  GOTO 1
   IF ~~ THEN REPLY ~Hold your tongue, you stuttering imbecile.  We'll ask the questions.~  GOTO 1
   IF ~~ THEN REPLY ~Nothing in particular.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 1 // from: 6.0 0.1 0.0
-  SAY ~Questions?  What k-kind of questions?~ 
+  SAY ~Questions?  What k-kind of questions?~
   IF ~~ THEN REPLY ~Who are you?~  GOTO 2
   IF ~~ THEN REPLY ~What is this place?~  GOTO 3
   IF ~~ THEN REPLY ~What can you tell us about the disturbances in the pass?~  GOTO 4
@@ -16,31 +16,31 @@ IF ~~ THEN BEGIN 1 // from: 6.0 0.1 0.0
 END
 
 IF ~~ THEN BEGIN 2 // from: 1.0
-  SAY ~I am Urnst, the p-p-potter... at least I used t-to be.  Now I just want to g-get out of this place alive.  But with all the t-terrible things happening in town, I'm too scared to step outside m-my shop.~ 
+  SAY ~I am Urnst, the p-p-potter... at least I used t-to be.  Now I just want to g-get out of this place alive.  But with all the t-terrible things happening in town, I'm too scared to step outside m-my shop.~
   IF ~~ THEN REPLY ~What can you tell us about the disturbances in the pass?~  GOTO 4
   IF ~~ THEN REPLY ~Your shop?  What do you sell?~  GOTO 3
   IF ~~ THEN REPLY ~Well, best of luck to you.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 3 // from: 2.1 1.1
-  SAY ~Th-this shop is my home.  I used to make pottery here, b-but there doesn't seem to be much point anymore.  I've closed shop and packed up m-my things.  As soon as the p-pass is clear, I'm heading south to Baldur's G-gate.  I hear it's nice there.~ 
+  SAY ~Th-this shop is my home.  I used to make pottery here, b-but there doesn't seem to be much point anymore.  I've closed shop and packed up m-my things.  As soon as the p-pass is clear, I'm heading south to Baldur's G-gate.  I hear it's nice there.~
   IF ~~ THEN REPLY ~What can you tell us about the disturbances in the pass?~  GOTO 4
   IF ~~ THEN REPLY ~Well, best of luck to you.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 4 // from: 3.0 2.0 1.2
-  SAY ~Dis-disturbances?  Yes.  People disappearing, m-monsters everywhere... even the weather has t-turned against us.  Nobody knows why... not even Arundel.~ 
+  SAY ~Dis-disturbances?  Yes.  People disappearing, m-monsters everywhere... even the weather has t-turned against us.  Nobody knows why... not even Arundel.~
   IF ~Global("Know_Arundel", "GLOBAL", 0)~ THEN REPLY ~Who is this Arundel?~  DO ~SetGlobal("Know_Arundel", "GLOBAL", 1)~ GOTO 5
   IF ~~ THEN REPLY ~Well, best of luck to you.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 5 // from: 4.0
-  SAY ~He watches out for us.  Some s-say he's the last of the old druids of K-k-kuldahar.  His house is just south and west of here, over by the s-standing stones.~ 
+  SAY ~He watches out for us.  Some s-say he's the last of the old druids of K-k-kuldahar.  His house is just south and west of here, over by the s-standing stones.~
   IF ~~ THEN REPLY ~Well, best of luck to you.  Farewell.~  EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 6 // from:
-  SAY ~P-please.  I don't m-mean to be rude, b-but please stop coming around here.  I don't want you b-bringing the m-monsters to my doorstep.~ 
+  SAY ~P-please.  I don't m-mean to be rude, b-but please stop coming around here.  I don't want you b-bringing the m-monsters to my doorstep.~
   IF ~~ THEN REPLY ~I understand.  Just answer a few questions and we'll be on our way.~  GOTO 1
   IF ~~ THEN REPLY ~Have it your way.  F-f-farewell.~  EXIT
 END

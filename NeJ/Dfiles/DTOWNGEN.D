@@ -1,7 +1,7 @@
 BEGIN ~DTOWNGEN~
 
 IF ~~ THEN BEGIN 0 // from: 63.1 63.0 62.1 62.0 61.2 60.2 59.3 58.3 42.0 41.0 40.1 39.0 38.1 37.2 36.0 35.0 34.0 33.0 32.0 31.0 30.1 29.1 28.0 27.1 26.1 25.2 24.1 23.1 22.1 22.0 21.0 19.1 18.0 17.1 16.0 15.0 14.2 13.2 12.0 11.1 10.1 9.0 8.1 7.1 6.2 5.0 4.1 3.1 2.0 1.3
-  SAY ~Easthaven?  Lived here for quite a span, I have.  Things have been getting worse of late, though.~ 
+  SAY ~Easthaven?  Lived here for quite a span, I have.  Things have been getting worse of late, though.~
   IF ~Global("Easthaven_Rumor", "GLOBAL", 0)~ THEN REPLY ~Do you mean the weather?~  DO ~IncrementGlobal("Easthaven_Rumor", "GLOBAL", 1)~ GOTO 32
   IF ~Global("Easthaven_Rumor", "GLOBAL", 1)~ THEN REPLY ~Worse?  How?~  DO ~IncrementGlobal("Easthaven_Rumor", "GLOBAL", 1)~ GOTO 33
   IF ~Global("Easthaven_Rumor", "GLOBAL", 2)~ THEN REPLY ~I've heard some talk of goblins and orcs.~  DO ~IncrementGlobal("Easthaven_Rumor", "GLOBAL", 1)~ GOTO 34
@@ -19,7 +19,7 @@ IF ~Race(Protagonist, 4)
 NumTimesTalkedTo(0)
 RandomNum(3, 1)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 1 // from:
-  SAY ~Another dwarf in town, I see.  You with Hildreth?  I figure you dwarves might be looking to take back some of your old cities in the Spine of the World.~ 
+  SAY ~Another dwarf in town, I see.  You with Hildreth?  I figure you dwarves might be looking to take back some of your old cities in the Spine of the World.~
   IF ~Global("Know_Hildreth", "GLOBAL", 0)~ THEN REPLY ~Hildreth?~  GOTO 2
   IF ~Global("Know_Hildreth", "GLOBAL", 1)
 GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~No, Hildreth and I being in Easthaven is just a coincidence.~  GOTO 3
@@ -29,7 +29,7 @@ GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~No, Hildreth and I being in Ea
 END
 
 IF ~~ THEN BEGIN 2 // from: 59.0 58.0 1.0
-  SAY ~Aye, I think that's her name - she came into town a few days ago.  Have to say, I thought she was a man at first, with that beard and all.  Can't see how you dwarves get used to it.  ~ 
+  SAY ~Aye, I think that's her name - she came into town a few days ago.  Have to say, I thought she was a man at first, with that beard and all.  Can't see how you dwarves get used to it.  ~
   IF ~~ THEN REPLY ~Hildreth... I may go look for her after we speak, then.  I wanted to ask you about Easthaven first, though.~  GOTO 0
   IF ~~ THEN REPLY ~What was that you said about old cities?~  GOTO 3
   IF ~Global("EH_Race_Hostile", "GLOBAL", 0)
@@ -44,14 +44,14 @@ Gender(Protagonist, 1)~ THEN REPLY ~Well, hell, it's no more disturbing to us th
 END
 
 IF ~~ THEN BEGIN 3 // from: 59.2 59.1 58.2 58.1 2.1 1.2 1.1
-  SAY ~You don't need to play the innocent with me, friend.  I know you're looking to take back one of those gold-filled dwarven cities from those goblinoid bastards, aren't you?  What - Lower Dorn's Deep, Upper Dorn's Deep?~ 
+  SAY ~You don't need to play the innocent with me, friend.  I know you're looking to take back one of those gold-filled dwarven cities from those goblinoid bastards, aren't you?  What - Lower Dorn's Deep, Upper Dorn's Deep?~
   IF ~~ THEN REPLY ~I'm not familiar with those places.  What are they?~  GOTO 4
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Neither -- I just wanted to ask you about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 4 // from: 3.0
-  SAY ~Hmmmm.  Maybe you *are* fresh to those names.  Here tell, Lower and Upper Dorn's Deep were dwarven citadels that fell to the goblins a few hundred years ago.  The dwarves were supposed to have an alliance with the elves, but it fell apart, and the orcs and goblins ran rampant over the region.  Probably still some great treasures lying around in those halls, too... but I don't need to tell you that.~ 
+  SAY ~Hmmmm.  Maybe you *are* fresh to those names.  Here tell, Lower and Upper Dorn's Deep were dwarven citadels that fell to the goblins a few hundred years ago.  The dwarves were supposed to have an alliance with the elves, but it fell apart, and the orcs and goblins ran rampant over the region.  Probably still some great treasures lying around in those halls, too... but I don't need to tell you that.~
   IF ~Global("Dwarf_Cash", "GLOBAL", 0)~ THEN REPLY ~Hmmmm.  Well, maybe I *am* looking to take them back.  If you were willing to contribute some to the expedition, I'm sure the dwarves would return your contribution a hundred-fold... but I'm not making any promises, mind you.~  DO ~SetGlobal("Dwarf_Cash", "GLOBAL", 1)
 GiveItemCreate("Misc22", Protagonist, 0, 0, 0)~ GOTO 5
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  Look, I have some questions about Easthaven.~  GOTO 0
@@ -59,7 +59,7 @@ GiveItemCreate("Misc22", Protagonist, 0, 0, 0)~ GOTO 5
 END
 
 IF ~~ THEN BEGIN 5 // from: 4.0
-  SAY ~Hells, good enough risk for me... here, I've got a little "nest egg" stored up just for such a chance.  Take it - if you dwarves take back Upper and Lower Dorn's, I'll be waiting for the return.~ 
+  SAY ~Hells, good enough risk for me... here, I've got a little "nest egg" stored up just for such a chance.  Take it - if you dwarves take back Upper and Lower Dorn's, I'll be waiting for the return.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Excellent, it's a deal then.  But before I go on my, uh, secret dwarven expedition, I wanted to ask you some things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
@@ -68,7 +68,7 @@ IF ~Race(Protagonist, 2)
 NumTimesTalkedTo(0)
 RandomNum(3, 1)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 6 // from:
-  SAY ~Damn, first one elf, then another.  Thought your kind didn't venture too far north.~ 
+  SAY ~Damn, first one elf, then another.  Thought your kind didn't venture too far north.~
   IF ~~ THEN REPLY ~Another elf?  What other elf are you speaking of?~  GOTO 7
   IF ~Global("Erevain_Met","GLOBAL", 1)~ THEN REPLY ~Is that other elf Erevain at the Snowdrift Inn?~  GOTO 8
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~We do now.  I had some questions about Easthaven that perhaps you could answer.~  GOTO 0
@@ -77,21 +77,21 @@ Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 6 // from:
 END
 
 IF ~~ THEN BEGIN 7 // from: 61.0 60.0 6.0
-  SAY ~There's some elf with an enchanted blade up at the Snowdrift Inn.  Didn't catch his name.  Air-vain, or something.  Queer-looking fellow.~ 
+  SAY ~There's some elf with an enchanted blade up at the Snowdrift Inn.  Didn't catch his name.  Air-vain, or something.  Queer-looking fellow.~
   IF ~Global("Erevain_Met","GLOBAL", 1)~ THEN REPLY ~His name is 'Erevain,' and he looks quite normal to me.~  GOTO 9
   IF ~~ THEN REPLY ~Maybe I'll go see if I can find him.  I had some questions about Easthaven first, however.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 8 // from: 61.1 60.1 6.1
-  SAY ~Aye, that's his name.  Queer-looking sort.  Just came in a few days ago.~ 
+  SAY ~Aye, that's his name.  Queer-looking sort.  Just came in a few days ago.~
   IF ~~ THEN REPLY ~He looks *quite* normal to me.~  GOTO 9
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Yes, we've met.  I had some questions about Easthaven that perhaps you could answer.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 9 // from: 61.3 8.0 7.0 6.3
-  SAY ~Whoa, now... didn't mean any offense.  Just speaking my mind is all.  Sorry if it came out wrong.~ 
+  SAY ~Whoa, now... didn't mean any offense.  Just speaking my mind is all.  Sorry if it came out wrong.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Apology accepted.  I had some questions about Easthaven that perhaps you could answer.~  GOTO 0
   IF ~~ THEN REPLY ~In the future, keep the few thoughts you possess to yourself.  Now farewell.~  EXIT
 END
@@ -100,14 +100,14 @@ IF ~Race(Protagonist, 6)
 NumTimesTalkedTo(0)
 Global("Spoke_Gnome", "GLOBAL", 0)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 10 // from:
-  SAY ~You Fiddlebender?  I've heard of you - you live in that wrecked airship in Kuldahar, don't you?~ 
+  SAY ~You Fiddlebender?  I've heard of you - you live in that wrecked airship in Kuldahar, don't you?~
   IF ~~ THEN REPLY ~No, no, I don't.  Who's 'Fiddlebender?'~  DO ~SetGlobal("Spoke_Gnome", "GLOBAL", 1)~ GOTO 11
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Er, no... I wanted to ask you about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 11 // from: 10.0
-  SAY ~"Who's Fiddlebender?"  Huh.  Well, I heard he was a gnome who took up shop in Kuldahar, the town south of here.  You sure you haven't heard of him?  I thought the two of you might be related.~ 
+  SAY ~"Who's Fiddlebender?"  Huh.  Well, I heard he was a gnome who took up shop in Kuldahar, the town south of here.  You sure you haven't heard of him?  I thought the two of you might be related.~
   IF ~~ THEN REPLY ~No - but I'm interested to hear about this wrecked airship.~  GOTO 12
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~No, no, we're not.  Look, I had some questions about Easthaven.~  GOTO 0
   IF ~Global("EH_Race_Hostile", "GLOBAL", 0)~ THEN REPLY ~Yeah, we're *all* related because we're gnomes.  Our kind really doesn't interbreed as much as you humans do.~  GOTO 15
@@ -116,7 +116,7 @@ IF ~~ THEN BEGIN 11 // from: 10.0
 END
 
 IF ~~ THEN BEGIN 12 // from: 11.0
-  SAY ~It's like a ship that floats on the air, lying wrecked right in the middle of Kuldahar.  I don't know if Fiddlebender crashed it there or not, but it must be something else.  Sure would like to see it.~ 
+  SAY ~It's like a ship that floats on the air, lying wrecked right in the middle of Kuldahar.  I don't know if Fiddlebender crashed it there or not, but it must be something else.  Sure would like to see it.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I'll have to make sure to see it if I go there.  Look, I had some questions about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
@@ -125,7 +125,7 @@ IF ~Race(Protagonist,6)
 NumTimesTalkedTo(0)
 Global("Spoke_Gnome", "GLOBAL", 1)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 13 // from:
-  SAY ~Hey, you're Fiddlebender, aren't you?  From Kuldahar?~ 
+  SAY ~Hey, you're Fiddlebender, aren't you?  From Kuldahar?~
   IF ~Global("EH_Race_Hostile", "GLOBAL", 0)~ THEN REPLY ~Look.  I am NOT this 'Fiddlebender' person.  That's someone else.  There's more than one gnome in the whole world, you know.~  GOTO 15
   IF ~Global("EH_Race_Hostile", "GLOBAL", 1)~ THEN REPLY ~Look.  I am NOT this 'Fiddlebender' person.  That's someone else.  There's more than one gnome in the whole world, you know.~  GOTO 16
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Er, no... I wanted to ask you about Easthaven.~  GOTO 0
@@ -135,7 +135,7 @@ END
 IF ~Race(Protagonist, 5)
 NumTimesTalkedTo(0)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 14 // from:
-  SAY ~Well, I'll be twice-damned!  Another halfling - seems the North isn't solely a human's land anymore.   What brings you here, little one? ~ 
+  SAY ~Well, I'll be twice-damned!  Another halfling - seems the North isn't solely a human's land anymore.   What brings you here, little one? ~
   IF ~Global("Halfling_Aldwin", "GLOBAL", 0)~ THEN REPLY ~Another halfling?~  DO ~SetGlobal("Halfling_Aldwin", "GLOBAL", 1)~ GOTO 17
   IF ~Global("Halfling_Aldwin", "GLOBAL", 1)~ THEN REPLY ~Another halfling?  You referring to that halfling that's been seen in the Pass?~  GOTO 17
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I wanted to ask you about Easthaven.~  GOTO 0
@@ -145,20 +145,20 @@ Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 14 // from:
 END
 
 IF ~~ THEN BEGIN 15 // from: 17.2 14.3 13.0 11.2 2.4 2.2
-  SAY ~Ha!  Simmer down there, little one.  No harm meant.  Look... you're new here.  Try some of the local catch - knucklehead trout are our local delicacy.~ 
+  SAY ~Ha!  Simmer down there, little one.  No harm meant.  Look... you're new here.  Try some of the local catch - knucklehead trout are our local delicacy.~
   IF ~~ THEN REPLY ~All right, then.  Thank you.  Look, I had some questions about Easthaven that you might be able to help me with.~  DO ~SetGlobal("EH_Race_Hostile", "GLOBAL", 1)
 GiveItemCreate("Fish", Protagonist, 0, 0, 0)~ GOTO 0
   IF ~~ THEN REPLY ~Keep your jibes and your fish to yourself, Northerner.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 16 // from: 17.3 14.4 13.1 11.3 2.5 2.3
-  SAY ~Whoa - my apologies, friend.  Didn't mean any insult.  Just trying to be friendly.~ 
+  SAY ~Whoa - my apologies, friend.  Didn't mean any insult.  Just trying to be friendly.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~All right, then.  I had some questions about Easthaven that you might be able to help me with.~  GOTO 0
   IF ~~ THEN REPLY ~Keep your friendliness to yourself, Northerner, lest you make some enemies.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 17 // from: 14.1 14.0
-  SAY ~Aye, there's a caravan merchant - don't recall his name off hand - who's been making his way back and forth through Kuldahar pass for the last few months.  Thought the two of you might be related.  ~ 
+  SAY ~Aye, there's a caravan merchant - don't recall his name off hand - who's been making his way back and forth through Kuldahar pass for the last few months.  Thought the two of you might be related.  ~
   IF ~~ THEN REPLY ~Where is he now?~  GOTO 18
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I wanted to ask you about Easthaven.~  GOTO 0
   IF ~Global("EH_Race_Hostile", "GLOBAL", 0)~ THEN REPLY ~Yeah, we're *all* related because we're halflings.  Our kind really doesn't interbreed as much as you humans do.~  GOTO 15
@@ -167,7 +167,7 @@ IF ~~ THEN BEGIN 17 // from: 14.1 14.0
 END
 
 IF ~~ THEN BEGIN 18 // from: 17.0
-  SAY ~If the snow's any sign, he's probably holed up in Kuldahar, that big tree town to the south.  Not a bad place to be when the snows hit.~ 
+  SAY ~If the snow's any sign, he's probably holed up in Kuldahar, that big tree town to the south.  Not a bad place to be when the snows hit.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Hmmmm.  I wanted to ask you some things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
@@ -175,19 +175,19 @@ END
 IF ~Class(Protagonist, 5)
 NumTimesTalkedTo(0)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 19 // from:
-  SAY ~A minstrel!  Ha, now you're a sight for cold eyes.  Hasn't been much in the way of entertainment since Ol' Jed fell out of his boat last month in Dinneshere, and we had to fish him out before he pickled the lake.  So, minstrel, going to regale the Winter's Cradle with a few tales tonight?~ 
+  SAY ~A minstrel!  Ha, now you're a sight for cold eyes.  Hasn't been much in the way of entertainment since Ol' Jed fell out of his boat last month in Dinneshere, and we had to fish him out before he pickled the lake.  So, minstrel, going to regale the Winter's Cradle with a few tales tonight?~
   IF ~Global("Bard_Easthaven", "GLOBAL", 0)~ THEN REPLY ~No, I intend to create some new tales during our stay here in the North.  I have one concerning our travel here, if you would hear it.~  DO ~SetGlobal("Bard_Easthaven", "GLOBAL", 1)~ GOTO 20
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Perhaps... but I would hear some tales from you first.  It's only fair, is it not?  Tell me of Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 20 // from: 19.0
-  SAY ~Sure would.  Anything'd be better than hearing the wind whistle across the lake.  Let's hear it, then.~ 
+  SAY ~Sure would.  Anything'd be better than hearing the wind whistle across the lake.  Let's hear it, then.~
   IF ~~ THEN REPLY ~All right, then...~  DO ~GiveItemCreate("Misc27", Protagonist, 0, 0, 0)~ GOTO 21
 END
 
 IF ~~ THEN BEGIN 21 // from: 20.0
-  SAY ~That's fine verse, friend.  And quite stirring, too - I look forward to hearing more.  Take this small bit from me in case I don't make it to the Winter's Cradle tonight - it came from my brother in the south; he's a musician, too, and said I should pass it along to the next one I meet.  It's not much, but it should pay for your stay while you're in town.~ 
+  SAY ~That's fine verse, friend.  And quite stirring, too - I look forward to hearing more.  Take this small bit from me in case I don't make it to the Winter's Cradle tonight - it came from my brother in the south; he's a musician, too, and said I should pass it along to the next one I meet.  It's not much, but it should pay for your stay while you're in town.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Thank you, you are most kind.  But enough of my tales -- tell me of Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
@@ -195,28 +195,28 @@ END
 IF ~NumTimesTalkedTo(0)
 RandomNum(3, 1)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 22 // from:
-  SAY ~Haven't seen you in town before.  You come from the south?~ 
+  SAY ~Haven't seen you in town before.  You come from the south?~
   IF ~~ THEN REPLY ~Yes.  I wanted to ask you some things about this town.~  GOTO 0
   IF ~~ THEN REPLY ~Of course.  I am a visitor to this town, and there are things I would know.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 23 // from: 0.9
-  SAY ~Well, since you're new in town, you'll probably want to get a room at the Snowdrift Inn - it's on the eastern side of town.  The innkeeper, Quimby, he's a right enough sort.  He should have plenty of rooms available, but he just got an elf guest from the south, so at least one room is taken.~ 
+  SAY ~Well, since you're new in town, you'll probably want to get a room at the Snowdrift Inn - it's on the eastern side of town.  The innkeeper, Quimby, he's a right enough sort.  He should have plenty of rooms available, but he just got an elf guest from the south, so at least one room is taken.~
   IF ~~ THEN REPLY ~Can you tell me any more about the town? ~  GOTO 24
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 24 // from: 23.0
-  SAY ~Aside from Quimby's inn, there's Pomab's Emporium in the northeast part of town.  He can be a right ass, Pomab can, so I hope you don't need to buy anything from that copper-clenching jackal.  Wish that damn Calishite had stayed down south with the rest of his kind.~ 
+  SAY ~Aside from Quimby's inn, there's Pomab's Emporium in the northeast part of town.  He can be a right ass, Pomab can, so I hope you don't need to buy anything from that copper-clenching jackal.  Wish that damn Calishite had stayed down south with the rest of his kind.~
   IF ~~ THEN REPLY ~Can you tell me any more about the town? ~  DO ~SetGlobal("Know_Messenger", "GLOBAL", 1)~ GOTO 25
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 25 // from: 24.0
-  SAY ~Well, there's the Temple of Tempus, that huge blue-glassed structure to the northwest, run by Everard.  Hear tell, Everard's the one who saw that messenger from Kuldahar, if you can believe it.  Fellow died right on his doorstep.~ 
+  SAY ~Well, there's the Temple of Tempus, that huge blue-glassed structure to the northwest, run by Everard.  Hear tell, Everard's the one who saw that messenger from Kuldahar, if you can believe it.  Fellow died right on his doorstep.~
   IF ~~ THEN REPLY ~Messenger?~  GOTO 26
   IF ~~ THEN REPLY ~Any other places I should see while I'm here?~  GOTO 27
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Very well.  I wanted to ask you some other things about Easthaven.~  GOTO 0
@@ -224,77 +224,77 @@ IF ~~ THEN BEGIN 25 // from: 24.0
 END
 
 IF ~~ THEN BEGIN 26 // from: 25.0
-  SAY ~Aye, some fellow from Kuldahar just collapsed on the threshold of the Temple, all bloody.  Surprised he made it as far as he did - no one knows what he wanted, except maybe Hrothgar and Everard.~ 
+  SAY ~Aye, some fellow from Kuldahar just collapsed on the threshold of the Temple, all bloody.  Surprised he made it as far as he did - no one knows what he wanted, except maybe Hrothgar and Everard.~
   IF ~~ THEN REPLY ~Any other places I should see while I'm here?~  GOTO 27
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Hmmm.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 27 // from: 26.0 25.1
-  SAY ~You might pay a visit to the scrimshander, Apsel, down to the southwest.  He's got some nice pieces of art, if you like that sort of thing.~ 
+  SAY ~You might pay a visit to the scrimshander, Apsel, down to the southwest.  He's got some nice pieces of art, if you like that sort of thing.~
   IF ~~ THEN REPLY ~What's a scrimshander?~  GOTO 28
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Very well.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 28 // from: 27.0
-  SAY ~A fishbone carver.  Apsel carves the bones of knucklehead trout into little sculptures and such.  Fetch a nice price down south, they do.~ 
+  SAY ~A fishbone carver.  Apsel carves the bones of knucklehead trout into little sculptures and such.  Fetch a nice price down south, they do.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 29 // from: 0.8
-  SAY ~Hrothgar's House is in the center northern part of town - it's the one with the gaps in the overhang.  Hrothgar swears he's going to fix it, but I'll believe *that* when I see it.  He's always running around trying to take care of everyone else.  Why you going to see him, anyway?  Planning to join his expedition?~ 
+  SAY ~Hrothgar's House is in the center northern part of town - it's the one with the gaps in the overhang.  Hrothgar swears he's going to fix it, but I'll believe *that* when I see it.  He's always running around trying to take care of everyone else.  Why you going to see him, anyway?  Planning to join his expedition?~
   IF ~~ THEN REPLY ~Expedition? ~  DO ~SetGlobal("Know_Messenger", "GLOBAL", 1)~ GOTO 30
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I was thinking about it.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 30 // from: 29.0
-  SAY ~Yeah, word is Hrothgar's been so rattled by that messenger from Kuldahar collapsing dead at the front door of the Temple of Tempus that he wants to put together a band to go see what's going on down south.~ 
+  SAY ~Yeah, word is Hrothgar's been so rattled by that messenger from Kuldahar collapsing dead at the front door of the Temple of Tempus that he wants to put together a band to go see what's going on down south.~
   IF ~~ THEN REPLY ~What did this messenger say?~  GOTO 31
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Maybe I'll ask him about it.  In the meantime, I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 31 // from: 30.0
-  SAY ~Damned if I know.  Only Everard over at the Temple and Hrothgar would know for sure, I suppose.  Still, if it's enough to get the two of them riled up... can't be good.~ 
+  SAY ~Damned if I know.  Only Everard over at the Temple and Hrothgar would know for sure, I suppose.  Still, if it's enough to get the two of them riled up... can't be good.~
   IF ~~ THEN REPLY ~Maybe I'll ask them about it.  In the meantime, I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 32 // from: 0.0
-  SAY ~Aye, the weather's been going from bad to worse.  Never seen it get so cold this early in the year, and there's no sign of it letting up.  With all this snow, the passes to the south are going to get snowed in early.~ 
+  SAY ~Aye, the weather's been going from bad to worse.  Never seen it get so cold this early in the year, and there's no sign of it letting up.  With all this snow, the passes to the south are going to get snowed in early.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Very well.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 33 // from: 0.1
-  SAY ~Well, there's been sighting of some goblins and such in the Pass, if you can believe that.  They usually hole up in the Spine of the World and kill each other.  Some fool claimed he even saw some orcs outside of town, but I'll wait until he sobers up before giving *that* tale any weight.~ 
+  SAY ~Well, there's been sighting of some goblins and such in the Pass, if you can believe that.  They usually hole up in the Spine of the World and kill each other.  Some fool claimed he even saw some orcs outside of town, but I'll wait until he sobers up before giving *that* tale any weight.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 34 // from: 0.2
-  SAY ~Not only that, but there's been sighting of a wolf on the outskirts of town, too.  We've been keeping an eye out for it, but it seems to be coming around just for a whiff of the fishbone carvings in Apsel's workshop.  Damn thing must be starving to risk showing itself around humans, though.~ 
+  SAY ~Not only that, but there's been sighting of a wolf on the outskirts of town, too.  We've been keeping an eye out for it, but it seems to be coming around just for a whiff of the fishbone carvings in Apsel's workshop.  Damn thing must be starving to risk showing itself around humans, though.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 35 // from: 0.3
-  SAY ~Well, there's that and more: One of the boys was out playing, and he swore that he saw a footprint in the snow as large as a man.  Assuming he's not telling tales, that would mean giants - but there hasn't been a giant seen in the Pass since... well, damn near since as long as I can remember.~ 
+  SAY ~Well, there's that and more: One of the boys was out playing, and he swore that he saw a footprint in the snow as large as a man.  Assuming he's not telling tales, that would mean giants - but there hasn't been a giant seen in the Pass since... well, damn near since as long as I can remember.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 36 // from: 0.4
-  SAY ~I'm worried the goblin and orc sightings are tied into the problems we've been having with the caravans of late.  Some of them have gone missing, but mostly only the ones coming from the south.  At first we thought the snows must be burying 'em, but with goblinoids about, it's more likely *they're* the ones that buried the caravans.~ 
+  SAY ~I'm worried the goblin and orc sightings are tied into the problems we've been having with the caravans of late.  Some of them have gone missing, but mostly only the ones coming from the south.  At first we thought the snows must be burying 'em, but with goblinoids about, it's more likely *they're* the ones that buried the caravans.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 37 // from: 0.5
-  SAY ~Not all of them - Jhonen, one of the steadiest fellows I know, has been going round with some tune he keeps humming and looks like he hasn't been getting much sleep.  The troubles must be hitting him harder than we thought.~ 
+  SAY ~Not all of them - Jhonen, one of the steadiest fellows I know, has been going round with some tune he keeps humming and looks like he hasn't been getting much sleep.  The troubles must be hitting him harder than we thought.~
   IF ~~ THEN REPLY ~He's humming a tune?~  GOTO 38
   IF ~GlobalGT("Siren_Quest", "GLOBAL", 1)~ THEN REPLY ~Well, Jhonen was actually being spoken to by a sea spirit, if you can believe that.  She wanted to return an ancestral blade to him that was lost at the bottom of the lake.~  GOTO 39
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
@@ -302,83 +302,83 @@ IF ~~ THEN BEGIN 37 // from: 0.5
 END
 
 IF ~~ THEN BEGIN 38 // from: 37.0
-  SAY ~Aye, just keeps humming the damn thing over and over.  Boy's gonna get an oar in his chops if he keeps it up.~ 
+  SAY ~Aye, just keeps humming the damn thing over and over.  Boy's gonna get an oar in his chops if he keeps it up.~
   IF ~GlobalGT("Siren_Quest", "GLOBAL", 1)~ THEN REPLY ~Well, Jhonen was actually being spoken to by a sea spirit, if you can believe that.  She wanted to return an ancestral blade to him that was lost at the bottom of the lake.~  GOTO 39
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 39 // from: 40.0 38.0 37.1
-  SAY ~Oh, *really?*  Ha!  Good one, stranger, but we Easthaven folks aren't as simple as you might think.  Go tell your tales to a merchant if you're looking for some amusement.~ 
+  SAY ~Oh, *really?*  Ha!  Good one, stranger, but we Easthaven folks aren't as simple as you might think.  Go tell your tales to a merchant if you're looking for some amusement.~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 40 // from: 0.6
-  SAY ~Well, I don't know how much weight this carries, but one of the girls says she saw some blue-skinned figure down by the shore.  She said whoever it was was singing some song.  Probably just her imaginings.~ 
+  SAY ~Well, I don't know how much weight this carries, but one of the girls says she saw some blue-skinned figure down by the shore.  She said whoever it was was singing some song.  Probably just her imaginings.~
   IF ~GlobalGT("Siren_Quest", "GLOBAL", 1)~ THEN REPLY ~No, she was there all right.  She was singing to Jhonen because she loves him and wanted to give him the ancestral blade that belonged to one of his ancestors.~  GOTO 39
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 41 // from: 0.7
-  SAY ~Most of the folks around here are decent folks, but I'd stay away from Old Jed - he lives in a little shack near the shore of the lake.  Grisella at the Winter's Cradle cut him off, so that drunk fool'll try and get you to spot him a tankard.  Watch your purse, all right?~ 
+  SAY ~Most of the folks around here are decent folks, but I'd stay away from Old Jed - he lives in a little shack near the shore of the lake.  Grisella at the Winter's Cradle cut him off, so that drunk fool'll try and get you to spot him a tankard.  Watch your purse, all right?~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I see.  I wanted to ask you some other things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 42 // from:
-  SAY ~Back again?  Forget something last time we spoke? ~ 
+  SAY ~Back again?  Forget something last time we spoke? ~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Just wanted to ask you some questions about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~GlobalGT("Know_Balance", "GLOBAL", 0)
 RandomNum(3, 1)~ THEN BEGIN 43 // from:
-  SAY ~Thank Tempus you're here!  Any longer, and our bodies would have been lining Lac Dinneshere - or the belly of a giant.~ 
+  SAY ~Thank Tempus you're here!  Any longer, and our bodies would have been lining Lac Dinneshere - or the belly of a giant.~
   IF ~~ THEN REPLY ~What happened?~  GOTO 46
   IF ~~ THEN REPLY ~You're free now - I suggest you get as far from Easthaven as possible.  Things may get a lot more violent before we've settled matters here.~  GOTO 50
 END
 
 IF ~GlobalGT("Know_Balance", "GLOBAL", 0)
 RandomNum(3, 2)~ THEN BEGIN 44 // from:
-  SAY ~You!  You're part of the expedition that left with Hrothgar, aren't you!  We feared the worst --~ 
+  SAY ~You!  You're part of the expedition that left with Hrothgar, aren't you!  We feared the worst --~
   IF ~~ THEN REPLY ~What happened while we were gone?~  GOTO 46
   IF ~~ THEN REPLY ~You're free now - I suggest you get as far from Easthaven as possible.  Things may get a lot more violent before we've settled matters here.~  GOTO 50
 END
 
 IF ~GlobalGT("Know_Balance", "GLOBAL", 0)
 RandomNumLT(3, 4)~ THEN BEGIN 45 // from:
-  SAY ~Please - you must get us away from here.  Those giants - they'll kill us all if they catch us!~ 
+  SAY ~Please - you must get us away from here.  Those giants - they'll kill us all if they catch us!~
   IF ~~ THEN REPLY ~You're free.  No more giants will block your path.  How did they get here?~  GOTO 46
   IF ~~ THEN REPLY ~You're free now - I suggest you get as far from Easthaven as possible.  Things may get a lot more violent before we've settled matters here.~  GOTO 50
 END
 
 IF ~~ THEN BEGIN 46 // from: 57.0 45.0 44.0 43.0
-  SAY ~I barely know - it was a day like any other, mayhap more overcast than most.  The winds had been picking up all day, and the howling had finally driven us indoors.  I was drinking at the Winter's Cradle when a huge shaft of ice tore through the floor and into the ceiling!~ 
+  SAY ~I barely know - it was a day like any other, mayhap more overcast than most.  The winds had been picking up all day, and the howling had finally driven us indoors.  I was drinking at the Winter's Cradle when a huge shaft of ice tore through the floor and into the ceiling!~
   IF ~~ THEN GOTO 47
 END
 
 IF ~~ THEN BEGIN 47 // from: 46.0
-  SAY ~We ran from the building, only to see more spears of ice tearing up from the ground - and then the giants came, like great shadows out of the snows.  They killed all who resisted, and the others they snatched up and placed within this camp.~ 
+  SAY ~We ran from the building, only to see more spears of ice tearing up from the ground - and then the giants came, like great shadows out of the snows.  They killed all who resisted, and the others they snatched up and placed within this camp.~
   IF ~~ THEN REPLY ~Anyone manage to escape?~  GOTO 48
   IF ~~ THEN REPLY ~You're free now - I suggest you get as far from Easthaven as possible.  Things may get a lot more violent before we've settled matters here.~  GOTO 50
 END
 
 IF ~~ THEN BEGIN 48 // from: 47.0
-  SAY ~A few, I think.  Everard's here with us, and despite the torture, he's been able to help us with the wounded - I haven't seen Jhonen, or Old Jed... and Pomab is nowhere to be found.  Maybe they made it to safety.  I can only pray.~ 
+  SAY ~A few, I think.  Everard's here with us, and despite the torture, he's been able to help us with the wounded - I haven't seen Jhonen, or Old Jed... and Pomab is nowhere to be found.  Maybe they made it to safety.  I can only pray.~
   IF ~Global("Freed_Everard", "GLOBAL", 0)~ THEN REPLY ~Everard was tortured?  Why?~  GOTO 49
   IF ~~ THEN REPLY ~You're free now - I suggest you get as far from Easthaven as possible.  Things may get a lot more violent before we've settled matters here.~  EXIT
 END
 
 IF ~~ THEN BEGIN 49 // from: 48.0
-  SAY ~I do not know.  They took him to that great tower of ice for almost a half-day, then returned him to us, badly wounded.  Perhaps there was something in the Temple of Tempus they wanted.~ 
+  SAY ~I do not know.  They took him to that great tower of ice for almost a half-day, then returned him to us, badly wounded.  Perhaps there was something in the Temple of Tempus they wanted.~
   IF ~~ THEN REPLY ~Hmm.  Perhaps I'll speak to Everard.  In any event, you're free now - I suggest you get as far from Easthaven as possible.  Things may get a lot more violent before we've settled matters here.~  GOTO 50
 END
 
 IF ~~ THEN BEGIN 50 // from: 53.3 49.0 47.1 45.1 44.1 43.1
-  SAY ~May the Gods bless your weapons, friends.  And may they see fit to punish those who have attacked our town.~ 
+  SAY ~May the Gods bless your weapons, friends.  And may they see fit to punish those who have attacked our town.~
   IF ~Global("Easthaven_Help", "GLOBAL", 0)~ THEN REPLY ~I'm off to the tower, then.  And thanks for the blessing - I'll need all the help I can get.~  DO ~GiveItemCreate("Potn42", Protagonist, 1, 0, 0)
 GiveItemCreate("Potn17", Protagonist, 3, 0, 0)
 GiveItemCreate("Potn07", Protagonist, 1, 0, 0)
@@ -387,19 +387,19 @@ SetGlobal("Easthaven_Help", "GLOBAL", 1)~ GOTO 51
 END
 
 IF ~~ THEN BEGIN 51 // from: 50.0
-  SAY ~Wait - there is one last thing we can do to help you.  We have few supplies left, but we were able to hide some healing items before we were taken by the giants.  If you're going to enter the tower, please take them.  You'll need them more than we will.~ 
+  SAY ~Wait - there is one last thing we can do to help you.  We have few supplies left, but we were able to hide some healing items before we were taken by the giants.  If you're going to enter the tower, please take them.  You'll need them more than we will.~
   IF ~~ THEN REPLY ~Thank you.~  EXIT
 END
 
 IF ~GlobalGT("Know_Balance", "GLOBAL",0)
 Global("Dwarven_Expedition_Finished", "GLOBAL", 0)
 Global("Dwarf_Cash", "GLOBAL", 1)~ THEN BEGIN 52 // from:
-  SAY ~Hey... I remember you - you're part of that dwarven expedition looking to find those old dwarven citadels, right?  Easthaven's not much to look at now, I'm afraid.~ 
+  SAY ~Hey... I remember you - you're part of that dwarven expedition looking to find those old dwarven citadels, right?  Easthaven's not much to look at now, I'm afraid.~
   IF ~~ THEN REPLY ~Expedition?  Oh, yeah, the expedition to reclaim the dwarven citadels... in all the confusion, I'd, uh, forgotten.~  DO ~SetGlobal("Dwarven_Expedition_Finished", "GLOBAL", 1)~ GOTO 53
 END
 
 IF ~~ THEN BEGIN 53 // from: 52.0
-  SAY ~So do I get a return on my investment?  I did lend you that gem a while back, if you recall.  ~ 
+  SAY ~So do I get a return on my investment?  I did lend you that gem a while back, if you recall.  ~
   IF ~~ THEN REPLY ~Sorry, we didn't find any old dwarven citadels brimming with treasure - just old dwarven citadels.~  GOTO 54
   IF ~PartyGoldGT(499)~ THEN REPLY ~Here's the return on your investment - five hundred gold coins.  You'll need it to help rebuild the town.~  DO ~TakePartyGold(500)~ GOTO 57
   IF ~PartyGoldLT(500)~ THEN REPLY ~I'd pay you back, but I don't have enough coins on me at the moment.~  GOTO 54
@@ -407,7 +407,7 @@ IF ~~ THEN BEGIN 53 // from: 52.0
 END
 
 IF ~~ THEN BEGIN 54 // from: 53.2 53.0
-  SAY ~Just my luck.  You'd think I'd crossed Tymora the way life's been throwing "fortunes" at me lately.  No matter, then.  It was a risk.  At least I still have my life.~ 
+  SAY ~Just my luck.  You'd think I'd crossed Tymora the way life's been throwing "fortunes" at me lately.  No matter, then.  It was a risk.  At least I still have my life.~
   IF ~~ THEN REPLY ~You know, we're thinking about, er... mounting one last expedition into that crystal tower and taking the, uh, treasure within - though we could use a little help, if you have any extra gear you could give us.  We could, uh, pay you back later.  ~  DO ~GiveItemCreate("Bow05", Protagonist, 0, 0, 0)
 GiveItemCreate("Potn22", Protagonist, 1, 0, 0)
 GiveItemCreate("Potn11", Protagonist, 1, 0, 0)
@@ -416,18 +416,18 @@ GiveItemCreate("Arow10", Protagonist, 20, 0, 0)~ GOTO 55
 END
 
 IF ~~ THEN BEGIN 55 // from: 54.0
-  SAY ~Really?  Hmm.  Well, I... hmm.  All right, by the hells.  I was saving these for my escape and for making it through the miles of icy passes outside of Kuldahar, but I think I could part with them.  I, uh, found them in Hrothgar's House before the giants attacked.~ 
+  SAY ~Really?  Hmm.  Well, I... hmm.  All right, by the hells.  I was saving these for my escape and for making it through the miles of icy passes outside of Kuldahar, but I think I could part with them.  I, uh, found them in Hrothgar's House before the giants attacked.~
   IF ~~ THEN REPLY ~Thank you.  You know, of course, this does not mean I'm promising you'll get a return on your investment.~  GOTO 56
   IF ~~ THEN REPLY ~Excellent.  You'd best get to safety.  ~  EXIT
 END
 
 IF ~~ THEN BEGIN 56 // from: 55.0
-  SAY ~That's a risk I'm willing to take.  My motto is, if you're not willing to gamble...~ 
+  SAY ~That's a risk I'm willing to take.  My motto is, if you're not willing to gamble...~
   IF ~~ THEN REPLY ~Indeed.  You'd best get to safety.  ~  EXIT
 END
 
 IF ~~ THEN BEGIN 57 // from: 53.1
-  SAY ~Wh - thanks!  Ha!  I can't believe my good fortune!  I mean, well, outside of my home being destroyed by great shafts of ice and the attack by those giants, this is the windfall I've been waiting for!~ 
+  SAY ~Wh - thanks!  Ha!  I can't believe my good fortune!  I mean, well, outside of my home being destroyed by great shafts of ice and the attack by those giants, this is the windfall I've been waiting for!~
   IF ~~ THEN REPLY ~Uh, indeed.  Look, what happened here?~  GOTO 46
   IF ~~ THEN REPLY ~I suppose so... look, you'd best get to safety.  ~  EXIT
 END
@@ -436,7 +436,7 @@ IF ~Race(Protagonist, 4)
 NumTimesTalkedTo(0)
 RandomNum(3, 2)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 58 // from:
-  SAY ~Heh -- first Hildreth, then you.  Maybe there *is* some truth to you dwarves planning an expedition to take back some of your old cities, eh?~ 
+  SAY ~Heh -- first Hildreth, then you.  Maybe there *is* some truth to you dwarves planning an expedition to take back some of your old cities, eh?~
   IF ~Global("Know_Hildreth", "GLOBAL", 0)~ THEN REPLY ~Hildreth?~  GOTO 2
   IF ~Global("Know_Hildreth", "GLOBAL", 1)~ THEN REPLY ~No, Hildreth and I being in Easthaven is just a coincidence.~  GOTO 3
   IF ~~ THEN REPLY ~Old cities?~  GOTO 3
@@ -448,7 +448,7 @@ IF ~Race(Protagonist, 4)
 NumTimesTalkedTo(0)
 RandomNumLT(3, 4)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 59 // from:
-  SAY ~Heh -- just last week, Grisella mentioned some more dwarves might be coming into town.  Something about how the dwarves are looking to recover some of their old cities - you here with Hildreth?  ~ 
+  SAY ~Heh -- just last week, Grisella mentioned some more dwarves might be coming into town.  Something about how the dwarves are looking to recover some of their old cities - you here with Hildreth?  ~
   IF ~Global("Know_Hildreth", "GLOBAL", 0)~ THEN REPLY ~Hildreth?~  GOTO 2
   IF ~Global("Know_Hildreth", "GLOBAL", 1)~ THEN REPLY ~No, Hildreth and I being in Easthaven is just a coincidence.~  GOTO 3
   IF ~~ THEN REPLY ~Old cities?~  GOTO 3
@@ -460,7 +460,7 @@ IF ~Race(Protagonist, 2)
 NumTimesTalkedTo(0)
 RandomNum(3, 2)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 60 // from:
-  SAY ~Well, now - been some time since I've seen an elf in this far north.  Now they seem to be coming to Easthaven in force.~ 
+  SAY ~Well, now - been some time since I've seen an elf in this far north.  Now they seem to be coming to Easthaven in force.~
   IF ~~ THEN REPLY ~Are there other elves in town?~  GOTO 7
   IF ~Global("Erevain_Met","GLOBAL", 1)~ THEN REPLY ~Are you talking about that other elf at the Snowdrift Inn, Erevain?~  GOTO 8
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I had some questions about Easthaven that perhaps you could answer.~  GOTO 0
@@ -471,7 +471,7 @@ IF ~Race(Protagonist, 2)
 NumTimesTalkedTo(0)
 RandomNumLT(3, 4)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 61 // from:
-  SAY ~Damn me - an elf.  Thought these climes would be too cold for your kind, yet here you are, two in as many days.~ 
+  SAY ~Damn me - an elf.  Thought these climes would be too cold for your kind, yet here you are, two in as many days.~
   IF ~~ THEN REPLY ~Two elves?  Is there another elf in town?~  GOTO 7
   IF ~Global("Erevain_Met","GLOBAL", 1)~ THEN REPLY ~Are you talking about that other elf at the Snowdrift Inn, Erevain?~  GOTO 8
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~I had some questions about Easthaven that perhaps you could answer.~  GOTO 0
@@ -482,7 +482,7 @@ END
 IF ~NumTimesTalkedTo(0)
 RandomNum(3, 2)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 62 // from:
-  SAY ~Yes?  Can I help you with something?~ 
+  SAY ~Yes?  Can I help you with something?~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Yes.  I wanted to ask you some things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~Of course.  I am a visitor to this town, and there are things I would know.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
@@ -491,7 +491,7 @@ END
 IF ~NumTimesTalkedTo(0)
 RandomNumLT(3, 4)
 Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 63 // from:
-  SAY ~I heard there were new faces in town.  Did you come with the caravan? ~ 
+  SAY ~I heard there were new faces in town.  Did you come with the caravan? ~
   IF ~GlobalGT("Know_Hrothgar","GLOBAL",0)~ THEN REPLY ~Yes.  I wanted to ask you some things about Easthaven.~  GOTO 0
   IF ~~ THEN REPLY ~Of course.  I am a visitor to this town, and there are things I would know.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT

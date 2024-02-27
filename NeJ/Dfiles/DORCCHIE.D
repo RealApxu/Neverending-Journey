@@ -1,7 +1,7 @@
 BEGIN ~DORCCHIE~
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
-  SAY ~Who you?  I am Uligar, Chief of Bleeding Eye.  Bow before me and pay tribute!~ 
+  SAY ~Who you?  I am Uligar, Chief of Bleeding Eye.  Bow before me and pay tribute!~
   IF ~~ THEN REPLY ~Are you serious?~  GOTO 1
   IF ~~ THEN REPLY ~Sorry, I don't give tributes to smelly morons.~  GOTO 2
   IF ~~ THEN REPLY ~Why should I?~  GOTO 1
@@ -12,7 +12,7 @@ IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
 END
 
 IF ~~ THEN BEGIN 1 // from: 0.3 0.2 0.0
-  SAY ~Do not mock Chief of Bleeding Eye!  You give tribute now or die!~ 
+  SAY ~Do not mock Chief of Bleeding Eye!  You give tribute now or die!~
   IF ~~ THEN REPLY ~Boy, you're stupid.  I'm not giving you one copper piece, much less my gold.~  GOTO 2
   IF ~~ THEN REPLY ~Sorry, but I'm not going to give you a tribute.~  GOTO 2
   IF ~~ THEN REPLY ~How about you shut up before I spill your guts all over the floor?~  GOTO 2
@@ -29,23 +29,23 @@ Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 2 // from: 1.2 1.1 1.0 0.6 0.1
-  SAY ~You insult me.  Wolves will feed on your flesh tonight.~ 
+  SAY ~You insult me.  Wolves will feed on your flesh tonight.~
   IF ~~ THEN REPLY ~We'll see about that.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
 Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 3 // from: 1.3
-  SAY ~Hrmph.  Proud warrior.  You are fierce.  I let you go.  Do not cross me again.~ 
+  SAY ~Hrmph.  Proud warrior.  You are fierce.  I let you go.  Do not cross me again.~
   IF ~~ THEN REPLY ~Likewise.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 4 // from: 1.5 0.4
-  SAY ~You are wise to cower and offer tribute.  I let you go now.~ 
+  SAY ~You are wise to cower and offer tribute.  I let you go now.~
   IF ~~ THEN EXIT
 END
 
 IF ~~ THEN BEGIN 5 // from: 1.6 0.5
-  SAY ~You lie.  I find the gold on you.~ 
+  SAY ~You lie.  I find the gold on you.~
   IF ~~ THEN REPLY ~Uh... er... hold on...~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
 Enemy()~ EXIT
   IF ~~ THEN REPLY ~I'd like to see you try, you ugly bastard.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
@@ -53,7 +53,7 @@ Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 6 // from: 1.4
-  SAY ~Ha ha.  I laugh.  You talk big but are small.  I kill you now, find gold later.~ 
+  SAY ~Ha ha.  I laugh.  You talk big but are small.  I kill you now, find gold later.~
   IF ~~ THEN REPLY ~Oh, uh, heh... heh... I was just joking about that whole "intestine strangling" thing.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
 Enemy()~ EXIT
   IF ~~ THEN REPLY ~Come over here and try it, pigface.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
@@ -61,7 +61,7 @@ Enemy()~ EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 7 // from:
-  SAY ~You dare come here again?  I slay you for your... your...  Gruumsh damn you!  What that word?~ 
+  SAY ~You dare come here again?  I slay you for your... your...  Gruumsh damn you!  What that word?~
   IF ~~ THEN REPLY ~"Insolence?"  You *are* stupid, aren't you?~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
 Enemy()~ EXIT
   IF ~~ THEN REPLY ~Sorry.  I don't think I'm going to let you do that.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)

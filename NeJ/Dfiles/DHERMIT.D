@@ -1,76 +1,76 @@
 BEGIN ~DHERMIT~ 83312 // non-zero flags may indicate non-pausing dialogue
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
-  SAY ~Merciful Gods!  You're lucky to be alive.  Are you all right?  Anything broken?~ 
+  SAY ~Merciful Gods!  You're lucky to be alive.  Are you all right?  Anything broken?~
   IF ~~ THEN REPLY ~We seem to be in one piece.  Who are you?~  GOTO 1
   IF ~~ THEN REPLY ~No we are not *all right!*  Half the damn mountain just fell on top of our expedition!~  GOTO 2
   IF ~~ THEN REPLY ~We're fine, thank you.  We'd best be on our way.  Farewell.~  GOTO 5
 END
 
 IF ~~ THEN BEGIN 1 // from: 0.0
-  SAY ~I'm just an aging soul who prefers the solitude of these mountains to the hustle and bustle of town life.  I tell you, I've lived in this pass for years, and I've never seen *anything* like what just happened.~ 
+  SAY ~I'm just an aging soul who prefers the solitude of these mountains to the hustle and bustle of town life.  I tell you, I've lived in this pass for years, and I've never seen *anything* like what just happened.~
   IF ~~ THEN REPLY ~You witnessed the avalanche?~  GOTO 3
 END
 
 IF ~~ THEN BEGIN 2 // from: 0.1
-  SAY ~I know.  I saw the whole thing.  I was dozing off in my cave over yonder when I felt the ground begin to shake and heard a rumble something fierce.  I stumbled outside just in time to see the avalanche come crashing down.  ~ 
+  SAY ~I know.  I saw the whole thing.  I was dozing off in my cave over yonder when I felt the ground begin to shake and heard a rumble something fierce.  I stumbled outside just in time to see the avalanche come crashing down.  ~
   IF ~~ THEN GOTO 4
 END
 
 IF ~~ THEN BEGIN 3 // from: 1.0
-  SAY ~Yep.  I saw the whole thing.  I was sleeping in my cave over yonder when I felt the ground begin to shake and heard a rumble something fierce.  I stumbled outside just in time to see the avalanche come crashing down.~ 
+  SAY ~Yep.  I saw the whole thing.  I was sleeping in my cave over yonder when I felt the ground begin to shake and heard a rumble something fierce.  I stumbled outside just in time to see the avalanche come crashing down.~
   IF ~~ THEN GOTO 4
 END
 
 IF ~~ THEN BEGIN 4 // from: 3.0 2.0
-  SAY ~It's a good thing you ran forward instead of back into the pass like the others.  Poor bastards.  One thing's for sure... I'm not digging their bodies out from under there.  They'll have to wait 'til the snows melt to receive a proper burial.~ 
+  SAY ~It's a good thing you ran forward instead of back into the pass like the others.  Poor bastards.  One thing's for sure... I'm not digging their bodies out from under there.  They'll have to wait 'til the snows melt to receive a proper burial.~
   IF ~~ THEN REPLY ~We're touched by your concern for our fallen comrades.  Do you, by chance, know the way to Kuldahar?  ~  GOTO 6
   IF ~~ THEN REPLY ~Well, we'd best be off.  Farewell.  ~  GOTO 5
 END
 
 IF ~~ THEN BEGIN 5 // from: 4.1 0.2
-  SAY ~Where you headed?  It's obvious you can't go back the way you came.~ 
+  SAY ~Where you headed?  It's obvious you can't go back the way you came.~
   IF ~~ THEN REPLY ~Our expedition was bound for Kuldahar.  Can you tell us which direction the town lays?~  GOTO 6
   IF ~~ THEN REPLY ~Our destination is none of your business.  Farewell.~  GOTO 10
 END
 
 IF ~~ THEN BEGIN 6 // from: 5.0 4.0
-  SAY ~Kuldahar?  Why would you want to go to that miserable little berg?  Nothing there but a big tree and a bunch of shacks and lean-tos.  It's an eyesore, if you ask me.  ~ 
+  SAY ~Kuldahar?  Why would you want to go to that miserable little berg?  Nothing there but a big tree and a bunch of shacks and lean-tos.  It's an eyesore, if you ask me.  ~
   IF ~~ THEN REPLY ~There has been word that some sort of trouble has befallen the town.  We've come to lend whatever aid we can.~  GOTO 7
   IF ~~ THEN REPLY ~Look, all we asked for was directions.  Now, can you help us or not?~  GOTO 8
   IF ~~ THEN REPLY ~On second thought, we'll find our own way.  Farewell.~  GOTO 10
 END
 
 IF ~~ THEN BEGIN 7 // from: 6.0
-  SAY ~Humph.  A fool's errand.  You'd be better off worrying about yourselves and leaving them *townsfolk* to deal with their own problems.~ 
+  SAY ~Humph.  A fool's errand.  You'd be better off worrying about yourselves and leaving them *townsfolk* to deal with their own problems.~
   IF ~~ THEN REPLY ~We appreciate the advice.  Now, do you know the way or not?~  GOTO 8
   IF ~~ THEN REPLY ~On second thought, we'll find our own way.  Farewell.~  GOTO 10
 END
 
 IF ~~ THEN BEGIN 8 // from: 7.0 6.1
-  SAY ~I suppose it wouldn't hurt to point you in the right direction.  Follow this trail east through the valley.  Kuldahar lies just beyond the old mill.  ~ 
+  SAY ~I suppose it wouldn't hurt to point you in the right direction.  Follow this trail east through the valley.  Kuldahar lies just beyond the old mill.  ~
   IF ~~ THEN GOTO 9
 END
 
 IF ~~ THEN BEGIN 9 // from: 8.0
-  SAY ~But you'd do well to keep your guard up.  There are goblins everywhere between here and town.  Filthy little buggers... ever since them townsfolk abandoned their farmsteads, they've been crawling all over the valley like they own the place.~ 
+  SAY ~But you'd do well to keep your guard up.  There are goblins everywhere between here and town.  Filthy little buggers... ever since them townsfolk abandoned their farmsteads, they've been crawling all over the valley like they own the place.~
   IF ~~ THEN REPLY ~Thanks for your help.  Farewell.~  DO ~SetGlobal("Hermit_Exit", "GLOBAL", 1)~ JOURNAL ~Kuldahar Pass.
 
 We met a strange hermit in the valley at the mouth of Kuldahar Pass.  He claimed to have witnessed the avalanche that wiped out the rest of the expedition from Easthaven and nearly killed us as well.  He told us, somewhat reluctantly, that the town of Kuldahar lay to the east of the valley, just beyond an old mill.~  EXIT
 END
 
 IF ~~ THEN BEGIN 10 // from: 7.1 6.2 5.1
-  SAY ~Have it your way.  But you'd do well to keep your guard up.  There are goblins everywhere between here and town.  Filthy little buggers... ever since them townsfolk abandoned their farmsteads, they've been crawling all over the valley like they own the place.~ 
+  SAY ~Have it your way.  But you'd do well to keep your guard up.  There are goblins everywhere between here and town.  Filthy little buggers... ever since them townsfolk abandoned their farmsteads, they've been crawling all over the valley like they own the place.~
   IF ~~ THEN REPLY ~Thanks for your help.  Farewell.~  DO ~SetGlobal("Hermit_Exit", "GLOBAL", 1)~ EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 11 // from:
-  SAY ~Forget something?~ 
+  SAY ~Forget something?~
   IF ~~ THEN REPLY ~Sorry, the avalanche must have really shaken us up.  Which way to Kuldahar?~  GOTO 12
   IF ~~ THEN REPLY ~Never mind.  Farewell.~  DO ~SetGlobal("Hermit_Exit", "GLOBAL", 1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 12 // from: 11.0
-  SAY ~No problem... I'd be glad to help.  Follow this trail east through the valley.  Kuldahar lies just beyond the old mill.~ 
+  SAY ~No problem... I'd be glad to help.  Follow this trail east through the valley.  Kuldahar lies just beyond the old mill.~
   IF ~~ THEN REPLY ~Thanks for your help.  Farewell.~  DO ~SetGlobal("Hermit_Exit", "GLOBAL", 1)~ EXIT
 END

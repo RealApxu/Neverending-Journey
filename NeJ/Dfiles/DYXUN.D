@@ -4,33 +4,33 @@ IF ~True()
 ~ THEN BEGIN 0
   SAY ~So.  It has come to this, has it?  I did not expect a group of natives to interfere with my vendetta.  Why have you come here, killing my minions?~ [YXUN_01]
   IF ~~ THEN REPLY ~Minions?  You mean the snake people?~ JOURNAL ~Finding the Heartstone Gem.
-  
-We met Yxunomei in the heart of Dragon‘s Eye.  She was surprised that we were there, interfering with her "vendetta".  We asked her about her minions.  She told us that they were yuan-ti, and that they would inherit her "kingdom" when she concluded her business and left.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
+
+We met Yxunomei in the heart of Dragonï¿½s Eye.  She was surprised that we were there, interfering with her "vendetta".  We asked her about her minions.  She told us that they were yuan-ti, and that they would inherit her "kingdom" when she concluded her business and left.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
 
 We penetrated the inner sanctum of the Temple of the Forgotten God only to find that someone had gotten their before us. The pedestal that, presumably, had once held the artifact was empty. Bodies lay strewn about the chamber, indicating that the acolytes and their verbeeg guardians had put up fight in the defense of the gem. Among the bodies was the corpse of man garbed in the vestments of a priest of Talona. It is difficult to say what part he might have played in the battle or the resulting theft. Perhaps we should return to Arundel and see what sense he can make of all this.%)~ GOTO 1
   IF ~~ THEN REPLY ~What vendetta do you speak of?~ JOURNAL ~Finding the Heartstone Gem.
-  
-We met Yxunomei in the heart of Dragon‘s Eye.  She was surprised that we were there, interfering with her "vendetta".  We asked her about the vendetta, but she told us our involvement in the matter was irrelevant.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
+
+We met Yxunomei in the heart of Dragonï¿½s Eye.  She was surprised that we were there, interfering with her "vendetta".  We asked her about the vendetta, but she told us our involvement in the matter was irrelevant.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
 
 We penetrated the inner sanctum of the Temple of the Forgotten God only to find that someone had gotten their before us. The pedestal that, presumably, had once held the artifact was empty. Bodies lay strewn about the chamber, indicating that the acolytes and their verbeeg guardians had put up fight in the defense of the gem. Among the bodies was the corpse of man garbed in the vestments of a priest of Talona. It is difficult to say what part he might have played in the battle or the resulting theft. Perhaps we should return to Arundel and see what sense he can make of all this.%)~ GOTO 2
   IF ~~ THEN REPLY ~Do you know of the Heartstone Gem?~ JOURNAL ~Finding the Heartstone Gem.
-  
-We met Yxunomei in the heart of Dragon‘s Eye.  She was surprised that we were there, interfering with her "vendetta".  We asked her about the Heartstone Gem.  She told us that she needed it for a war she was waging.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
+
+We met Yxunomei in the heart of Dragonï¿½s Eye.  She was surprised that we were there, interfering with her "vendetta".  We asked her about the Heartstone Gem.  She told us that she needed it for a war she was waging.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
 
 We penetrated the inner sanctum of the Temple of the Forgotten God only to find that someone had gotten their before us. The pedestal that, presumably, had once held the artifact was empty. Bodies lay strewn about the chamber, indicating that the acolytes and their verbeeg guardians had put up fight in the defense of the gem. Among the bodies was the corpse of man garbed in the vestments of a priest of Talona. It is difficult to say what part he might have played in the battle or the resulting theft. Perhaps we should return to Arundel and see what sense he can make of all this.%)~ GOTO 3
   IF ~~ THEN REPLY ~I came here to kill your children because they were swiping people from Kuldahar.~ JOURNAL ~Finding the Heartstone Gem.
-  
-We met Yxunomei in the heart of Dragon‘s Eye.  She was surprised that we were there, interfering with her "vendetta".  We told her that we came to Dragon‘s Eye because her servants were abducting people from Kuldahar.  She then said something cryptic about using the villagers in a recipe for an old friend and curdling the milk of her enemy‘s labor.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
+
+We met Yxunomei in the heart of Dragonï¿½s Eye.  She was surprised that we were there, interfering with her "vendetta".  We told her that we came to Dragonï¿½s Eye because her servants were abducting people from Kuldahar.  She then said something cryptic about using the villagers in a recipe for an old friend and curdling the milk of her enemyï¿½s labor.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
 
 We penetrated the inner sanctum of the Temple of the Forgotten God only to find that someone had gotten their before us. The pedestal that, presumably, had once held the artifact was empty. Bodies lay strewn about the chamber, indicating that the acolytes and their verbeeg guardians had put up fight in the defense of the gem. Among the bodies was the corpse of man garbed in the vestments of a priest of Talona. It is difficult to say what part he might have played in the battle or the resulting theft. Perhaps we should return to Arundel and see what sense he can make of all this.%)~ GOTO 5
-  IF ~~ THEN REPLY ~I came here because I know you‘re the one responsible for everything going on in the pass.  The abductions.  The strange weather.  The undead in the vale.  The avalanche.  You‘re behind it all.~ JOURNAL ~Finding the Heartstone Gem.
-  
-We met Yxunomei in the heart of Dragon‘s Eye.  She was surprised that we were there, interfering with her "vendetta".  We confronted her about all of the evil happening in the pass.  She told us that we didn‘t know what we were talking about.  We asked her about the Heartstone Gem, and she told us that we couldn‘t have it.  She needed it for her own goals.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
+  IF ~~ THEN REPLY ~I came here because I know youï¿½re the one responsible for everything going on in the pass.  The abductions.  The strange weather.  The undead in the vale.  The avalanche.  Youï¿½re behind it all.~ JOURNAL ~Finding the Heartstone Gem.
+
+We met Yxunomei in the heart of Dragonï¿½s Eye.  She was surprised that we were there, interfering with her "vendetta".  We confronted her about all of the evil happening in the pass.  She told us that we didnï¿½t know what we were talking about.  We asked her about the Heartstone Gem, and she told us that we couldnï¿½t have it.  She needed it for her own goals.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
 
 We penetrated the inner sanctum of the Temple of the Forgotten God only to find that someone had gotten their before us. The pedestal that, presumably, had once held the artifact was empty. Bodies lay strewn about the chamber, indicating that the acolytes and their verbeeg guardians had put up fight in the defense of the gem. Among the bodies was the corpse of man garbed in the vestments of a priest of Talona. It is difficult to say what part he might have played in the battle or the resulting theft. Perhaps we should return to Arundel and see what sense he can make of all this.%)~ GOTO 7
   IF ~~ THEN REPLY ~I came here to rip the Heartstone Gem from your cold, dead, hands.~ JOURNAL ~Finding the Heartstone Gem.
-  
-We met Yxunomei in the heart of Dragon‘s Eye.  She was surprised that we were there, interfering with her "vendetta".  We had no desire to mince words with her, so we told her we were going to rip the Heartstone Gem from her cold, dead, scaly hands.  She promptly attacked us.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
+
+We met Yxunomei in the heart of Dragonï¿½s Eye.  She was surprised that we were there, interfering with her "vendetta".  We had no desire to mince words with her, so we told her we were going to rip the Heartstone Gem from her cold, dead, scaly hands.  She promptly attacked us.~ DO ~EraseJournalEntry(%Search for the Heartstone Gem.
 
 We penetrated the inner sanctum of the Temple of the Forgotten God only to find that someone had gotten their before us. The pedestal that, presumably, had once held the artifact was empty. Bodies lay strewn about the chamber, indicating that the acolytes and their verbeeg guardians had put up fight in the defense of the gem. Among the bodies was the corpse of man garbed in the vestments of a priest of Talona. It is difficult to say what part he might have played in the battle or the resulting theft. Perhaps we should return to Arundel and see what sense he can make of all this.%)~ GOTO 8
 END
