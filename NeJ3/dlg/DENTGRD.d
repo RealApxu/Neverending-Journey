@@ -2,7 +2,7 @@ BEGIN ~DENTGRD~
 
 IF ~Global("Kerish_Look","GLOBAL", 0)~ THEN BEGIN 0
   SAY ~Not know you.  What you want here?~
-  IF ~~ THEN REPLY ~I’m here to see your leader.~ GOTO 2
+  IF ~~ THEN REPLY ~I'm here to see your leader.~ GOTO 2
   IF ~~ THEN REPLY ~Nothing.  Farewell.~ GOTO 3
 END
 
