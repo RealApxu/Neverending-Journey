@@ -3669,61 +3669,61 @@ COPY_EXISTING ~AR0510.bcs~ ~override~
     EXTEND_TOP ~AR0510.bcs~ ~NeJ/sExt/eAR0510.bcs~
 
 COPY_EXISTING ~AR0510.bcs~ ~override~
-    DECOMPILE_BCS_TO_BAF
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+    DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
 ~AmbientActivate("AM0510A",FALSE)~
 ~~
-    COMPILE_BAF_TO_BCS
+    END
 
 COPY_EXISTING ~AR0510.bcs~ ~override~
-    DECOMPILE_BCS_TO_BAF
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+    DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
 ~SoundActivate("AM_Portal",FALSE)~
 ~~
-    COMPILE_BAF_TO_BCS
+    END
 
 COPY_EXISTING ~AR0510.bcs~ ~override~
-    DECOMPILE_BCS_TO_BAF
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+    DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
 ~TriggerActivation("PlanarTransition",FALSE)~
 ~TriggerActivation("PlanarTransition",FALSE)
 TriggerActivation("ToKuldahar",TRUE)~
-    COMPILE_BAF_TO_BCS
+    END
 
 COPY_EXISTING ~CUT17c.bcs~ ~override~
-    DECOMPILE_BCS_TO_BAF
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+    DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
 ~TriggerActivation("PlanarTransition",TRUE)~
 ~TriggerActivation("PlanarTransition",TRUE)
 TriggerActivation("ToKuldahar",FALSE)~
-    COMPILE_BAF_TO_BCS
+    END
 
 COPY_EXISTING ~CUT17f.bcs~ ~override~
-    DECOMPILE_BCS_TO_BAF
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+    DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
 ~TriggerActivation("PlanarTransition",FALSE)~
 ~TriggerActivation("PlanarTransition",FALSE)
 TriggerActivation("ToKuldahar",TRUE)~
-    COMPILE_BAF_TO_BCS
+    END
 
 COPY_EXISTING ~AR0510.bcs~ ~override~
-    DECOMPILE_BCS_TO_BAF
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+    DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
 ~Global("PlanarPrison","GLOBAL",2)~
 ~Global("PlanarPrison","GLOBAL",2)
 !GlobalGT("VP_TeleportDialog","GLOBAL",1)~
-    COMPILE_BAF_TO_BCS
+    END
 
 COPY_EXISTING ~PPPORTAL.bcs~ ~override~
-    DECOMPILE_BCS_TO_BAF
-      REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
+    DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
 ~GlobalGT("asylumUsedPortal","GLOBAL",2)~
 ~GlobalGT("asylumUsedPortal","GLOBAL",2)
 !Global("VP_StartIWD2","GLOBAL",0)~
-    COMPILE_BAF_TO_BCS
+    END
 
 COPY_EXISTING ~PPPORTAL.bcs~ ~override~
-  EXTEND_BOTTOM ~PPPORTAL.bcs~ ~NeJ/sExt/ePPORTAL.baf~
+    EXTEND_BOTTOM ~PPPORTAL.bcs~ ~NeJ/sExt/ePPORTAL.baf~
 ////////////////////////////////////////////////
 
 //Patch v1.3
@@ -6153,22 +6153,22 @@ END
 
 ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ THEN BEGIN
     COPY_EXISTING ~AR6509.BCS~ ~override~
-        DECOMPILE_BCS_TO_BAF
+        DECOMPILE_AND_PATCH BEGIN
             REPLACE_TEXTUALLY
 ~Global("WatchSpawn3","GLOBAL",0)~
 ~Global("WatchSpawn3","GLOBAL",0)
 Global("VP_Leaving_Halruaa","GLOBAL",0)~
-        COMPILE_BAF_TO_BCS
+        END
 END
 
 ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ THEN BEGIN
     COPY_EXISTING ~AR6511.BCS~ ~override~
-        DECOMPILE_BCS_TO_BAF
+        DECOMPILE_AND_PATCH BEGIN
             REPLACE_TEXTUALLY
 ~Global("WatchSpawn2","GLOBAL",0)~
 ~Global("WatchSpawn2","GLOBAL",0)
 Global("VP_Leaving_Halruaa","GLOBAL",0)~
-        COMPILE_BAF_TO_BCS
+        END
 END
 
 COPY ~NeJ2/Dar/cre/Erhard.CRE~ ~override/Erhard.CRE~
@@ -9781,7 +9781,7 @@ COPY ~BGTComp/Skie/SKIE78.CRE~ ~override/SKIE78.CRE~
 COPY ~BGTComp/Skie/AR7202.BCS~ ~override/AR7202.BCS~
 
 COPY_EXISTING ~ARAM00.BCS~ ~override~
-    DECOMPILE_BCS_TO_BAF
+    DECOMPILE_AND_PATCH BEGIN
         REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
 ~ActionOverride("Skie",LeaveParty())[^!]*ActionOverride("Skie",ChangeAIScript("",DEFAULT))[^!]*ActionOverride("Skie",ClearAllActions())[^!]*ActionOverride("Skie",DestroySelf())[^!]*SetGlobal("MeetOldenFriends","GLOBAL",16)[^!]*Continue()~
 ~ActionOverride("Skie",LeaveParty())
@@ -9792,7 +9792,7 @@ SetGlobal("SkiPartyBG1","GLOBAL",1)
 SetGlobal("MeetOldenFriends","GLOBAL",16)
 ActionOverride("Skie",MoveBetweenAreas("AR0602",[3528.2953],10))
 Continue()~
-    COMPILE_BAF_TO_BCS
+    END
 
 APPEND ~pdialog.2da~ // TOB append
 ~SKIE     SKIEP             SKIEJ            SKIED         SKIEP           SKIEJ              SKIED              skie25~
