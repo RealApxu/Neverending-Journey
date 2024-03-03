@@ -1,0 +1,93 @@
+IF
+    See(NearestEnemyOf(Myself))
+    GlobalLT("VP_Flame_Strike","LOCALS",3)
+THEN
+    RESPONSE #100
+        IncrementGlobal("VP_Flame_Strike","LOCALS",1)
+        ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)  // SPPR503.SPL (Flame Strike)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    GlobalLT("VP_Cloak_Of_Fear","LOCALS",3)
+THEN
+    RESPONSE #100
+        IncrementGlobal("VP_Cloak_Of_Fear","LOCALS",1)
+        ForceSpell(Myself,CLERIC_CLOAK_OF_FEAR)  // SPPR416.SPL (Cloak of Fear)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    See(NearestMyGroupOfType)
+    Global("VP_Mass_Cure","LOCALS",0)
+    HPPercentLT(Myself,80)
+    OR(3)
+        HPPercentLT(LastSeenBy(Myself),80)
+        HPPercentLT(SecondNearestMyGroupOfType,80)
+        HPPercentLT(ThirdNearestMyGroupOfType,80)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_Mass_Cure","LOCALS",1)
+        ForceSpell(NearestMyGroupOfType,CLERIC_MASS_CURE)  // SPPR514.SPL (Mass Cure)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    GlobalLT("VP_Hold_person","LOCALS",3)
+THEN
+    RESPONSE #100
+        IncrementGlobal("VP_Hold_person","LOCALS",1)
+        ForceSpell(NearestEnemyOf(Myself),CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    See(NearestMyGroupOfType)
+    HPPercentLT(LastSeenBy(Myself),60)
+    Global("VP_Cure_Wounds","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_Cure_Wounds","LOCALS",1)
+        ForceSpell(NearestMyGroupOfType,CLERIC_CURE_SERIOUS_WOUNDS)  // SPPR401.SPL (Cure Serious Wounds)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    See(NearestMyGroupOfType)
+    HPPercentLT(LastSeenBy(Myself),10)
+    Global("VP_Heal","LOCALS",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_Heal","LOCALS",1)
+        ForceSpell(NearestMyGroupOfType,CLERIC_HEAL)  // SPPR607.SPL (Heal)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    See(NearestMyGroupOfType)
+    HPPercentLT(LastSeenBy(Myself),60)
+    Global("VP_Cure_Wounds","LOCALS",1)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_Cure_Wounds","LOCALS",2)
+        ForceSpell(NearestMyGroupOfType,CLERIC_CURE_SERIOUS_WOUNDS)  // SPPR401.SPL (Cure Serious Wounds)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+    See(NearestMyGroupOfType)
+    HPPercentLT(LastSeenBy(Myself),10)
+    Global("VP_Heal","LOCALS",1)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_Heal","LOCALS",2)
+        ForceSpell(NearestMyGroupOfType,CLERIC_HEAL)  // SPPR607.SPL (Heal)
+END
+
+IF
+    See(NearestEnemyOf(Myself))
+THEN
+    RESPONSE #100
+        EquipMostDamagingMelee()
+        Attack(NearestEnemyOf(Myself))
+END

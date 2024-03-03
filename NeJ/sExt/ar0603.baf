@@ -1,0 +1,104 @@
+IF
+    Global("VP_Hide_BanditCamp","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_Hide_BanditCamp","GLOBAL",1)
+        HideAreaOnMap("AR8700")
+END
+
+IF
+    LevelPartyLT(9)
+    Global("VP_CreateKachiko","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateKachiko","GLOBAL",1)
+        CreateCreature("Kachi08",[3351.1753],0)
+END
+
+IF
+    LevelParty(9)
+    Global("VP_CreateKachiko","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateKachiko","GLOBAL",1)
+        CreateCreature("Kachi09",[3351.1753],0)
+END
+
+IF
+    LevelParty(10)
+    Global("VP_CreateKachiko","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateKachiko","GLOBAL",1)
+        CreateCreature("Kachi10",[3351.1753],0)
+END
+
+IF
+    LevelParty(11)
+    Global("VP_CreateKachiko","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateKachiko","GLOBAL",1)
+        CreateCreature("Kachi11",[3351.1753],0)
+END
+
+IF
+    LevelParty(12)
+    Global("VP_CreateKachiko","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateKachiko","GLOBAL",1)
+        CreateCreature("Kachi12",[3351.1753],0)
+END
+
+IF
+    LevelPartyGT(12)
+    Global("VP_CreateKachiko","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateKachiko","GLOBAL",1)
+        CreateCreature("Kachi13",[3351.1753],0)
+END
+
+IF
+    OnCreation()
+    InMyArea("Yoshimo")  // Yoshimo
+    !InParty("Yoshimo")  // Yoshimo
+    XPLT(Player1,160000)
+    Global("VP_CreateYoshimo","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateYoshimo","GLOBAL",1)
+        ActionOverride("Yoshimo",DestroySelf())
+        CreateCreature("Yoshi10",[739.2871],0)  // Yoshimo
+        Continue()
+END
+
+IF
+    OnCreation()
+    InMyArea("Yoshimo")  // Yoshimo
+    !InParty("Yoshimo")  // Yoshimo
+    XPGT(Player1,159999)
+    XPLT(Player1,450000)
+    Global("VP_CreateYoshimo","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateYoshimo","GLOBAL",1)
+        ActionOverride("Yoshimo",DestroySelf())
+        CreateCreature("Yoshi11",[739.2871],0)  // Yoshimo
+        Continue()
+END
+
+IF
+    OnCreation()
+    InMyArea("Yoshimo")  // Yoshimo
+    !InParty("Yoshimo")  // Yoshimo
+    XPGT(Player1,449999)
+    Global("VP_CreateYoshimo","GLOBAL",0)
+THEN
+    RESPONSE #100
+        SetGlobal("VP_CreateYoshimo","GLOBAL",1)
+        ActionOverride("Yoshimo",DestroySelf())
+        CreateCreature("Yoshi12",[739.2871],0)  // Yoshimo
+        Continue()
+END

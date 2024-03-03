@@ -67,13 +67,14 @@ REPLACE ~sNeJCh9~ ~Once again Hrothgar pulls his strange device from his pocket 
 // 4. Preventing possible errors
 ///////////////////////////////////////
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~override/MASAKI.dlg~ THEN BEGIN
-    COPY ~NeJ/notsfix/MISCBC.ITM~ ~override/MISCBC.ITM~
+ACTION_IF !FILE_EXISTS_IN_GAME ~MASAKI.DLG~ THEN BEGIN
+    COPY ~NeJ/notsfix/MISCBC.ITM~ ~override~
 END
 
 ///////////////////////////////////////
 // 5. Spells
 ///////////////////////////////////////
+
 COPY ~NeJ/spl~ ~override~
 
 //////////////////////////////
@@ -109,7 +110,13 @@ COPY ~NeJ/eff~ ~override~
 //Miscellaneous
 ///////////////////////////
 
-COPY ~NeJ/copy~ ~override~
+///////////////////////////
+//COPY ~NeJ/copy~ ~override~
+///////////////////////////
+
+COPY ~NeJ/copy/arow11.itm~ override //Increase price and stack
+COPY ~NeJ/copy/ogre1.itm~ override //Increase ogre weapon damage
+COMPILE ~NeJ/copy/priet12a.baf~ //Changed priest script for ACOLYTE.CRE and ACOLYTED.CRE
 
 ///////////////////////////
 //Kits
@@ -344,13 +351,9 @@ COMPILE ~NeJ/Dfiles~
 
 COMPILE ~NeJ/baf~
 
-COPY_EXISTING ~Jaheira.bcs~ ~override/Jaheira.bcs~
-    EXTEND_TOP ~Jaheira.bcs~ ~NeJ/sExt/sJaheira.baf~
-
-COPY_EXISTING ~Minsc.bcs~ ~override/Minsc.bcs~
-    EXTEND_TOP ~Minsc.bcs~ ~NeJ/sExt/sMinsc.baf~
-
-COPY ~NeJ/sExt/AR0603.bcs~ ~override/AR0603.bcs~
+EXTEND_TOP ~Jaheira.bcs~ ~NeJ/sExt/sJaheira.baf~
+EXTEND_TOP ~Minsc.bcs~ ~NeJ/sExt/sMinsc.baf~
+EXTEND_TOP ~AR0603.BCS~ ~NeJ/sExt/ar0603.baf~
 
 /////////////////////////////////////
 //Stores
@@ -875,7 +878,7 @@ COPY ~NeJ/are/TT5403.ARE~ ~override/TT5403.ARE~
 COPY ~NeJ/are/TT5404.ARE~ ~override/TT5404.ARE~
 COPY ~NeJ/are/TT5502.ARE~ ~override/TT5502.ARE~
 
- /////////////////////////////////////////////
+/////////////////////////////////////////////
 //Items
 /////////////////////////////////////////////
 
@@ -3328,9 +3331,6 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~data/BG1ARE.BIF~ THEN BEGIN
     COMPILE ~BGTComp/READ3.d~
     COMPILE ~BGTComp/WATCH9.d~
 END
-ELSE BEGIN
-//////DO NOTHING//////
-END
 
 ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ THEN BEGIN
     COPY_EXISTING ~POGHM7.dlg~ ~override/POGHM7.dlg~
@@ -3665,68 +3665,48 @@ COPY_EXISTING ~AR2100.are~ ~override/AR2100.are~
     WRITE_ASCII 0x29f0 ~TELEKULD.BCS~
     WRITE_ASCII 0x2ab4 ~TELEKULD.BCS~
 
-COPY_EXISTING ~AR0510.bcs~ ~override~
-    EXTEND_TOP ~AR0510.bcs~ ~NeJ/sExt/eAR0510.bcs~
+EXTEND_TOP ~AR0510.bcs~ ~NeJ/sExt/eAR0510.baf~
 
 COPY_EXISTING ~AR0510.bcs~ ~override~
     DECOMPILE_AND_PATCH BEGIN
-        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-~AmbientActivate("AM0510A",FALSE)~
-~~
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~AmbientActivate("AM0510A",FALSE)~ ~~
     END
 
 COPY_EXISTING ~AR0510.bcs~ ~override~
     DECOMPILE_AND_PATCH BEGIN
-        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-~SoundActivate("AM_Portal",FALSE)~
-~~
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~SoundActivate("AM_Portal",FALSE)~ ~~
     END
 
 COPY_EXISTING ~AR0510.bcs~ ~override~
     DECOMPILE_AND_PATCH BEGIN
-        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-~TriggerActivation("PlanarTransition",FALSE)~
-~TriggerActivation("PlanarTransition",FALSE)
-TriggerActivation("ToKuldahar",TRUE)~
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~TriggerActivation("PlanarTransition",FALSE)~ ~TriggerActivation("PlanarTransition",FALSE) TriggerActivation("ToKuldahar",TRUE)~
     END
 
 COPY_EXISTING ~CUT17c.bcs~ ~override~
     DECOMPILE_AND_PATCH BEGIN
-        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-~TriggerActivation("PlanarTransition",TRUE)~
-~TriggerActivation("PlanarTransition",TRUE)
-TriggerActivation("ToKuldahar",FALSE)~
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~TriggerActivation("PlanarTransition",TRUE)~ ~TriggerActivation("PlanarTransition",TRUE) TriggerActivation("ToKuldahar",FALSE)~
     END
 
 COPY_EXISTING ~CUT17f.bcs~ ~override~
     DECOMPILE_AND_PATCH BEGIN
-        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-~TriggerActivation("PlanarTransition",FALSE)~
-~TriggerActivation("PlanarTransition",FALSE)
-TriggerActivation("ToKuldahar",TRUE)~
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~TriggerActivation("PlanarTransition",FALSE)~ ~TriggerActivation("PlanarTransition",FALSE) TriggerActivation("ToKuldahar",TRUE)~
     END
 
 COPY_EXISTING ~AR0510.bcs~ ~override~
     DECOMPILE_AND_PATCH BEGIN
-        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-~Global("PlanarPrison","GLOBAL",2)~
-~Global("PlanarPrison","GLOBAL",2)
-!GlobalGT("VP_TeleportDialog","GLOBAL",1)~
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~Global("PlanarPrison","GLOBAL",2)~ ~Global("PlanarPrison","GLOBAL",2) !GlobalGT("VP_TeleportDialog","GLOBAL",1)~
     END
 
 COPY_EXISTING ~PPPORTAL.bcs~ ~override~
     DECOMPILE_AND_PATCH BEGIN
-        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH
-~GlobalGT("asylumUsedPortal","GLOBAL",2)~
-~GlobalGT("asylumUsedPortal","GLOBAL",2)
-!Global("VP_StartIWD2","GLOBAL",0)~
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~GlobalGT("asylumUsedPortal","GLOBAL",2)~ ~GlobalGT("asylumUsedPortal","GLOBAL",2) !Global("VP_StartIWD2","GLOBAL",0)~
     END
 
-COPY_EXISTING ~PPPORTAL.bcs~ ~override~
-    EXTEND_BOTTOM ~PPPORTAL.bcs~ ~NeJ/sExt/ePPORTAL.baf~
-////////////////////////////////////////////////
+EXTEND_BOTTOM ~PPPORTAL.bcs~ ~NeJ/sExt/ePPORTAL.baf~
 
+////////////////////////////////////////////////
 //Patch v1.3
+////////////////////////////////////////////////
 
 COPY ~NeJ/itm/Bag01NeJ.ITM~ ~override/Bag01NeJ.ITM~
     SAY NAME1 ~Yeti Pelt Bag~
@@ -5497,7 +5477,7 @@ COPY ~NeJ2/are/TT0079.wed~ ~override/TT0079.wed~
 COPY ~NeJ2/are/TT0079.are~ ~override/TT0079.are~
 
 COPY ~Intro/Combo1/combo1b.acm~ ~music/Combo1/combo1b.acm~
-COPY ~Intro/Theme/themea.acm~ ~music/Theme/themea.acm~
+//COPY ~Intro/Theme/themea.acm~ ~music/Theme/themea.acm~
 
 ///////////////////////////////
 // Cleric of Tempus Kit
@@ -5874,8 +5854,7 @@ APPEND ~interdia.2da~
 ~MELORA      BMELORA      BMELORA~
 UNLESS ~MELORA~ // we are already there, skip it
 
-COPY_EXISTING ~AR0700.bcs~ ~override/AR0700.bcs~
-    EXTEND_TOP ~AR0700.bcs~ ~NeJ2/Melora/sExt/aAR0700.bcs~
+EXTEND_TOP ~AR0700.bcs~ ~NeJ2/Melora/sExt/aAR0700.baf~
 
 COPY ~NeJ2/Melora/cre/Trebois.CRE~ ~override/Trebois.CRE~
     SAY NAME1 ~Daniel Trebois~
@@ -5996,10 +5975,9 @@ COPY ~NeJ2/Melora/cre/INNKE2.CRE~ ~override/INNKE2.CRE~
     SAY 0x19c ~As good to see ye again as any other I could have laid eyes on.  Make yourself as comfortable as you will.~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR6600.BCS~ THEN BEGIN
-    COPY_EXISTING ~AR6600.BCS~ ~override/AR6600.BCS~
-        EXTEND_TOP ~AR6600.BCS~ ~NeJ2/Melora/sExt/eAR6600.BAF~
+    EXTEND_TOP ~AR6600.BCS~ ~NeJ2/Melora/sExt/eAR6600.BAF~
 END ELSE BEGIN
-    COPY ~NeJ2/Melora/sExt/AR6600.BCS~ ~override~
+    COMPILE ~NeJ2/Melora/sExt/eAR6600.BCS~
 END
 
 ////////////////////////////////////////////////////
@@ -6138,36 +6116,28 @@ COPY ~NeJ2/Dar/cre/Marky.CRE~ ~override/Marky.CRE~
     SAY NAME2 ~Marky~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR1900.bcs~ THEN BEGIN
-    COPY_EXISTING ~AR1900.bcs~ ~override/AR1900.bcs~
-        EXTEND_BOTTOM ~AR1900.bcs~ ~NeJ2/Dar/scripts/xAR1900.baf~
+    EXTEND_BOTTOM ~AR1900.bcs~ ~NeJ2/Dar/scripts/xAR1900.baf~
 END ELSE BEGIN
-    COPY ~NeJ2/Dar/scripts/AR1900.bcs~ ~override~
+    COMPILE ~NeJ2/Dar/scripts/xAR1900.baf~
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR1901.bcs~ THEN BEGIN
-    COPY_EXISTING ~AR1901.bcs~ ~override/AR1901.bcs~
-        EXTEND_BOTTOM ~AR1901.bcs~ ~NeJ2/Dar/scripts/xAR1901.baf~
+    EXTEND_BOTTOM ~AR1901.bcs~ ~NeJ2/Dar/scripts/xAR1901.baf~
 END ELSE BEGIN
-    COPY ~NeJ2/Dar/scripts/AR1901.bcs~ ~override~
+    COMPILE ~NeJ2/Dar/scripts/xAR1901.baf~
 END
 
 ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ THEN BEGIN
     COPY_EXISTING ~AR6509.BCS~ ~override~
         DECOMPILE_AND_PATCH BEGIN
-            REPLACE_TEXTUALLY
-~Global("WatchSpawn3","GLOBAL",0)~
-~Global("WatchSpawn3","GLOBAL",0)
-Global("VP_Leaving_Halruaa","GLOBAL",0)~
+            REPLACE_TEXTUALLY ~Global("WatchSpawn3","GLOBAL",0)~ ~Global("WatchSpawn3","GLOBAL",0) Global("VP_Leaving_Halruaa","GLOBAL",0)~
         END
 END
 
 ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ THEN BEGIN
     COPY_EXISTING ~AR6511.BCS~ ~override~
         DECOMPILE_AND_PATCH BEGIN
-            REPLACE_TEXTUALLY
-~Global("WatchSpawn2","GLOBAL",0)~
-~Global("WatchSpawn2","GLOBAL",0)
-Global("VP_Leaving_Halruaa","GLOBAL",0)~
+            REPLACE_TEXTUALLY ~Global("WatchSpawn2","GLOBAL",0)~ ~Global("WatchSpawn2","GLOBAL",0) Global("VP_Leaving_Halruaa","GLOBAL",0)~
         END
 END
 
@@ -6222,10 +6192,9 @@ COPY ~NeJ2/Dar/itm/RithOre.ITM~ ~override/RithOre.ITM~
     SAY DESC ~Nuggets of a mystical extremely light ore with a shimmering white hue. This ore is called *rithtellium*, and its forging, which is a closely guarded secret, has been know for a long time only to those who forge it. It requires both  mage and smith to forge weapons from rithtellium, the end result being weapons with a shimmering white hue which are usable by wizards as if proficient in their use. Because of the magic in the forging, all weapons made of rithtellium can strike through the following magical defences: Protection From Magical Weapons and Protection From Non-Magical Weapons, causing damage as per normal non-magical weapon. All rithtellium weapons strike as +5 to hit.~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR6511.bcs~ THEN BEGIN
-    COPY_EXISTING ~AR6511.bcs~ ~override/AR6511.bcs~
-        EXTEND_BOTTOM ~AR6511.bcs~ ~NeJ2/Dar/scripts/xAR6511.baf~
+    EXTEND_BOTTOM ~AR6511.bcs~ ~NeJ2/Dar/scripts/xAR6511.baf~
 END ELSE BEGIN
-    COPY ~NeJ2/Dar/scripts/AR6511.bcs~ ~override~
+    COMPILE ~NeJ2/Dar/scripts/xAR6511.baf~
 END
 
 COPY ~NeJ2/Dar/cre/Aldair.CRE~ ~override/Aldair.CRE~
@@ -6240,10 +6209,9 @@ COPY ~NeJ2/Dar/itm/NoteAldr.ITM~ ~override/NoteAld2.ITM~
 Though it's rumoured ... (*the next few of words have been worn away, except before the Y you can just make out the feint marks of where three letters were once written*) ...y where coin is plentiful, (*once again the words are illegible*) ... dwell within its walls have no use for its trinkets.~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR0811.bcs~ THEN BEGIN
-    COPY_EXISTING ~AR0811.bcs~ ~override/AR0811.bcs~
-        EXTEND_BOTTOM ~AR0811.bcs~ ~NeJ2/Dar/scripts/xAR0811.baf~
+    EXTEND_BOTTOM ~AR0811.bcs~ ~NeJ2/Dar/scripts/xAR0811.baf~
 END ELSE BEGIN
-    COPY ~NeJ2/Dar/scripts/AR0811.bcs~ ~override~
+    COMPILE ~NeJ2/Dar/scripts/xAR0811.baf~
 END
 
 COPY ~NeJ2/Dar/cre/DarBook.CRE~ ~override/DarBook.CRE~
@@ -6360,8 +6328,7 @@ COPY ~NeJ2/cre/Kharesse.cre~ ~override/Kharesse.cre~
 
 //Kharesse confronts party
 
-COPY_EXISTING ~Baldur.bcs~ ~override/Baldur.bcs~
-    EXTEND_TOP ~Baldur.bcs~ ~NeJ2/sFix/nBaldur.bcs~
+EXTEND_TOP ~Baldur.bcs~ ~NeJ2/sFix/nBaldur.baf~
 
 COPY ~NeJ2/cre/TuPungCS.cre~ ~override/TuPungCS.cre~
 
@@ -6772,10 +6739,9 @@ COPY ~NeJ3/taffic/cre_spin/TAFFIC12.CRE~ ~override/TAFFIC12.CRE~
     SAY BIO ~Taffic was born into a clan of prolific forest gnomes living in Cloakwood Forest. Your first impression of Taffic is that he is as he seems, a happy-go-lucky forest gnome with small eyes that have a hint of mischief about them. Taffic will tell you of his dream to become a tall hero, not too strange a dream for a gnome you think, but when Taffic speaks of his dream it soon becomes apparent that this dream of his has become an obsession with him and no longer a dream. On looking closer you see a very distraught and unhappy gnome. More frightening is the realisation that Taffic will stop at nothing to achieve his goal. Taffic tells you of the past 15 years that he has spent (not many years given the length of a gnome's lifespan), following every rumour that reaches his large gnomish ears, of the artifacts he has sought and tried, of the potions and spells that he has experimented with, of the prayers he has offered to his god and even of the combinations of all of these things together. “A lot of wasted time and energy” he will say, “ but now, yes now at last I know how to do it” and Taffic's voice takes on an excitable tone, a glint comes to his eye and the seemingly harmless gnome suddenly makes you afraid of what he has in mind.~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR2000.bcs~ THEN BEGIN
-    COPY_EXISTING ~AR2000.bcs~ ~override/AR2000.bcs~
-        EXTEND_TOP ~AR2000.bcs~ ~NeJ3/taffic/scripts/sAR2000.bcs~
+    EXTEND_TOP ~AR2000.bcs~ ~NeJ3/taffic/scripts/sAR2000.bcs~
 END ELSE BEGIN
-  COPY ~NeJ3/taffic/scripts/AR2000.bcs~ ~override~
+    COMPILE ~NeJ3/taffic/scripts/sAR2000.baf~
 END
 
 COPY ~NeJ3/taffic/itm/staffsw.ITM~ ~override/staffsw.ITM~
@@ -6876,10 +6842,9 @@ COPY ~NeJ3/taffic/cre_spin/ABYDEM01.CRE~ ~override/ABYDEM01.CRE~
 COPY ~NeJ3/taffic/bcs~ ~override~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR7100.BCS~ THEN BEGIN
-    COPY_EXISTING ~AR7100.BCS~ ~override/AR7100.BCS~
-        EXTEND_TOP ~AR7100.BCS~ ~NeJ3/taffic/scripts/xAR7100.BAF~
+    EXTEND_TOP ~AR7100.BCS~ ~NeJ3/taffic/scripts/xAR7100.BAF~
 END ELSE BEGIN
-  COPY ~NeJ3/taffic/scripts/AR7100.BCS~ ~override~
+    COMPILE ~NeJ3/taffic/scripts/xAR7100.baf~ ~override~
 END
 
 /*
@@ -6922,23 +6887,20 @@ END
 /////////////////////////////////////////////////
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR9799.bcs~ THEN BEGIN
-    COPY_EXISTING ~AR9799.bcs~ ~override/AR9799.bcs~
     EXTEND_TOP ~AR9799.bcs~ ~NeJ3/fixes/eAR9799.baf~
 END ELSE BEGIN
     COMPILE ~NeJ3/fixes/AR9799.baf~
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR6529.bcs~ THEN BEGIN
-    COPY_EXISTING ~AR6529.bcs~ ~override/AR6529.bcs~
     EXTEND_TOP ~AR6529.bcs~ ~NeJ2/Dar/scripts/AR6529.BAF~
 END ELSE BEGIN
     COMPILE ~NeJ2/Dar/scripts/AR6529.BAF~
 END
 
 ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ THEN BEGIN
-    COPY_EXISTING ~AR8700.bcs~ ~override/AR8700.bcs~
-        EXTEND_BOTTOM ~AR8700.bcs~ ~NeJ2/Dar/scripts/xAR8700.baf~
-        EXTEND_BOTTOM ~AR6526.bcs~ ~NeJ2/Dar/scripts/xAR6526.baf~
+    EXTEND_BOTTOM ~AR8700.bcs~ ~NeJ2/Dar/scripts/xAR8700.baf~
+    EXTEND_BOTTOM ~AR6526.bcs~ ~NeJ2/Dar/scripts/xAR6526.baf~
 END ELSE BEGIN
     COPY ~NeJ3/bgtcopy~ ~override~
     COPY ~NeJ3/bgtareas~ ~override~
@@ -6950,7 +6912,7 @@ END ELSE BEGIN
     COPY ~NeJ3/are/AR8700.ARE~ ~override~
         SAY 0x464c ~Large Tent~
 //This is a tutorial area of Candlekeep. I'm just replacing its script for the non-BGT installation.
-    COPY ~NeJ2/Dar/scripts/AR0015.bcs~ ~override~      
+    COMPILE ~NeJ2/Dar/scripts/AR0015.baf~
     
     COPY ~NeJ3/cre/VPBEAST.CRE~ ~override/VPBEAST.CRE~
         SAY NAME1 ~Wild Hunter~
@@ -6968,7 +6930,7 @@ END ELSE BEGIN
         SAY NAME1 ~Thalantyr~
         SAY NAME2 ~Thalantyr~
 
-  COPY ~NeJ3/cre/NashFarm.CRE~ ~override/NashFarm.CRE~
+    COPY ~NeJ3/cre/NashFarm.CRE~ ~override/NashFarm.CRE~
         SAY NAME1 ~Farmer~
         SAY NAME2 ~Farmer~
 END
