@@ -3331,15 +3331,15 @@ COPY ~%MOD_FOLDER%/NeJ/cre/Rcopper.cre~ ~override/Rcopper.cre~
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~data/BG1ARE.BIF~ THEN BEGIN
     COPY ~%MOD_FOLDER%/NeJ/cre/READ3.CRE~ ~override/READ3.CRE~
-    COMPILE ~%MOD_FOLDER%/BGTComp/READ3.d~
-    COMPILE ~%MOD_FOLDER%/BGTComp/WATCH9.d~
+    COMPILE ~%MOD_FOLDER%/NeJ2/BGTComp/READ3.d~
+    COMPILE ~%MOD_FOLDER%/NeJ2/BGTComp/WATCH9.d~
 END
 
 ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ THEN BEGIN
     COPY_EXISTING ~POGHM7.dlg~ ~override/POGHM7.dlg~
-    COMPILE ~%MOD_FOLDER%/BGTComp/ePOGHM7.d~
+    COMPILE ~%MOD_FOLDER%/NeJ2/BGTComp/ePOGHM7.d~
 END ELSE BEGIN
-    COMPILE ~%MOD_FOLDER%/BGTComp/POGHM7.d~
+    COMPILE ~%MOD_FOLDER%/NeJ2/BGTComp/POGHM7.d~
 END
 
 COPY ~%MOD_FOLDER%/NeJ/cre/SDELFAC.CRE~ ~override/SDELFAC.CRE~
@@ -9739,11 +9739,11 @@ BEGIN ~Improved and Continuous Character Skie (BGT required!)~
 
 REQUIRE_FILE ~data/BG1ARE.BIF~ ~Please install BG1 and BGT before installation of this component.~
 
-COPY ~%MOD_FOLDER%/BGTComp/Skie/SKIE6.CRE~ ~override/SKIE6.CRE~
-COPY ~%MOD_FOLDER%/BGTComp/Skie/SKIE76.CRE~ ~override/SKIE76.CRE~
-COPY ~%MOD_FOLDER%/BGTComp/Skie/SKIE77.CRE~ ~override/SKIE77.CRE~
-COPY ~%MOD_FOLDER%/BGTComp/Skie/SKIE78.CRE~ ~override/SKIE78.CRE~
-COPY ~%MOD_FOLDER%/BGTComp/Skie/AR7202.BCS~ ~override/AR7202.BCS~
+COPY ~%MOD_FOLDER%/NeJ2/BGTComp/Skie/SKIE6.CRE~ ~override/SKIE6.CRE~
+COPY ~%MOD_FOLDER%/NeJ2/BGTComp/Skie/SKIE76.CRE~ ~override/SKIE76.CRE~
+COPY ~%MOD_FOLDER%/NeJ2/BGTComp/Skie/SKIE77.CRE~ ~override/SKIE77.CRE~
+COPY ~%MOD_FOLDER%/NeJ2/BGTComp/Skie/SKIE78.CRE~ ~override/SKIE78.CRE~
+COPY ~%MOD_FOLDER%/NeJ2/BGTComp/Skie/AR7202.BCS~ ~override/AR7202.BCS~
 
 COPY_EXISTING ~ARAM00.BCS~ ~override~
     DECOMPILE_AND_PATCH BEGIN
@@ -9769,7 +9769,7 @@ UNLESS ~SKIE~ // we are already there, skip it
 
 //Lock cell that Skie will be imported into
 
-COPY ~%MOD_FOLDER%/BGTComp/Skie/VPSkiKey.ITM~ ~override/VPSkiKey.ITM~
+COPY ~%MOD_FOLDER%/NeJ2/BGTComp/Skie/VPSkiKey.ITM~ ~override/VPSkiKey.ITM~
     SAY UNIDENTIFIED_DESC ~A typical cell key that one might find in any jail. This one may fit Skie's cell.~
 
 COPY_EXISTING ~AR0602.ARE~ ~override~
@@ -9785,9 +9785,9 @@ COPY_EXISTING ~AR0602.ARE~ ~override~
 
 ACTION_IF FILE_EXISTS_IN_GAME ~AR0602.BCS~ THEN BEGIN        
     COPY_EXISTING ~AR0602.BCS~ ~override~
-    EXTEND_TOP ~AR0602.BCS~ ~%MOD_FOLDER%/BGTComp/Skie/sxAR0602.BCS~
+    EXTEND_TOP ~AR0602.BCS~ ~%MOD_FOLDER%/NeJ2/BGTComp/Skie/sxAR0602.BCS~
 END ELSE BEGIN
-    COPY ~%MOD_FOLDER%/BGTComp/Skie/sxAR0602.BCS~ ~override/AR0602.BCS~
+    COPY ~%MOD_FOLDER%/NeJ2/BGTComp/Skie/sxAR0602.BCS~ ~override/AR0602.BCS~
 END
 */
 
