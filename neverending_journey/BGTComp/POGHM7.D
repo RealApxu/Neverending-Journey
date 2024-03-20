@@ -1,7 +1,6 @@
 BEGIN ~POGHM7~ 3419
 
-IF ~True()
-~ THEN BEGIN 0
+IF ~True()~ THEN BEGIN 0
   SAY ~Hello.  I am the level coordinator.  Is there anything I can help you with?~
   IF ~~ THEN REPLY ~No, I don't need your help.~ EXIT
   IF ~~ THEN REPLY ~Could you tell me where I could find Tethtoril?~ GOTO 1
@@ -19,8 +18,7 @@ IF ~~ THEN BEGIN 2
   IF ~~ THEN EXIT
 END
 
-IF ~StateCheck(Myself,STATE_CHARMED)
-~ THEN BEGIN 3
+IF ~StateCheck(Myself,STATE_CHARMED)~ THEN BEGIN 3
   SAY ~Good friend, would you like me to give you a sermon on the wisdom of Oghma?  No?  Well, perhaps another time then.~
   IF ~~ THEN EXIT
 END

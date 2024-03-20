@@ -5476,8 +5476,8 @@ COPY ~%MOD_FOLDER%/NeJ2/are/TT0078.are~ ~override/TT0078.are~
 COPY ~%MOD_FOLDER%/NeJ2/are/TT0079.wed~ ~override/TT0079.wed~
 COPY ~%MOD_FOLDER%/NeJ2/are/TT0079.are~ ~override/TT0079.are~
 
-COPY ~%MOD_FOLDER%/Intro/Combo1/combo1b.acm~ ~music/Combo1/combo1b.acm~
-//COPY ~%MOD_FOLDER%/Intro/Theme/themea.acm~ ~music/Theme/themea.acm~
+COPY ~%MOD_FOLDER%/NeJ/Intro/Combo1/combo1b.acm~ ~music/Combo1/combo1b.acm~
+//COPY ~%MOD_FOLDER%/NeJ/Intro/Theme/themea.acm~ ~music/Theme/themea.acm~
 
 ///////////////////////////////
 // Cleric of Tempus Kit
