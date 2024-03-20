@@ -1,4 +1,4 @@
-BACKUP ~%MOD_FOLDER%/NeJ2/backup~
+BACKUP ~weidu_external/backup/neverending_journey~
 
 AUTHOR ~Vlad & Larrienne~
 
@@ -14,6 +14,8 @@ REQUIRE_FILE ~Setup-VCv21.exe~ ~Please install Vlad's Compilation.~
 ///////////////////////////////////////
 // 1. General Requirements
 ///////////////////////////////////////
+
+/*
 REQUIRE_FILE ~Data/25Dialog.bif~ ~Please install "Throne Of Bhaal" and the official ToB patch before installation of this mod.~
 REQUIRE_FILE ~Setup-VCv21.exe~ ~Please install Vlad's Compilation.~
 
@@ -23,6 +25,7 @@ ACTION_IF (FILE_EXISTS ~data/CTB-RULE.BIF~)
 THEN BEGIN
     FAIL ~You may not install this mod with other big mods!~
 END
+*/
 
 ///////////////////////////////////////
 // 3. Movies and scene screens
@@ -9789,7 +9792,7 @@ END
 */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 BEGIN ~Areas & Sounds (This component is required to play NeJ2!)~
 REQUIRE_FILE ~Setup-VCv21.exe~ ~Please install Vlad's Compilation.~
 
@@ -9812,3 +9815,4 @@ END
 
 AT_INTERACTIVE_EXIT ~Install_NeJAreasSounds.bat~
 AT_INTERACTIVE_UNINSTALL ~%MOD_FOLDER%/NeJUninstaller.bat~
+*/
