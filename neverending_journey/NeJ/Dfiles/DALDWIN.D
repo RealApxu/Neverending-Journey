@@ -1,214 +1,117 @@
 BEGIN ~DALDWIN~ 86078 // non-zero flags may indicate non-pausing dialogue
 
-IF ~GlobalGT("Kuldahar_Attack", "GLOBAL", 0)
-GlobalLT("Kuldahar_Attack","GLOBAL",3)~ THEN BEGIN 0 // from:
+IF ~GlobalGT("Kuldahar_Attack","GLOBAL",0) GlobalLT("Kuldahar_Attack","GLOBAL",3)~ THEN BEGIN 0 // from:
   SAY ~You - you're the one responsible for all those giant-kin that ran through Kuldahar, aren't you? Way to stir things up... 'hero.'~
-  IF ~Global("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 0)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  GOTO 3
-  IF ~Global("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 1)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN1", Player1)~ EXIT
-  IF ~Global("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 1)
-Global("Aldwin_Explanation", "GLOBAL", 0)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  GOTO 4
-  IF ~Global("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 1)
-Global("Aldwin_Explanation", "GLOBAL", 1)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN2", Player1)~ EXIT
-  IF ~Global("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 2)
-Global("Aldwin_Explanation", "GLOBAL", 0)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  GOTO 5
-  IF ~Global("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 2)
-Global("Aldwin_Explanation", "GLOBAL", 1)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN3", Player1)~ EXIT
-  IF ~GlobalGT("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 0)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  GOTO 3
-  IF ~GlobalGT("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 1)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN1", Player1)~ EXIT
-  IF ~GlobalGT("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 1)
-Global("Aldwin_Explanation", "GLOBAL", 0)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  GOTO 4
-  IF ~GlobalGT("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 1)
-Global("Aldwin_Explanation", "GLOBAL", 1)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN2", Player1)~ EXIT
-  IF ~GlobalGT("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 2)
-Global("Aldwin_Explanation", "GLOBAL", 0)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  GOTO 5
-  IF ~GlobalGT("Arundel_Belhifet", "GLOBAL", 0)
-Global("Aldwin_Eidan", "GLOBAL", 2)
-Global("Aldwin_Explanation", "GLOBAL", 1)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN3", Player1)~ EXIT
-  IF ~Global("Aldwin_Story", "GLOBAL", 1)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~You Aldwin?~  GOTO 10
-  IF ~!Race(Player1, DWARF)
-!Race(Player1, HALFLING)
-!Race(Player1, GNOME)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~Who are you?~  GOTO 6
-  IF ~!Race(Player1,HUMAN)
-!Race(Player1,ELF)
-!Race(Player1,HALF_ELF)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~Who are you?~  GOTO 7
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin", "GLOBAL", 1)~ THEN REPLY ~This your inn?~  GOTO 9
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin", "GLOBAL", 1)
-PartyHasItem("EidanRng")~ THEN REPLY ~I found a ring in one of the upper rooms you might be interested in.~  GOTO 15
+  IF ~Global("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",0)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  GOTO 3
+  IF ~Global("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",1)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN1",Player1)~ EXIT
+  IF ~Global("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",1) Global("Aldwin_Explanation","GLOBAL",0)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  GOTO 4
+  IF ~Global("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",1) Global("Aldwin_Explanation","GLOBAL",1)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN2",Player1)~ EXIT
+  IF ~Global("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",2) Global("Aldwin_Explanation","GLOBAL",0)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  GOTO 5
+  IF ~Global("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",2) Global("Aldwin_Explanation","GLOBAL",1)~ THEN REPLY ~I had nothing to do with these attackers - but I *will* get to the bottom of it. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN3",Player1)~ EXIT
+  IF ~GlobalGT("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",0)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  GOTO 3
+  IF ~GlobalGT("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",1)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN1",Player1)~ EXIT
+  IF ~GlobalGT("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",1) Global("Aldwin_Explanation","GLOBAL",0)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  GOTO 4
+  IF ~GlobalGT("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",1) Global("Aldwin_Explanation","GLOBAL",1)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN2",Player1)~ EXIT
+  IF ~GlobalGT("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",2) Global("Aldwin_Explanation","GLOBAL",0)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  GOTO 5
+  IF ~GlobalGT("Arundel_Belhifet","GLOBAL",0) Global("Aldwin_Eidan","GLOBAL",2) Global("Aldwin_Explanation","GLOBAL",1)~ THEN REPLY ~Those attackers in the town were *not* from Dragon's Eye. They're part of another problem - which I fear I will have to deal with presently. In the meantime, I'm in need of a room.~  DO ~StartStore("KUINN3",Player1)~ EXIT
+  IF ~Global("Aldwin_Story","GLOBAL",1) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~You Aldwin?~  GOTO 10
+  IF ~!Race(Player1,DWARF) !Race(Player1,HALFLING) !Race(Player1,GNOME) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~Who are you?~  GOTO 6
+  IF ~!Race(Player1,HUMAN) !Race(Player1,ELF) !Race(Player1,HALF_ELF) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~Who are you?~  GOTO 7
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin","GLOBAL",1)~ THEN REPLY ~This your inn?~  GOTO 9
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin","GLOBAL",1) PartyHasItem("EidanRng")~ THEN REPLY ~I found a ring in one of the upper rooms you might be interested in.~  GOTO 15
   IF ~~ THEN REPLY ~I must take my leave. Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedTo(0)
-Global("Kuldahar_Attack", "GLOBAL", 0)~ THEN BEGIN 1 // from:
+IF ~NumTimesTalkedTo(0) Global("Kuldahar_Attack","GLOBAL",0)~ THEN BEGIN 1 // from:
   SAY ~You looking for a room, or do you just want to let the chill in? I got no rooms for stragglers - show some coin, or I'll show you the door.~
   IF ~~ THEN REPLY ~I'm looking for a room, yes. Are any free?~  GOTO 3
-  IF ~Global("Aldwin_Story", "GLOBAL", 1)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~You Aldwin?~  GOTO 10
-  IF ~!Race(Player1, DWARF)
-!Race(Player1, HALFLING)
-!Race(Player1, GNOME)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~Who are you?~  GOTO 6
-  IF ~!Race(Player1,HUMAN)
-!Race(Player1,ELF)
-!Race(Player1,HALF_ELF)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~Who are you?~  GOTO 7
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin", "GLOBAL", 1)~ THEN REPLY ~This your inn?~  GOTO 9
+  IF ~Global("Aldwin_Story","GLOBAL",1) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~You Aldwin?~  GOTO 10
+  IF ~!Race(Player1,DWARF) !Race(Player1,HALFLING) !Race(Player1,GNOME) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~Who are you?~  GOTO 6
+  IF ~!Race(Player1,HUMAN) !Race(Player1,ELF) !Race(Player1,HALF_ELF) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~Who are you?~  GOTO 7
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin","GLOBAL",1)~ THEN REPLY ~This your inn?~  GOTO 9
   IF ~~ THEN REPLY ~I'll be on my way. Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-OR(2)
-Global("Kuldahar_Attack", "GLOBAL", 0)
-GlobalGT("Kuldahar_Attack","GLOBAL",2)~ THEN BEGIN 2 // from:
+IF ~NumTimesTalkedToGT(0) OR(2) Global("Kuldahar_Attack","GLOBAL",0) GlobalGT("Kuldahar_Attack","GLOBAL",2)~ THEN BEGIN 2 // from:
   SAY ~Oh... it's you again. What do you want this time?~
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 0)~ THEN REPLY ~I'm looking for a room. Are any free?~  GOTO 3
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 1)~ THEN REPLY ~I'm looking for a room. Are any free?~  DO ~StartStore("KUINN1", Player1)~ EXIT
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 1)
-Global("Aldwin_Explanation", "GLOBAL", 0)~ THEN REPLY ~I need to rest in one of your *free* rooms, "friend."~  GOTO 4
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 1)
-Global("Aldwin_Explanation", "GLOBAL", 1)~ THEN REPLY ~I need to rest in one of your *free* rooms, "friend."~  DO ~StartStore("KUINN2", Player1)~ EXIT
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 2)
-Global("Aldwin_Explanation", "GLOBAL", 0)~ THEN REPLY ~I'm looking for a room. Are any free?~  GOTO 5
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 2)
-Global("Aldwin_Explanation", "GLOBAL", 1)~ THEN REPLY ~I'm looking for a room. Are any free?~  DO ~StartStore("KUINN3", Player1)~ EXIT
-  IF ~Global("Aldwin_Story", "GLOBAL", 1)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~You Aldwin?~  GOTO 10
-  IF ~!Race(Player1, DWARF)
-!Race(Player1, HALFLING)
-!Race(Player1, GNOME)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~Who are you?~  GOTO 6
-  IF ~!Race(Player1,HUMAN)
-!Race(Player1,ELF)
-!Race(Player1,HALF_ELF)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~Who are you?~  GOTO 7
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin", "GLOBAL", 1)~ THEN REPLY ~This your inn?~  GOTO 9
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin", "GLOBAL", 1)
-PartyHasItem("EidanRng")~ THEN REPLY ~I found a ring in one of the upper rooms you might be interested in.~  GOTO 15
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",0)~ THEN REPLY ~I'm looking for a room. Are any free?~  GOTO 3
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",1)~ THEN REPLY ~I'm looking for a room. Are any free?~  DO ~StartStore("KUINN1",Player1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",1) Global("Aldwin_Explanation","GLOBAL",0)~ THEN REPLY ~I need to rest in one of your *free* rooms, "friend."~  GOTO 4
+  IF ~Global("Aldwin_Eidan","GLOBAL",1) Global("Aldwin_Explanation","GLOBAL",1)~ THEN REPLY ~I need to rest in one of your *free* rooms, "friend."~  DO ~StartStore("KUINN2",Player1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",2) Global("Aldwin_Explanation","GLOBAL",0)~ THEN REPLY ~I'm looking for a room. Are any free?~  GOTO 5
+  IF ~Global("Aldwin_Eidan","GLOBAL",2) Global("Aldwin_Explanation","GLOBAL",1)~ THEN REPLY ~I'm looking for a room. Are any free?~  DO ~StartStore("KUINN3",Player1)~ EXIT
+  IF ~Global("Aldwin_Story","GLOBAL",1) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~You Aldwin?~  GOTO 10
+  IF ~!Race(Player1,DWARF) !Race(Player1,HALFLING) !Race(Player1,GNOME) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~Who are you?~  GOTO 6
+  IF ~!Race(Player1,HUMAN) !Race(Player1,ELF) !Race(Player1,HALF_ELF) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~Who are you?~  GOTO 7
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin","GLOBAL",1)~ THEN REPLY ~This your inn?~  GOTO 9
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin","GLOBAL",1) PartyHasItem("EidanRng")~ THEN REPLY ~I found a ring in one of the upper rooms you might be interested in.~  GOTO 15
   IF ~~ THEN REPLY ~Nothing this day, thanks. Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 3 // from: 14.2 13.2 12.2 10.1 9.2 2.0 1.0 0.6 0.0
   SAY ~Yeah, we got a little space left - but I don't want to hear any haggling over the prices, you hear? This is the only inn in town, so don't even be thinking you'll find a better deal anywhere else.~
-  IF ~~ THEN REPLY ~Very well, then. Let's see what rooms you have.~  DO ~SetGlobal("Aldwin_Threat", "GLOBAL", 1)
-StartStore("KUINN1", Player1)~ EXIT
-  IF ~Global("Aldwin_Story", "GLOBAL", 1)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~You Aldwin?~  DO ~SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 10
-  IF ~!Race(Player1, DWARF)
-!Race(Player1, HALFLING)
-!Race(Player1, GNOME)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~Who are you?~  DO ~SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 6
-  IF ~!Race(Player1,HUMAN)
-!Race(Player1,ELF)
-!Race(Player1,HALF_ELF)
-Global("Aldwin", "GLOBAL", 0)~ THEN REPLY ~Who are you?~  DO ~SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 7
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin", "GLOBAL", 1)~ THEN REPLY ~This your inn?~  DO ~SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 9
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin", "GLOBAL", 1)
-PartyHasItem("EidanRng")~ THEN REPLY ~I found a ring in one of the upper rooms you might be interested in.~  DO ~SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 15
-  IF ~~ THEN REPLY ~I think I'll be on my way. Farewell.~  DO ~SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ EXIT
+  IF ~~ THEN REPLY ~Very well, then. Let's see what rooms you have.~  DO ~SetGlobal("Aldwin_Threat","GLOBAL",1) StartStore("KUINN1",Player1)~ EXIT
+  IF ~Global("Aldwin_Story","GLOBAL",1) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~You Aldwin?~  DO ~SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 10
+  IF ~!Race(Player1,DWARF) !Race(Player1,HALFLING) !Race(Player1,GNOME) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~Who are you?~  DO ~SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 6
+  IF ~!Race(Player1,HUMAN) !Race(Player1,ELF) !Race(Player1,HALF_ELF) Global("Aldwin","GLOBAL",0)~ THEN REPLY ~Who are you?~  DO ~SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 7
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin","GLOBAL",1)~ THEN REPLY ~This your inn?~  DO ~SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 9
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin","GLOBAL",1) PartyHasItem("EidanRng")~ THEN REPLY ~I found a ring in one of the upper rooms you might be interested in.~  DO ~SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 15
+  IF ~~ THEN REPLY ~I think I'll be on my way. Farewell.~  DO ~SetGlobal("Aldwin_Threat","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 4 // from: 2.2 0.8 0.2
   SAY ~Yeah, of course we got space for such fine upstanding travelers such as yourself. Rest up - you got a big day of being quiet tomorrow, "friend." I hope that's not a *problem* for you.~
-  IF ~~ THEN REPLY ~You keep making sure the rooms are free, and we won't have ANY problems, Aldwin.~  DO ~SetGlobal("Aldwin_Explanation", "GLOBAL", 1)
-StartStore("KUINN2", Player1)~ EXIT
-  IF ~~ THEN REPLY ~Not at all... but I'm not tired at the moment. I'll return.~  DO ~SetGlobal("Aldwin_Explanation", "GLOBAL", 1)~ EXIT
+  IF ~~ THEN REPLY ~You keep making sure the rooms are free, and we won't have ANY problems, Aldwin.~  DO ~SetGlobal("Aldwin_Explanation","GLOBAL",1) StartStore("KUINN2",Player1)~ EXIT
+  IF ~~ THEN REPLY ~Not at all... but I'm not tired at the moment. I'll return.~  DO ~SetGlobal("Aldwin_Explanation","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 5 // from: 2.4 0.10 0.4
   SAY ~Yeah, of course we got space for such fine upstanding travelers such as yourself. By the way, I talked it over with the other folks in town like you asked, and they're willing to let the whole Eidan thing slide -- as long as I take a percentage out of my profits to help the town. Damn warm-blooded vampires.~
-  IF ~~ THEN REPLY ~Good. I'd like to rest, then.  ~  DO ~SetGlobal("Aldwin_Explanation", "GLOBAL", 1)
-StartStore("KUINN3", Player1)~ EXIT
-  IF ~~ THEN REPLY ~The road to a clean conscience can be a long one, Aldwin. I'll return to check on you later.~  DO ~SetGlobal("Aldwin_Explanation", "GLOBAL", 1)~ EXIT
+  IF ~~ THEN REPLY ~Good. I'd like to rest, then.  ~  DO ~SetGlobal("Aldwin_Explanation","GLOBAL",1) StartStore("KUINN3",Player1)~ EXIT
+  IF ~~ THEN REPLY ~The road to a clean conscience can be a long one, Aldwin. I'll return to check on you later.~  DO ~SetGlobal("Aldwin_Explanation","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 6 // from: 3.2 2.7 1.2 0.13
   SAY ~I'm Aldwin, and maybe having your head way up there don't make you hear so good -- do you want a *room* or not? My inn's the only inn in town, so don't even be thinking you'll find a better deal anywhere else.~
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~I'm looking for a room, yes. Are any free?~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)
-StartStore("KUINN1", Player1)~ EXIT
-  IF ~~ THEN REPLY ~My head may be up here, half-man, but my fist'll be happy to swing down and pay you a visit if need be.~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 8
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~So this is your inn?~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 9
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-PartyHasItem("EidanRng")~ THEN REPLY ~So this is your inn? Well, I found a ring in one of the upper rooms that casts some doubt on that.~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 15
-  IF ~~ THEN REPLY ~I think I'll be on my way. Farewell.~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",0)~ THEN REPLY ~I'm looking for a room, yes. Are any free?~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1) StartStore("KUINN1",Player1)~ EXIT
+  IF ~~ THEN REPLY ~My head may be up here, half-man, but my fist'll be happy to swing down and pay you a visit if need be.~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 8
+  IF ~Global("Aldwin_Eidan","GLOBAL",0)~ THEN REPLY ~So this is your inn?~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 9
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) PartyHasItem("EidanRng")~ THEN REPLY ~So this is your inn? Well, I found a ring in one of the upper rooms that casts some doubt on that.~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 15
+  IF ~~ THEN REPLY ~I think I'll be on my way. Farewell.~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 7 // from: 3.3 2.8 1.3 0.14
   SAY ~I'm Aldwin, and maybe the winter winds have frozen your ears -- do you want a *room* or not? My inn's the only inn in town, so don't even be thinking you'll find a better deal anywhere else.~
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~I'm looking for a room, yes. Are any free?~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)
-StartStore("KUINN1", Player1)~ EXIT
-  IF ~~ THEN REPLY ~I'd watch your tongue, innkeeper. I'm not in the mood to quarrel with you.~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 8
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~So this is your inn?~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 9
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-PartyHasItem("EidanRng")~ THEN REPLY ~So this is your inn? Well, I found a ring in one of the upper rooms that casts some doubt on that.~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ GOTO 15
-  IF ~~ THEN REPLY ~I think I'll be on my way. Farewell.~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-SetGlobal("Aldwin_Threat", "GLOBAL", 1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",0)~ THEN REPLY ~I'm looking for a room, yes. Are any free?~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1) StartStore("KUINN1",Player1)~ EXIT
+  IF ~~ THEN REPLY ~I'd watch your tongue, innkeeper. I'm not in the mood to quarrel with you.~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 8
+  IF ~Global("Aldwin_Eidan","GLOBAL",0)~ THEN REPLY ~So this is your inn?~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 9
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) PartyHasItem("EidanRng")~ THEN REPLY ~So this is your inn? Well, I found a ring in one of the upper rooms that casts some doubt on that.~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1)~ GOTO 15
+  IF ~~ THEN REPLY ~I think I'll be on my way. Farewell.~  DO ~SetGlobal("Aldwin","GLOBAL",1) SetGlobal("Aldwin_Threat","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 8 // from: 7.1 6.1
   SAY ~That so? Well, then, I got not time to sit here and bandy threats with you - either state your business or get out of my inn... and take your stink from the road with you.~
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~I'm looking for a room, yes. Are any free?~  DO ~StartStore("KUINN1", Player1)~ EXIT
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~So this is your inn?~  GOTO 9
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-PartyHasItem("EidanRng")~ THEN REPLY ~So this is your inn? Well, I found a ring in one of the upper rooms that casts some doubt on that.~  GOTO 15
+  IF ~Global("Aldwin_Eidan","GLOBAL",0)~ THEN REPLY ~I'm looking for a room, yes. Are any free?~  DO ~StartStore("KUINN1",Player1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",0)~ THEN REPLY ~So this is your inn?~  GOTO 9
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) PartyHasItem("EidanRng")~ THEN REPLY ~So this is your inn? Well, I found a ring in one of the upper rooms that casts some doubt on that.~  GOTO 15
   IF ~~ THEN REPLY ~I'll be on my way, then. Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 9 // from: 8.1 7.2 6.2 3.4 2.9 1.4 0.15
   SAY ~Yeah... why? Somebody in town saying different?~
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-PartyHasItem("EidanRng")~ THEN REPLY ~Well, I found this ring upstairs. It seems to put the ownership of the Evening Shade in question.~  GOTO 15
-  IF ~Global("Aldwin_Story", "GLOBAL", 1)~ THEN REPLY ~Amelia, the barmaid at the Root Cellar mentioned you. She said you bought this inn from a man named Eidan. Before he vanished, that is.~  GOTO 11
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 0)~ THEN REPLY ~No, just curious. Do you have any rooms free?~  GOTO 3
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 1)~ THEN REPLY ~No, just curious. Do you have any rooms free?~  DO ~StartStore("KUINN1", Player1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) PartyHasItem("EidanRng")~ THEN REPLY ~Well, I found this ring upstairs. It seems to put the ownership of the Evening Shade in question.~  GOTO 15
+  IF ~Global("Aldwin_Story","GLOBAL",1)~ THEN REPLY ~Amelia, the barmaid at the Root Cellar mentioned you. She said you bought this inn from a man named Eidan. Before he vanished, that is.~  GOTO 11
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",0)~ THEN REPLY ~No, just curious. Do you have any rooms free?~  GOTO 3
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",1)~ THEN REPLY ~No, just curious. Do you have any rooms free?~  DO ~StartStore("KUINN1",Player1)~ EXIT
   IF ~~ THEN REPLY ~Never mind. I think I'll be on my way. Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 10 // from: 3.1 2.6 1.1 0.12
   SAY ~Yeah... maybe. Do I *know* you?~
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)~ THEN REPLY ~Amelia, the barmaid at the Root Cellar mentioned you. She said you bought this inn from a man named Eidan. Before he vanished, that is.~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)~ GOTO 11
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 0)~ THEN REPLY ~No, I just heard Aldwin was the name of the innkeeper in Kuldahar. Do you have any rooms free?~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)~ GOTO 3
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 1)~ THEN REPLY ~No, I just heard Aldwin was the name of the innkeeper in Kuldahar. Do you have any rooms free?~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)
-StartStore("KUINN1", Player1)~ EXIT
-  IF ~~ THEN REPLY ~Never mind. I think I'll be on my way. Farewell.~  DO ~SetGlobal("Aldwin", "GLOBAL", 1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",0)~ THEN REPLY ~Amelia, the barmaid at the Root Cellar mentioned you. She said you bought this inn from a man named Eidan. Before he vanished, that is.~  DO ~SetGlobal("Aldwin","GLOBAL",1)~ GOTO 11
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",0)~ THEN REPLY ~No, I just heard Aldwin was the name of the innkeeper in Kuldahar. Do you have any rooms free?~  DO ~SetGlobal("Aldwin","GLOBAL",1)~ GOTO 3
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",1)~ THEN REPLY ~No, I just heard Aldwin was the name of the innkeeper in Kuldahar. Do you have any rooms free?~  DO ~SetGlobal("Aldwin","GLOBAL",1) StartStore("KUINN1",Player1)~ EXIT
+  IF ~~ THEN REPLY ~Never mind. I think I'll be on my way. Farewell.~  DO ~SetGlobal("Aldwin","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 11 // from: 10.0 9.1
@@ -218,40 +121,30 @@ END
 
 IF ~~ THEN BEGIN 12 // from: 11.0
   SAY ~Well, he stuck me with this hole and not much business to be had. Winter's choked off all the passes, so that means no caravans and no business. I hope ol' Eidan got buried in a snowdrift or used as a chew bone by an ogre. Hmmph. Anyway, the claim's mine, so I got to make do.~
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-PartyHasItem("EidanRng")~ THEN REPLY ~Well, that's what I wanted to talk about. I found this ring upstairs that casts some doubt on your claims.~  GOTO 15
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) PartyHasItem("EidanRng")~ THEN REPLY ~Well, that's what I wanted to talk about. I found this ring upstairs that casts some doubt on your claims.~  GOTO 15
   IF ~~ THEN REPLY ~Eidan wrote the claim to you?~  GOTO 13
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 0)~ THEN REPLY ~I see. Well, maybe you can help me out - I need a room for the night.~  GOTO 3
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 1)~ THEN REPLY ~I see. Well, maybe you can help me out - I need a room for the night.~  DO ~StartStore("KUINN1", Player1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",0)~ THEN REPLY ~I see. Well, maybe you can help me out - I need a room for the night.~  GOTO 3
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",1)~ THEN REPLY ~I see. Well, maybe you can help me out - I need a room for the night.~  DO ~StartStore("KUINN1",Player1)~ EXIT
   IF ~~ THEN REPLY ~I think I'll be on my way. Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 13 // from: 12.1
   SAY ~Yeah, written in pen and ink, legally binding, every *i* dotted, every *t* crossed for any fool to see. So?~
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-PartyHasItem("EidanRng")~ THEN REPLY ~Well, that may be, but I found this ring upstairs that casts some doubt on your claims.~  GOTO 15
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) PartyHasItem("EidanRng")~ THEN REPLY ~Well, that may be, but I found this ring upstairs that casts some doubt on your claims.~  GOTO 15
   IF ~~ THEN REPLY ~Well, Eidan had palsy - but you knew that, right? So if this claim was written to you - of course, assuming that Eidan knew how to write, which he didn't - then the script would hardly be as perfectly written as you say.~  GOTO 14
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 0)~ THEN REPLY ~Just asking. Look, maybe you can help me out - I need a room for the night.~  GOTO 3
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 1)~ THEN REPLY ~Just asking. Look, maybe you can help me out - I need a room for the night.~  DO ~StartStore("KUINN1", Player1)~ EXIT
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",0)~ THEN REPLY ~Just asking. Look, maybe you can help me out - I need a room for the night.~  GOTO 3
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",1)~ THEN REPLY ~Just asking. Look, maybe you can help me out - I need a room for the night.~  DO ~StartStore("KUINN1",Player1)~ EXIT
   IF ~~ THEN REPLY ~I think I'll be on my way. Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 14 // from: 13.1
   SAY ~Yeah, well, ol' Eidan must have had someone write it FOR him, then, because everything looks in order to me. It's not unheard of to have others write claims for you. All I know is the claim's *mine.* Now do you want a room or not? If not, then *get out.*~
-  IF ~Class(Player1,PALADIN)
-PartyHasItem("EidanRng")~ THEN REPLY ~I may leave in a bit - just one other thing: I found Eidan's ring upstairs.~  GOTO 15
-  IF ~!Class(Player1,PALADIN)
-PartyHasItem("EidanRng")~ THEN REPLY ~I may leave in a bit - just one other thing: I found Eidan's ring upstairs.~  GOTO 15
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 0)~ THEN REPLY ~Never mind, then. I want a room. Are there any free?~  UNSOLVED_JOURNAL ~Claim for the Evening Shade.
+  IF ~Class(Player1,PALADIN) PartyHasItem("EidanRng")~ THEN REPLY ~I may leave in a bit - just one other thing: I found Eidan's ring upstairs.~  GOTO 15
+  IF ~!Class(Player1,PALADIN) PartyHasItem("EidanRng")~ THEN REPLY ~I may leave in a bit - just one other thing: I found Eidan's ring upstairs.~  GOTO 15
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",0)~ THEN REPLY ~Never mind, then. I want a room. Are there any free?~  UNSOLVED_JOURNAL ~Claim for the Evening Shade.
 
 We traded words with Aldwin, the innkeeper at the Evening Shade in Kuldahar, and he seemed quite defensive on the subject of his claim to the inn. There may have been something to Amelia's suspicions of foul play. If we could only find some proof of it...~  GOTO 3
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 0)
-Global("Aldwin_Threat", "GLOBAL", 1)~ THEN REPLY ~Never mind, then. I want a room. Are there any free?~  DO ~StartStore("KUINN1", Player1)~ UNSOLVED_JOURNAL ~Claim for the Evening Shade.
+  IF ~Global("Aldwin_Eidan","GLOBAL",0) Global("Aldwin_Threat","GLOBAL",1)~ THEN REPLY ~Never mind, then. I want a room. Are there any free?~  DO ~StartStore("KUINN1",Player1)~ UNSOLVED_JOURNAL ~Claim for the Evening Shade.
 
 We traded words with Aldwin, the innkeeper at the Evening Shade in Kuldahar, and he seemed quite defensive on the subject of his claim to the inn. There may have been something to Amelia's suspicions of foul play. If we could only find some proof of it...~  EXIT
   IF ~~ THEN REPLY ~I'll be on my way, then. Farewell.~  UNSOLVED_JOURNAL ~Claim for the Evening Shade.
@@ -261,10 +154,8 @@ END
 
 IF ~~ THEN BEGIN 15 // from: 14.1 14.0 13.0 12.0 9.0 8.2 7.3 6.3 3.5 2.10 0.16
   SAY ~Eh? What? ~
-  IF ~Class(Player1, PALADIN)
-PartyHasItem("EidanRng")~ THEN REPLY ~This ring has an inscription on the inside that looks like the *real* claim to this inn. Why would you be the owner when this claim says different?~  GOTO 16
-  IF ~!Class(Player1,PALADIN)
-PartyHasItem("EidanRng")~ THEN REPLY ~This ring has an inscription on the inside that looks like the *real* claim to this inn. Why would you be the owner when this claim says different?~  GOTO 17
+  IF ~Class(Player1,PALADIN) PartyHasItem("EidanRng")~ THEN REPLY ~This ring has an inscription on the inside that looks like the *real* claim to this inn. Why would you be the owner when this claim says different?~  GOTO 16
+  IF ~!Class(Player1,PALADIN) PartyHasItem("EidanRng")~ THEN REPLY ~This ring has an inscription on the inside that looks like the *real* claim to this inn. Why would you be the owner when this claim says different?~  GOTO 17
 END
 
 IF ~~ THEN BEGIN 16 // from: 15.0
@@ -280,8 +171,8 @@ END
 
 IF ~~ THEN BEGIN 18 // from: 17.0 16.1 16.0
   SAY ~Uh... no, no, I didn't know it was locked upstairs. Look, I don't have to explain anyth--~
-  IF ~!Alignment(Player1, MASK_EVIL)~ THEN REPLY ~You're right. I will take Eidan's ring to the elders of the town and let them decide how to deal with this. Perhaps they could call on Eidan's shade with the ring and speak to him about this. Justice must be served.~ GOTO 19
-  IF ~!Alignment(Player1, MASK_GOOD)~ THEN REPLY ~Look, you sniveling little dog, I'm tired of hearing your lies and your blustering - I could kill you where you stand, and claim this inn as mine and never feel a *shred* of remorse. Now tell me the truth, or I'll set you outside until you freeze, then carve you like an ice block.~ GOTO 19
+  IF ~!Alignment(Player1,MASK_EVIL)~ THEN REPLY ~You're right. I will take Eidan's ring to the elders of the town and let them decide how to deal with this. Perhaps they could call on Eidan's shade with the ring and speak to him about this. Justice must be served.~ GOTO 19
+  IF ~!Alignment(Player1,MASK_GOOD)~ THEN REPLY ~Look, you sniveling little dog, I'm tired of hearing your lies and your blustering - I could kill you where you stand, and claim this inn as mine and never feel a *shred* of remorse. Now tell me the truth, or I'll set you outside until you freeze, then carve you like an ice block.~ GOTO 19
 END
 
 IF ~~ THEN BEGIN 19 // from: 18.1 18.0
@@ -301,16 +192,12 @@ END
 
 IF ~~ THEN BEGIN 22 // from: 21.0
   SAY ~I know, it's just that... I don't know, I'm SICK of traveling, and I suddenly got the urge to settle. Blame the halfling in me, I suppose. At least I didn't try to plant myself in some glorified mole burrow and smoke a stinkweed pipe until I die of boredom.~
-  IF ~~ THEN REPLY ~While it's good you didn't hurt Eidan, you *shouldn't* have hid the body and falsified the claim. There were people here that probably knew him and cared for him, and they would have liked to have paid their respects. Besides, as Eidan's ring states, the inn belongs to *Kuldahar,* not you. What you did was wrong.~  DO ~SetGlobal("Aldwin_Eidan", "GLOBAL", 2)~ GOTO 24
-  IF ~~ THEN REPLY ~Look... Aldwin... I'm just looking for a *cheap* place for the night, or any other night I need to rest. You're just looking for me to keep silent. Sounds to me like we can help each other.~  DO ~SetGlobal("Aldwin_Eidan", "GLOBAL", 1)
-AddExperienceParty(9000)
-EraseJournalEntry(%Claim for the Evening Shade.
+  IF ~~ THEN REPLY ~While it's good you didn't hurt Eidan, you *shouldn't* have hid the body and falsified the claim. There were people here that probably knew him and cared for him, and they would have liked to have paid their respects. Besides, as Eidan's ring states, the inn belongs to *Kuldahar,* not you. What you did was wrong.~  DO ~SetGlobal("Aldwin_Eidan","GLOBAL",2)~ GOTO 24
+  IF ~~ THEN REPLY ~Look... Aldwin... I'm just looking for a *cheap* place for the night, or any other night I need to rest. You're just looking for me to keep silent. Sounds to me like we can help each other.~  DO ~SetGlobal("Aldwin_Eidan","GLOBAL",1) AddExperienceParty(9000) EraseJournalEntry(%Claim for the Evening Shade.
 
-One of the serving wenches mentioned that some halfling named Aldwin may have inherited the Evening Shade inn under mysterious circumstances -- possibly forging a claim of ownership. Hmmm. Maybe there's some advantage in investigating this halfling and seeing what we can exploit from the situation.%)
-EraseJournalEntry(%Claim for the Evening Shade.
+One of the serving wenches mentioned that some halfling named Aldwin may have inherited the Evening Shade inn under mysterious circumstances -- possibly forging a claim of ownership. Hmmm. Maybe there's some advantage in investigating this halfling and seeing what we can exploit from the situation.%) EraseJournalEntry(%Claim for the Evening Shade.
 
-Amelia, a barmaid at the Kuldahar tavern mentioned that Aldwin, a halfling, had taken over the ownership of the Evening Shade Inn when its previous owner vanished. Aldwin presented a claim that seemed to indicate that Eidan knew he was going away - but according to Amelia, Eidan didn't know how to write, and even if he did, he was stricken with the palsy. We should look into this; Aldwin may know what happened to the missing people.%)
-EraseJournalEntry(%Claim for the Evening Shade.
+Amelia, a barmaid at the Kuldahar tavern mentioned that Aldwin, a halfling, had taken over the ownership of the Evening Shade Inn when its previous owner vanished. Aldwin presented a claim that seemed to indicate that Eidan knew he was going away - but according to Amelia, Eidan didn't know how to write, and even if he did, he was stricken with the palsy. We should look into this; Aldwin may know what happened to the missing people.%) EraseJournalEntry(%Claim for the Evening Shade.
 
 We traded words with Aldwin, the innkeeper at the Evening Shade in Kuldahar, and he seemed quite defensive on the subject of his claim to the inn. There may have been something to Amelia's suspicions of foul play. If we could only find some proof of it...%)~ SOLVED_JOURNAL ~Claim for the Evening Shade.
 
@@ -319,7 +206,7 @@ END
 
 IF ~~ THEN BEGIN 23 // from: 22.1
   SAY ~Yeah... yeah, we can. I've got lots of empty rooms. I don't see why an *extremely* quiet guest such as yourself should have to pay for them. I mean, you keep to yourself and don't say much, no gold needs to change hands in either direction... right?~
-  IF ~~ THEN REPLY ~Very well. Show me to my room.~  DO ~StartStore("KUINN2", Player1)~ EXIT
+  IF ~~ THEN REPLY ~Very well. Show me to my room.~  DO ~StartStore("KUINN2",Player1)~ EXIT
   IF ~~ THEN REPLY ~Yes... I'll be back when I need to rest, then. Farewell.~  EXIT
 END
 
@@ -330,14 +217,11 @@ END
 
 IF ~~ THEN BEGIN 25 // from: 24.0
   SAY ~I... hmmm. Look, maybe we... I mean, what's to keep me from --~
-  IF ~~ THEN REPLY ~Getting out of town? Well, you won't get far. An avalanche has sealed off the pass, and plus, there are raiders scouring the mountains. Just confess to the elders.~  DO ~AddExperienceParty(6300)
-EraseJournalEntry(%Claim for the Evening Shade.
+  IF ~~ THEN REPLY ~Getting out of town? Well, you won't get far. An avalanche has sealed off the pass, and plus, there are raiders scouring the mountains. Just confess to the elders.~  DO ~AddExperienceParty(6300) EraseJournalEntry(%Claim for the Evening Shade.
 
-One of the serving wenches mentioned that some halfling named Aldwin may have inherited the Evening Shade inn under mysterious circumstances -- possibly forging a claim of ownership. Hmmm. Maybe there's some advantage in investigating this halfling and seeing what we can exploit from the situation.%)
-EraseJournalEntry(%Claim for the Evening Shade.
+One of the serving wenches mentioned that some halfling named Aldwin may have inherited the Evening Shade inn under mysterious circumstances -- possibly forging a claim of ownership. Hmmm. Maybe there's some advantage in investigating this halfling and seeing what we can exploit from the situation.%) EraseJournalEntry(%Claim for the Evening Shade.
 
-Amelia, a barmaid at the Kuldahar tavern mentioned that Aldwin, a halfling, had taken over the ownership of the Evening Shade Inn when its previous owner vanished. Aldwin presented a claim that seemed to indicate that Eidan knew he was going away - but according to Amelia, Eidan didn't know how to write, and even if he did, he was stricken with the palsy. We should look into this; Aldwin may know what happened to the missing people.%)
-EraseJournalEntry(%Claim for the Evening Shade.
+Amelia, a barmaid at the Kuldahar tavern mentioned that Aldwin, a halfling, had taken over the ownership of the Evening Shade Inn when its previous owner vanished. Aldwin presented a claim that seemed to indicate that Eidan knew he was going away - but according to Amelia, Eidan didn't know how to write, and even if he did, he was stricken with the palsy. We should look into this; Aldwin may know what happened to the missing people.%) EraseJournalEntry(%Claim for the Evening Shade.
 
 We traded words with Aldwin, the innkeeper at the Evening Shade in Kuldahar, and he seemed quite defensive on the subject of his claim to the inn. There may have been something to Amelia's suspicions of foul play. If we could only find some proof of it...%)~ SOLVED_JOURNAL ~Claim for the Evening Shade.
 
@@ -346,6 +230,6 @@ END
 
 IF ~~ THEN BEGIN 26 // from: 25.0
   SAY ~All right, all right, dammit! I'll go talk to them - now stop bothering me.~
-  IF ~~ THEN REPLY ~Good. Now I'm looking for a room. Can you help me?~  DO ~StartStore("KUINN3", Player1)~ EXIT
+  IF ~~ THEN REPLY ~Good. Now I'm looking for a room. Can you help me?~  DO ~StartStore("KUINN3",Player1)~ EXIT
   IF ~~ THEN REPLY ~Very well. I'll be back to check on you, Aldwin. Farewell.~  EXIT
 END

@@ -10,5 +10,3 @@ THEN
 		EndCutSceneMode()
 		DestroySelf()
 END
-
-

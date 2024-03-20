@@ -16,5 +16,3 @@ THEN
 		StartCutScene("keRtrnLW")
 		SetGlobal("RETURN_TO_LONELYWOOD","GLOBAL",0)
 END
-
-

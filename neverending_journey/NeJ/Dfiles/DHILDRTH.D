@@ -2,9 +2,9 @@ BEGIN ~DHILDRTH~ 86006 // non-zero flags may indicate non-pausing dialogue
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
   SAY ~Well met!  Why, ye seem to me like a fresh new vein of ore, all untried and untested.  I be Hildreth, should ye wish to know.~
-  IF ~~ THEN REPLY ~A vein of ore? What do you mean?~  DO ~SetGlobal("Know_Hildreth", "GLOBAL", 1)~ GOTO 3
-  IF ~!Race(Player1, Dwarf)~ THEN REPLY ~Hildreth? Isn't that sort of a feminine name for a burly dwarf warrior?~  DO ~SetGlobal("Know_Hildreth", "GLOBAL", 1)~ GOTO 2
-  IF ~~ THEN REPLY ~Nice meeting you, Hildreth.  Now if you don't mind... we're rather busy.  Farewell.~  DO ~SetGlobal("Know_Hildreth", "GLOBAL", 1)~ EXIT
+  IF ~~ THEN REPLY ~A vein of ore? What do you mean?~  DO ~SetGlobal("Know_Hildreth","GLOBAL",1)~ GOTO 3
+  IF ~!Race(Player1, Dwarf)~ THEN REPLY ~Hildreth? Isn't that sort of a feminine name for a burly dwarf warrior?~  DO ~SetGlobal("Know_Hildreth","GLOBAL",1)~ GOTO 2
+  IF ~~ THEN REPLY ~Nice meeting you, Hildreth.  Now if you don't mind... we're rather busy.  Farewell.~  DO ~SetGlobal("Know_Hildreth","GLOBAL",1)~ EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 1 // from:

@@ -2,64 +2,59 @@ BEGIN ~DEREVAIN~ 83119 // non-zero flags may indicate non-pausing dialogue
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
   SAY ~Well met, friend.  I am Erevain Blacksheaf of Evereska.  It has been many moons since I have seen friendly faces.  Despite the dreary nature of our current locale, Easthaven is a welcome sight for these elven eyes.~
-  IF ~~ THEN REPLY ~Hello.  I'm <GABBER>.  Tell me, Erevain, have you seen much in your travels?~  DO ~SetGlobal("Erevain_Met","GLOBAL", 1)~ GOTO 1
-  IF ~!Race(Player1, ELF)~ THEN REPLY ~An elf, eh?  What in the Nine Hells are you doing up here?~  DO ~SetGlobal("Erevain_Met","GLOBAL", 1)~ GOTO 2
-  IF ~Race(Player1, ELF)~ THEN REPLY ~Well met, brother.  How goes your journey?~  DO ~SetGlobal("Erevain_Met","GLOBAL", 1)~ GOTO 1
-  IF ~~ THEN REPLY ~What's wrong with the locale?  There's nothing wrong with a little bit of chilly weather.~  DO ~SetGlobal("Erevain_Met","GLOBAL", 1)~ GOTO 3
-  IF ~Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Greetings. Have you heard any rumors in your travels?~ DO ~SetGlobal("Erevain_Met","GLOBAL", 1)~ GOTO 9
-  IF ~~ THEN REPLY ~Yeah, she's a beaut, isn't she?  Well, I must be off.  Farewell.~  DO ~SetGlobal("Erevain_Met","GLOBAL", 1)~ GOTO EOD
+  IF ~~ THEN REPLY ~Hello.  I'm <GABBER>.  Tell me, Erevain, have you seen much in your travels?~  DO ~SetGlobal("Erevain_Met","GLOBAL",1)~ GOTO 1
+  IF ~!Race(Player1,ELF)~ THEN REPLY ~An elf, eh?  What in the Nine Hells are you doing up here?~  DO ~SetGlobal("Erevain_Met","GLOBAL",1)~ GOTO 2
+  IF ~Race(Player1,ELF)~ THEN REPLY ~Well met, brother.  How goes your journey?~  DO ~SetGlobal("Erevain_Met","GLOBAL",1)~ GOTO 1
+  IF ~~ THEN REPLY ~What's wrong with the locale?  There's nothing wrong with a little bit of chilly weather.~  DO ~SetGlobal("Erevain_Met","GLOBAL",1)~ GOTO 3
+  IF ~Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Greetings. Have you heard any rumors in your travels?~ DO ~SetGlobal("Erevain_Met","GLOBAL",1)~ GOTO 9
+  IF ~~ THEN REPLY ~Yeah, she's a beaut, isn't she?  Well, I must be off.  Farewell.~  DO ~SetGlobal("Erevain_Met","GLOBAL",1)~ GOTO EOD
 END
 
 IF ~~ THEN BEGIN 1 // from: 0.2 0.0
   SAY ~When I set out from Evereska, I was used to a peaceful life.  I had no idea what wonders and horrors the life of adventure would bring to my ever-changing doorstep.  I'm glad I didn't go on the Retreat twenty years ago.~
-  IF ~CheckStatLT(Player1, 9, CHR)
-CheckStatLT(Player1, 9, INT)~ THEN REPLY ~Hmph!  That's why it's called "adventure," stupid elf-person.~  GOTO 4
+  IF ~CheckStatLT(Player1,9,CHR) CheckStatLT(Player1,9,INT)~ THEN REPLY ~Hmph!  That's why it's called "adventure," stupid elf-person.~  GOTO 4
   IF ~~ THEN REPLY ~Horror, eh?  Let me tell you about horror.  Have you ever sliced a man from his belly to his throat?  Or watched a man gasp his last breath as you hold his pulsating heart in your hand?  Well... have you?~ GOTO 5
   IF ~~ THEN REPLY ~There doesn't seem to be much adventure around here, friend.~  GOTO 7
   IF ~~ THEN REPLY ~Do you know of any other adventurers in Easthaven?~  GOTO 12
-  IF ~!Race(Player1, ELF)~ THEN REPLY ~What is "the Retreat?"~  GOTO 6
+  IF ~!Race(Player1,ELF)~ THEN REPLY ~What is "the Retreat?"~  GOTO 6
   IF ~Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Twenty years ago? You've been adventuring this whole time?~ GOTO mod_ErevainA1
   IF ~~ THEN REPLY ~Well, it was nice talking to you, but I must take my leave.  Farewell.~  GOTO EOD
 END
 
 IF ~~ THEN BEGIN 2 // from: 0.1
   SAY ~Yes, I am an elf.  I am "up here" because I have decided to explore the world before participating in the Retreat.~
-  IF ~!Race(Player1, ELF)~ THEN REPLY ~What is "the Retreat?"~  GOTO 6
-  IF ~CheckStatLT(Player1, 9, CHR)~ THEN REPLY ~Yeah, yeah, yeah.  The Retreat.  I gotcha.  So... hear any good rumors lately?~  GOTO 9
-  IF ~CheckStatGT(Player1, 8, CHR)~ THEN REPLY ~Being a traveler, you must hear a lot of interesting things.  Have you heard anything interesting lately?~  GOTO 9
-  IF ~CheckStatLT(Player1, 6, CHR)
-CheckStatLT(Player1, 6, INT)
-CheckStatLT(Player1, 6, WIS)~ THEN REPLY ~Ooooh!  Ooooh!  An elf!  Are you a Bladesinger?  Can you wield two weapons at the same time?  Can you dodge Fireballs and sleep upside-down in trees?  Ooooh!  Ooooh!  Tell me you can!~  GOTO 8
-  IF ~CheckStatLT(Player1, 9, CHR)
-CheckStatLT(Player1, 9, INT)~ THEN REPLY ~So you came to Icewind Dale?  Elf, you're stupid.  This place is stupid too.~  GOTO 4
+  IF ~!Race(Player1,ELF)~ THEN REPLY ~What is "the Retreat?"~  GOTO 6
+  IF ~CheckStatLT(Player1,9,CHR)~ THEN REPLY ~Yeah, yeah, yeah.  The Retreat.  I gotcha.  So... hear any good rumors lately?~  GOTO 9
+  IF ~CheckStatGT(Player1,8,CHR)~ THEN REPLY ~Being a traveler, you must hear a lot of interesting things.  Have you heard anything interesting lately?~  GOTO 9
+  IF ~CheckStatLT(Player1,6,CHR) CheckStatLT(Player1,6,INT) CheckStatLT(Player1,6,WIS)~ THEN REPLY ~Ooooh!  Ooooh!  An elf!  Are you a Bladesinger?  Can you wield two weapons at the same time?  Can you dodge Fireballs and sleep upside-down in trees?  Ooooh!  Ooooh!  Tell me you can!~  GOTO 8
+  IF ~CheckStatLT(Player1,9,CHR) CheckStatLT(Player1,9,INT)~ THEN REPLY ~So you came to Icewind Dale?  Elf, you're stupid.  This place is stupid too.~  GOTO 4
   IF ~Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Explore the world? You must have been exploring Faerun for a long time to get so far up North.~ GOTO mod_ErevainA1
   IF ~~ THEN REPLY ~Good luck with your travels.  It was nice talking to you, but I have to go.  Farewell.~  GOTO EOD
 END
 
 IF ~~ THEN BEGIN 3 // from: 0.3
   SAY ~Ah, I suppose it's fine.  I'm just used to the sunny climate of my homeland.  This place is like an icy anvil where the hammer of Auril smashes down upon us, leaving the landscape barren and the horizon foreboding in every direction.~
-  IF ~CheckStatLT(Player1, 9, CHR)~ THEN REPLY ~Yeah, yeah, yeah.  It's not fun.  I gotcha.  So... hear any good rumors lately?~  GOTO 9
-  IF ~CheckStatGT(Player1, 8, CHR)~ THEN REPLY ~True, true.  Being a traveler, you must hear a lot of interesting things.  Have you heard anything interesting lately?~  GOTO 9
+  IF ~CheckStatLT(Player1,9,CHR)~ THEN REPLY ~Yeah, yeah, yeah.  It's not fun.  I gotcha.  So... hear any good rumors lately?~  GOTO 9
+  IF ~CheckStatGT(Player1,8,CHR)~ THEN REPLY ~True, true.  Being a traveler, you must hear a lot of interesting things.  Have you heard anything interesting lately?~  GOTO 9
   IF ~Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Where is your homeland? Where do you hail from? ~ GOTO mod_ErevainA3
   IF ~~ THEN REPLY ~Yeah, I suppose your right.  I have to be getting back to the "icy anvil" myself.  Farewell.~  GOTO EOD
 END
 
 IF ~~ THEN BEGIN 4 // from: 10.0 8.1 7.1 6.0 2.4 1.0
   SAY ~Answer me, Corellon... why do I always have to get the idiots?~
-  IF ~CheckStatLT(Player1, 6, INT)~ THEN REPLY ~Who you calling id-jut?!  I are saying fare-well.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL", 1)~ GOTO Break
-  IF ~CheckStatGT(Player1, 5, INT)~ THEN REPLY ~Yeah?  I'm an idiot?  Well... you're a little pointy-eared tree-hugger!  Elfy!  Ha!  Yeah!  How do you like THAT, Mister Elfy Elf-Face?  Farewell... elfy.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL", 1)~ GOTO Break
-  IF ~CheckStatGT(Player1, 5, INT)~ THEN REPLY ~Oh, so I'm an idiot, am I?  Why don't you step a little closer and say that?  Let's see what you're made of, pansy.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL", 1)~ GOTO Break
+  IF ~CheckStatLT(Player1,6,INT)~ THEN REPLY ~Who you calling id-jut?!  I are saying fare-well.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL",1)~ GOTO Break
+  IF ~CheckStatGT(Player1,5,INT)~ THEN REPLY ~Yeah?  I'm an idiot?  Well... you're a little pointy-eared tree-hugger!  Elfy!  Ha!  Yeah!  How do you like THAT, Mister Elfy Elf-Face?  Farewell... elfy.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL",1)~ GOTO Break
+  IF ~CheckStatGT(Player1,5,INT)~ THEN REPLY ~Oh, so I'm an idiot, am I?  Why don't you step a little closer and say that?  Let's see what you're made of, pansy.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL",1)~ GOTO Break
 END
 
 IF ~~ THEN BEGIN 5 // from: 1.1
   SAY ~Uh... no.  I can't say that I have.  I think I have to be going now.  It was... nice talking to you, friend.  Sweet water and light laughter... I guess.~
-  IF ~~ THEN REPLY ~Walk in darkness, "friend."  Farewell.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL", 1)~ GOTO EOD
+  IF ~~ THEN REPLY ~Walk in darkness, "friend."  Farewell.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL",1)~ GOTO EOD
 END
 
 IF ~~ THEN BEGIN 6 // from: 2.0 1.4
   SAY ~The Retreat is the gradual migration of Tel'Quessir to the isle of Evermeet.  It should only take a few hundred years for all of the People to complete the migration.  Until then, I've decided to explore the rest of Faerun.~
-  IF ~CheckStatLT(Player1, 8, CHR)
-!Race(Player1, ELF)~ THEN REPLY ~That sounds stupid.  Elves are such dummies.~  GOTO 4
+  IF ~CheckStatLT(Player1,8,CHR) !Race(Player1,ELF)~ THEN REPLY ~That sounds stupid.  Elves are such dummies.~  GOTO 4
   IF ~~ THEN REPLY ~Interesting.  Hear any good rumors on your way here?~  GOTO 9
   IF ~~ THEN REPLY ~Do you know of any other adventurers in Easthaven?~  GOTO 12
   IF ~Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Where is your homeland? Where do you hail from? ~ GOTO mod_ErevainA3
@@ -69,53 +64,42 @@ END
 IF ~~ THEN BEGIN 7 // from: 12.1 1.2
   SAY ~You'd be surprised.  Adventure can leap out at you in the most unlikely form and at the most unexpected time.~
   IF ~~ THEN REPLY ~Hmm.  Thanks for the advice.  Have any other information to share?~  GOTO 9
-  IF ~CheckStatLT(Player1, 12, WIS)~ THEN REPLY ~Yeah, whatever.  Anyone tries to pull one over on me and I'll take 'em out so quickly I'll be a LEGEND in these parts.  Move over heroes, there's a new shire-reeve in town.  I'm so fast I can practically dance on the tip of a sword.  WHOOSH!  WHOOSH!  Watch me go!~  GOTO 4
+  IF ~CheckStatLT(Player1,12,WIS)~ THEN REPLY ~Yeah, whatever.  Anyone tries to pull one over on me and I'll take 'em out so quickly I'll be a LEGEND in these parts.  Move over heroes, there's a new shire-reeve in town.  I'm so fast I can practically dance on the tip of a sword.  WHOOSH!  WHOOSH!  Watch me go!~  GOTO 4
   IF ~~ THEN REPLY ~I'll keep that in mind.  Farewell.~  GOTO EOD
 END
 
 IF ~~ THEN BEGIN 8 // from: 2.3
   SAY ~Grrrr.  GRRRRR.  NO! NO! NO!  NOOOOOO!  Why does everyone keep asking me that?!~
-  IF ~~ THEN REPLY ~Uh oh.  Farewell.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL", 1)~ GOTO EOD
+  IF ~~ THEN REPLY ~Uh oh.  Farewell.~  DO ~SetGlobal("Erevain_Jerk","GLOBAL",1)~ GOTO EOD
   IF ~~ THEN REPLY ~Pray to your fruity gods, elfboy.  It's time for your head to "Retreat" from your body.~  GOTO 4
 END
 
 IF ~~ THEN BEGIN 9 // from: 12.0 10.1 7.0 6.1 3.1 3.0 2.2 2.1
   SAY ~Well, I haven't heard any rumors lately.  However, when I traveled through Kuldahar, I had a strange feeling about something in that valley.  It's more than just the weather that bothered me.  Something seemed amiss in the mountains, the trees, even the clouds in the sky.  Something was out of place.  Something was... wrong.~
-  IF ~CheckStatGT(Player1, 9, WIS)~ THEN REPLY ~Now that you mention it, something does seem out of place.  I can't quite put my finger on it, but... yes.  Something's been odd about the weather.  Be careful in your travels.  Farewell.~  EXIT
-  IF ~CheckStatLT(Player1, 10, WIS)~ THEN REPLY ~Eh?  I haven't noticed anything.  Thanks for talking, though.  Farewell.~  GOTO EOD
+  IF ~CheckStatGT(Player1,9,WIS)~ THEN REPLY ~Now that you mention it, something does seem out of place.  I can't quite put my finger on it, but... yes.  Something's been odd about the weather.  Be careful in your travels.  Farewell.~  EXIT
+  IF ~CheckStatLT(Player1,10,WIS)~ THEN REPLY ~Eh?  I haven't noticed anything.  Thanks for talking, though.  Farewell.~  GOTO EOD
   IF ~Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~I've seen a lot of fascinating and scary occurences myself traveling in strange parts since I left my home at Candlekeep.~ GOTO 1
-  IF ~Global("VP_Create_Erevain","GLOBAL",1)
-NumInPartyGT(1)~ THEN REPLY  ~This is a strange land to us Erevain. You are much more familiar than us. Would you consider joining us to travel to Kuldahar or wherever adventure leads us?~ GOTO mod_ErevainA2
-  IF ~Global("VP_Create_Erevain","GLOBAL",1)
-NumInPartyLT(2)~ THEN REPLY  ~This is a strange land to me Erevain. You are much more familiar than I. Would you consider joining me to travel to Kuldahar or wherever adventure leads us?~ GOTO mod_ErevainA2
-  IF ~Global("VP_Create_Erevain","GLOBAL",1)
-Global("Join_Posse", "GLOBAL", 3)
-NumInPartyGT(1)~ THEN REPLY  ~We're planning to join Hrothgar on an expedition to Kuldahar. Your familiarity with that area would be a great boon to us. Would you consider joining us?~ GOTO mod_ErevainA2
-  IF ~Global("VP_Create_Erevain","GLOBAL",1)
-Global("Join_Posse", "GLOBAL", 3)
-NumInPartyLT(2)~ THEN REPLY  ~I'm planning to join Hrothgar on an expedition to Kuldahar. Your familiarity with that area would be a great boon to us. Would you consider joining us?~ GOTO mod_ErevainA2
+  IF ~Global("VP_Create_Erevain","GLOBAL",1) NumInPartyGT(1)~ THEN REPLY  ~This is a strange land to us Erevain. You are much more familiar than us. Would you consider joining us to travel to Kuldahar or wherever adventure leads us?~ GOTO mod_ErevainA2
+  IF ~Global("VP_Create_Erevain","GLOBAL",1) NumInPartyLT(2)~ THEN REPLY  ~This is a strange land to me Erevain. You are much more familiar than I. Would you consider joining me to travel to Kuldahar or wherever adventure leads us?~ GOTO mod_ErevainA2
+  IF ~Global("VP_Create_Erevain","GLOBAL",1) Global("Join_Posse","GLOBAL",3) NumInPartyGT(1)~ THEN REPLY  ~We're planning to join Hrothgar on an expedition to Kuldahar. Your familiarity with that area would be a great boon to us. Would you consider joining us?~ GOTO mod_ErevainA2
+  IF ~Global("VP_Create_Erevain","GLOBAL",1) Global("Join_Posse","GLOBAL",3) NumInPartyLT(2)~ THEN REPLY  ~I'm planning to join Hrothgar on an expedition to Kuldahar. Your familiarity with that area would be a great boon to us. Would you consider joining us?~ GOTO mod_ErevainA2
   IF ~~ THEN REPLY ~Interesting.  Thanks for the advice.  Farewell.~  GOTO EOD
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Erevain_Jerk", "GLOBAL", 0)~ THEN BEGIN 10 // from:
+IF ~NumTimesTalkedToGT(0) Global("Erevain_Jerk","GLOBAL",0)~ THEN BEGIN 10 // from:
   SAY ~Well met, again, friends.~
-  IF ~!Race(Player1, ELF)~ THEN REPLY ~I'm not your friend, elfling.~  GOTO 4
+  IF ~!Race(Player1,ELF)~ THEN REPLY ~I'm not your friend, elfling.~  GOTO 4
   IF ~~ THEN REPLY ~Greetings.  Have you heard any rumors in your travels?~  GOTO 9
   IF ~Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Hello again Erevain. Tell me, have you seen much in your travels?~ GOTO 1
-  IF ~!Race(Player1, ELF)
-Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~What in the Nine Hells is an elf doing up here?~ GOTO 2
-  IF ~Race(Player1, ELF)
-Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Well met again brother. How goes your journey?~ GOTO 1
+  IF ~!Race(Player1,ELF) Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~What in the Nine Hells is an elf doing up here?~ GOTO 2
+  IF ~Race(Player1,ELF) Global("VP_Create_Erevain","GLOBAL",1)~ THEN REPLY ~Well met again brother. How goes your journey?~ GOTO 1
   IF ~~ THEN REPLY ~How do you feel about this weather? It's quite chilly around here.~ GOTO 3
   IF ~~ THEN REPLY ~Well met, Erevain.  Just thought I'd greet you in passing.  Farewell.~  GOTO EOD
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Erevain_Jerk", "GLOBAL", 1)~ THEN BEGIN 11 // from:
+IF ~NumTimesTalkedToGT(0) Global("Erevain_Jerk","GLOBAL",1)~ THEN BEGIN 11 // from:
   SAY ~Oh.  You again.  Leave me alone, please.  I'm not interested in talking to you.~
-  IF ~Global("VP_Create_Erevain","GLOBAL",1)
-Global("Join_Accalia","GLOBAL",1)~ THEN REPLY ~Hrothgar is about to embark on an expedition to Kuldahar to investigate the evil forces plaguing that region. You should join with us.~ GOTO mod_ErevainB1
+  IF ~Global("VP_Create_Erevain","GLOBAL",1) Global("Join_Accalia","GLOBAL",1)~ THEN REPLY ~Hrothgar is about to embark on an expedition to Kuldahar to investigate the evil forces plaguing that region. You should join with us.~ GOTO mod_ErevainB1
   IF ~~ THEN REPLY ~Uh... farewell.~  GOTO EOD
 END
 
@@ -129,29 +113,26 @@ END
 
 IF ~~ mod_ErevainA1
   SAY ~Yes indeed. I've travelled all around Evereska, touched on Anauroch, through some of Comyr and the Dalelands, the Silver Marches, now finally the Spine of the World.~
-  IF ~~ THEN REPLY ~Hello. I'm <GABBER>. Tell me, Erevain, have you seen much in your travels?~ DO ~SetGlobal("Erevain_Met","GLOBAL", 1)~ GOTO 1
-  IF ~CheckStatLT(Player1, 9, CHR)~ THEN REPLY ~Yeah, yeah, yeah. Lots of places. I gotcha. So... hear any good rumors lately?~ GOTO 9
-  IF ~CheckStatGT(Player1, 8, CHR)~ THEN REPLY ~Being a traveler, you must hear a lot of interesting things. Have you heard anything interesting lately?~ GOTO 9
+  IF ~~ THEN REPLY ~Hello. I'm <GABBER>. Tell me, Erevain, have you seen much in your travels?~ DO ~SetGlobal("Erevain_Met","GLOBAL",1)~ GOTO 1
+  IF ~CheckStatLT(Player1,9,CHR)~ THEN REPLY ~Yeah, yeah, yeah. Lots of places. I gotcha. So... hear any good rumors lately?~ GOTO 9
+  IF ~CheckStatGT(Player1,8,CHR)~ THEN REPLY ~Being a traveler, you must hear a lot of interesting things. Have you heard anything interesting lately?~ GOTO 9
   IF ~~ THEN REPLY ~Do you know of any other travelers in Easthaven?~ GOTO 12
   IF ~NumInPartyGT(1)~ THEN REPLY ~We're travelers too, hailing from the Sword Coast. Would you consider traveling with us? You would be a great addtion.~ GOTO mod_ErevainA2
   IF ~NumInPartyLT(2)~ THEN REPLY ~I'm a traveler too, hailing from the Sword Coast. Would you consider traveling with me? You would be a great partner.~ GOTO mod_ErevainA2
-  IF ~Global("Join_Posse", "GLOBAL", 3)
-NumInPartyGT(1)~ THEN REPLY ~We're planning to join Hrothgar on an expedition to Kuldahar. We could use an adventurer like yourself. Would you consider joining us?~ GOTO mod_ErevainA2
-  IF ~Global("Join_Posse", "GLOBAL", 3)
-NumInPartyLT(2)~ THEN REPLY ~I'm planning to join Hrothgar on an expedition to Kuldahar. I could use an adventurer like yourself by my side. Would you consider joining me?~ GOTO mod_ErevainA2
+  IF ~Global("Join_Posse","GLOBAL",3) NumInPartyGT(1)~ THEN REPLY ~We're planning to join Hrothgar on an expedition to Kuldahar. We could use an adventurer like yourself. Would you consider joining us?~ GOTO mod_ErevainA2
+  IF ~Global("Join_Posse","GLOBAL",3) NumInPartyLT(2)~ THEN REPLY ~I'm planning to join Hrothgar on an expedition to Kuldahar. I could use an adventurer like yourself by my side. Would you consider joining me?~ GOTO mod_ErevainA2
   IF ~~ THEN REPLY ~Well, that's a lot of interesting places traveled , but I must take my leave. Farewell.~ GOTO EOD
 END
 
 IF ~~ THEN BEGIN mod_ErevainA2
   SAY ~I must respectfully decline. I have been used to adventuring alone for the last twenty years. I often avoid battles by sneaking past hostile creatures and cannot reliabily hide many other indviduals.~
-  IF ~CheckStatLT(Player1, 9, CHR)~ THEN REPLY ~Fine, be mean like that. But, you better at tell us what rumors you know.~ GOTO 9
-  IF ~CheckStatGT(Player1, 8, CHR)~ THEN REPLY ~I'm sorry to hear that. Can you at least tell us any rumors you know?~ GOTO 9
+  IF ~CheckStatLT(Player1,9,CHR)~ THEN REPLY ~Fine, be mean like that. But, you better at tell us what rumors you know.~ GOTO 9
+  IF ~CheckStatGT(Player1,8,CHR)~ THEN REPLY ~I'm sorry to hear that. Can you at least tell us any rumors you know?~ GOTO 9
   IF ~~ THEN REPLY ~What do you mean avoid battles? Can't you fight?~ GOTO mod_ErevainA4
   IF ~~ THEN REPLY ~What do you mean sneaking past? Are you a Ranger or Thief?~ GOTO mod_ErevainA5
   IF ~Global("VP_Erevain_Triple","GLOBAL",1)~ THEN REPLY ~What do you mean hide other individuals? Are you a Mage?~ GOTO mod_ErevainA6
   IF ~~ THEN REPLY ~It sounds like you're just a coward who can't fight. I can't have cowards join my party.~ GOTO mod_ErevainA4
-  IF ~CheckStatLT(Player1, 9, CHR)
-CheckStatLT(Player1, 9, INT)~ THEN REPLY ~Bah. Stupid elves are scared. Scaredy elf!~ GOTO 4
+  IF ~CheckStatLT(Player1,9,CHR) CheckStatLT(Player1,9,INT)~ THEN REPLY ~Bah. Stupid elves are scared. Scaredy elf!~ GOTO 4
   IF ~NumInPartyGT(1)~ THEN REPLY ~If you've been adventuring for twenty years, you must be good at it. I'm sure you have many useful skills that could help us survive this harsh land. Please, join us.~ GOTO mod_ErevainA7
   IF ~NumInPartyLT(2)~ THEN REPLY ~If you've been adventuring for twenty years, you must be good at it. I'm sure you have many useful skills that could help us survive this harsh land. Please, join me.~ GOTO mod_ErevainA8
   IF ~~ THEN REPLY ~That's unfortunate. You would have made a great adventuring companion. Oh well. Farewell.~ GOTO EOD
@@ -159,10 +140,10 @@ END
 
 IF ~~ THEN BEGIN mod_ErevainA3
   SAY ~Evereska is my homeland. A region and city adjacent to Comyr and located between the Sword Coast and great Anauroch desert. A great many elves participating in the Retreat are leaving there.~
-  IF ~!Race(Player1, ELF)~ THEN REPLY ~What is "the Retreat?"~ GOTO 6
-  IF ~CheckStatLT(Player1, 9, CHR)~ THEN REPLY ~Yeah, yeah, yeah. So... hear any good rumors lately?~ GOTO 9
-  IF ~CheckStatGT(Player1, 8, CHR)~ THEN REPLY ~Fascinating. Being a traveler, you must hear a lot of interesting things. Have you heard anything interesting lately?~ GOTO 9
-  IF ~CheckStatLT(Player1, 9, CHR) CheckStatLT(Player1, 9, INT)~ THEN REPLY ~So you came to Icewind Dale? Elf, you're stupid. This place is stupid too.~ GOTO 4
+  IF ~!Race(Player1,ELF)~ THEN REPLY ~What is "the Retreat?"~ GOTO 6
+  IF ~CheckStatLT(Player1,9,CHR)~ THEN REPLY ~Yeah, yeah, yeah. So... hear any good rumors lately?~ GOTO 9
+  IF ~CheckStatGT(Player1,8,CHR)~ THEN REPLY ~Fascinating. Being a traveler, you must hear a lot of interesting things. Have you heard anything interesting lately?~ GOTO 9
+  IF ~CheckStatLT(Player1,9,CHR) CheckStatLT(Player1,9,INT)~ THEN REPLY ~So you came to Icewind Dale? Elf, you're stupid. This place is stupid too.~ GOTO 4
   IF ~~ THEN REPLY ~That's certainly a long way away. It was nice talking to you, but I have to go. Farewell.~ GOTO EOD
 END
 
@@ -170,8 +151,8 @@ IF ~~ THEN BEGIN mod_ErevainA4
   SAY ~Oh, I am a fighter and am quite handy with the longsword as well as the longbow. I have simply learned the limits and dangers of fighting solo and seek to avoid unnecessary conflicts.~
   IF ~NumInPartyGT(1)~ THEN REPLY ~It sounds like you can handle a weapon just fine if need be especially given your long tenure adventuring. Please, join us.~ GOTO mod_ErevainA7
   IF ~NumInPartyGT(1)~ THEN REPLY ~It sounds like you can handle a weapon just fine if need be especially given your long tenure adventuring. Please, join me.~ GOTO mod_ErevainA8
-  IF ~CheckStatGT(Player1, 8, INT)~ THEN REPLY ~I think you're more likely to run up a tree than be of any real help to us. Good riddance.~ DO ~SetGlobal("Erevain_Jerk","GLOBAL", 1)~ GOTO Break
-  IF ~CheckStatLT(Player1, 9, INT)~ THEN REPLY ~If Scared elf not fight then scared elf get eaten. Dumb elf. ~ GOTO 4
+  IF ~CheckStatGT(Player1,8,INT)~ THEN REPLY ~I think you're more likely to run up a tree than be of any real help to us. Good riddance.~ DO ~SetGlobal("Erevain_Jerk","GLOBAL",1)~ GOTO Break
+  IF ~CheckStatLT(Player1,9,INT)~ THEN REPLY ~If Scared elf not fight then scared elf get eaten. Dumb elf. ~ GOTO 4
  IF ~~ THEN REPLY ~Sorry, I don't think you'd be a good fit here. Farewell.~ GOTO EOD
 END
 
@@ -180,8 +161,8 @@ IF ~~ THEN BEGIN mod_ErevainA5
   IF ~~ THEN REPLY ~Sorry, I don't think you'd be a good fit here. Farewell.~ GOTO EOD
   IF ~NumInPartyGT(1)~ THEN REPLY ~It sounds like you can handle a weapon just fine and offer assistance with your rogue skills. Please, join us.~ GOTO mod_ErevainA7
   IF ~NumInPartyGT(1)~ THEN REPLY ~It sounds like you can handle a weapon just fine and offer assistance with your rogue skills. Please, join me.~ GOTO mod_ErevainA8
-  IF ~CheckStatGT(Player1, 8, INT)~ THEN REPLY ~I don't like rogues or any of their ilk. Good riddance.~ DO ~SetGlobal("Erevain_Jerk","GLOBAL", 1)~ GOTO EOD
-  IF ~CheckStatLT(Player1, 9, INT)~ THEN REPLY ~Elf not stand and fight. Elf stupid and dumb. ~ GOTO 4
+  IF ~CheckStatGT(Player1,8,INT)~ THEN REPLY ~I don't like rogues or any of their ilk. Good riddance.~ DO ~SetGlobal("Erevain_Jerk","GLOBAL",1)~ GOTO EOD
+  IF ~CheckStatLT(Player1,9,INT)~ THEN REPLY ~Elf not stand and fight. Elf stupid and dumb. ~ GOTO 4
 END
 
 IF ~~ THEN BEGIN mod_ErevainA6
@@ -189,36 +170,33 @@ IF ~~ THEN BEGIN mod_ErevainA6
   IF ~~ THEN REPLY ~Sorry, I don't think you'd be a good fit here. Farewell.~ GOTO EOD
   IF ~NumInPartyGT(1)~ THEN REPLY ~It sounds like your magic and abilities would be most useful. Please, join us.~ GOTO mod_ErevainA7
   IF ~NumInPartyGT(1)~ THEN REPLY ~It sounds like your magic and abilities would be most useful. Please, join me.~ GOTO mod_ErevainA8
-  IF ~CheckStatGT(Player1, 8, INT)~ THEN REPLY ~The last thing I want is a helpless mage adding dead weight. Good riddance.~ DO ~SetGlobal("Erevain_Jerk","GLOBAL", 1)~ GOTO Break
-  IF ~CheckStatLT(Player1, 9, INT)~ THEN REPLY ~Elf's magic very weak and not good. Dumb elf.~ GOTO 4
+  IF ~CheckStatGT(Player1,8,INT)~ THEN REPLY ~The last thing I want is a helpless mage adding dead weight. Good riddance.~ DO ~SetGlobal("Erevain_Jerk","GLOBAL",1)~ GOTO Break
+  IF ~CheckStatLT(Player1,9,INT)~ THEN REPLY ~Elf's magic very weak and not good. Dumb elf.~ GOTO 4
 END
 
 IF ~~ THEN BEGIN mod_ErevainA7
   SAY ~Very well. I shall consider traveling with your group another adventure in of itself. Come, let us explore onward!~
-  IF ~~ THEN DO ~SetGlobal("VP_Erevain_InParty","GLOBAL",1)
-JoinParty()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("VP_Erevain_InParty","GLOBAL",1) JoinParty()~ EXIT
 END
 
 IF ~~ THEN BEGIN mod_ErevainA8
   SAY ~Very well. I shall consider traveling with you another adventure in of itself. Come, let us explore onward!~
-  IF ~~ THEN DO ~SetGlobal("VP_Erevain_InParty","GLOBAL",1)
-JoinParty()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("VP_Erevain_InParty","GLOBAL",1) JoinParty()~ EXIT
 END
 
 IF ~~ THEN BEGIN mod_ErevainB1
   SAY ~I might consider joining Hrothgar's expedition for his sake, but you were really rude to me earlier. You need to apologize to me.~
-  IF ~CheckStatLT(Player1, 9, INT)~ THEN REPLY ~I'm not saying sorry to stupid elfs. Dumb elfs should apologize to me for being dumb.~ GOTO mod_ErevainB2
-  IF ~CheckStatGT(Player1, 8, INT)~ THEN REPLY ~As I recall. You were quite rude to me. You should apologize to me first.~ GOTO mod_ErevainB2
+  IF ~CheckStatLT(Player1,9,INT)~ THEN REPLY ~I'm not saying sorry to stupid elfs. Dumb elfs should apologize to me for being dumb.~ GOTO mod_ErevainB2
+  IF ~CheckStatGT(Player1,8,INT)~ THEN REPLY ~As I recall. You were quite rude to me. You should apologize to me first.~ GOTO mod_ErevainB2
   IF ~~ THEN REPLY ~We seem to have gotten off on a bad foot. My apologies Erevain. I hope we can make amends and that you will join us on our expedition~ GOTO mod_ErevainB4
 END
 
 IF ~~ THEN BEGIN mod_ErevainB2
   SAY ~I am now very sure that joining your expedition is a faulty notion. Best of luck. I shall not be joining you.~
-  IF ~~ THEN DO ~SetGlobal("Erevain_Jerk","GLOBAL", 2)~ EXIT
+  IF ~~ THEN DO ~SetGlobal("Erevain_Jerk","GLOBAL",2)~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Erevain_Jerk", "GLOBAL", 2)~ THEN BEGIN mod_ErevainB3
+IF ~NumTimesTalkedToGT(0) Global("Erevain_Jerk","GLOBAL",2)~ THEN BEGIN mod_ErevainB3
   SAY ~I don't want to talk to you and I don't want to travel with you. Leave me be, please.~
   IF ~~ THEN REPLY ~Fine... goodbye.~ EXIT
 END
@@ -232,8 +210,7 @@ END
 
 IF ~~ THEN BEGIN mod_ErevainB5
   SAY ~Alright. Let us join Hrothgar and begin the expedition.~
-  IF ~~ THEN DO ~SetGlobal("VP_Erevain_InParty","GLOBAL",1)
-JoinParty()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("VP_Erevain_InParty","GLOBAL",1) JoinParty()~ EXIT
 END
 
 IF ~~ THEN BEGIN EOD

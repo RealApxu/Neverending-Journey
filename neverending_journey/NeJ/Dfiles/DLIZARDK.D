@@ -1,7 +1,6 @@
 BEGIN ~DLIZARDK~
 
-IF ~NumberOfTimesTalkedTo(0)
-~ THEN BEGIN 0
+IF ~NumberOfTimesTalkedTo(0)~ THEN BEGIN 0
   SAY ~Peoplesss!  What are you doing?  Cave belong to Lizard King Lissspen.  Me.~
   IF ~~ THEN REPLY ~It belongs to the Lizard King, eh?  How did you come to own it?~ DO ~SetGlobal("Throne_Room_Attack","TT4001",1)~ GOTO 1
   IF ~~ THEN REPLY ~This cave is going to belong to Dead Lizard King unless you tell me what your people are doing here.~ DO ~SetGlobal("Throne_Room_Attack","TT4001",1)~ GOTO 2
@@ -64,43 +63,36 @@ END
 IF ~~ THEN BEGIN 5
   SAY ~Yxunomei not our queen.  She queen of the sssnakesss.  Lizard King do Yxunomei'sss tasksss to get food for hisss people.  Village providesss usss much food.~
   IF ~~ THEN REPLY ~The village?  You're eating the villagers?!~ GOTO 9
-  IF ~~ THEN REPLY ~Well, that makes sense to me.  Human flesh *is* pretty tasty, after all.~ DO ~SetGlobal("Tasty_Flesh","GLOBAL",1)
-~ GOTO 10
+  IF ~~ THEN REPLY ~Well, that makes sense to me.  Human flesh *is* pretty tasty, after all.~ DO ~SetGlobal("Tasty_Flesh","GLOBAL",1)~ GOTO 10
   IF ~~ THEN REPLY ~Hmm.  Interesting.  Well, have fun with those villagers.  I need to be going now.  Farewell.~ GOTO 8
 END
 
 IF ~~ THEN BEGIN 6
   SAY ~Yesss, yesss.  Abominationsss.  If you only knew my tasssty friends.  Lizard King grow tired of playing with food now.  Your time hasss come.~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 7
   SAY ~Giving praise to Lizard King not make me want eating you any lesss.  Do not ssstruggle.~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 8
   SAY ~Lizard King not let you leave.  People ssstarving, need food.  You understand, yesss?  Hold ssstill...~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 9
   SAY ~Lizard people ssstarving.  Lizard King mussst make thingsss right and ssserve Yxunomei to help hisss people.  You interfere.  Cannot allow thisss.  ~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 10
   SAY ~Ha, ha.  Humansss funny, try trick Lizard King.  I eat you anyway.  Not ssso funny now, is it?  Sssorry, funny perssson.~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 11
   SAY ~We kind of monsters eat people because you tasty.  Hold still...~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END

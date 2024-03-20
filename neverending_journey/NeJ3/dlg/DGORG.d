@@ -3,14 +3,14 @@ BEGIN ~DGORG~
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0
   SAY ~What in the nine hells do you want?~
   IF ~~ THEN REPLY ~I would like to ask you some questions.~ GOTO 2
-  IF ~Global("Kill_Gorg","GLOBAL", 3)~ THEN REPLY ~I am here to slay you so that I may free the slaves.~ GOTO 11
+  IF ~Global("Kill_Gorg","GLOBAL",3)~ THEN REPLY ~I am here to slay you so that I may free the slaves.~ GOTO 11
   IF ~~ THEN REPLY ~Nothing, farewell for now.~ EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 1
   SAY ~What in the nine hells do you want?~
   IF ~~ THEN REPLY ~I would like to ask you some questions.~ GOTO 2
-  IF ~Global("Kill_Gorg","GLOBAL", 3)~ THEN REPLY ~I am here to slay you so that I may free the slaves.~ GOTO 11
+  IF ~Global("Kill_Gorg","GLOBAL",3)~ THEN REPLY ~I am here to slay you so that I may free the slaves.~ GOTO 11
   IF ~~ THEN REPLY ~Nothing, farewell for now.~ EXIT
 END
 
@@ -19,18 +19,18 @@ IF ~~ THEN BEGIN 2
   IF ~~ THEN REPLY ~Who are you?~ GOTO 3
   IF ~~ THEN REPLY ~What are you doing down here?~ GOTO 4
   IF ~~ THEN REPLY ~Can you tell me anything about these caverns?~ GOTO 9
-  IF ~Global("Explore_Cave","GLOBAL", 3)~ THEN REPLY ~I am curious about the cave to the north.  Do you know anything about it?~ GOTO 10
+  IF ~Global("Explore_Cave","GLOBAL",3)~ THEN REPLY ~I am curious about the cave to the north.  Do you know anything about it?~ GOTO 10
   IF ~~ THEN REPLY ~I will be going now.  Farewell.~ EXIT
 END
 
 IF ~~ THEN BEGIN 3
-  SAY ~Gorg.  That’s my name. ~
+  SAY ~Gorg.  Thatï¿½s my name. ~
   IF ~~ THEN REPLY ~I have some questions for you.~ GOTO 2
   IF ~~ THEN REPLY ~I must be leaving now.  Farewell.~ EXIT
 END
 
 IF ~~ THEN BEGIN 4
-  SAY ~See the pen over there?  I’m watching those good for nothing slaves...  Well, they were good for nothing.  We found a use for them, though!~
+  SAY ~See the pen over there?  Iï¿½m watching those good for nothing slaves...  Well, they were good for nothing.  We found a use for them, though!~
   IF ~~ THEN REPLY ~What use is that?~ GOTO 5
   IF ~~ THEN REPLY ~I have some more questions for you.~ GOTO 2
   IF ~~ THEN REPLY ~I must be leaving now.  Farewell.~ EXIT
@@ -38,14 +38,14 @@ END
 
 IF ~~ THEN BEGIN 5
   SAY ~We feed them to Frostbite and his ilk.  Keeps them in line.~
-  IF ~Global("Frostbite_Dead","GLOBAL", 1)~ THEN REPLY ~Those days are now over and done.  Frostbite is dead.~ GOTO 12
+  IF ~Global("Frostbite_Dead","GLOBAL",1)~ THEN REPLY ~Those days are now over and done.  Frostbite is dead.~ GOTO 12
   IF ~~ THEN REPLY ~You *feed* them to Frostbite?  What do you mean?~ GOTO 8
   IF ~~ THEN REPLY ~I have some more questions for you.~ GOTO 2
   IF ~~ THEN REPLY ~I must be leaving now.  Farewell.~ EXIT
 END
 
 IF ~~ THEN BEGIN 6
-  SAY ~Humph.  Go find out for yourself, small one.  Go back to the throne room and on the way out turn left and then turn right at the shrine...  You’ll find out who frostbite is then.~
+  SAY ~Humph.  Go find out for yourself, small one.  Go back to the throne room and on the way out turn left and then turn right at the shrine...  Youï¿½ll find out who frostbite is then.~
   IF ~~ THEN REPLY ~I do not know where the throne room is.  Can you direct me?~ GOTO 7
   IF ~~ THEN REPLY ~I have some more questions for you.~ GOTO 2
   IF ~~ THEN REPLY ~I must be leaving now.  Farewell.~ EXIT
@@ -65,13 +65,13 @@ IF ~~ THEN BEGIN 8
 END
 
 IF ~~ THEN BEGIN 9
-  SAY ~Bah!  Look around, small one.  You’ll learn more than you want to know about these caverns.  I’ve nothing to tell you.~
+  SAY ~Bah!  Look around, small one.  Youï¿½ll learn more than you want to know about these caverns.  Iï¿½ve nothing to tell you.~
   IF ~~ THEN REPLY ~I have some more questions for you.~ GOTO 2
   IF ~~ THEN REPLY ~I must be leaving now.  Farewell.~ EXIT
 END
 
 IF ~~ THEN BEGIN 10
-  SAY ~I don’t know much.  That cave is too small for us to get into...  It stinks though...  and I hear something moving in there at times...  That’s all I know.~
+  SAY ~I donï¿½t know much.  That cave is too small for us to get into...  It stinks though...  and I hear something moving in there at times...  Thatï¿½s all I know.~
   IF ~~ THEN REPLY ~I have some more questions for you.~ GOTO 2
   IF ~~ THEN REPLY ~I must be leaving now.  Farewell.~ EXIT
 END
@@ -84,7 +84,7 @@ END
 IF ~~ THEN BEGIN 12
   SAY ~Dead, you say?  What did he die from?~
   IF ~~ THEN REPLY ~I killed him.~ GOTO 13
-  IF ~GlobalGT("Kill_Frost","GLOBAL", 2)~ THEN REPLY ~I slew him to end the sacrifice of the slaves. ~ GOTO 14
+  IF ~GlobalGT("Kill_Frost","GLOBAL",2)~ THEN REPLY ~I slew him to end the sacrifice of the slaves. ~ GOTO 14
   IF ~~ THEN REPLY ~I cannot say.  I have some more questions for you.~ GOTO 2
   IF ~~ THEN REPLY ~I must be leaving now.  Farewell.~ EXIT
 END
@@ -96,6 +96,6 @@ IF ~~ THEN BEGIN 13
 END
 
 IF ~~ THEN BEGIN 14
-  SAY ~Oh really?  Well, I guess I’m going to have to slay you for that.  Die scum!~
+  SAY ~Oh really?  Well, I guess Iï¿½m going to have to slay you for that.  Die scum!~
   IF ~~ THEN REPLY ~So be it!~ DO ~Enemy()~ EXIT
 END

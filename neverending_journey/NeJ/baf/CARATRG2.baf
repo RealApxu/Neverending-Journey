@@ -5,5 +5,3 @@ THEN
 	RESPONSE #100
 		SetGlobal("Caravan_Quest","GLOBAL",3)
 END
-
-

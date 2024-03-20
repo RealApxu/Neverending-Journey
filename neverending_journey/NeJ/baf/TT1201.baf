@@ -14,5 +14,3 @@ THEN
 		NoAction()
 		Continue()
 END
-
-

@@ -8,14 +8,14 @@ END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 1
   SAY ~Huh?  You again.  What you want now?~
-  IF ~!Global("Whale_Watching","GLOBAL", 1)~ THEN REPLY ~I was wondering what you are doing.~ GOTO 2
-  IF ~Global("Whale_Watching","GLOBAL", 1)~ THEN REPLY ~Still watching the whale, I see.~ GOTO 6
+  IF ~!Global("Whale_Watching","GLOBAL",1)~ THEN REPLY ~I was wondering what you are doing.~ GOTO 2
+  IF ~Global("Whale_Watching","GLOBAL",1)~ THEN REPLY ~Still watching the whale, I see.~ GOTO 6
   IF ~~ THEN REPLY ~Nothing, farewell for now.~ EXIT
 END
 
 IF ~~ THEN BEGIN 2
   SAY ~I... I never see such a creature.  It beautiful... Looking at it make me feel... I not know how feel...~
-  IF ~~ THEN REPLY ~It is a whale, by the way.~ DO ~SetGlobal("Whale_Watching","GLOBAL", 1)~ GOTO 3
+  IF ~~ THEN REPLY ~It is a whale, by the way.~ DO ~SetGlobal("Whale_Watching","GLOBAL",1)~ GOTO 3
   IF ~~ THEN REPLY ~Very well, farewell.~ EXIT
 END
 

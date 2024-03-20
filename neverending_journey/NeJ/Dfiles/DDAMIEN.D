@@ -1,8 +1,6 @@
 BEGIN ~DDAMIEN~
 
-IF ~NumberOfTimesTalkedTo(0)
-Global("Damien_Quest","GLOBAL",0)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 0
+IF ~NumberOfTimesTalkedTo(0) Global("Damien_Quest","GLOBAL",0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 0
   SAY ~Quick, we've got to go get Hrothgar!  There are monsters in town!  They almost ate me!~
   IF ~~ THEN REPLY ~Whoa, slow down there.  What are you talking about?~ GOTO 1
   IF ~~ THEN REPLY ~Out of the way, boy.  We've business to attend to.~ GOTO 4
@@ -20,8 +18,7 @@ IF ~~ THEN BEGIN 2
   IF ~PartyHasItem("FISH")~ THEN REPLY ~Don't worry... we'll deal with these thieving monsters.  In the mean time, take this knucklehead.  It'll keep you out of trouble with your da.~ DO ~TakePartyItem("FISH")~ UNSOLVED_JOURNAL ~Damien's fish.
 
 We ran into a boy named Damien near the bridge leading out of Easthaven.  He told us that a group of monsters had invaded his fishing hole and were eating the fish he had caught.~ GOTO 5
-  IF ~!PartyHasItem("FISH")
-~ THEN REPLY ~Don't worry... we'll deal with these thieving monsters and get you your fish back.~ UNSOLVED_JOURNAL ~Damien's fish.
+  IF ~!PartyHasItem("FISH") ~ THEN REPLY ~Don't worry... we'll deal with these thieving monsters and get you your fish back.~ UNSOLVED_JOURNAL ~Damien's fish.
 
 We ran into a boy named Damien near the bridge leading out of Easthaven.  He told us that a group of monsters had invaded his fishing hole and were eating the fish he had caught.~ EXIT
   IF ~~ THEN REPLY ~All right, we'll go check it out.  But if we find out you're lying to us, we'll send you to the bottom of the lake.~ UNSOLVED_JOURNAL ~Damien's fish.
@@ -46,46 +43,32 @@ END
 
 IF ~~ THEN BEGIN 5
   SAY ~Thanks.  I'd best be getting home now.  My da's probably worrying about me.~
-  IF ~~ THEN REPLY ~Farewell.~ DO ~SetGlobal("Damien_Quest","GLOBAL",2)
-AddexperienceParty(500)
-EraseJournalEntry(%Damien's fish.
+  IF ~~ THEN REPLY ~Farewell.~ DO ~SetGlobal("Damien_Quest","GLOBAL",2) AddexperienceParty(500) EraseJournalEntry(%Damien's fish.
 
-We ran into a boy named Damien near the bridge leading out of Easthaven.  He told us that a group of monsters had invaded his fishing hole and were eating the fish he had caught.%)
-EscapeArea()~ SOLVED_JOURNAL ~Damien's fish.
+We ran into a boy named Damien near the bridge leading out of Easthaven.  He told us that a group of monsters had invaded his fishing hole and were eating the fish he had caught.%) EscapeArea()~ SOLVED_JOURNAL ~Damien's fish.
 
 We were able to help Damien out, and we gave him some fish to take to his father so he wouldn't get in trouble.~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Damien_Quest","GLOBAL",0)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 6
+IF ~NumTimesTalkedToGT(0) Global("Damien_Quest","GLOBAL",0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 6
   SAY ~You're back.  Were you able to get my fish back from those monsters?~
-  IF ~PartyHasItem("FISH")
-~ THEN REPLY ~Today is your lucky day, boy.  Here is your fish... at least what is left of it.~ DO ~TakePartyItem("FISH")
-~ GOTO 5
-  IF ~PartyHasItem("FISH")
-~ THEN REPLY ~As a matter of fact, we did.  But before we hand it over... how about a little something for our efforts?~ GOTO 7
-  IF ~!PartyHasItem("FISH")
-~ THEN REPLY ~Sorry, boy.  No luck yet.  Farewell.~ EXIT
+  IF ~PartyHasItem("FISH") ~ THEN REPLY ~Today is your lucky day, boy.  Here is your fish... at least what is left of it.~ DO ~TakePartyItem("FISH") ~ GOTO 5
+  IF ~PartyHasItem("FISH") ~ THEN REPLY ~As a matter of fact, we did.  But before we hand it over... how about a little something for our efforts?~ GOTO 7
+  IF ~!PartyHasItem("FISH") ~ THEN REPLY ~Sorry, boy.  No luck yet.  Farewell.~ EXIT
 END
 
 IF ~~ THEN BEGIN 7
   SAY ~But I don't have anything.  I'm very poor... that fish was all I had.  I was going to sell it to Pomab.  Knucklehead bones are worth a lot.  They use them for scrimshaw and stuff.~
   IF ~~ THEN REPLY ~In that case, we'll keep the fish and sell it ourselves.~ GOTO 8
-  IF ~~ THEN REPLY ~Please, you're breaking my heart.  Here, take your precious fishbone.~ DO ~TakePartyItem("FISH")
-~ GOTO 5
+  IF ~~ THEN REPLY ~Please, you're breaking my heart.  Here, take your precious fishbone.~ DO ~TakePartyItem("FISH") ~ GOTO 5
 END
 
 IF ~~ THEN BEGIN 8
   SAY ~Hey!  That's my fish!  You're no better than the monsters.  I'm telling my da.~
-  IF ~~ THEN REPLY ~Oh, all right.  Take the fish.  The damn thing stinks anyway.~ DO ~TakePartyItem("FISH")
-~ GOTO 5
-  IF ~~ THEN REPLY ~You do that.  Farewell.~ DO ~SetGlobal("Damien_Quest","GLOBAL",1)
-ReputationInc(-1)
-EraseJournalEntry(%Damien's fish.
+  IF ~~ THEN REPLY ~Oh, all right.  Take the fish.  The damn thing stinks anyway.~ DO ~TakePartyItem("FISH") ~ GOTO 5
+  IF ~~ THEN REPLY ~You do that.  Farewell.~ DO ~SetGlobal("Damien_Quest","GLOBAL",1) ReputationInc(-1) EraseJournalEntry(%Damien's fish.
 
-We ran into a boy named Damien near the bridge leading out of Easthaven.  He told us that a group of monsters had invaded his fishing hole and were eating the fish he had caught.%)
-
+We ran into a boy named Damien near the bridge leading out of Easthaven.  He told us that a group of monsters had invaded his fishing hole and were eating the fish he had caught.%) 
 EscapeArea()~ EXIT
 END
 
@@ -94,20 +77,17 @@ IF ~~ THEN BEGIN 9
   IF ~~ THEN REPLY ~Whatever.  Farewell.~ EXIT
 END
 
-IF ~Global("Damien_Quest","GLOBAL",1)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 10
+IF ~Global("Damien_Quest","GLOBAL",1) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 10
   SAY ~Go away.  I don't want to talk to you.  You're mean.~
   IF ~~ THEN REPLY ~Have it your way, you little brat.  Farewell.~ EXIT
 END
 
-IF ~Global("Damien_Quest","GLOBAL",2)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 11
+IF ~Global("Damien_Quest","GLOBAL",2) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 11
   SAY ~Thank you again for getting my fish back.  I told my da all about you.~
   IF ~~ THEN REPLY ~That's nice.  Farewell, Damien.~ EXIT
 END
 
-IF ~!Global("Damien_Quest","GLOBAL",1)
-GlobalGT("Know_Balance","GLOBAL",0)~ THEN BEGIN 12
+IF ~!Global("Damien_Quest","GLOBAL",1) GlobalGT("Know_Balance","GLOBAL",0)~ THEN BEGIN 12
   SAY ~I'm scared.  Please don't let the big monsters eat me.~
   IF ~~ THEN REPLY ~Don't worry.  You're going to be all right now.  I promise.~ EXIT
   IF ~~ THEN REPLY ~You know, I'm beginning to think you're obsessed with the idea of monsters eating you.~ GOTO 13

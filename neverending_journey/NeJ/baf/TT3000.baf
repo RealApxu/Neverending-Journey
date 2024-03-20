@@ -6,5 +6,3 @@ THEN
 		SetGlobal("TT3000_Visited","GLOBAL",1)
 		Continue()
 END
-
-

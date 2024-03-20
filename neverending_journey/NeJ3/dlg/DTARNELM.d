@@ -150,6 +150,6 @@ Tarnelm, a grumpy gnome in the Oubliette, asked us to go get some food for him a
   IF ~~ THEN REPLY ~What is this place?~ GOTO 4
   IF ~~ THEN REPLY ~Who's Maiden Ilmadia?~ DO ~SetGlobal("Know_Ilmadia","GLOBAL",1)~ GOTO 6
   IF ~Global("Tarnelm_Food","GLOBAL",2)
-GlobalLT("TARNEL_TRAP_SET", "GLOBAL", 2)~ THEN REPLY ~You said that you needed help with something else before...~ GOTO 12
+GlobalLT("TARNEL_TRAP_SET","GLOBAL",2)~ THEN REPLY ~You said that you needed help with something else before...~ GOTO 12
   IF ~~ THEN REPLY ~Nothing in particular.  Farewell.~ EXIT
 END

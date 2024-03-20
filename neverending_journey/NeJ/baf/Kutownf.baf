@@ -13,5 +13,3 @@ THEN
 		Help()
 		RunAwayFrom(LastAttackerOf(Myself),75)
 END
-
-

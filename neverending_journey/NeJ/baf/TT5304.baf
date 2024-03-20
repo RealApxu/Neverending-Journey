@@ -122,5 +122,3 @@ THEN
 	RESPONSE #100
 		Explore()
 END
-
-

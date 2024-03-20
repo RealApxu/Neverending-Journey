@@ -45,5 +45,3 @@ THEN
 		CutSceneId(Player6)
 		LeaveAreaLUA("TT3000","LOAD3000",[3093.1476],4)
 END
-
-

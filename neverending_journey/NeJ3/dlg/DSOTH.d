@@ -9,15 +9,15 @@ END
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 1
   SAY ~Greetings.  Its good to see you again.  What can I help you with?~
   IF ~~ THEN REPLY ~I would like to ask you some questions.~ GOTO 2
-  IF ~Global("Slaves_Free_1","GLOBAL", 0)
-Global("Bridge_Broken","GLOBAL", 1)
-Global("Got_BookEng", "GLOBAL", 0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing.  Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
-GiveItem("BookEng", Player1)
-SetGlobal("Got_BookEng", "GLOBAL", 1)~ GOTO 16
-  IF ~Global("Slaves_Free_1","GLOBAL", 1)
-Global("Bridge_Broken","GLOBAL", 1)
-Global("Got_BookEng", "GLOBAL", 0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing.  Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
-SetGlobal("Got_BookEng", "GLOBAL", 1)~ GOTO 18
+  IF ~Global("Slaves_Free_1","GLOBAL",0)
+Global("Bridge_Broken","GLOBAL",1)
+Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing.  Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
+GiveItem("BookEng",Player1)
+SetGlobal("Got_BookEng","GLOBAL",1)~ GOTO 16
+  IF ~Global("Slaves_Free_1","GLOBAL",1)
+Global("Bridge_Broken","GLOBAL",1)
+Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing.  Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
+SetGlobal("Got_BookEng","GLOBAL",1)~ GOTO 18
   IF ~~ THEN REPLY ~Nothing at this time, farewell.~ EXIT
 END
 
@@ -26,9 +26,9 @@ IF ~~ THEN BEGIN 2
   IF ~~ THEN REPLY ~Who are you again?~ GOTO 3
   IF ~~ THEN REPLY ~What are you doing here? ~ GOTO 6
   IF ~~ THEN REPLY ~How did you come to be here, Soth?~ GOTO 13
-  IF ~~ THEN REPLY ~Have you examined most of the books here?~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~Have you examined most of the books here?~ JOURNAL ~Wyrmï¿½s Tooth.
 
-We talked to a scholar named Soth who has been studying the books in the Wyrm’s Tooth library. He says that they are works dedicated to dwarven engineering.~ GOTO 15
+We talked to a scholar named Soth who has been studying the books in the Wyrmï¿½s Tooth library. He says that they are works dedicated to dwarven engineering.~ GOTO 15
   IF ~~ THEN REPLY ~Farewell for now, Soth.~ EXIT
 END
 
@@ -40,28 +40,28 @@ IF ~~ THEN BEGIN 3
 END
 
 IF ~~ THEN BEGIN 4
-  SAY ~It’s a custom of my people.  A man earns his last name rather than having it given to him.  I haven’t earned my name yet.~
+  SAY ~Itï¿½s a custom of my people.  A man earns his last name rather than having it given to him.  I havenï¿½t earned my name yet.~
   IF ~~ THEN REPLY ~Interesting custom.  Where are you from?~ GOTO 5
   IF ~~ THEN REPLY ~I see.  Let me ask you something else.~ GOTO 2
   IF ~~ THEN REPLY ~Farewell for now, Soth.~ EXIT
 END
 
 IF ~~ THEN BEGIN 5
-  SAY ~I hail from a small village outside of Auckney... Auckney’s located at the other end of the Spine of the World mountains.  Anyway, my village is a small place.  I don’t think its made it on the maps yet...~
+  SAY ~I hail from a small village outside of Auckney... Auckneyï¿½s located at the other end of the Spine of the World mountains.  Anyway, my village is a small place.  I donï¿½t think its made it on the maps yet...~
   IF ~~ THEN REPLY ~I see.  Let me ask you something else.~ GOTO 2
   IF ~~ THEN REPLY ~Farewell for now, Soth.~ EXIT
 END
 
 IF ~~ THEN BEGIN 6
-  SAY ~Well...  I fancy myself to be a bit of a scholar so I’m trying to go through some of these books and learn a bit about this place.~
+  SAY ~Well...  I fancy myself to be a bit of a scholar so Iï¿½m trying to go through some of these books and learn a bit about this place.~
   IF ~~ THEN REPLY ~Have you had any luck?~ GOTO 7
 END
 
 IF ~~ THEN BEGIN 7
-  SAY ~Yes.  It’ hard reading, but I’ve pieced a few things together. ~
-  IF ~~ THEN REPLY ~What have you learned?~ JOURNAL ~Wyrm’s Tooth.
+  SAY ~Yes.  Itï¿½ hard reading, but Iï¿½ve pieced a few things together. ~
+  IF ~~ THEN REPLY ~What have you learned?~ JOURNAL ~Wyrmï¿½s Tooth.
 
-We talked to a scholar named Soth.  He says that the Wyrm’s Tooth buildings are a temple complex dedicated to Dugmaren Brightmane, the dwarven god of scholars and explorers. ~ GOTO 8
+We talked to a scholar named Soth.  He says that the Wyrmï¿½s Tooth buildings are a temple complex dedicated to Dugmaren Brightmane, the dwarven god of scholars and explorers. ~ GOTO 8
   IF ~~ THEN REPLY ~Farewell for now, Soth.~ EXIT
 END
 
@@ -74,13 +74,13 @@ IF ~~ THEN BEGIN 8
 END
 
 IF ~~ THEN BEGIN 9
-  SAY ~From what I can gather he is the dwarven god of scholars, inventors, and explorers.  He’s not well known and frowned upon by some of the other gods.  They consider him to be a bit... whimsical, I guess you’d say.  Anyway, Dugmaren felt that the dwarves should get out and explore the world more. ~
+  SAY ~From what I can gather he is the dwarven god of scholars, inventors, and explorers.  Heï¿½s not well known and frowned upon by some of the other gods.  They consider him to be a bit... whimsical, I guess youï¿½d say.  Anyway, Dugmaren felt that the dwarves should get out and explore the world more. ~
   IF ~~ THEN REPLY ~I see.  What else can you tell me about this place?~ GOTO 11
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
 END
 
 IF ~~ THEN BEGIN 10
-  SAY ~Yes, quite right.  He’s not well known and frowned upon by some of the other gods.  They consider him to be a bit... whimsical, I guess you’d say.  Anyway, Dugmaren felt that the dwarves should get out and explore the world more.~
+  SAY ~Yes, quite right.  Heï¿½s not well known and frowned upon by some of the other gods.  They consider him to be a bit... whimsical, I guess youï¿½d say.  Anyway, Dugmaren felt that the dwarves should get out and explore the world more.~
   IF ~~ THEN REPLY ~I see.  What else can you tell me about this place?~ GOTO 11
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
 END
@@ -105,24 +105,24 @@ IF ~~ THEN BEGIN 13
 END
 
 IF ~~ THEN BEGIN 14
-  SAY ~Auckney’s located at the other end of the Spine of the World mountains. It’s a small place. I don’t think it has made it on the maps yet...~
+  SAY ~Auckneyï¿½s located at the other end of the Spine of the World mountains. Itï¿½s a small place. I donï¿½t think it has made it on the maps yet...~
   IF ~~ THEN REPLY ~I see.  Let me ask you something else.~ GOTO 2
   IF ~~ THEN REPLY ~Farewell for now, Soth.~ EXIT
 END
 
 IF ~~ THEN BEGIN 15
-  SAY ~Yes, I have.  It didn’t take as long as you would think because most of them are so damaged as to be unreadable. It’s a shame too, because the few that are readable are excellent works on dwarven engineering.~
-  IF ~Global("Slaves_Free_1","GLOBAL", 0)
-Global("Bridge_Broken","GLOBAL", 1)
-Global("Got_BookEng", "GLOBAL", 0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing. Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
-GiveItem("BookEng", Protagonist)
-SetGlobal("Got_BookEng", "GLOBAL", 1)~ JOURNAL ~Wyrm’s Tooth.
+  SAY ~Yes, I have.  It didnï¿½t take as long as you would think because most of them are so damaged as to be unreadable. Itï¿½s a shame too, because the few that are readable are excellent works on dwarven engineering.~
+  IF ~Global("Slaves_Free_1","GLOBAL",0)
+Global("Bridge_Broken","GLOBAL",1)
+Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing. Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
+GiveItem("BookEng",Protagonist)
+SetGlobal("Got_BookEng","GLOBAL",1)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 The scholar Soth gave us a book on dwarven engineering. With it we hope to repair the rope bridge that spans the southwest chasm.~ GOTO 16
-  IF ~Global("Slaves_Free_1","GLOBAL", 1)
-Global("Bridge_Broken","GLOBAL", 1)
-Global("Got_BookEng", "GLOBAL", 0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing. Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
-SetGlobal("Got_BookEng", "GLOBAL", 1)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~Global("Slaves_Free_1","GLOBAL",1)
+Global("Bridge_Broken","GLOBAL",1)
+Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing. Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
+SetGlobal("Got_BookEng","GLOBAL",1)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 The scholar Soth gave us a book on dwarven engineering. With it we hope to repair the rope bridge that spans the southwest chasm.~ GOTO 18
   IF ~~ THEN REPLY ~I see.  Let me ask you something else.~ GOTO 2
@@ -130,18 +130,18 @@ The scholar Soth gave us a book on dwarven engineering. With it we hope to repai
 END
 
 IF ~~ THEN BEGIN 16
-  SAY ~I don’t rightly know... I suppose it’s worth a try though.  Let me see... bridges...  Yes, here you go. This one covers the basics of suspension and such... Good luck.~
+  SAY ~I donï¿½t rightly know... I suppose itï¿½s worth a try though.  Let me see... bridges...  Yes, here you go. This one covers the basics of suspension and such... Good luck.~
   IF ~~ THEN REPLY ~Thank you, Soth.  Let me ask you something else.~ GOTO 2
   IF ~~ THEN REPLY ~Farewell for now, Soth.~ EXIT
 END
 
 IF ~~ THEN BEGIN 17
-  SAY ~Oh, they tried...  Now, I may not have the lineage exactly right, but it appears that Alkonos was related to the king at the time. He was either a nephew or a cousin. I don’t know which. In any case, the king couldn’t admit that one of his relatives was a brick shy upstairs.  It would be a bad reflection on him.~
+  SAY ~Oh, they tried...  Now, I may not have the lineage exactly right, but it appears that Alkonos was related to the king at the time. He was either a nephew or a cousin. I donï¿½t know which. In any case, the king couldnï¿½t admit that one of his relatives was a brick shy upstairs.  It would be a bad reflection on him.~
   IF ~~ THEN REPLY ~Interesting.  Let me ask you something else.~ GOTO 2
   IF ~~ THEN REPLY ~Farewell for now, Soth.~ EXIT
 END
 
 IF ~~ THEN BEGIN 18
-  SAY ~I don’t rightly know... I suppose it’s worth a try though.  Let me think... bridges...  Yes, I had a book on bridges now that I think about it. I left it in the corner over there by the spiral stairs.  I have no need for it.~
+  SAY ~I donï¿½t rightly know... I suppose itï¿½s worth a try though.  Let me think... bridges...  Yes, I had a book on bridges now that I think about it. I left it in the corner over there by the spiral stairs.  I have no need for it.~
   IF ~~ THEN REPLY ~Farewell for now, Soth.~ EXIT
 END

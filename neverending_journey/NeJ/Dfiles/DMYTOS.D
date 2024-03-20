@@ -1,17 +1,13 @@
 BEGIN ~DMYTOS~
 
-IF ~NumberOfTimesTalkedTo(0)
-Global("M_Done","GLOBAL",0)
-~ THEN BEGIN 0
+IF ~NumberOfTimesTalkedTo(0) Global("M_Done","GLOBAL",0)~ THEN BEGIN 0
   SAY ~Greetings. I am Bone Dancer Mytos. I must commend you on your efforts to enter here. Your perseverance is remarkable, to say the least. Now tell me, why are you here?~
   IF ~~ THEN REPLY ~I would like to ask you some questions.~ GOTO 2
   IF ~~ THEN REPLY ~I seek the evil that plagues Kuldahar. Would that be you?~ GOTO 14
   IF ~~ THEN REPLY ~I have nothing to say to you at this time. Farewell.~ GOTO 24
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("M_Done","GLOBAL",0)
-~ THEN BEGIN 1
+IF ~NumTimesTalkedToGT(0) Global("M_Done","GLOBAL",0)~ THEN BEGIN 1
   SAY ~Once again you stand before me. Why?~
   IF ~~ THEN REPLY ~I would like to ask you some questions.~ GOTO 2
   IF ~~ THEN REPLY ~I seek the evil that plagues Kuldahar.~ GOTO 14
@@ -29,10 +25,8 @@ END
 IF ~~ THEN BEGIN 3
   SAY ~I am Bone Dancer Mytos, priest of Myrkul.~
   IF ~~ THEN REPLY ~What is a bone dancer?~ GOTO 4
-  IF ~Class(Player1,CLERIC)
-~ THEN REPLY ~You are a priest of Myrkul, the god of death?~ GOTO 12
-  IF ~Class(Player1,PALADIN)
-~ THEN REPLY ~You are a priest of Myrkul, the god of death?~ GOTO 12
+  IF ~Class(Player1,CLERIC)~ THEN REPLY ~You are a priest of Myrkul, the god of death?~ GOTO 12
+  IF ~Class(Player1,PALADIN)~ THEN REPLY ~You are a priest of Myrkul, the god of death?~ GOTO 12
   IF ~~ THEN REPLY ~I am not familiar with Myrkul. Can you tell me of him?~ GOTO 11
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
   IF ~~ THEN REPLY ~I must leave now. Farewell.~ GOTO 24
@@ -40,16 +34,10 @@ END
 
 IF ~~ THEN BEGIN 4
   SAY ~A Bone Dancer is a servant of Myrkul. It is our duty to raise guardian dead to protect places of importance to the faith. It is I who raised the guardians of this tomb.~
-  IF ~Class(Player1,CLERIC)
-Alignment(Player1,MASK_GOOD)
-~ THEN REPLY ~So you are responsible for these vile creatures?~ GOTO 5
-  IF ~Class(Player1,PALADIN)
-~ THEN REPLY ~So you are responsible for these vile creatures?~ GOTO 5
-  IF ~Class(Player1,DRUID)
-~ THEN REPLY ~So you are responsible for these vile creatures?~ GOTO 5
-  IF ~Class(Player1,CLERIC)
-Alignment(Player1,MASK_EVIL)
-~ THEN REPLY ~You have performed your duties adequately, Mytos. My... compliments to you.~ GOTO 26
+  IF ~Class(Player1,CLERIC) Alignment(Player1,MASK_GOOD)~ THEN REPLY ~So you are responsible for these vile creatures?~ GOTO 5
+  IF ~Class(Player1,PALADIN)~ THEN REPLY ~So you are responsible for these vile creatures?~ GOTO 5
+  IF ~Class(Player1,DRUID)~ THEN REPLY ~So you are responsible for these vile creatures?~ GOTO 5
+  IF ~Class(Player1,CLERIC) Alignment(Player1,MASK_EVIL)~ THEN REPLY ~You have performed your duties adequately, Mytos. My... compliments to you.~ GOTO 26
   IF ~~ THEN REPLY ~I am not familiar with Myrkul. Can you tell me of him?~ GOTO 11
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
   IF ~~ THEN REPLY ~I must leave now. Farewell.~ GOTO 24
@@ -72,31 +60,15 @@ END
 IF ~~ THEN BEGIN 7
   SAY ~Being undead myself, I can't help but find your opinion to be close-minded, prejudicial, and personally insulting.~
   IF ~~ THEN REPLY ~Well... I find you to be personally insulting.~ GOTO 8
-  IF ~~ THEN REPLY ~I meant nothing personal. I was simply expressing my opinion.~ DO ~AddexperienceParty(7923)
-~ GOTO 9
-  IF ~Class(Player1,CLERIC)
-~ THEN REPLY ~As a priest I can afford no other view. I meant nothing personal.~ DO ~AddexperienceParty(7923)
-~ GOTO 10
-  IF ~Class(Player1,DRUID)
-~ THEN REPLY ~As a druid I can afford no other view. I meant nothing personal.~ DO ~AddexperienceParty(7923)
-~ GOTO 10
-  IF ~Class(Player1,PALADIN)
-~ THEN REPLY ~As a paladin I can afford no other view. I meant nothing personal.~ DO ~AddexperienceParty(7923)
-~ GOTO 10
+  IF ~~ THEN REPLY ~I meant nothing personal. I was simply expressing my opinion.~ DO ~AddexperienceParty(7923)~ GOTO 9
+  IF ~Class(Player1,CLERIC)~ THEN REPLY ~As a priest I can afford no other view. I meant nothing personal.~ DO ~AddexperienceParty(7923)~ GOTO 10
+  IF ~Class(Player1,DRUID)~ THEN REPLY ~As a druid I can afford no other view. I meant nothing personal.~ DO ~AddexperienceParty(7923)~ GOTO 10
+  IF ~Class(Player1,PALADIN)~ THEN REPLY ~As a paladin I can afford no other view. I meant nothing personal.~ DO ~AddexperienceParty(7923)~ GOTO 10
 END
 
 IF ~~ THEN BEGIN 8
   SAY ~How dare you! Guardians. Slay this fool!~
-  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("M_Done","GLOBAL",1)
-StartCutSceneMode()
-ActionOverride("Mytos",Wait(1))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[1776.219],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[1839.204],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[2000.249],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[2035.317],0))
-ActionOverride("Mytos",EndCutSceneMode())
-Enemy()
-~ EXIT
+  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("M_Done","GLOBAL",1) StartCutSceneMode() ActionOverride("Mytos",Wait(1)) ActionOverride("Mytos",CreateCreature("SKELWA01",[1776.219],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[1839.204],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[2000.249],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[2035.317],0)) ActionOverride("Mytos",EndCutSceneMode()) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 9
@@ -168,22 +140,12 @@ END
 IF ~~ THEN BEGIN 20
   SAY ~No. It is forbidden. As a matter of fact I have spent too much time talking with you and neglecting my duty. I must demand that you surrender the keys in your possession and leave here. I will not ask again.~
   IF ~~ THEN REPLY ~I have no intention of leaving until I am satisfied there is no threat to Kuldahar within these walls.~ GOTO 21
-  IF ~~ THEN REPLY ~Mytos, I am trying to be reasonable here. I cannot in good conscience leave until I have investigated this tomb fully. Can we come to some understanding?~ DO ~AddexperienceParty(7923)
-~ GOTO 25
+  IF ~~ THEN REPLY ~Mytos, I am trying to be reasonable here. I cannot in good conscience leave until I have investigated this tomb fully. Can we come to some understanding?~ DO ~AddexperienceParty(7923)~ GOTO 25
 END
 
 IF ~~ THEN BEGIN 21
   SAY ~Then you leave me no choice. Guardians. Slay this fool!~
-  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("M_Done","GLOBAL",1)
-StartCutSceneMode()
-ActionOverride("Mytos",Wait(1))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[1776.219],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[1839.204],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[2000.249],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[2035.317],0))
-ActionOverride("Mytos",EndCutSceneMode())
-Enemy()
-~ EXIT
+  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("M_Done","GLOBAL",1) StartCutSceneMode() ActionOverride("Mytos",Wait(1)) ActionOverride("Mytos",CreateCreature("SKELWA01",[1776.219],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[1839.204],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[2000.249],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[2035.317],0)) ActionOverride("Mytos",EndCutSceneMode()) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 22
@@ -205,16 +167,7 @@ END
 
 IF ~~ THEN BEGIN 25
   SAY ~No, we cannot. You have your duty and I have mine. This conflict was inevitable... Guardians. To arms!~
-  IF ~~ THEN REPLY ~So be it.~ DO ~SetGlobal("M_Done","GLOBAL",1)
-StartCutSceneMode()
-ActionOverride("Mytos",Wait(1))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[1776.219],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[1839.204],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[2000.249],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[2035.317],0))
-ActionOverride("Mytos",EndCutSceneMode())
-Enemy()
-~ EXIT
+  IF ~~ THEN REPLY ~So be it.~ DO ~SetGlobal("M_Done","GLOBAL",1) StartCutSceneMode() ActionOverride("Mytos",Wait(1)) ActionOverride("Mytos",CreateCreature("SKELWA01",[1776.219],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[1839.204],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[2000.249],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[2035.317],0)) ActionOverride("Mytos",EndCutSceneMode()) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 26
@@ -225,14 +178,5 @@ END
 
 IF ~~ THEN BEGIN 27
   SAY ~It's really wise from your side. But I don't need your appologies, and I simply don't like your tone. It seems to me you're preparing another ambush here. So don't think it will be so easy. This conflict was inevitable... Guardians! To arms!~
-  IF ~~ THEN REPLY ~So be it.~ DO ~SetGlobal("M_Done","GLOBAL",1)
-StartCutSceneMode()
-ActionOverride("Mytos",Wait(1))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[1776.219],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[1839.204],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[2000.249],0))
-ActionOverride("Mytos",CreateCreature("SKELWA01",[2035.317],0))
-ActionOverride("Mytos",EndCutSceneMode())
-Enemy()
-~ EXIT
+  IF ~~ THEN REPLY ~So be it.~ DO ~SetGlobal("M_Done","GLOBAL",1) StartCutSceneMode() ActionOverride("Mytos",Wait(1)) ActionOverride("Mytos",CreateCreature("SKELWA01",[1776.219],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[1839.204],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[2000.249],0)) ActionOverride("Mytos",CreateCreature("SKELWA01",[2035.317],0)) ActionOverride("Mytos",EndCutSceneMode()) Enemy()~ EXIT
 END

@@ -2,35 +2,35 @@ BEGIN ~DKERISH~
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0
   SAY ~I greet you.  I am Kerish, leader of the salamanders...  Who are you?~
-  IF ~~ THEN REPLY ~I am a simple traveler. ~ DO ~SetGlobal("Kerish_Talk","GLOBAL", 0)~ GOTO 2
-  IF ~~ THEN REPLY ~An adventurer.~ DO ~SetGlobal("Kerish_Talk","GLOBAL", 0)~ GOTO 3
-  IF ~~ THEN REPLY ~Me?  I am an explorer who chanced upon this place. ~ DO ~SetGlobal("Kerish_Talk","GLOBAL", 0)~ GOTO 4
+  IF ~~ THEN REPLY ~I am a simple traveler. ~ DO ~SetGlobal("Kerish_Talk","GLOBAL",0)~ GOTO 2
+  IF ~~ THEN REPLY ~An adventurer.~ DO ~SetGlobal("Kerish_Talk","GLOBAL",0)~ GOTO 3
+  IF ~~ THEN REPLY ~Me?  I am an explorer who chanced upon this place. ~ DO ~SetGlobal("Kerish_Talk","GLOBAL",0)~ GOTO 4
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 1
   SAY ~You have returned.  What can I do for you?~
-  IF ~~ THEN REPLY ~I have some questions for you.~ DO ~SetGlobal("Kerish_Talk","GLOBAL", 0)~ GOTO 6
-  IF ~Global("Get_Key","GLOBAL", 3)
-Global("Got_KeyDug", "GLOBAL", 0)~ THEN REPLY ~I want that key that unlocks the exit to the surface.~ DO ~SetGlobal("Kerish_Talk","GLOBAL", 0)~ GOTO 19
-  IF ~Global("Kill_Vera","GLOBAL", 1)~ THEN REPLY ~I said I would think about your request to kill the slave leader.  I have decided to do it.~ DO ~SetGlobal("Kill_Vera","GLOBAL", 3)
-SetGlobal("Kerish_Talk","GLOBAL", 0)~ UNSOLVED_JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I have some questions for you.~ DO ~SetGlobal("Kerish_Talk","GLOBAL",0)~ GOTO 6
+  IF ~Global("Get_Key","GLOBAL",3)
+Global("Got_KeyDug","GLOBAL",0)~ THEN REPLY ~I want that key that unlocks the exit to the surface.~ DO ~SetGlobal("Kerish_Talk","GLOBAL",0)~ GOTO 19
+  IF ~Global("Kill_Vera","GLOBAL",1)~ THEN REPLY ~I said I would think about your request to kill the slave leader.  I have decided to do it.~ DO ~SetGlobal("Kill_Vera","GLOBAL",3)
+SetGlobal("Kerish_Talk","GLOBAL",0)~ UNSOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We agreed to do this.~ GOTO 21
-  IF ~Global("Kill_Vera","GLOBAL", 2)~ THEN REPLY ~I have changed my mind about killing the slave leader for you - I’ll do it.~ DO ~SetGlobal("Kill_Vera","GLOBAL", 3)
-SetGlobal("Kerish_Talk","GLOBAL", 0)~ UNSOLVED_JOURNAL ~Wyrm’s Tooth.
+  IF ~Global("Kill_Vera","GLOBAL",2)~ THEN REPLY ~I have changed my mind about killing the slave leader for you - Iï¿½ll do it.~ DO ~SetGlobal("Kill_Vera","GLOBAL",3)
+SetGlobal("Kerish_Talk","GLOBAL",0)~ UNSOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We agreed to do this.~ GOTO 21
-  IF ~Global("Kill_Vera","GLOBAL", 3)~ THEN REPLY ~You asked me to kill the slave leader for you.~ DO ~SetGlobal("Kerish_Talk","GLOBAL", 0)~ GOTO 22
-  IF ~Global("Return_Slaves","GLOBAL", 1)~ THEN REPLY ~Earlier you asked me to return the slaves to you or slay them.  I have decided to do it.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 3)
-SetGlobal("Kerish_Talk","GLOBAL", 0)~ UNSOLVED_JOURNAL ~Wyrm’s Tooth.
+  IF ~Global("Kill_Vera","GLOBAL",3)~ THEN REPLY ~You asked me to kill the slave leader for you.~ DO ~SetGlobal("Kerish_Talk","GLOBAL",0)~ GOTO 22
+  IF ~Global("Return_Slaves","GLOBAL",1)~ THEN REPLY ~Earlier you asked me to return the slaves to you or slay them.  I have decided to do it.~ DO ~SetGlobal("Return_Slaves","GLOBAL",3)
+SetGlobal("Kerish_Talk","GLOBAL",0)~ UNSOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We agreed to do this.~ GOTO 21
-  IF ~Global("Return_Slaves","GLOBAL", 2)~ THEN REPLY ~I have changed my mind about returning the slaves to you or slaying them - I’ll do it.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 3)
-SetGlobal("Kerish_Talk","GLOBAL", 0)~ UNSOLVED_JOURNAL ~Wyrm’s Tooth.
+  IF ~Global("Return_Slaves","GLOBAL",2)~ THEN REPLY ~I have changed my mind about returning the slaves to you or slaying them - Iï¿½ll do it.~ DO ~SetGlobal("Return_Slaves","GLOBAL",3)
+SetGlobal("Kerish_Talk","GLOBAL",0)~ UNSOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We agreed to do this.~ GOTO 21
-  IF ~Global("Return_Slaves","GLOBAL", 3)~ THEN REPLY ~You asked me to either return the slaves to you or slay them.~ DO ~SetGlobal("Kerish_Talk","GLOBAL", 0)~ GOTO 27
-  IF ~~ THEN REPLY ~Nothing for now.  Farewell.~ DO ~SetGlobal("Kerish_Talk","GLOBAL", 0)~ EXIT
+  IF ~Global("Return_Slaves","GLOBAL",3)~ THEN REPLY ~You asked me to either return the slaves to you or slay them.~ DO ~SetGlobal("Kerish_Talk","GLOBAL",0)~ GOTO 27
+  IF ~~ THEN REPLY ~Nothing for now.  Farewell.~ DO ~SetGlobal("Kerish_Talk","GLOBAL",0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 2
@@ -50,7 +50,7 @@ END
 IF ~~ THEN BEGIN 4
   SAY ~An explorer...?  Forgive me, but I doubt you are an explorer.  No seeker of the unknown could journey here unscathed...  No, you are more than you seem.  A spy, perhaps?  Come to check on me?  Yes... he has been known to hire those of your race.  Why has he sent you?~
   IF ~~ THEN REPLY ~I *am* an explorer.  However, if you choose to believe otherwise...~ GOTO 5
-  IF ~~ THEN REPLY ~Who is it that you think I work for, Kerish?~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~Who is it that you think I work for, Kerish?~ JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the leader of the frost salamanders, believes that we work for someone named Marketh. We decided to do nothing to dissuade him of that belief. It could prove useful.~ GOTO 25
   IF ~~ THEN REPLY ~I simply want to be allowed to look around.~ GOTO 18
@@ -66,13 +66,13 @@ IF ~~ THEN BEGIN 6
   SAY ~Then ask.~
   IF ~~ THEN REPLY ~Who are you again?~ GOTO 7
   IF ~~ THEN REPLY ~What are you doing here?~ GOTO 8
-  IF ~~ THEN REPLY ~I have come seeking the one in charge.~ DO ~SetGlobal("Joril_Kill_Dad","GLOBAL", 1)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I have come seeking the one in charge.~ DO ~SetGlobal("Joril_Kill_Dad","GLOBAL",1)~ JOURNAL ~Wyrmï¿½s Tooth.
 
-We have learned that Joril Frostbeard is the lieutenant of Wyrm’s Tooth Glacier. Apparently he took over the position by killing his father, Kreg.~ GOTO 10
-  IF ~~ THEN REPLY ~Why are there dead bodies strewn about here?~ JOURNAL ~Wyrm’s Tooth.
+We have learned that Joril Frostbeard is the lieutenant of Wyrmï¿½s Tooth Glacier. Apparently he took over the position by killing his father, Kreg.~ GOTO 10
+  IF ~~ THEN REPLY ~Why are there dead bodies strewn about here?~ JOURNAL ~Wyrmï¿½s Tooth.
 
 Apparently there has been a slave revolt among the frost salamanders. A few managed to escape but most died in the attempt.~ GOTO 12
-  IF ~Global("Get_Key","GLOBAL", 3)Global("Got_KeyDug", "GLOBAL", 0)~ THEN REPLY ~I want that key that unlocks the exit to the surface.~ GOTO 19
+  IF ~Global("Get_Key","GLOBAL",3)Global("Got_KeyDug","GLOBAL",0)~ THEN REPLY ~I want that key that unlocks the exit to the surface.~ GOTO 19
   IF ~~ THEN REPLY ~I must leave now. Farewell.~ GOTO 18
 END
 
@@ -97,7 +97,7 @@ END
 
 IF ~~ THEN BEGIN 10
   SAY ~Ah...  I see...  Well, Kreg Frostbeard is dead.  His son, Joril, now rules...  I did nothing to aid the son in killing his father, I assure you... ~
-  IF ~~ THEN REPLY ~Why should I care if you aided Joril in the killing?~ DO ~SetGlobal("Fool_Joril","GLOBAL", 1)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~Why should I care if you aided Joril in the killing?~ DO ~SetGlobal("Fool_Joril","GLOBAL",1)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 We have discovered that the *master* chooses his lieutenants personally. Joril has caused a controversy by slaying his father for the position. Perhaps we can use this knowledge against him somehow.~ GOTO 26
   IF ~~ THEN REPLY ~Very well.  Where can I find Joril?~ GOTO 11
@@ -105,8 +105,8 @@ We have discovered that the *master* chooses his lieutenants personally. Joril h
 END
 
 IF ~~ THEN BEGIN 11
-  SAY ~In the ice caverns to the southwest, of course.  The fool sits upon his father’s throne with impudence.  Seek him there.~
-  IF ~~ THEN REPLY ~You deny aiding Joril in the killing of his father.  Why should I care if you did?~ DO ~SetGlobal("Fool_Joril","GLOBAL", 1)~ JOURNAL ~Wyrm’s Tooth.
+  SAY ~In the ice caverns to the southwest, of course.  The fool sits upon his fatherï¿½s throne with impudence.  Seek him there.~
+  IF ~~ THEN REPLY ~You deny aiding Joril in the killing of his father.  Why should I care if you did?~ DO ~SetGlobal("Fool_Joril","GLOBAL",1)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 We have discovered that the *master* chooses his lieutenants personally. Joril has caused a controversy by slaying his father for the position. Perhaps we can use this knowledge against him somehow.~ GOTO 26
   IF ~~ THEN REPLY ~I have some more questions for you.~ GOTO 6
@@ -115,7 +115,7 @@ END
 
 IF ~~ THEN BEGIN 12
   SAY ~The slaves... they revolted.  We had to slay most of them, but a few managed to escape to the level below.~
-  IF ~~ THEN REPLY ~How did they manage to escape you?~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~How did they manage to escape you?~ JOURNAL ~Wyrmï¿½s Tooth.
 
 It seems that the frost salamanders are sensitive to heat. We may be able to use that weakness against them.~ GOTO 13
   IF ~~ THEN REPLY ~I must be going.  Farewell for now.~ GOTO 18
@@ -123,7 +123,7 @@ END
 
 IF ~~ THEN BEGIN 13
   SAY ~The room below suddenly became too hot to bear.  We had to flee back here or perish.  In the confusion that followed the slaves bolted for the stairs.  A few made it... but their "freedom" will not last long.  They are trapped down there. ~
-  IF ~~ THEN REPLY ~Trapped?  How so?~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~Trapped?  How so?~ JOURNAL ~Wyrmï¿½s Tooth.
 
 The slaves that escaped the frost salamanders fled to a room beneath the museum. Kerish believes them to be trapped there with no means of escape and no supplies. If this is the case then they will surely perish.~ GOTO 14
   IF ~~ THEN REPLY ~I must be going.  Farewell for now.~ GOTO 18
@@ -138,13 +138,13 @@ END
 
 IF ~~ THEN BEGIN 15
   SAY ~The slaves are of no consequence to me - they will return to us, or they will die.  However... the leader of this revolt has made me look bad in the eyes of my people.  For this he must pay.  Go to these slaves and gain their confidence.  Once you gain that confidence, find their leader and slay him.~
-  IF ~Alignment(Protagonist,3)~ THEN REPLY ~Very well, I will do it.  It sounds like fun.~ DO ~SetGlobal("Kill_Vera","GLOBAL", 3)~ UNSOLVED_JOURNAL ~Wyrm’s Tooth.
+  IF ~Alignment(Protagonist,3)~ THEN REPLY ~Very well, I will do it.  It sounds like fun.~ DO ~SetGlobal("Kill_Vera","GLOBAL",3)~ UNSOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We agreed to do this.~ GOTO 16
-  IF ~~ THEN REPLY ~No, I will not do your dirty work.~ DO ~SetGlobal("Kill_Vera","GLOBAL", 2)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~No, I will not do your dirty work.~ DO ~SetGlobal("Kill_Vera","GLOBAL",2)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would not do his dirty work for him.~ GOTO 17
-  IF ~~ THEN REPLY ~I will consider it.~ DO ~SetGlobal("Kill_Vera","GLOBAL", 1)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I will consider it.~ DO ~SetGlobal("Kill_Vera","GLOBAL",1)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would consider the matter.~ GOTO 17
 END
@@ -163,15 +163,15 @@ END
 
 IF ~~ THEN BEGIN 18
   SAY ~Very well, you are my guest.  Feel free to look around.  You will find nothing out of place here.~
-  IF ~~ THEN REPLY ~Then I will say farewell for now.~ DO ~SetGlobal("Kerish_Look","GLOBAL", 1)~ EXIT
+  IF ~~ THEN REPLY ~Then I will say farewell for now.~ DO ~SetGlobal("Kerish_Look","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 19
   SAY ~I have the key you speak of, but I am reluctant to give it up.  There are circumstances that...~
-  IF ~~ THEN REPLY ~Yes, I am aware of the slaves.  I will take precautions to prevent their escape.~ DO ~GiveItem("KeyDug", Protagonist)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~Yes, I am aware of the slaves.  I will take precautions to prevent their escape.~ DO ~GiveItem("KeyDug",Protagonist)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 We asked Kerish, the frost salamander leader, for the key to the surface exit. He agreed to give it to us.~ GOTO 20
-  IF ~~ THEN REPLY ~I am aware of the slave issue.  Trust me to handle the situation properly.~ DO ~GiveItem("KeyDug", Protagonist)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I am aware of the slave issue.  Trust me to handle the situation properly.~ DO ~GiveItem("KeyDug",Protagonist)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 We asked Kerish, the frost salamander leader, for the key to the surface exit. He agreed to give it to us.~ GOTO 20
 END
@@ -179,7 +179,7 @@ END
 IF ~~ THEN BEGIN 20
   SAY ~Very well.  See that you do.  If those slaves escape, I will hold you personally responsible.  Here is the key.~
   IF ~~ THEN REPLY ~Thank you.  I must be going now.  Farewell.~ DO ~AddexperienceParty(10500)
-SetGlobal("Got_KeyDug", "GLOBAL", 1)~ GOTO 18
+SetGlobal("Got_KeyDug","GLOBAL",1)~ GOTO 18
 END
 
 IF ~~ THEN BEGIN 21
@@ -190,118 +190,118 @@ END
 IF ~~ THEN BEGIN 22
   SAY ~Yes.  Have you performed this task?~
   IF ~OR(2)
-Global("Vera_Dead", "GLOBAL",1)
-Global("SPRITE_IS_DEADVERA","GLOBAL",1)~ THEN REPLY ~Yes. It was a woman named Vera. She is dead.~ DO ~SetGlobal("Kill_Vera","GLOBAL", 4)
-EraseJournalEntry(%Wyrm’s Tooth.
+Global("Vera_Dead","GLOBAL",1)
+Global("SPRITE_IS_DEADVERA","GLOBAL",1)~ THEN REPLY ~Yes. It was a woman named Vera. She is dead.~ DO ~SetGlobal("Kill_Vera","GLOBAL",4)
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the leader of the frost salamanders, believes that we work for someone named Marketh. We decided to do nothing to dissuade him of that belief. It could prove useful.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Apparently there has been a slave revolt among the frost salamanders. A few managed to escape but most died in the attempt.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 The slaves that escaped the frost salamanders fled to a room beneath the museum. Kerish believes them to be trapped there with no means of escape and no supplies. If this is the case then they will surely perish.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would not do his dirty work for him.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would consider the matter.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We asked Kerish, the frost salamander leader, for the key to the surface exit. He agreed to give it to us.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would do nothing of the sort.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would consider the matter.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We informed Gareth that the frost salamanders asked us to return him and the other slaves. He said he would rather die than return to slavery and attacked us.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We met a man named Gareth who claims to be an escaped slave of a group of frost salamanders.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 According to Gareth, frost salamanders are sensitive to heat. Perhaps we could use this knowledge against them.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We have learned that the slave leader is a woman named Vera.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key. The key unlocks the door to the passage leading to the surface. He believes it is in the possession of the salamanders. We have agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key, which will unlock the door to the passage leading to the surface. He believes the key is the possession of the salamanders. We told him we were not willing to fight a building full of frost salamanders for this key.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key, which will unlock the door to the passage leading to the surface. He believes the key is the possession of the salamanders. We informed him that we would think about this.%)
-AddexperienceParty(10500)~ SOLVED_JOURNAL ~Wyrm’s Tooth.
+AddexperienceParty(10500)~ SOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 We told Kerish that Vera, the slave leader, is dead. He believes his honor has been restored and offered us his gratitude.~ GOTO 23
-  IF ~Global("Heard_Vera_Dead","GLOBAL", 1)~ THEN REPLY ~I have spoken with the slaves as you asked.  They say that their leader died in the escape attempt.~ DO ~SetGlobal("Kill_Vera","GLOBAL",4)
-EraseJournalEntry(%Wyrm’s Tooth.
+  IF ~Global("Heard_Vera_Dead","GLOBAL",1)~ THEN REPLY ~I have spoken with the slaves as you asked.  They say that their leader died in the escape attempt.~ DO ~SetGlobal("Kill_Vera","GLOBAL",4)
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the leader of the frost salamanders, believes that we work for someone named Marketh. We decided to do nothing to dissuade him of that belief. It could prove useful.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Apparently there has been a slave revolt among the frost salamanders. A few managed to escape but most died in the attempt.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 The slaves that escaped the frost salamanders fled to a room beneath the museum. Kerish believes them to be trapped there with no means of escape and no supplies. If this is the case then they will surely perish.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would not do his dirty work for him.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would consider the matter.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We asked Kerish, the frost salamander leader, for the key to the surface exit. He agreed to give it to us.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would do nothing of the sort.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would consider the matter.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We informed Gareth that the frost salamanders asked us to return him and the other slaves. He said he would rather die than return to slavery and attacked us.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We met a man named Gareth who claims to be an escaped slave of a group of frost salamanders.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 According to Gareth, frost salamanders are sensitive to heat. Perhaps we could use this knowledge against them.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We have learned that the slave leader is a woman named Vera.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key. The key unlocks the door to the passage leading to the surface. He believes it is in the possession of the salamanders. We have agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key, which will unlock the door to the passage leading to the surface. He believes the key is the possession of the salamanders. We told him we were not willing to fight a building full of frost salamanders for this key.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key, which will unlock the door to the passage leading to the surface. He believes the key is the possession of the salamanders. We informed him that we would think about this.%)
-AddexperienceParty(10500)~ SOLVED_JOURNAL ~Wyrm’s Tooth.
+AddexperienceParty(10500)~ SOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 We told Kerish that the slaves believe their leader to be dead. He seemed satisfied with that.~ GOTO 24
-  IF ~Global("Vera_Dead", "GLOBAL", 0)~ THEN REPLY ~Not yet.  I just wanted to let you know that I am still working on it.  Farewell for now.~ EXIT
+  IF ~Global("Vera_Dead","GLOBAL",0)~ THEN REPLY ~Not yet.  I just wanted to let you know that I am still working on it.  Farewell for now.~ EXIT
 END
 
 IF ~~ THEN BEGIN 23
@@ -311,13 +311,13 @@ END
 
 IF ~~ THEN BEGIN 24
   SAY ~Hmm.  Very well...  The slaves have enjoyed their freedom long enough.  Bring them here before me or slay them.  I care not which.~
-  IF ~~ THEN REPLY ~I will go to the slaves and tell them you want them to return.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 3)~ UNSOLVED_JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I will go to the slaves and tell them you want them to return.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL",3)~ UNSOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We agreed to do this.~ EXIT
-  IF ~~ THEN REPLY ~I will do nothing of the sort.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 2)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I will do nothing of the sort.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL",2)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would do nothing of the sort.~ EXIT
-  IF ~~ THEN REPLY ~I will think about it.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 1)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I will think about it.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL",1)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would consider the matter.~ EXIT
 END
@@ -328,80 +328,80 @@ IF ~~ THEN BEGIN 25
 END
 
 IF ~~ THEN BEGIN 26
-  SAY ~Hmph.  It is well known that the *master* chooses his lieutenants himself.  Joril’s actions could be deemed... treason.  I want it understood by you and your master that I had no part in the matter...~
+  SAY ~Hmph.  It is well known that the *master* chooses his lieutenants himself.  Jorilï¿½s actions could be deemed... treason.  I want it understood by you and your master that I had no part in the matter...~
   IF ~~ THEN REPLY ~Point taken.  Where can I find Joril?~ GOTO 11
   IF ~~ THEN REPLY ~Very well, let me ask you something else.~ GOTO 6
 END
 
 IF ~~ THEN BEGIN 27
   SAY ~Yes... I see no slaves with you.  Have you slain them instead?~
-  IF ~Global("Gareth_Dead", "GLOBAL", 1)~ THEN REPLY ~Yes.  They preferred death to returning here.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 4)
-EraseJournalEntry(%Wyrm’s Tooth.
+  IF ~Global("Gareth_Dead","GLOBAL",1)~ THEN REPLY ~Yes.  They preferred death to returning here.~ DO ~SetGlobal("Return_Slaves","GLOBAL",4)
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the leader of the frost salamanders, believes that we work for someone named Marketh. We decided to do nothing to dissuade him of that belief. It could prove useful.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Apparently there has been a slave revolt among the frost salamanders. A few managed to escape but most died in the attempt.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 The slaves that escaped the frost salamanders fled to a room beneath the museum. Kerish believes them to be trapped there with no means of escape and no supplies. If this is the case then they will surely perish.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would not do his dirty work for him.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would consider the matter.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We asked Kerish, the frost salamander leader, for the key to the surface exit. He agreed to give it to us.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would do nothing of the sort.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would consider the matter.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We informed Gareth that the frost salamanders asked us to return him and the other slaves. He said he would rather die than return to slavery and attacked us.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We met a man named Gareth who claims to be an escaped slave of a group of frost salamanders.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 According to Gareth, frost salamanders are sensitive to heat. Perhaps we could use this knowledge against them.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 We have learned that the slave leader is a woman named Vera.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key. The key unlocks the door to the passage leading to the surface. He believes it is in the possession of the salamanders. We have agreed to do this.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key, which will unlock the door to the passage leading to the surface. He believes the key is the possession of the salamanders. We told him we were not willing to fight a building full of frost salamanders for this key.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+EraseJournalEntry(%Wyrmï¿½s Tooth.
 
 Gareth has asked us to retrieve a key, which will unlock the door to the passage leading to the surface. He believes the key is the possession of the salamanders. We informed him that we would think about this.%)
-AddexperienceParty(10500)~ SOLVED_JOURNAL ~Wyrm’s Tooth.
+AddexperienceParty(10500)~ SOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 We told Kerish that the slaves are dead. He offered us his gratitude.~ GOTO 29
-  IF ~Global("Gareth_Dead", "GLOBAL", 0)~ THEN REPLY ~Not yet.  I just wanted to let you know that I am still working on it.  Farewell for now.~ EXIT
+  IF ~Global("Gareth_Dead","GLOBAL",0)~ THEN REPLY ~Not yet.  I just wanted to let you know that I am still working on it.  Farewell for now.~ EXIT
 END
 
 IF ~~ THEN BEGIN 28
   SAY ~Hmm.  Yes...  The slaves have enjoyed their freedom long enough.  Bring them here before me or slay them.  I care not which.~
-  IF ~~ THEN REPLY ~I will go to the slaves and tell them you want them to return.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 3)~ UNSOLVED_JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I will go to the slaves and tell them you want them to return.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL",3)~ UNSOLVED_JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We agreed to do this.~ EXIT
-  IF ~~ THEN REPLY ~I will do nothing of the sort.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 2)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I will do nothing of the sort.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL",2)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would do nothing of the sort.~ EXIT
-  IF ~~ THEN REPLY ~I will think about it.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL", 1)~ JOURNAL ~Wyrm’s Tooth.
+  IF ~~ THEN REPLY ~I will think about it.  Farewell.~ DO ~SetGlobal("Return_Slaves","GLOBAL",1)~ JOURNAL ~Wyrmï¿½s Tooth.
 
 Kerish, the frost salamander leader, has asked us to return the escaped slaves to him or slay them. We informed him that we would consider the matter.~ EXIT
 END

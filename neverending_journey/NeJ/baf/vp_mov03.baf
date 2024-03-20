@@ -23,5 +23,3 @@ THEN
 		ActionOverride(Player1,StartDialog("Player1",Myself))
 		EndCutSceneMode()
 END
-
-

@@ -36,10 +36,8 @@ END
 
 IF ~~ THEN BEGIN 6
   SAY ~No.  Actually, we just use this drawing of him.  It's pretty good.  Flozem, one of Lord Chamberlain Marketh's bodyguards, drew it.  You can have it if you want.  We already have most of the detail done.  The face and the ring were the hardest parts.~
-  IF ~~ THEN REPLY ~Thanks.  Farewell.~ DO ~GiveItem("Portrait",Player1)
-SetGlobal("Flozem_Portrait","GLOBAL",1)~ EXIT
-  IF ~~ THEN REPLY ~Thanks... you know, you seem pretty easy-going for a man who lives in constant fear of his life.~ DO ~GiveItem("Portrait",Player1)
-SetGlobal("Flozem_Portrait","GLOBAL",1)~ GOTO 7
+  IF ~~ THEN REPLY ~Thanks.  Farewell.~ DO ~GiveItem("Portrait",Player1) SetGlobal("Flozem_Portrait","GLOBAL",1)~ EXIT
+  IF ~~ THEN REPLY ~Thanks... you know, you seem pretty easy-going for a man who lives in constant fear of his life.~ DO ~GiveItem("Portrait",Player1) SetGlobal("Flozem_Portrait","GLOBAL",1)~ GOTO 7
 END
 
 IF ~~ THEN BEGIN 7

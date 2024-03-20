@@ -91,7 +91,7 @@ END
 
 IF ~~ THEN BEGIN 15
   SAY ~My duty is clear.  I cannot allow you to steal what was once sacred to my people.  For the glory of the Hand!~
-  IF ~~ THEN DO ~Enemy ()~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 16

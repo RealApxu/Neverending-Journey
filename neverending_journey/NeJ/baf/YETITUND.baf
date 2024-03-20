@@ -68,5 +68,3 @@ THEN
 	RESPONSE #100
 		IncrementGlobal("Yeti_Killed","GLOBAL",1)
 END
-
-

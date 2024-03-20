@@ -26,5 +26,3 @@ THEN
 		DisplayStringHead(Myself,~I lost my dolly.~) // "I lost my dolly."
 		Wait(3)
 END
-
-

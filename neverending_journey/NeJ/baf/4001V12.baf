@@ -14,5 +14,3 @@ THEN
 		DisplayStringHead(Myself,~The lizards ought to get a good meal out of me!~) // "The lizards ought to get a good meal out of me!"
 		Wait(3)
 END
-
-

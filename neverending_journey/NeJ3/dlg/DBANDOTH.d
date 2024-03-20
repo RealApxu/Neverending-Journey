@@ -13,16 +13,13 @@ IF WEIGHT #5 ~NumTimesTalkedToGT(0)~ THEN BEGIN 1
   IF ~~ THEN REPLY ~Sorry, but I have some questions.~ GOTO 9
   IF ~~ THEN REPLY ~What's your problem, you old kook?!~ GOTO 10
   IF ~~ THEN REPLY ~I will disturb you no more.~ EXIT
-  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body I'm afraid.~ DO ~TakePartyItem("razor")
-AddexperienceParty(45500)~ GOTO 20
+  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body I'm afraid.~ DO ~TakePartyItem("razor") AddexperienceParty(45500)~ GOTO 20
   IF ~PartyHasItem("Kalabac")~ THEN REPLY ~I found this journal on a dead body that detailed a puzzle room within the old dwarven quarters.  Do you know anything about this?~ GOTO 23
 END
 
 IF WEIGHT #4 ~Global("Bandoth_Quest", "GLOBAL",1)~ THEN BEGIN 2
   SAY ~You return... with news for me, I hope?~
-  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body I'm afraid.~ DO ~TakePartyItem("razor")
-AddexperienceParty(45500)
-SetGlobal("Bandoth_Quest","GLOBAL",2)~ GOTO 20
+  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body I'm afraid.~ DO ~TakePartyItem("razor") AddexperienceParty(45500) SetGlobal("Bandoth_Quest","GLOBAL",2)~ GOTO 20
   IF ~~ THEN REPLY ~I haven't found it yet, but I do have some questions for you.~ GOTO 9
   IF ~~ THEN REPLY ~I'm still on the hunt.  ~ EXIT
 END
@@ -30,8 +27,7 @@ END
 IF WEIGHT #3 ~Global("Bandoth_Quest", "GLOBAL",2)~ THEN BEGIN 3
   SAY ~You... didn't we already conclude our business?~
   IF ~PartyHasItem("Kalabac")~ THEN REPLY ~I found this journal on a dead body that detailed a puzzle room within the old dwarven quarters.  Do you know anything about this?~ GOTO 23
-  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body I'm afraid.~ DO ~TakePartyItem("razor")
-AddexperienceParty(45500)~ GOTO 20
+  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body I'm afraid.~ DO ~TakePartyItem("razor") AddexperienceParty(45500)~ GOTO 20
   IF ~~ THEN REPLY ~I have some questions.~ GOTO 9
   IF ~~ THEN REPLY ~Yes.  Yes we did.  Take care.~ EXIT
   IF ~PartyHasItem("Dver")~ THEN REPLY ~I found this note on a dead body that mentions something about an evil disturbance in the area.  Do you know anything about this?~ GOTO 25
@@ -39,8 +35,7 @@ END
 
 IF WEIGHT #2 ~Global("Bandoth_Quest", "GLOBAL",3)~ THEN BEGIN 4
   SAY ~Once again, the visitors.  I fear I may need to find another shelter if these intrusions continue.~
-    IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body I'm afraid.~ DO ~TakePartyItem("razor")
-AddexperienceParty(45500)~ GOTO 20
+  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body I'm afraid.~ DO ~TakePartyItem("razor") AddexperienceParty(45500)~ GOTO 20
   IF ~PartyHasItem("Dver")~ THEN REPLY ~I found a dead body with a note that mentioned something about an evil disturbance in the area.  Do you know anything about this?~ GOTO 25
   IF ~~ THEN REPLY ~I have some questions.~ GOTO 9
   IF ~~ THEN REPLY ~No need for that, I'll be on my way.~ EXIT
@@ -121,9 +116,7 @@ END
 
 IF ~~ THEN BEGIN 16
   SAY ~I sent my apprentice off to find razorvine extract, and he hasn't returned in days.  I'm afraid he may have run foul of some of the less desirable occupants of these caves.  ~
-  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body lying within an Ettin lair just south of here.~ DO ~TakePartyItem("razor")
-AddexperienceParty(45500)
-SetGlobal("Bandoth_Quest","GLOBAL",2)~ GOTO 20
+  IF ~PartyHasItem("razor")~ THEN REPLY ~I found this container of razorvine extract on a dead body lying within an Ettin lair just south of here.~ DO ~TakePartyItem("razor") AddexperienceParty(45500) SetGlobal("Bandoth_Quest","GLOBAL",2)~ GOTO 20
   IF ~~ THEN REPLY ~What importance does razorvine extract serve?~ GOTO 17
   IF ~~ THEN REPLY ~Actually, I think I'll pass.  I'm rather busy right now.  Goodbye.~ EXIT
 END

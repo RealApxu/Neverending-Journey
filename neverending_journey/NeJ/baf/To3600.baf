@@ -19,5 +19,3 @@ THEN
 		FadeFromColor([20.0],0)
 		EndCutSceneMode()
 END
-
-

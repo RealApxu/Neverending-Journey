@@ -23,26 +23,19 @@ END
 
 IF ~~ THEN BEGIN 3
   SAY ~Farewell? I think not. Coming such a long way, you are probably very desperating to die. So be it.~
-  IF ~~ THEN DO ~SetGlobal("Know_Presio","GLOBAL",1)
-Enemy()
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("Know_Presio","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 4
   SAY ~Are you mercenaries? For whom are you working?~
-  IF ~!InParty("Hrothgar")
-~ THEN REPLY ~We are not mercenaries. We serve the cause of righteousness.~ GOTO 5
-  IF ~InParty("Hrothgar")
-~ THEN EXTERN ~HROTHJ~ 7
-  IF ~!InParty("Hrothgar")
-~ THEN REPLY ~Yeah. We are mercenaries looking for the Heartstone.~ GOTO 6
+  IF ~!InParty("Hrothgar")~ THEN REPLY ~We are not mercenaries. We serve the cause of righteousness.~ GOTO 5
+  IF ~InParty("Hrothgar")~ THEN EXTERN ~HROTHJ~ 7
+  IF ~!InParty("Hrothgar")~ THEN REPLY ~Yeah. We are mercenaries looking for the Heartstone.~ GOTO 6
 END
 
 IF ~~ THEN BEGIN 5
   SAY ~The righteous eventually descends to the methods of the brutal... But I have no time to discuss it with you. Coming such a long way, you are probably very desperating to die. So be it.~
-  IF ~~ THEN DO ~SetGlobal("Know_Presio","GLOBAL",1)
-Enemy()
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("Know_Presio","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 6
@@ -53,9 +46,7 @@ END
 
 IF ~~ THEN BEGIN 7
   SAY ~Am I crazy? Coming such a long way, you are probably very desperating to die. So be it.~
-  IF ~~ THEN DO ~SetGlobal("Know_Presio","GLOBAL",1)
-Enemy()
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("Know_Presio","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 8
@@ -66,7 +57,5 @@ END
 
 IF ~~ THEN BEGIN 9
   SAY ~Who I am is of little importance for you. Coming such a long way, you are probably very desperating to die. So be it.~
-  IF ~~ THEN DO ~SetGlobal("Know_Presio","GLOBAL",1)
-Enemy()
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("Know_Presio","GLOBAL",1) Enemy()~ EXIT
 END

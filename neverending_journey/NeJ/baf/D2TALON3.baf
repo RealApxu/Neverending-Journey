@@ -299,5 +299,3 @@ THEN
 		FaceObject(LastAttackerOf(Myself))
 		Continue()
 END
-
-

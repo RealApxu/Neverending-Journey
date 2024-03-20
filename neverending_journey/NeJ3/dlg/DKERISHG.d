@@ -1,12 +1,12 @@
 BEGIN ~DKERISHG~
 
-IF ~Global("Kerish_Look","GLOBAL", 0)~ THEN BEGIN 0
+IF ~Global("Kerish_Look","GLOBAL",0)~ THEN BEGIN 0
   SAY ~Halt!  Go no further, you not known.  Why you here?~
-  IF ~~ THEN REPLY ~I’m here to see your leader.~ GOTO 2
+  IF ~~ THEN REPLY ~Iï¿½m here to see your leader.~ GOTO 2
   IF ~~ THEN REPLY ~Nothing.  Farewell.~ GOTO 3
 END
 
-IF ~Global("Kerish_Look","GLOBAL", 1)~ THEN BEGIN 1
+IF ~Global("Kerish_Look","GLOBAL",1)~ THEN BEGIN 1
   SAY ~Kerish let you walk.  He not let me speak to you.  Go now.~
   IF ~~ THEN EXIT
 END

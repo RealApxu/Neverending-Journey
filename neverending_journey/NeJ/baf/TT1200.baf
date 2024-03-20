@@ -13,7 +13,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("VP_Create_Dar","GLOBAL",1)
-		CreateCreature("Dar67",[351.277],14) // Dar 
+		CreateCreature("Dar67",[351.277],14) // Dar
 		Continue()
 END
 
@@ -24,7 +24,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("VP_Create_Dar","GLOBAL",1)
-		CreateCreature("Dar77",[351.277],14) // Dar 
+		CreateCreature("Dar77",[351.277],14) // Dar
 		Continue()
 END
 
@@ -35,7 +35,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("VP_Create_Dar","GLOBAL",1)
-		CreateCreature("Dar78",[351.277],14) // Dar 
+		CreateCreature("Dar78",[351.277],14) // Dar
 		Continue()
 END
 
@@ -45,8 +45,6 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("VP_Create_Dar","GLOBAL",1)
-		CreateCreature("Dar88",[351.277],14) // Dar 
+		CreateCreature("Dar88",[351.277],14) // Dar
 		Continue()
 END
-
-

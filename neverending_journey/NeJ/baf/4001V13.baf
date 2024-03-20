@@ -14,5 +14,3 @@ THEN
 		DisplayStringHead(Myself,~My sister's sick, lady.~) // "My sister's sick, lady."
 		Wait(3)
 END
-
-

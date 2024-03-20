@@ -5,29 +5,26 @@ BEGIN ~DEVERARD~
 
 IF ~~ THEN BEGIN 0 // from: 39.2 21.1 20.1 19.1 18.1 17.0 16.1 15.1 14.3 13.1 12.1 11.1 10.2 9.1 8.1 7.1 6.3 5.1 4.1 2.0
   SAY ~You are free to ask, traveler.  I promise no answers.~ [EVER_01]
-  IF ~!Class(Player1, PALADIN)
-!Class(Player1, CLERIC)~ THEN REPLY ~Tempus is the god of war, is he not?~  GOTO 4
-  IF ~Class(Player1, PALADIN)~ THEN REPLY ~I come to show respect to your god and his worshippers, Everard.  Still, there is not much battle to be had here in Easthaven, I hope?~  GOTO 4
-  IF ~Class(Player1, CLERIC)~ THEN REPLY ~Tempus is the god of war.  Easthaven seems far removed from any battles.~  GOTO 4
-  IF ~Global("Jered_Stone","GLOBAL", 1)~ THEN REPLY ~Accalia told me to ask you about "Jerrod's Stone."  She said it has something to do with one of your holy days.~  GOTO 9
-  IF ~GlobalGT("Jered_Stone","GLOBAL", 1)~ THEN REPLY ~I wished to hear the tale of Jerrod's Stone again.~  GOTO 9
+  IF ~!Class(Player1,PALADIN) !Class(Player1,CLERIC)~ THEN REPLY ~Tempus is the god of war, is he not?~  GOTO 4
+  IF ~Class(Player1,PALADIN)~ THEN REPLY ~I come to show respect to your god and his worshippers, Everard.  Still, there is not much battle to be had here in Easthaven, I hope?~  GOTO 4
+  IF ~Class(Player1,CLERIC)~ THEN REPLY ~Tempus is the god of war.  Easthaven seems far removed from any battles.~  GOTO 4
+  IF ~Global("Jered_Stone","GLOBAL",1)~ THEN REPLY ~Accalia told me to ask you about "Jerrod's Stone."  She said it has something to do with one of your holy days.~  GOTO 9
+  IF ~GlobalGT("Jered_Stone","GLOBAL",1)~ THEN REPLY ~I wished to hear the tale of Jerrod's Stone again.~  GOTO 9
   IF ~~ THEN REPLY ~You carry the scars of war, Everard.  Were you wounded in battle?~  GOTO 5
-  IF ~~ THEN REPLY ~Do you know anything about the expedition that Hrothgar's putting together?~  DO ~SetGlobal("Know_Messenger", "GLOBAL", 1)~ GOTO 18
-  IF ~Global("Know_Messenger", "GLOBAL", 1)~ THEN REPLY ~I heard there was a messenger who came to the temple from Kuldahar.~  GOTO 19
+  IF ~~ THEN REPLY ~Do you know anything about the expedition that Hrothgar's putting together?~  DO ~SetGlobal("Know_Messenger","GLOBAL",1)~ GOTO 18
+  IF ~Global("Know_Messenger","GLOBAL",1)~ THEN REPLY ~I heard there was a messenger who came to the temple from Kuldahar.~  GOTO 19
   IF ~~ THEN REPLY ~What's that glyph-covered door beneath the statue?~  GOTO 39
   IF ~~ THEN REPLY ~I was wondering if we might pay our respects to the temple... and perhaps receive some healing.~  DO ~StartStore("EHTemple",Player1)~ EXIT
   IF ~~ THEN REPLY ~Never mind.  I have intruded.  Farewell.~  EXIT
 END
 
-IF WEIGHT #7 ~Global("Know_Everard", "GLOBAL", 0)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 1 // from:
+IF WEIGHT #7 ~Global("Know_Everard","GLOBAL",0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 1 // from:
   SAY ~[Suspicious] Hmm.  Hrothgar mentioned there were strangers in town.  [Slight attack to words] What is it you want?~ [EVER_02]
-  IF ~~ THEN REPLY ~I am <CHARNAME>.  Are you the high priest of this temple?~  DO ~SetGlobal("Know_Everard", "GLOBAL", 1)~ GOTO 3
+  IF ~~ THEN REPLY ~I am <CHARNAME>.  Are you the high priest of this temple?~  DO ~SetGlobal("Know_Everard","GLOBAL",1)~ GOTO 3
   IF ~~ THEN REPLY ~Never mind.  I have intruded.  Farewell.~  EXIT
 END
 
-IF WEIGHT #6 ~GlobalGT("Know_Everard", "GLOBAL", 0)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 2 // from:
+IF WEIGHT #6 ~GlobalGT("Know_Everard","GLOBAL",0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 2 // from:
   SAY ~[Not pleased to see party] Your journey has brought you to this temple again.  What is it you want?~ [EVER_03]
   IF ~~ THEN REPLY ~I had some questions I wished to ask you.~  GOTO 0
   IF ~~ THEN REPLY ~I was wondering if we might pay our respects to the temple... and perhaps receive some healing.~  DO ~StartStore("EHTemple",Player1)~ EXIT
@@ -36,15 +33,14 @@ END
 
 IF ~~ THEN BEGIN 3 // from: 1.0
   SAY ~Yes.  I am Everard... [mentally has to remind himself he has a title] Everard of Tempus, Battle-Priest of the Lord of Battles.  What brings you here?~ [EVER_04]
-  IF ~!Class(Player1, PALADIN)
-  !Class(Player1, CLERIC)~ THEN REPLY ~Tempus is the god of war, is he not?~  GOTO 4
-  IF ~Class(Player1, PALADIN)~ THEN REPLY ~I come to show respect to your god and his worshippers, Everard.  Still, there is not much battle to be had here in Easthaven, I hope?~  GOTO 4
-  IF ~Class(Player1, CLERIC)~ THEN REPLY ~Tempus is the god of war.  Easthaven seems far removed from any battles.~  GOTO 4
-  IF ~Global("Jered_Stone","GLOBAL", 1)~ THEN REPLY ~Accalia told me to ask you about "Jerrod's Stone."  She said it has something to do with one of your holy days.~  GOTO 9
-  IF ~GlobalGT("Jered_Stone","GLOBAL", 1)~ THEN REPLY ~I wished to hear the tale of Jerrod's Stone again.~  GOTO 9
+  IF ~!Class(Player1,PALADIN) !Class(Player1,CLERIC)~ THEN REPLY ~Tempus is the god of war, is he not?~  GOTO 4
+  IF ~Class(Player1,PALADIN)~ THEN REPLY ~I come to show respect to your god and his worshippers, Everard.  Still, there is not much battle to be had here in Easthaven, I hope?~  GOTO 4
+  IF ~Class(Player1,CLERIC)~ THEN REPLY ~Tempus is the god of war.  Easthaven seems far removed from any battles.~  GOTO 4
+  IF ~Global("Jered_Stone","GLOBAL",1)~ THEN REPLY ~Accalia told me to ask you about "Jerrod's Stone."  She said it has something to do with one of your holy days.~  GOTO 9
+  IF ~GlobalGT("Jered_Stone","GLOBAL",1)~ THEN REPLY ~I wished to hear the tale of Jerrod's Stone again.~  GOTO 9
   IF ~~ THEN REPLY ~You carry the scars of war, Everard.  Were you wounded in battle?~  GOTO 5
-  IF ~~ THEN REPLY ~Do you know anything about the expedition that Hrothgar's putting together?~  DO ~SetGlobal("Know_Messenger", "GLOBAL", 1)~ GOTO 18
-  IF ~Global("Know_Messenger", "GLOBAL", 1)~ THEN REPLY ~I heard there was a messenger who came to the temple from Kuldahar.~  GOTO 19
+  IF ~~ THEN REPLY ~Do you know anything about the expedition that Hrothgar's putting together?~  DO ~SetGlobal("Know_Messenger","GLOBAL",1)~ GOTO 18
+  IF ~Global("Know_Messenger","GLOBAL",1)~ THEN REPLY ~I heard there was a messenger who came to the temple from Kuldahar.~  GOTO 19
   IF ~~ THEN REPLY ~What's that glyph-covered door beneath the statue?~  GOTO 39
   IF ~~ THEN REPLY ~I was wondering if we might pay our respects to the temple... and perhaps receive some healing.~  DO ~StartStore("EHTemple",Player1)~ EXIT
   IF ~~ THEN REPLY ~Never mind.  I have intruded.  Farewell.~  EXIT
@@ -66,10 +62,9 @@ END
 
 IF ~~ THEN BEGIN 6 // from: 5.0
   SAY ~[Reprimanding, but spoken as if he's had to tell himself this many times as well]Because there are *many* ways one may serve one's God.  I am of the Order of the Broken Blade.  My [bitter]*duty* is to watch this place.~ [EVER_07]
-  IF ~!Class(Player1, PALADIN)
-  !Class(Player1, CLERIC)~ THEN REPLY ~Order of the Broken Blade?~  GOTO 7
-  IF ~Class(Player1, PALADIN)~ THEN REPLY ~Order of the Broken Blade?  They guard areas sacred to Tempus, correct?~  GOTO 7
-  IF ~Class(Player1, CLERIC)~ THEN REPLY ~Order of the Broken Blade?  They guard areas sacred to Tempus, correct?~  GOTO 7
+  IF ~!Class(Player1,PALADIN) !Class(Player1,CLERIC)~ THEN REPLY ~Order of the Broken Blade?~  GOTO 7
+  IF ~Class(Player1,PALADIN)~ THEN REPLY ~Order of the Broken Blade?  They guard areas sacred to Tempus, correct?~  GOTO 7
+  IF ~Class(Player1,CLERIC)~ THEN REPLY ~Order of the Broken Blade?  They guard areas sacred to Tempus, correct?~  GOTO 7
   IF ~~ THEN REPLY ~I see.  I had some other questions I wished to ask you.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
@@ -83,7 +78,7 @@ END
 
 IF ~~ THEN BEGIN 8 // from: 7.0
   SAY ~It is sacred to *Tempus,* yes.  It marks the field where the barbarian Jerrod gave up his life ages ago.  He lies encased in stone beneath this temple.~ [EVER_09]
-  IF ~~ THEN REPLY ~What happened?~  DO ~SetGlobal("Jered_Stone","GLOBAL", 2)~ GOTO 9
+  IF ~~ THEN REPLY ~What happened?~  DO ~SetGlobal("Jered_Stone","GLOBAL",2)~ GOTO 9
   IF ~~ THEN REPLY ~I see.  I had some other questions I wished to ask you.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
@@ -97,8 +92,8 @@ END
 
 IF ~~ THEN BEGIN 10 // from: 9.0
   SAY ~Once Arakon saw his army routed by Jerrod and the northern tribes, he sought to bring the hells to his aid.  Arakon opened a gate to the Lower Planes.~ [EVER_11]
-  IF ~Class(Player1, MAGE)~ THEN REPLY ~But... demons?  Arakon would have been damning himself.~  GOTO 11
-  IF ~!Class(Player1, MAGE)~ THEN REPLY ~He brought demons to the battlefield?  The northern tribes would have been destroyed.~  GOTO 12
+  IF ~Class(Player1,MAGE)~ THEN REPLY ~But... demons?  Arakon would have been damning himself.~  GOTO 11
+  IF ~!Class(Player1,MAGE)~ THEN REPLY ~He brought demons to the battlefield?  The northern tribes would have been destroyed.~  GOTO 12
   IF ~~ THEN REPLY ~I see.  I had some other questions I wished to ask you.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
@@ -126,17 +121,16 @@ END
 
 IF ~~ THEN BEGIN 14 // from: 13.0
   SAY ~[Bitter, frustrated] Jerrod had no *need* to sacrifice himself.  Tempus' appearance was a test of faith, proof Jerrod's people had already won the field that day.  Jerrod failed his god and died a *coward's* death.  ~ [EVER_15]
-  IF ~!Class(Player1, PALADIN)
-  !Class(Player1, CLERIC)~ THEN REPLY ~Are you sure his death was in vain?  Jerrod did seal the por-~  GOTO 15
-  IF ~Class(Player1, PALADIN)~ THEN REPLY ~But Tempus is known to appear to warriors who can dictate the outcome of a battle.  So perhaps Jerrod's death was not in v--~  GOTO 15
-  IF ~Class(Player1, CLERIC)~ THEN REPLY ~But Tempus is known to appear to warriors who can dictate the outcome of a battle.  So perhaps Jerrod's death was not in v--~  GOTO 15
+  IF ~!Class(Player1,PALADIN) !Class(Player1,CLERIC)~ THEN REPLY ~Are you sure his death was in vain?  Jerrod did seal the por-~  GOTO 15
+  IF ~Class(Player1,PALADIN)~ THEN REPLY ~But Tempus is known to appear to warriors who can dictate the outcome of a battle.  So perhaps Jerrod's death was not in v--~  GOTO 15
+  IF ~Class(Player1,CLERIC)~ THEN REPLY ~But Tempus is known to appear to warriors who can dictate the outcome of a battle.  So perhaps Jerrod's death was not in v--~  GOTO 15
   IF ~~ THEN REPLY ~I see.  I had some other questions I wished to ask you.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 15 // from: 14.2 14.1 14.0
   SAY ~[Angry that anyone is showing sympathy for Jerrod's sacrifice] One dies for Tempus with a BLADE in one's hand, not by martyring oneself within the embrace of infernal magics!  Jerrod's DUTY was to stand with his comrades, not cast himself to his death when the field was already theirs!~ [EVER_16]
-  IF ~~ THEN REPLY ~His sacrifice may have prevented other deaths, Everard.~  DO ~SetGlobal("Jered_Stone","GLOBAL", 3)~ JOURNAL ~Jerrod's Stone.
+  IF ~~ THEN REPLY ~His sacrifice may have prevented other deaths, Everard.~  DO ~SetGlobal("Jered_Stone","GLOBAL",3)~ JOURNAL ~Jerrod's Stone.
 
 We met with the local priest of Tempus, Everard, and we heard the tale of "Jerrod's Stone."  It tells the tale of a barbarian shaman that sacrificed himself to seal a demon's portal that lies buried beneath the temple.  Strangely enough, Everard seemed to have contempt for Jerrod and his sacrifice.~  GOTO 16
   IF ~~ THEN REPLY ~I see.  I had some other questions I wished to ask you.~  GOTO 0
@@ -186,14 +180,12 @@ IF ~~ THEN BEGIN 21 // from: 20.0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
-IF WEIGHT #4 ~GlobalGT("Know_Balance", "GLOBAL", 0)
-Global("Know_Everard", "GLOBAL", 0)~ THEN BEGIN 22 // from:
+IF WEIGHT #4 ~GlobalGT("Know_Balance","GLOBAL",0) Global("Know_Everard","GLOBAL",0)~ THEN BEGIN 22 // from:
   SAY ~You - who are you?~ [EVER_23]
   IF ~~ THEN REPLY ~I am <CHARNAME>.  Are you all right?~  GOTO 24
 END
 
-IF WEIGHT #5 ~GlobalGT("Know_Balance", "GLOBAL", 0)
-GlobalGT("Know_Everard", "GLOBAL", 0)~ THEN BEGIN 23 // from:
+IF WEIGHT #5 ~GlobalGT("Know_Balance","GLOBAL",0) GlobalGT("Know_Everard","GLOBAL",0)~ THEN BEGIN 23 // from:
   SAY ~[Wounded from torture] You - you have returned to Easthaven - I pray you are not too late.~ [EVER_24]
   IF ~~ THEN REPLY ~Everard, are you all right?~  GOTO 26
   IF ~~ THEN REPLY ~Look, Everard - there's no time to talk.  You need to gather your people and get far as you can from Easthaven.  Now go.~  GOTO 25
@@ -212,8 +204,8 @@ END
 
 IF ~~ THEN BEGIN 26 // from: 25.0 24.0 23.0
   SAY ~Yes... I was brought into the tower by the giants... they sought to... [trying to shake off memory of torture] break me, force me to break the glyphs...~ [EVER_27]
-  IF ~GlobalLT("Jered_Stone","GLOBAL", 2)~ THEN REPLY ~Glyphs to what?~  GOTO 27
-  IF ~GlobalGT("Jered_Stone","GLOBAL", 1)~ THEN REPLY ~Glyphs to wh...?  Wait -- the glyphs to *Jerrod's Stone?*~  GOTO 28
+  IF ~GlobalLT("Jered_Stone","GLOBAL",2)~ THEN REPLY ~Glyphs to what?~  GOTO 27
+  IF ~GlobalGT("Jered_Stone","GLOBAL",1)~ THEN REPLY ~Glyphs to wh...?  Wait -- the glyphs to *Jerrod's Stone?*~  GOTO 28
 END
 
 IF ~~ THEN BEGIN 27 // from: 26.0
@@ -228,13 +220,11 @@ END
 
 IF ~~ THEN BEGIN 29 // from: 40.0 28.0 27.0
   SAY ~Let me... show you the sign.  The ice gives way beneath a symbol... crossed hands, blood upon the wrists... with it, you should be able to open the tower.  I will... follow later, if I can.~ [EVER_30]
-  IF ~Global("Freed_Everard", "GLOBAL", 0)~ THEN REPLY ~Very well.  I will head to the tower, then.~  DO ~SetGlobal("Freed_Everard", "GLOBAL", 1)
-AddexperienceParty(16500)~ JOURNAL ~We found the high priest of Tempus, Everard, in the slave camp in destroyed Easthaven.  He provided the sign that will allow me to get inside the great ice tower.~  EXIT
-  IF ~GlobalGT("Freed_Everard", "GLOBAL", 0)~ THEN REPLY ~Very well.  I will head to the tower, then.~  EXIT
+  IF ~Global("Freed_Everard","GLOBAL",0)~ THEN REPLY ~Very well.  I will head to the tower, then.~  DO ~SetGlobal("Freed_Everard","GLOBAL",1) AddexperienceParty(16500)~ JOURNAL ~We found the high priest of Tempus, Everard, in the slave camp in destroyed Easthaven.  He provided the sign that will allow me to get inside the great ice tower.~  EXIT
+  IF ~GlobalGT("Freed_Everard","GLOBAL",0)~ THEN REPLY ~Very well.  I will head to the tower, then.~  EXIT
 END
 
-IF WEIGHT #2 ~Global("Freed_Everard", "GLOBAL", 1)
-!Global("Everard_In_Temple", "GLOBAL", 0)~ THEN BEGIN 30 // from:
+IF WEIGHT #2 ~Global("Freed_Everard","GLOBAL",1) !Global("Everard_In_Temple","GLOBAL",0)~ THEN BEGIN 30 // from:
   SAY ~You have found your way in, I see... I will attempt to open the passageway below to Jerrod's Stone, but these glyphs are born of Tempus himself.  It may be beyond my power.~ [EVER_31]
   IF ~~ THEN REPLY ~Is there anything we can do to help?~  GOTO 31
   IF ~~ THEN REPLY ~Then hurry, damn your hide!  We don't have time to listen to your excuses! ~  GOTO 31
@@ -242,13 +232,12 @@ END
 
 IF ~~ THEN BEGIN 31 // from: 30.1 30.0
   SAY ~[Slightly angry, urgent] If you would help, climb this tower.  See if there is another way to Jerrod's Stone.~ [EVER_32]
-  IF ~~ THEN REPLY ~Very well.  If we can find anything, we'll return.~  DO ~SetGlobal("Freed_Everard", "GLOBAL", 2)~ JOURNAL ~Everard is going to try and dispel the glyphs that block the passageway to Jerrod's Stone beneath the temple.  He asked us to search the rest of the tower for another way in.~  EXIT
+  IF ~~ THEN REPLY ~Very well.  If we can find anything, we'll return.~  DO ~SetGlobal("Freed_Everard","GLOBAL",2)~ JOURNAL ~Everard is going to try and dispel the glyphs that block the passageway to Jerrod's Stone beneath the temple.  He asked us to search the rest of the tower for another way in.~  EXIT
 END
 
-IF WEIGHT #1 ~Global("Freed_Everard", "GLOBAL", 2)
-!Global("Everard_In_Temple", "GLOBAL", 0)~ THEN BEGIN 32 // from:
+IF WEIGHT #1 ~Global("Freed_Everard","GLOBAL",2) !Global("Everard_In_Temple","GLOBAL",0)~ THEN BEGIN 32 // from:
   SAY ~[Irritated, but determined] I am still trying to force the glyphs.  [Slightly hopeful, but urgent] Have you found anything? ~ [EVER_33]
-  IF ~Global("Darkside", "GLOBAL", 1)~ THEN REPLY ~Why, yes... we discovered the crystal shard on one of the upper levels.  We made an arrangement with it.  It asked us to perform a simple murder to seal our bargain.~  GOTO 33
+  IF ~Global("Darkside","GLOBAL",1)~ THEN REPLY ~Why, yes... we discovered the crystal shard on one of the upper levels.  We made an arrangement with it.  It asked us to perform a simple murder to seal our bargain.~  GOTO 33
   IF ~~ THEN REPLY ~No, but I was wondering if perhaps we could receive some healing.~  DO ~StartStore("EHTemple",Player1)~ EXIT
   IF ~~ THEN REPLY ~Not yet - we're still searching.~  GOTO 34
 END
@@ -268,37 +257,31 @@ IF ~~ THEN BEGIN 35 // from:
   IF ~~ THEN REPLY ~Everard?~  DO ~SetGlobal("VP_Everard_Move","GLOBAL",1)~ EXIT
 END
 
-IF WEIGHT #0 ~Global("End_Portal", "GLOBAL", 1)~ THEN BEGIN 36 // from:
+IF WEIGHT #0 ~Global("End_Portal","GLOBAL",1)~ THEN BEGIN 36 // from:
   SAY ~[Slightly in awe, almost ignoring Belhifet and the party] Jerrod's Stone.  I -- have never seen it.~ [EVER_37]
   IF ~~ THEN REPLY ~Everard?  How did you get here?~  GOTO 37
 END
 
 IF ~~ THEN BEGIN 37 // from: 36.0
   SAY ~[Still in awe of the crucified man engraved on the stone] The glyphs.  They dissolved once I felt Tempus within me, calling me to battle.  I know now what I must do - [further realization] what Jerrod had to do.  ~ [EVER_38]
-  IF ~GlobalLT("Jered_Stone","GLOBAL", 2)~ THEN REPLY ~What are you talking about?~  GOTO 38
-  IF ~GlobalGT("Jered_Stone","GLOBAL", 1)~ THEN REPLY ~Everard, don't; there *must* be another way.  The tale of Jerrod's Stone doesn't mean th--~  GOTO 38
+  IF ~GlobalLT("Jered_Stone","GLOBAL",2)~ THEN REPLY ~What are you talking about?~  GOTO 38
+  IF ~GlobalGT("Jered_Stone","GLOBAL",1)~ THEN REPLY ~Everard, don't; there *must* be another way.  The tale of Jerrod's Stone doesn't mean th--~  GOTO 38
 END
 
 IF ~~ THEN BEGIN 38 // from: 37.1 37.0
   SAY ~[Calm, at peace, bitterness gone.] The tale of Jerrod's Stone is a lesson in sacrifice.  Sacrificing oneself so that others might live - that was Jerrod's choice.  It has taken me a long time, too long, to realize the nobility in such a gesture.~ [EVER_39]
-  IF ~~ THEN REPLY ~Everard, stop -- what are you doing?~  DO ~SetGlobal("Freed_Everard", "GLOBAL", 3)
-SetGlobal("End_Portal", "GLOBAL", 2)
-ClearAllActions()
-StartCutSceneMode()
-StartCutscene("eeEndCt3")~ EXIT
+  IF ~~ THEN REPLY ~Everard, stop -- what are you doing?~  DO ~SetGlobal("Freed_Everard","GLOBAL",3) SetGlobal("End_Portal","GLOBAL",2) ClearAllActions() StartCutSceneMode() StartCutscene("eeEndCt3")~ EXIT
 END
 
 IF ~~ THEN BEGIN 39 // from: 3.8 0.8
   SAY ~[Matter-of-fact, as if the portal is like a vase in the room] The door leads beneath the temple to the site of Jerrod's Stone.  It was sealed with glyphs of Tempus to prevent entry long ago.~ [EVER_40]
-  IF ~GlobalLT("Jered_Stone","GLOBAL", 3)~ THEN REPLY ~Jerrod's Stone?~  GOTO 9
-  IF ~GlobalGT("Jered_Stone","GLOBAL", 2)~ THEN REPLY ~Can you tell me the tale of Jerrod's Stone again?~  GOTO 9
+  IF ~GlobalLT("Jered_Stone","GLOBAL",3)~ THEN REPLY ~Jerrod's Stone?~  GOTO 9
+  IF ~GlobalGT("Jered_Stone","GLOBAL",2)~ THEN REPLY ~Can you tell me the tale of Jerrod's Stone again?~  GOTO 9
   IF ~~ THEN REPLY ~I see.  I had some other questions I wished to ask you.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
-IF WEIGHT #3 ~GlobalGT("Know_Balance", "GLOBAL", 0)
-GlobalGT("Freed_Everard", "GLOBAL", 0)
-Global("Everard_In_Temple", "GLOBAL", 0)~ THEN BEGIN 40 // from:
+IF WEIGHT #3 ~GlobalGT("Know_Balance","GLOBAL",0) GlobalGT("Freed_Everard","GLOBAL",0) Global("Everard_In_Temple","GLOBAL",0)~ THEN BEGIN 40 // from:
   SAY ~[Wounded from torture] You - you have returned to Easthaven - I pray you are not too late.~ [EVER_24]
   IF ~~ THEN REPLY ~Everard - what's the symbol for getting into the tower again?~  GOTO 29
   IF ~~ THEN REPLY ~I was wondering if perhaps we could receive some healing.~  DO ~StartStore("EHTemple",Player1)~ EXIT

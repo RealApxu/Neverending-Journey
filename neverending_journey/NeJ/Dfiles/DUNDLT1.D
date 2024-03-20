@@ -1,7 +1,6 @@
 BEGIN ~DUNDLT1~
 
-IF ~NumTimesTalkedTo(0)
-Global("ULt_Talk","GLOBAL",0)~ THEN BEGIN 0 // from:
+IF ~NumTimesTalkedTo(0) Global("ULt_Talk","GLOBAL",0)~ THEN BEGIN 0 // from:
   SAY ~To have come this far, you must be seeking death.  I will grant it to you, interloper.~
   IF ~~ THEN REPLY ~Uh... what?  Where is that voice coming from?  It doesn't sound like it's coming from a skeleton.~  DO ~SetGlobal("ULt_Talk","GLOBAL",1)~ JOURNAL ~Dragon's Eye.
 
@@ -12,8 +11,7 @@ We encountered an undead creation today that was used as the "eyes and mouth" of
   IF ~Class(Player1,1)~ THEN REPLY ~Ah, an undead lieutenant.  You're speaking and watching us through this creation.  It is no small use of the Art.  Impressive.~  DO ~SetGlobal("ULt_Talk","GLOBAL",1)~ JOURNAL ~Dragon's Eye.
 
 We encountered an undead creation today that was used as the "eyes and mouth" of a necromancer.  It attacked us after it had addressed us.~  GOTO 3
-  IF ~~ THEN REPLY ~No, no... no interloping here.  I was just leaving...~  DO ~SetGlobal("ULt_Talk","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN REPLY ~No, no... no interloping here.  I was just leaving...~  DO ~SetGlobal("ULt_Talk","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 1 // from: 0.0
@@ -75,14 +73,10 @@ END
 
 IF ~Global("ULt_Talk","GLOBAL",2)~ THEN BEGIN 11 // from:
   SAY ~Again?  I grow tired of feeding you scraps of bone and flesh.~
-  IF ~~ THEN REPLY ~Little by little, you whiny tramp.  If that's how I have to take you apart, so be it.~  DO ~SetGlobal("ULt_Talk","GLOBAL",3)
-Enemy()~ EXIT
-  IF ~~ THEN REPLY ~I'm tired of being forced to stay in this gods-forsaken dale.  We're just about even, I'd say...~  DO ~SetGlobal("ULt_Talk","GLOBAL",3)
-Enemy()~ EXIT
-  IF ~~ THEN REPLY ~You will pay for your actions, I swear.~  DO ~SetGlobal("ULt_Talk","GLOBAL",3)
-Enemy()~ EXIT
-  IF ~~ THEN REPLY ~I have nothing more to say to you.  Farewell.~  DO ~SetGlobal("ULt_Talk","GLOBAL",3)
-Enemy()~ EXIT
+  IF ~~ THEN REPLY ~Little by little, you whiny tramp.  If that's how I have to take you apart, so be it.~  DO ~SetGlobal("ULt_Talk","GLOBAL",3) Enemy()~ EXIT
+  IF ~~ THEN REPLY ~I'm tired of being forced to stay in this gods-forsaken dale.  We're just about even, I'd say...~  DO ~SetGlobal("ULt_Talk","GLOBAL",3) Enemy()~ EXIT
+  IF ~~ THEN REPLY ~You will pay for your actions, I swear.~  DO ~SetGlobal("ULt_Talk","GLOBAL",3) Enemy()~ EXIT
+  IF ~~ THEN REPLY ~I have nothing more to say to you.  Farewell.~  DO ~SetGlobal("ULt_Talk","GLOBAL",3) Enemy()~ EXIT
 END
 
 IF ~Global("ULt_Talk","GLOBAL",3)~ THEN BEGIN 12 // from:

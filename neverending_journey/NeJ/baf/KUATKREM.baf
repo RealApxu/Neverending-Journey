@@ -24,5 +24,3 @@ THEN
 		Deactivate(Myself)
 		DestroySelf()
 END
-
-

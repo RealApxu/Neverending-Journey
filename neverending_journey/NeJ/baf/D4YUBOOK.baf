@@ -15,5 +15,3 @@ THEN
 		SetGlobal("YUANTI_BOOKS","GLOBAL",1)
 		SetGlobal("YUANTI_SURPRISE","GLOBAL",1)
 END
-
-

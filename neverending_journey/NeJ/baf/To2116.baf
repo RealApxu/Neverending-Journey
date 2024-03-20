@@ -32,5 +32,3 @@ THEN
 		MultiPlayerSync()
 		FadeFromColor([20.0],0)
 END
-
-

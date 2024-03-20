@@ -13,9 +13,7 @@ IF ~~ THEN BEGIN 1 // from: 5.2 4.1 3.0 0.0
   IF ~~ THEN REPLY ~Do you have any magical texts?~  GOTO 2
   IF ~~ THEN REPLY ~Have you heard anything about the strange occurrences near Kuldahar?~  GOTO 3
   IF ~~ THEN REPLY ~I'm looking for an item called the Heartstone Gem.  It's an old relic of the church of Silvanus.  Do you know anything about it?~  GOTO 4
-  IF ~!Alignment(Player1,16)
-CheckStatGT(Player1,12,INT)
-!GlobalGT("Geelo_Trick","GLOBAL",0)~ THEN REPLY ~No, but I think Albion said that he wanted to talk to you about something.  I might have misunderstood him, but I think that's what he said.~  DO ~SetGlobal("Geelo_Trick","GLOBAL",1)~ GOTO 6
+  IF ~!Alignment(Player1,16) CheckStatGT(Player1,12,INT) !GlobalGT("Geelo_Trick","GLOBAL",0)~ THEN REPLY ~No, but I think Albion said that he wanted to talk to you about something.  I might have misunderstood him, but I think that's what he said.~  DO ~SetGlobal("Geelo_Trick","GLOBAL",1)~ GOTO 6
   IF ~~ THEN REPLY ~Not right now.  Farewell, Geelo.~  EXIT
 END
 
@@ -46,9 +44,7 @@ IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 5 // from:
   IF ~~ THEN REPLY ~People have been disappearing from Kuldahar.  Do you know anything about it?~  GOTO 3
   IF ~~ THEN REPLY ~I am looking for a relic called the Heartstone Gem.  Do you know of it?~  GOTO 4
   IF ~~ THEN REPLY ~May I look at the books in your library?~  GOTO 1
-  IF ~!Alignment(Player1,16)
-CheckStatGT(Player1,12,INT)
-!GlobalGT("Geelo_Trick","GLOBAL",0)~ THEN REPLY ~No, but I think Albion said that he wanted to talk to you about something.  I might have misunderstood him, but I think that's what he said.~  DO ~SetGlobal("Geelo_Trick","GLOBAL",1)~ GOTO 6
+  IF ~!Alignment(Player1,16) CheckStatGT(Player1,12,INT) !GlobalGT("Geelo_Trick","GLOBAL",0)~ THEN REPLY ~No, but I think Albion said that he wanted to talk to you about something.  I might have misunderstood him, but I think that's what he said.~  DO ~SetGlobal("Geelo_Trick","GLOBAL",1)~ GOTO 6
   IF ~~ THEN REPLY ~Farewell, Geelo.~  EXIT
 END
 

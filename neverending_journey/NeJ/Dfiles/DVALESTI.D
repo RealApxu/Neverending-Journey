@@ -43,22 +43,10 @@ END
 
 IF ~~ THEN BEGIN 7
   SAY ~Perhaps you can.  If in your travels you were to acquire seeds that can flourish in the harshest of places, or perhaps come across a sample of pure water, or even any small animals seeking a new home, I would be able to return some beauty to this place.  Such things no longer exist here in the Hand and can only be found in the rarest of places in the North.~
-  IF ~PartyHasItem("SEEDS")
-Global("Arbor_Seeds", "GLOBAL", 0)~ THEN REPLY ~I found some seeds that you might be able to use.~ DO ~TakePartyItem("SEEDS")
-SetGlobal("Arbor_Seeds", "GLOBAL", 1)
-IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 9
-  IF ~PartyHasItem("Water")
-Global("Arbor_Water", "GLOBAL", 0)~ THEN REPLY ~This water might be pure enough for your needs.~ DO ~TakePartyItem("Water")
-SetGlobal("Arbor_Water", "GLOBAL", 1)
-IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 11
-  IF ~PartyHasItem("BIRDS")
-Global("Arbor_Birds", "GLOBAL", 0)~ THEN REPLY ~Perhaps you can give these birds a new home.~ DO ~TakePartyItem("BIRDS")
-SetGlobal("Arbor_Birds", "GLOBAL", 1)
-IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 13
-  IF ~PartyHasItem("Squirel")
-Global("Arbor_Squirrels", "GLOBAL", 0)~ THEN REPLY ~These squirrels look like they need a bigger place to live in.~ DO ~TakePartyItem("Squirel")
-SetGlobal("Arbor_Squirrels", "GLOBAL", 1)
-IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 15
+  IF ~PartyHasItem("SEEDS") Global("Arbor_Seeds","GLOBAL",0)~ THEN REPLY ~I found some seeds that you might be able to use.~ DO ~TakePartyItem("SEEDS") SetGlobal("Arbor_Seeds","GLOBAL",1) IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 9
+  IF ~PartyHasItem("Water") Global("Arbor_Water","GLOBAL",0)~ THEN REPLY ~This water might be pure enough for your needs.~ DO ~TakePartyItem("Water") SetGlobal("Arbor_Water","GLOBAL",1) IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 11
+  IF ~PartyHasItem("BIRDS") Global("Arbor_Birds","GLOBAL",0)~ THEN REPLY ~Perhaps you can give these birds a new home.~ DO ~TakePartyItem("BIRDS") SetGlobal("Arbor_Birds","GLOBAL",1) IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 13
+  IF ~PartyHasItem("Squirel") Global("Arbor_Squirrels","GLOBAL",0)~ THEN REPLY ~These squirrels look like they need a bigger place to live in.~ DO ~TakePartyItem("Squirel") SetGlobal("Arbor_Squirrels","GLOBAL",1) IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 15
   IF ~~ THEN REPLY ~I will see what I can find.  Farewell.~ EXIT
 END
 
@@ -66,24 +54,10 @@ IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 8
   SAY ~Peace be with you.  I see you have returned.~
   IF ~~ THEN REPLY ~What are you doing here? ~ GOTO 1
   IF ~Global("ArboretumStoryRead","GLOBAL",1)~ THEN REPLY ~Can we help you restore the arboretum to its former glory?~ GOTO 7
-  IF ~Global("ArborQuestGiveN","GLOBAL",1)
-PartyHasItem("SEEDS")Global("Arbor_Seeds", "GLOBAL", 0)~ THEN REPLY ~I found some seeds that you might be able to use.~ DO ~TakePartyItem("SEEDS")
-SetGlobal("Arbor_Seeds", "GLOBAL", 1)
-IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 9
-  IF ~Global("ArborQuestGiveN","GLOBAL",1)PartyHasItem("Water")
-Global("Arbor_Water", "GLOBAL", 0)~ THEN REPLY ~This water might be pure enough for your needs.~ DO ~TakePartyItem("Water")
-SetGlobal("Arbor_Water", "GLOBAL", 1)
-IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 11
-  IF ~Global("ArborQuestGiveN","GLOBAL",1)
-PartyHasItem("BIRDS")
-Global("Arbor_Birds", "GLOBAL", 0)~ THEN REPLY ~Perhaps you can give these birds a new home.~ DO ~TakePartyItem("BIRDS")
-SetGlobal("Arbor_Birds", "GLOBAL", 1)
-IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 13
-  IF ~Global("ArborQuestGiveN","GLOBAL",1)
-PartyHasItem("Squirel")
-Global("Arbor_Squirrels", "GLOBAL", 0)~ THEN REPLY ~These squirrels look like they need a bigger place to live in.~ DO ~TakePartyItem("Squirel")
-SetGlobal("Arbor_Squirrels", "GLOBAL", 1)
-IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 15
+  IF ~Global("ArborQuestGiveN","GLOBAL",1) PartyHasItem("SEEDS")Global("Arbor_Seeds","GLOBAL",0)~ THEN REPLY ~I found some seeds that you might be able to use.~ DO ~TakePartyItem("SEEDS") SetGlobal("Arbor_Seeds","GLOBAL",1) IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 9
+  IF ~Global("ArborQuestGiveN","GLOBAL",1)PartyHasItem("Water") Global("Arbor_Water","GLOBAL",0)~ THEN REPLY ~This water might be pure enough for your needs.~ DO ~TakePartyItem("Water") SetGlobal("Arbor_Water","GLOBAL",1) IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 11
+  IF ~Global("ArborQuestGiveN","GLOBAL",1) PartyHasItem("BIRDS") Global("Arbor_Birds","GLOBAL",0)~ THEN REPLY ~Perhaps you can give these birds a new home.~ DO ~TakePartyItem("BIRDS") SetGlobal("Arbor_Birds","GLOBAL",1) IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 13
+  IF ~Global("ArborQuestGiveN","GLOBAL",1) PartyHasItem("Squirel") Global("Arbor_Squirrels","GLOBAL",0)~ THEN REPLY ~These squirrels look like they need a bigger place to live in.~ DO ~TakePartyItem("Squirel") SetGlobal("Arbor_Squirrels","GLOBAL",1) IncrementGlobal("Arbor_Total","GLOBAL",1)~ GOTO 15
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~ EXIT
 END
 
@@ -138,8 +112,7 @@ END
 
 IF ~~ THEN BEGIN 18
   SAY ~The Arboretum has been returned to its former glory, my friends.  I feel that my work here is done, that it is time to move on.  I thank you.  Farewell.~
-  IF ~~ THEN REPLY ~Farewell, Valestis.~ DO ~DestroySelf()
-EraseJournalEntry(%To restore life to the Arboretum.
+  IF ~~ THEN REPLY ~Farewell, Valestis.~ DO ~DestroySelf() EraseJournalEntry(%To restore life to the Arboretum.
 
 We spoke with an elven spirit, Valestis, in the Severed Hand.  He was standing within a ruined Arboretum, and he asked us to help him restore it to its former beauty.  He said if we came across any pure water, any small animals in need of a new home, or seeds that could flourish even in the ruined soil of the chamber's garden, he could use them to restore life to the arboretum.%)~ EXIT
 END

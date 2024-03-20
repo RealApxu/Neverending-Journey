@@ -93,5 +93,3 @@ THEN
 	RESPONSE #100
 		MoveToObjectFollow([PC])
 END
-
-

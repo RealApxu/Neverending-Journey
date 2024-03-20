@@ -33,5 +33,3 @@ THEN
 		SetGlobal("MYAREAMAP_GROUP_HOSTILE1","MYAREA",1)
 		Continue()
 END
-
-

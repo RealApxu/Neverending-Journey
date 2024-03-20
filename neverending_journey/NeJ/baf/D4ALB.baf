@@ -487,5 +487,3 @@ THEN
 		EquipMostDamagingMelee()
 		AttackReevaluate(LastSeenBy(Myself),15)
 END
-
-

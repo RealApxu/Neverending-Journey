@@ -1,7 +1,6 @@
 BEGIN ~DYXUN~
 
-IF ~True()
-~ THEN BEGIN 0
+IF ~True()~ THEN BEGIN 0
   SAY ~So.  It has come to this, has it?  I did not expect a group of natives to interfere with my vendetta.  Why have you come here, killing my minions?~ [YXUN_01]
   IF ~~ THEN REPLY ~Minions?  You mean the snake people?~ JOURNAL ~Finding the Heartstone Gem.
 
@@ -44,8 +43,7 @@ END
 IF ~~ THEN BEGIN 2
   SAY ~My vendetta is none of your concern.  Your involvement in this matter is irrelevant in the grand scheme of things, a mote of dust floating for a moment in a sea of time.~ [YXUN_03]
   IF ~~ THEN REPLY ~But... I can help you.~ GOTO 10
-  IF ~Race(Player1,ELF)
-~ THEN REPLY ~You're underestimating my lifespan by a great deal.  My people can live for hundreds of years.~ GOTO 11
+  IF ~Race(Player1,ELF)~ THEN REPLY ~You're underestimating my lifespan by a great deal.  My people can live for hundreds of years.~ GOTO 11
   IF ~~ THEN REPLY ~You're right, oh mighty one.  But... aren't we all really just motes of dust floating in a sea of time?~ GOTO 13
   IF ~~ THEN REPLY ~Why did you steal the Heartstone Gem?~ GOTO 3
 END
@@ -82,9 +80,7 @@ END
 
 IF ~~ THEN BEGIN 8
   SAY ~The natives of this world have such simple motivations.  Very well.  I will indulge you.~ [YXUN_09]
-  IF ~~ THEN DO ~SetGlobal("KULDAHAR_ATTACK","GLOBAL",1)
-Enemy()
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("KULDAHAR_ATTACK","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 9
@@ -257,9 +253,7 @@ END
 
 IF ~~ THEN BEGIN 38
   SAY ~You have just destroyed a good portion of my army and are now demanding that I hand over more resources to you.  I believe I will be doing the taking now.  Pray that your souls are prepared.~ [YXUN_39]
-  IF ~~ THEN DO ~SetGlobal("KULDAHAR_ATTACK","GLOBAL",1)
-Enemy()
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("KULDAHAR_ATTACK","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 39
@@ -269,9 +263,7 @@ END
 
 IF ~~ THEN BEGIN 40
   SAY ~Pray that your souls are prepared.  If they are not, you will serve my inferiors presently.~ [YXUN_41]
-  IF ~~ THEN DO ~SetGlobal("KULDAHAR_ATTACK","GLOBAL",1)
-Enemy()
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("KULDAHAR_ATTACK","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 41

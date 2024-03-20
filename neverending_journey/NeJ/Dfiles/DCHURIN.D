@@ -1,7 +1,6 @@
 BEGIN ~DCHURIN~ 82997 // non-zero flags may indicate non-pausing dialogue
 
-IF ~NumTimesTalkedTo(0)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 0 // from:
+IF ~NumTimesTalkedTo(0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 0 // from:
   SAY ~Good day.  I am Churin.  How may I help you?~
   IF ~~ THEN REPLY ~Well met.  I am <GABBER>.  What do you do here, Churin?~  GOTO 1
   IF ~~ THEN REPLY ~Good day to you, Churin. Have you heard about anything interesting happening in Easthaven lately?~  GOTO 3
@@ -27,22 +26,19 @@ IF ~~ THEN BEGIN 3 // from: 4.0 2.0 1.1 0.1
   IF ~~ THEN REPLY ~The tavern eh?  Alright, I'll try my luck there.  Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 4 // from:
+IF ~NumTimesTalkedToGT(0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 4 // from:
   SAY ~Hello again.  Can I help you with something?~
   IF ~~ THEN REPLY ~Have you heard any interesting news lately, Churin?~  GOTO 3
   IF ~~ THEN REPLY ~What do you do for a living, Churin?~  GOTO 1
   IF ~~ THEN REPLY ~No, Churin, but thanks for the offer.  Farewell.~  EXIT
 END
 
-IF ~GlobalGT("Know_Balance", "GLOBAL", 0)
-Global("Freed_Everard", "GLOBAL", 0)~ THEN BEGIN 5 // from:
+IF ~GlobalGT("Know_Balance","GLOBAL",0) Global("Freed_Everard","GLOBAL",0)~ THEN BEGIN 5 // from:
   SAY ~Amazing.  I didn't think anyone could put down those brutes.  You should speak with Everard.  He'll be wanting to form a plan to save us all.~
   IF ~~ THEN REPLY ~I shall speak with him straight away.  Farewell.~  EXIT
 END
 
-IF ~GlobalGT("Know_Balance", "GLOBAL", 0)
-Global("Freed_Everard", "GLOBAL", 1)~ THEN BEGIN 6 // from:
+IF ~GlobalGT("Know_Balance","GLOBAL",0) Global("Freed_Everard","GLOBAL",1)~ THEN BEGIN 6 // from:
   SAY ~Thank you for saving us.  The last thing I wanted was to die in this miserable town.~
   IF ~~ THEN REPLY ~You're welcome.  Farewell.~  EXIT
 END

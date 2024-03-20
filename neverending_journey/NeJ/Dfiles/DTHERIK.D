@@ -1,7 +1,6 @@
 BEGIN ~DTHERIK~
 
-IF ~NumTimesTalkedTo(0)
-Global("THERIK_ATTACKED","GLOBAL",0)~ THEN BEGIN 0 // from:
+IF ~NumTimesTalkedTo(0) Global("THERIK_ATTACKED","GLOBAL",0)~ THEN BEGIN 0 // from:
   SAY ~You are not welcome here.  Leave this place.~
   IF ~~ THEN REPLY ~Who are you?~  GOTO 2
   IF ~~ THEN REPLY ~Why am I not welcome here?~  GOTO 3
@@ -11,8 +10,7 @@ Global("THERIK_ATTACKED","GLOBAL",0)~ THEN BEGIN 0 // from:
   IF ~PartyHasItem("KeyGate")~ THEN REPLY ~Very well, farewell.~  GOTO 9
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("THERIK_ATTACKED","GLOBAL",0)~ THEN BEGIN 1 // from:
+IF ~NumTimesTalkedToGT(0) Global("THERIK_ATTACKED","GLOBAL",0)~ THEN BEGIN 1 // from:
   SAY ~Why have you returned?  You are not welcome here.  Leave this place.~
   IF ~~ THEN REPLY ~Who are you?~  GOTO 2
   IF ~~ THEN REPLY ~Why am I not welcome here?~  GOTO 3
@@ -59,8 +57,7 @@ END
 
 IF ~~ THEN BEGIN 6 // from: 12.0 11.0 10.0 9.0 8.0 7.1 5.0 4.1 3.1 2.1 1.2 0.2
   SAY ~Then you shall die.  Make peace with your god in what little time you have on this earth...  Brethren!  Slay this intruder!~
-  IF ~~ THEN REPLY ~So be it!~  DO ~Enemy()
-SetGlobal("THERIK_ATTACKED","GLOBAL",1)~ EXIT
+  IF ~~ THEN REPLY ~So be it!~  DO ~Enemy() SetGlobal("THERIK_ATTACKED","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 7 // from: 5.1 4.2 3.2 2.2 1.3 0.3
@@ -83,29 +80,25 @@ IF ~~ THEN BEGIN 9 // from: 8.2 7.3 5.3 4.4 3.4 2.4 1.5 0.5
   IF ~~ THEN REPLY ~No, I will not give you the key.~  GOTO 6
   IF ~~ THEN REPLY ~What key is it that you speak of?~  GOTO 10
   IF ~~ THEN REPLY ~Can you tell me what this key is for?~  GOTO 11
-  IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate")
-StartCutScene("vstherc1")~ EXIT
+  IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate") StartCutScene("vstherc1")~ EXIT
 END
 
 IF ~~ THEN BEGIN 10 // from: 9.1
   SAY ~The key.  You found it in the statue.  Give me the key, and then you may leave this place.~
   IF ~~ THEN REPLY ~No, I will not give you the key.~  GOTO 6
   IF ~~ THEN REPLY ~Can you tell me what this key is for?~  GOTO 11
-  IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate")
-StartCutScene("vstherc1")~ EXIT
+  IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate") StartCutScene("vstherc1")~ EXIT
 END
 
 IF ~~ THEN BEGIN 11 // from: 10.1 9.2
   SAY ~It unlocks the tomb...  You must not enter there.  It is forbidden.  Give me the key, and then you may leave this place.~
   IF ~~ THEN REPLY ~No, I will not give you the key.~  GOTO 6
   IF ~~ THEN REPLY ~What tomb is it that you speak of?~  GOTO 12
-  IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate")
-StartCutScene("vstherc1")~ EXIT
+  IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate") StartCutScene("vstherc1")~ EXIT
 END
 
 IF ~~ THEN BEGIN 12 // from: 11.1
   SAY ~I will not answer...  You must not enter there.  It is forbidden.  Give me the key, and then you may leave this place.~
   IF ~~ THEN REPLY ~No, I will not give you the key.~  GOTO 6
-  IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate")
-StartCutScene("vstherc1")~ EXIT
+  IF ~~ THEN REPLY ~Very well, here is the key. Farewell.~  DO ~TakePartyItem("KeyGate") StartCutScene("vstherc1")~ EXIT
 END

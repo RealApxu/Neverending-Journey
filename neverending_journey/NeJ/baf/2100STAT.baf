@@ -5,5 +5,3 @@ THEN
 	RESPONSE #100
 		SetGlobal("Know_Tolben","GLOBAL",1)
 END
-
-

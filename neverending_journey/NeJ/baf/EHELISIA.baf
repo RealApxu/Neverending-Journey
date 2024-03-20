@@ -9,5 +9,3 @@ THEN
 		ActionOverride("elisia",EndCutSceneMode())
 		DestroySelf()
 END
-
-

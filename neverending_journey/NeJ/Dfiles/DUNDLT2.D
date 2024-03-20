@@ -26,8 +26,7 @@ END
 IF ~~ THEN BEGIN 3 // from:
   SAY ~Hmm.  Intriguing.  I am quite confident in my abilities.  If you truly seek this, I will accept.  If you have any allies out there, move them away from the bridge.  When I see that they are gone, I will meet you there for our... sport.~
   IF ~~ THEN REPLY ~I agree.  I'll do it.~  EXIT
-  IF ~~ THEN REPLY ~On second thought, I think I'll take my chances with your minions.~  DO ~Enemy()
-Attack(Protagonist)~ GOTO 4
+  IF ~~ THEN REPLY ~On second thought, I think I'll take my chances with your minions.~  DO ~Enemy() Attack(Protagonist)~ GOTO 4
 END
 
 IF ~~ THEN BEGIN 4 // from: 5.1 3.1 2.1 2.0
@@ -38,6 +37,5 @@ END
 IF ~~ THEN BEGIN 5 // from:
   SAY ~Yes!  I relish the thought of personally burying my mace in your head.  If you have allies, move them away from the bridge.  I will meet you there.~
   IF ~~ THEN REPLY ~I will fight you with honor.  You have my word.~  EXIT
-  IF ~~ THEN REPLY ~I do not trust that you will fight me honorably.  I will face your minions, then you.~  DO ~Enemy()
-Attack(Protagonist)~ GOTO 4
+  IF ~~ THEN REPLY ~I do not trust that you will fight me honorably.  I will face your minions, then you.~  DO ~Enemy() Attack(Protagonist)~ GOTO 4
 END

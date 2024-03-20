@@ -65,5 +65,3 @@ THEN
 		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
 		Continue()
 END
-
-

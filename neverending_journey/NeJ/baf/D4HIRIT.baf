@@ -56,5 +56,3 @@ THEN
 		MultiPlayerSync()
 		Dialogue([PC])
 END
-
-

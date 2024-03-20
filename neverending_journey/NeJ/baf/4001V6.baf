@@ -14,5 +14,3 @@ THEN
 		DisplayStringHead(Myself,~Don't be afraid, children. We'll be okay.~) // "Don't be afraid, children.  We'll be okay."
 		Wait(3)
 END
-
-

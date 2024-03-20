@@ -43,5 +43,3 @@ THEN
 	RESPONSE #100
 		AttackReevaluate(LastAttackerOf(Myself),75)
 END
-
-

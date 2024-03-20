@@ -63,5 +63,3 @@ THEN
 		Wait(5)
 		DestroySelf()
 END
-
-

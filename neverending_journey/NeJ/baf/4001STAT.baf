@@ -4,5 +4,3 @@ THEN
 	RESPONSE #100
 		SetGlobal("Throne_Room_Attack","TT4001",1)
 END
-
-

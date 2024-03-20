@@ -17,8 +17,8 @@ IF ~~ THEN BEGIN 2
   IF ~~ THEN REPLY ~Who are you?~ GOTO 3
   IF ~~ THEN REPLY ~Just what kind of creature are you?~ GOTO 4
   IF ~~ THEN REPLY ~Your lair is littered with human bones.  Why?~ GOTO 5
-  IF ~Global("Know_Sacrifices","GLOBAL", 1)~ THEN REPLY ~Joril Frostbeard says he sends you slaves as sacrifices.  Is that true?~ GOTO 8
-  IF ~Global("Kill_Frost","GLOBAL", 3)~ THEN REPLY ~I am looking for the creature that the slaves are being sacrificed to. Is that you?~ GOTO 9
+  IF ~Global("Know_Sacrifices","GLOBAL",1)~ THEN REPLY ~Joril Frostbeard says he sends you slaves as sacrifices.  Is that true?~ GOTO 8
+  IF ~Global("Kill_Frost","GLOBAL",3)~ THEN REPLY ~I am looking for the creature that the slaves are being sacrificed to. Is that you?~ GOTO 9
   IF ~~ THEN REPLY ~Never mind.  Farewell.~ EXIT
 END
 

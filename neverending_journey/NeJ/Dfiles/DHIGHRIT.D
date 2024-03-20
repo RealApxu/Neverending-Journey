@@ -1,16 +1,11 @@
 BEGIN ~DHIGHRIT~
 
-IF ~NumberOfTimesTalkedTo(0)
-~ THEN BEGIN 0
+IF ~NumberOfTimesTalkedTo(0)~ THEN BEGIN 0
   SAY ~Welcome to our gathering, my friend.  Would you care for a bite to eat?  We were just beginning our dinnertime prayer...~
-  IF ~~ THEN REPLY ~Sure!  There's nothing I like more than a quick bite of Kuldahar villager.~ DO ~SetGlobal("Yuanti_Inferno","GLOBAL",1)
-~ GOTO 1
-  IF ~~ THEN REPLY ~You monsters!  How dare you commit this heinous act?~ DO ~SetGlobal("Yuanti_Inferno","GLOBAL",1)
-~ GOTO 2
-  IF ~~ THEN REPLY ~Eat up, I don't care.  However, if you could take some time before eating to hand over the Heartstone Gem, I'd appreciate it.~ DO ~SetGlobal("Yuanti_Inferno","GLOBAL",1)
-~ GOTO 3
-  IF ~~ THEN REPLY ~No thanks.  I was just leaving, really.~ DO ~SetGlobal("Yuanti_Inferno","GLOBAL",1)
-~ GOTO 4
+  IF ~~ THEN REPLY ~Sure!  There's nothing I like more than a quick bite of Kuldahar villager.~ DO ~SetGlobal("Yuanti_Inferno","GLOBAL",1)~ GOTO 1
+  IF ~~ THEN REPLY ~You monsters!  How dare you commit this heinous act?~ DO ~SetGlobal("Yuanti_Inferno","GLOBAL",1)~ GOTO 2
+  IF ~~ THEN REPLY ~Eat up, I don't care.  However, if you could take some time before eating to hand over the Heartstone Gem, I'd appreciate it.~ DO ~SetGlobal("Yuanti_Inferno","GLOBAL",1)~ GOTO 3
+  IF ~~ THEN REPLY ~No thanks.  I was just leaving, really.~ DO ~SetGlobal("Yuanti_Inferno","GLOBAL",1)~ GOTO 4
 END
 
 IF ~~ THEN BEGIN 1
@@ -36,12 +31,10 @@ END
 
 IF ~~ THEN BEGIN 4
   SAY ~Oh no, my friend!  Not until you have felt the warm, tight embrace of our lord Sseth!  Come closer... closer...~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy() ~ EXIT
 END
 
 IF ~~ THEN BEGIN 5
   SAY ~Do you require a demonstration of our power, my friends?  I will grant you one right now, and it will be as bold and terrifying as any dark dream you have ever slept through.  For the terrible majesty of Sseth!~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy() ~ EXIT
 END

@@ -165,5 +165,3 @@ THEN
 	RESPONSE #100
 		ForceSpell(Myself,WIZARD_VOCALIZE)
 END
-
-

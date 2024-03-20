@@ -3,124 +3,102 @@ BEGIN ~DCAPVIL~ 87379 // non-zero flags may indicate non-pausing dialogue
 // WARNING: this file contains non-trivial WEIGHTs
 //////////////////////////////////////////////////
 
-IF WEIGHT #19
-~RandomNum(10,1)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 0 // from:
+IF WEIGHT #19 ~RandomNum(10,1) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 0 // from:
   SAY ~We're going to die in here unless someone kills those... things.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #20
-~RandomNum(10,2)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 1 // from:
+IF WEIGHT #20 ~RandomNum(10,2) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 1 // from:
   SAY ~I'm scared out of my wits, I am.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #0 ~RandomNum(10,3)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 2 // from:
+IF WEIGHT #0 ~RandomNum(10,3) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 2 // from:
   SAY ~Please, you *must* stop these lizard... things from eating us.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #1 ~RandomNum(10,4)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 3 // from:
+IF WEIGHT #1 ~RandomNum(10,4) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 3 // from:
   SAY ~I wish Egenia were here.  She'd help us through this.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #2 ~RandomNum(10,5)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 4 // from:
+IF WEIGHT #2 ~RandomNum(10,5) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 4 // from:
   SAY ~I swear, had I a knife I'd have skinned those lizards myself.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #3 ~RandomNum(10,6)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 5 // from:
+IF WEIGHT #3 ~RandomNum(10,6) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 5 // from:
   SAY ~We're all gonna die!  Aaaugh!  *sob*  *sob*~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #4 ~RandomNum(10,7)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 6 // from:
+IF WEIGHT #4 ~RandomNum(10,7) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 6 // from:
   SAY ~Ilmater protect us.  If you can't do that, at least help us endure the suffering to come.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #5 ~RandomNum(10,8)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 7 // from:
+IF WEIGHT #5 ~RandomNum(10,8) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 7 // from:
   SAY ~I *told* them.  I said, "We're probably going to be abducted by lizard men."  Did anyone listen to me?  Nooooooo.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #6 ~RandomNum(10,9)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 8 // from:
+IF WEIGHT #6 ~RandomNum(10,9) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 8 // from:
   SAY ~I'm so hungry, *I* could eat me.  Heh.  Uh, just kidding, of course.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #7 ~RandomNum(10,10)
-!Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 9 // from:
+IF WEIGHT #7 ~RandomNum(10,10) !Global("LKingDead","GLOBAL",1)~ THEN BEGIN 9 // from:
   SAY ~At least we'll be warm when we die.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #8 ~RandomNum(10,1)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 10 // from:
+IF WEIGHT #8 ~RandomNum(10,1) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 10 // from:
   SAY ~You killed 'em!  You actually did it!  Ha HA!~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #9 ~RandomNum(10,2)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 11 // from:
+IF WEIGHT #9 ~RandomNum(10,2) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 11 // from:
   SAY ~Oh, thank you!  Thank you!~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #10 ~RandomNum(10,3)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 12 // from:
+IF WEIGHT #10 ~RandomNum(10,3) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 12 // from:
   SAY ~We're free... we're finally free!~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #11 ~RandomNum(10,4)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 13 // from:
+IF WEIGHT #11 ~RandomNum(10,4) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 13 // from:
   SAY ~About time.  You'd think you were building an ice castle before you got rid of those lizard men.  I almost *died,* you know.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #12 ~RandomNum(10,5)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 14 // from:
+IF WEIGHT #12 ~RandomNum(10,5) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 14 // from:
   SAY ~Whew.  Thank Waukeen we're out of that.  I sure hope someone knows the way down to the village.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #13 ~RandomNum(10,6)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 15 // from:
+IF WEIGHT #13 ~RandomNum(10,6) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 15 // from:
   SAY ~I can't wait to get back to Kuldahar!~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #14 ~RandomNum(10,7)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 16 // from:
+IF WEIGHT #14 ~RandomNum(10,7) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 16 // from:
   SAY ~If you hadn't come right when ya did, I'd a kicked those lizard arses up and down this mountain.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #15 ~RandomNum(10,8)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 17 // from:
+IF WEIGHT #15 ~RandomNum(10,8) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 17 // from:
   SAY ~I wonder what happened to that elf who tried to help us.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #16 ~RandomNum(10,9)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 18 // from:
+IF WEIGHT #16 ~RandomNum(10,9) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 18 // from:
   SAY ~I'll never forget this horrid place.~
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #17 ~RandomNum(10,10)
-Global("LKingDead","GLOBAL", 1)~ THEN BEGIN 19 // from:
+IF WEIGHT #17 ~RandomNum(10,10) Global("LKingDead","GLOBAL",1)~ THEN BEGIN 19 // from:
   SAY ~Time to make me some lizard skin boots.  Ha!  That'll show 'em.~
   IF ~~ THEN EXIT
 END

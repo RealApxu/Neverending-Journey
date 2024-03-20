@@ -6,5 +6,3 @@ THEN
 		ReallyForceSpell(LastSeenBy(Myself),WIZARD_FINGER_OF_DEATH)
 		SetGlobal("CastKill","LOCALS",1)
 END
-
-

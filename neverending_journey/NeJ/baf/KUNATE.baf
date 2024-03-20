@@ -35,5 +35,3 @@ THEN
 	RESPONSE #100
 		RandomWalk()
 END
-
-

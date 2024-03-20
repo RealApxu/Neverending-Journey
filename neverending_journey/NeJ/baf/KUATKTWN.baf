@@ -15,5 +15,3 @@ THEN
 	RESPONSE #100
 		MoveToObject(LastAttackerOf(Myself))
 END
-
-

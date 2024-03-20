@@ -536,5 +536,3 @@ THEN
 		SetGlobal("Panic","LOCALS",1)
 		DisplayStringHead(Myself,49768) // Mercy!
 END
-
-

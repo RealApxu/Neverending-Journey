@@ -38,5 +38,3 @@ THEN
 		SetGlobal("MAP_GROUP_HOSTILE9","MYAREA",1)
 		Continue()
 END
-
-

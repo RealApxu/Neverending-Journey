@@ -2,77 +2,65 @@ BEGIN ~DKUTOWNG~ 85706 // non-zero flags may indicate non-pausing dialogue
 
 IF ~~ THEN BEGIN 0 // from: 63.0 60.0 59.0 58.0 57.0 56.0 55.1 52.1 51.2 50.1 48.1 46.1 41.1 40.5 39.2 38.1 33.1 32.1 31.2 30.3 29.1 27.1 25.2 24.5 23.2 22.4 21.1 20.1 19.2 18.2 17.1 16.1 15.2 13.0 12.1 11.2 10.0 9.1 5.1 4.1 3.6 2.0
   SAY ~What did you want to know about Kuldahar?  Or did you want to know what's been going on *around* Kuldahar?~
-  IF ~Global("Vale_Quest", "GLOBAL", 1)
-Global("Vale_Rumor", "GLOBAL", 0)~ THEN REPLY ~Do you know anything about the Vale of Shadows?~  DO ~IncrementGlobal("Vale_Rumor", "GLOBAL", 1)~ GOTO 34
-  IF ~Global("Vale_Quest", "GLOBAL", 1)
-Global("Vale_Rumor", "GLOBAL", 1)~ THEN REPLY ~I've heard that some people make pilgrimages to the crypts in the Vale of Shadows -- do you know anything about that?~  DO ~IncrementGlobal("Vale_Rumor", "GLOBAL", 1)~ GOTO 39
-  IF ~Global("Vale_Quest", "GLOBAL", 1)
-Global("Vale_Rumor", "GLOBAL", 2)~ THEN REPLY ~Someone mentioned I talk to Mirek, and someone else spoke of Kresselack.  Do you know anything about the creatures that inhabit the Vale of Shadows?~  DO ~SetGlobal("Vale_Rumor", "GLOBAL", 0)~ GOTO 47
-  IF ~Global("Temple_Quest", "GLOBAL", 1)
-Global("TT3600_Visited", "GLOBAL", 0)~ THEN REPLY ~Do you know anything about the Temple of the Forgotten God?~  GOTO 51
-  IF ~Global("Deye_Quest", "GLOBAL", 1)~ THEN REPLY ~Do you know anything about Dragon's Eye Mountain?~  GOTO 49
-  IF ~Global("Know_Balance", "GLOBAL", 0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
-  IF ~Global("Kuldahar_Rumor", "GLOBAL", 0)~ THEN REPLY ~"Around Kuldahar?" Do you mean the weather?~  DO ~IncrementGlobal("Kuldahar_Rumor", "GLOBAL", 1)~ GOTO 53
-  IF ~Global("Kuldahar_Rumor", "GLOBAL", 1)~ THEN REPLY ~I've heard talk of the weather... and disappearances.  What do you know of those?~  DO ~IncrementGlobal("Kuldahar_Rumor", "GLOBAL", 1)~ GOTO 55
-  IF ~Global("Kuldahar_Rumor", "GLOBAL", 2)~ THEN REPLY ~I've heard about missing people and the strange weather.  Do you know what's causing it? ~  DO ~IncrementGlobal("Kuldahar_Rumor", "GLOBAL", 1)~ GOTO 56
-  IF ~Global("Kuldahar_Rumor", "GLOBAL", 3)~ THEN REPLY ~Do people leave the town at all?~  DO ~IncrementGlobal("Kuldahar_Rumor", "GLOBAL", 1)~ GOTO 57
-  IF ~Global("Kuldahar_Rumor", "GLOBAL", 4)~ THEN REPLY ~Any strange monster sightings? ~  DO ~IncrementGlobal("Kuldahar_Rumor", "GLOBAL", 1)~ GOTO 58
-  IF ~Global("Kuldahar_Rumor", "GLOBAL", 5)~ THEN REPLY ~Any idea where the source of Kuldahar's troubles might be coming from?~  DO ~IncrementGlobal("Kuldahar_Rumor", "GLOBAL", 1)~ GOTO 59
-  IF ~Global("Kuldahar_Rumor", "GLOBAL", 6)~ THEN REPLY ~Can you tell me anything about the Spine of the World?~  DO ~IncrementGlobal("Kuldahar_Rumor", "GLOBAL", 1)~ GOTO 60
-  IF ~Global("Easthaven_Rumor", "GLOBAL", 7)~ THEN REPLY ~I've heard a lot about the town.  Anything else going on of interest?~  DO ~SetGlobal("Easthaven_Rumor", "GLOBAL", 0)~ GOTO 61
+  IF ~Global("Vale_Quest","GLOBAL",1) Global("Vale_Rumor","GLOBAL",0)~ THEN REPLY ~Do you know anything about the Vale of Shadows?~  DO ~IncrementGlobal("Vale_Rumor","GLOBAL",1)~ GOTO 34
+  IF ~Global("Vale_Quest","GLOBAL",1) Global("Vale_Rumor","GLOBAL",1)~ THEN REPLY ~I've heard that some people make pilgrimages to the crypts in the Vale of Shadows -- do you know anything about that?~  DO ~IncrementGlobal("Vale_Rumor","GLOBAL",1)~ GOTO 39
+  IF ~Global("Vale_Quest","GLOBAL",1) Global("Vale_Rumor","GLOBAL",2)~ THEN REPLY ~Someone mentioned I talk to Mirek, and someone else spoke of Kresselack.  Do you know anything about the creatures that inhabit the Vale of Shadows?~  DO ~SetGlobal("Vale_Rumor","GLOBAL",0)~ GOTO 47
+  IF ~Global("Temple_Quest","GLOBAL",1) Global("TT3600_Visited","GLOBAL",0)~ THEN REPLY ~Do you know anything about the Temple of the Forgotten God?~  GOTO 51
+  IF ~Global("Deye_Quest","GLOBAL",1)~ THEN REPLY ~Do you know anything about Dragon's Eye Mountain?~  GOTO 49
+  IF ~Global("Know_Balance","GLOBAL",0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
+  IF ~Global("Kuldahar_Rumor","GLOBAL",0)~ THEN REPLY ~"Around Kuldahar?" Do you mean the weather?~  DO ~IncrementGlobal("Kuldahar_Rumor","GLOBAL",1)~ GOTO 53
+  IF ~Global("Kuldahar_Rumor","GLOBAL",1)~ THEN REPLY ~I've heard talk of the weather... and disappearances.  What do you know of those?~  DO ~IncrementGlobal("Kuldahar_Rumor","GLOBAL",1)~ GOTO 55
+  IF ~Global("Kuldahar_Rumor","GLOBAL",2)~ THEN REPLY ~I've heard about missing people and the strange weather.  Do you know what's causing it? ~  DO ~IncrementGlobal("Kuldahar_Rumor","GLOBAL",1)~ GOTO 56
+  IF ~Global("Kuldahar_Rumor","GLOBAL",3)~ THEN REPLY ~Do people leave the town at all?~  DO ~IncrementGlobal("Kuldahar_Rumor","GLOBAL",1)~ GOTO 57
+  IF ~Global("Kuldahar_Rumor","GLOBAL",4)~ THEN REPLY ~Any strange monster sightings? ~  DO ~IncrementGlobal("Kuldahar_Rumor","GLOBAL",1)~ GOTO 58
+  IF ~Global("Kuldahar_Rumor","GLOBAL",5)~ THEN REPLY ~Any idea where the source of Kuldahar's troubles might be coming from?~  DO ~IncrementGlobal("Kuldahar_Rumor","GLOBAL",1)~ GOTO 59
+  IF ~Global("Kuldahar_Rumor","GLOBAL",6)~ THEN REPLY ~Can you tell me anything about the Spine of the World?~  DO ~IncrementGlobal("Kuldahar_Rumor","GLOBAL",1)~ GOTO 60
+  IF ~Global("Easthaven_Rumor","GLOBAL",7)~ THEN REPLY ~I've heard a lot about the town.  Anything else going on of interest?~  DO ~SetGlobal("Easthaven_Rumor","GLOBAL",0)~ GOTO 61
   IF ~~ THEN REPLY ~I'd like to know about Kuldahar itself, actually.~  GOTO 14
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
-IF ~Global("Kuldahar_Murder", "GLOBAL", 1)~ THEN BEGIN 1 // from:
+IF ~Global("Kuldahar_Murder","GLOBAL",1)~ THEN BEGIN 1 // from:
   SAY ~I've heard of you.  I suggest you leave Kuldahar before we send your corpse to the Vale of Shadows, butcher.~
-  IF ~~ THEN REPLY ~I won't be leaving...  but I may send your corpse ahead to warn the dead of my coming.~  DO ~Enemy()
-ReputationInc(-5)~ EXIT
+  IF ~~ THEN REPLY ~I won't be leaving...  but I may send your corpse ahead to warn the dead of my coming.~  DO ~Enemy() ReputationInc(-5)~ EXIT
   IF ~~ THEN REPLY ~I'll leave.  For now.~  EXIT
 END
 
-IF ~GlobalGT("Kuldahar_Attack", "GLOBAL", 0)~ THEN BEGIN 2 // from:
+IF ~GlobalGT("Kuldahar_Attack","GLOBAL",0)~ THEN BEGIN 2 // from:
   SAY ~Where in the hells did those creatures come from that stormed Kuldahar?  One moment, everything was calm, then suddenly... the great tree was being attacked!~
-  IF ~Global("Arundel_Belhifet", "GLOBAL", 0)~ THEN REPLY ~I don't know - but I *will* get to the bottom of it.  In the meantime, I needed to ask you some things about Kuldahar.~  GOTO 0
+  IF ~Global("Arundel_Belhifet","GLOBAL",0)~ THEN REPLY ~I don't know - but I *will* get to the bottom of it.  In the meantime, I needed to ask you some things about Kuldahar.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 3 // from:
   SAY ~Back again, eh?  Something else I can help you with?~
-  IF ~Global("Vale_Quest", "GLOBAL", 1)
-Global("Vale_Rumor", "GLOBAL", 0)~ THEN REPLY ~Do you know anything about the Vale of Shadows?~  DO ~IncrementGlobal("Vale_Rumor", "GLOBAL", 1)~ GOTO 34
-  IF ~Global("Vale_Quest", "GLOBAL", 1)
-Global("Vale_Rumor", "GLOBAL", 1)~ THEN REPLY ~I've heard that some people make pilgrimages to the crypts in the Vale of Shadows -- do you know anything about that?~  DO ~IncrementGlobal("Vale_Rumor", "GLOBAL", 1)~ GOTO 39
-  IF ~Global("Vale_Quest", "GLOBAL", 1)
-Global("Vale_Rumor", "GLOBAL", 2)~ THEN REPLY ~Someone mentioned I talk to Mirek, and someone else spoke of Kresselack.  Do you know anything about the creatures that inhabit the Vale of Shadows?~  DO ~SetGlobal("Vale_Rumor", "GLOBAL", 0)~ GOTO 47
-  IF ~Global("Temple_Quest", "GLOBAL", 1)
-Global("TT3600_Visited", "GLOBAL", 0)~ THEN REPLY ~Do you know anything about the Temple of the Forgotten God?~  GOTO 51
-  IF ~Global("Deye_Quest", "GLOBAL", 1)~ THEN REPLY ~Do you know anything about Dragon's Eye Mountain?~  GOTO 49
-  IF ~Global("Know_Balance", "GLOBAL", 0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
+  IF ~Global("Vale_Quest","GLOBAL",1) Global("Vale_Rumor","GLOBAL",0)~ THEN REPLY ~Do you know anything about the Vale of Shadows?~  DO ~IncrementGlobal("Vale_Rumor","GLOBAL",1)~ GOTO 34
+  IF ~Global("Vale_Quest","GLOBAL",1) Global("Vale_Rumor","GLOBAL",1)~ THEN REPLY ~I've heard that some people make pilgrimages to the crypts in the Vale of Shadows -- do you know anything about that?~  DO ~IncrementGlobal("Vale_Rumor","GLOBAL",1)~ GOTO 39
+  IF ~Global("Vale_Quest","GLOBAL",1) Global("Vale_Rumor","GLOBAL",2)~ THEN REPLY ~Someone mentioned I talk to Mirek, and someone else spoke of Kresselack.  Do you know anything about the creatures that inhabit the Vale of Shadows?~  DO ~SetGlobal("Vale_Rumor","GLOBAL",0)~ GOTO 47
+  IF ~Global("Temple_Quest","GLOBAL",1) Global("TT3600_Visited","GLOBAL",0)~ THEN REPLY ~Do you know anything about the Temple of the Forgotten God?~  GOTO 51
+  IF ~Global("Deye_Quest","GLOBAL",1)~ THEN REPLY ~Do you know anything about Dragon's Eye Mountain?~  GOTO 49
+  IF ~Global("Know_Balance","GLOBAL",0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
   IF ~~ THEN REPLY ~I had some more questions about Kuldahar.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedTo(0)
-RandomNum(3, 2)~ THEN BEGIN 4 // from:
+IF ~NumTimesTalkedTo(0) RandomNum(3, 2)~ THEN BEGIN 4 // from:
   SAY ~Wh -- by the hells, I wasn't expecting any new faces in Kuldahar with the passes being what they are.  You from Easthaven?  How did you get through? ~
   IF ~~ THEN REPLY ~We were part of an expedition from Easthaven - but not all of us made it.  ~  GOTO 9
   IF ~~ THEN REPLY ~Hold your tongue; I have some questions about this town I would have you answer first.~  GOTO 0
-  IF ~Global("Know_Balance", "GLOBAL", 0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
+  IF ~Global("Know_Balance","GLOBAL",0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedTo(0)
-RandomNumLT(3, 4)~ THEN BEGIN 5 // from:
+IF ~NumTimesTalkedTo(0) RandomNumLT(3, 4)~ THEN BEGIN 5 // from:
   SAY ~I *heard* there were strangers in town, but I didn't believe it.  You from Easthaven?  How did you get through? ~
   IF ~~ THEN REPLY ~We were part of an expedition from Easthaven - but not all of us made it.  ~  GOTO 9
   IF ~~ THEN REPLY ~Hold your tongue; I have some questions about this town I would have you answer first.~  GOTO 0
-  IF ~Global("Know_Balance", "GLOBAL", 0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
+  IF ~Global("Know_Balance","GLOBAL",0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedTo(0)
-RandomNum(3, 1)~ THEN BEGIN 6 // from:
+IF ~NumTimesTalkedTo(0) RandomNum(3, 1)~ THEN BEGIN 6 // from:
   SAY ~Stop right there - don't take another step closer.  Who are you? How did you get through the Pass?~
   IF ~~ THEN REPLY ~I mean no harm.  What's wrong?~  GOTO 7
   IF ~~ THEN REPLY ~Sorry to trouble you.  I will take my questions elsewhere.~  EXIT
@@ -82,7 +70,7 @@ IF ~~ THEN BEGIN 7 // from: 6.0
   SAY ~We've had some troubles of late.  And now we've got strangers in town that shouldn't have been able to make it through the Pass.  Care to explain how you got here?~
   IF ~~ THEN REPLY ~We were part of an expedition from Easthaven - but not all of us made it.  ~  GOTO 9
   IF ~~ THEN REPLY ~Hold your tongue; I have some questions about this town I would have you answer first.~  GOTO 8
-  IF ~Global("Know_Balance", "GLOBAL", 0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
+  IF ~Global("Know_Balance","GLOBAL",0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
@@ -96,14 +84,14 @@ IF ~~ THEN BEGIN 9 // from: 8.0 7.0 5.0 4.0
   SAY ~My sympathies for your fallen comrades -- What happened? ~
   IF ~~ THEN REPLY ~The Pass is snowed in, and to make things worse, there's a horde of creatures in the Pass, mostly goblins and orcs.  I doubt any caravans will be through for quite some time.~  GOTO 10
   IF ~~ THEN REPLY ~Hold your tongue; I have some questions about this town I would have you answer first.~  GOTO 0
-  IF ~Global("Know_Balance", "GLOBAL", 0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
+  IF ~Global("Know_Balance","GLOBAL",0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 10 // from: 9.0
   SAY ~That is grim news indeed.  I fear things here in Kuldahar are not much better -- you may wish you'd stayed in Easthaven.~
   IF ~~ THEN REPLY ~Tell me about Kuldahar.~  GOTO 0
-  IF ~Global("Know_Balance", "GLOBAL", 0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
+  IF ~Global("Know_Balance","GLOBAL",0)~ THEN REPLY ~I need to find the Archdruid of Kuldahar.  Where is he?~  GOTO 11
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
 END
 
@@ -132,8 +120,8 @@ IF ~~ THEN BEGIN 14 // from: 63.1 60.1 59.1 58.1 57.1 56.1 55.0 54.0 52.0 51.1 5
   SAY ~Well, Kuldahar's not a big place, but I can tell you a bit about it, if you want.  ~
   IF ~~ THEN REPLY ~How long has that tree been here?  It's huge.~  GOTO 15
   IF ~~ THEN REPLY ~Any place I could tip back a tankard?  I've got quite a thirst.~  GOTO 17
-  IF ~GlobalLT("Aldwin_Eidan", "GLOBAL", 2)~ THEN REPLY ~I'm looking for a place to rest, actually.~  GOTO 18
-  IF ~Global("Aldwin_Eidan", "GLOBAL", 2)~ THEN REPLY ~I'm looking for a place to rest, actually.~  GOTO 19
+  IF ~GlobalLT("Aldwin_Eidan","GLOBAL",2)~ THEN REPLY ~I'm looking for a place to rest, actually.~  GOTO 18
+  IF ~Global("Aldwin_Eidan","GLOBAL",2)~ THEN REPLY ~I'm looking for a place to rest, actually.~  GOTO 19
   IF ~~ THEN REPLY ~Any supply shops or weapon shops? ~  GOTO 21
   IF ~~ THEN REPLY ~There any churches or temples nearby?~  GOTO 22
   IF ~Race(Player1, GNOME)~ THEN REPLY ~I thought I saw a... ship... lying by the great tree when I came in.~  GOTO 30
@@ -196,8 +184,7 @@ END
 
 IF ~~ THEN BEGIN 22 // from: 14.5
   SAY ~There's a Temple to Ilmater here, in the northeast canyon, just beneath the wrecked airship.  Don't know if that's your faith or not, but the Brothers and the Reverend Mother are good people.~
-  IF ~!Class(Player1,CLERIC)
-!Class(Player1,PALADIN)~ THEN REPLY ~Ilmater?~  GOTO 23
+  IF ~!Class(Player1,CLERIC) !Class(Player1,PALADIN)~ THEN REPLY ~Ilmater?~  GOTO 23
   IF ~Class(Player1,CLERIC)~ THEN REPLY ~Ilmater?  The Broken God, correct?~  GOTO 23
   IF ~Class(Player1,PALADIN)~ THEN REPLY ~Ilmater?  The Broken God, correct?~  GOTO 23
   IF ~~ THEN REPLY ~I had some more questions about the town.~  GOTO 14
@@ -215,20 +202,10 @@ END
 
 IF ~~ THEN BEGIN 24 // from: 23.0
   SAY ~Well, I'll tell you friend, one look at the Great Tree of Kuldahar, and it seems to me that nature's the only thing really deserving of worship around here.  I mean - the branches nearly scrape the clouds, it seems.  Beautiful sight, it is.~
-  IF ~Class(Player1,DRUID)
-Global("Druid_Blessing", "GLOBAL", 0)~ THEN REPLY ~It gratifies me to hear of your respect for nature.  I, too, have taken nature into my heart, and it grants me strength.  ~  GOTO 25
-  IF ~Class(Player1,DRUID)
-Global("Druid_Blessing", "GLOBAL", 1)~ THEN REPLY ~The tree is strong, indeed - but it seems... weak, somehow.  Ill.  Yet I know not why.~  GOTO 16
-  IF ~Global("Ilmater_Blessing", "GLOBAL", 0)
-!Class(Player1,DRUID)
-OR(2)
-Alignment(Player1,LAWFUL_GOOD)
-Alignment(Player1,NEUTRAL_GOOD)
-OR(2)
-Class(Player1,CLERIC)
-Class(Player1,PALADIN)~ THEN REPLY ~Have you ever heard the teachings of Ilmater?  I think they might make you see the church differently.~  GOTO 28
-  IF ~Class(Player1,PALADIN)
-Global("Ilmater_Blessing", "GLOBAL", 0)~ THEN REPLY ~Have you ever heard the teachings of Ilmater?  I think they might make you see the church differently.~  GOTO 28
+  IF ~Class(Player1,DRUID) Global("Druid_Blessing","GLOBAL",0)~ THEN REPLY ~It gratifies me to hear of your respect for nature.  I, too, have taken nature into my heart, and it grants me strength.  ~  GOTO 25
+  IF ~Class(Player1,DRUID) Global("Druid_Blessing","GLOBAL",1)~ THEN REPLY ~The tree is strong, indeed - but it seems... weak, somehow.  Ill.  Yet I know not why.~  GOTO 16
+  IF ~Global("Ilmater_Blessing","GLOBAL",0) !Class(Player1,DRUID) OR(2) Alignment(Player1,LAWFUL_GOOD) Alignment(Player1,NEUTRAL_GOOD) OR(2) Class(Player1,CLERIC) Class(Player1,PALADIN)~ THEN REPLY ~Have you ever heard the teachings of Ilmater?  I think they might make you see the church differently.~  GOTO 28
+  IF ~Class(Player1,PALADIN) Global("Ilmater_Blessing","GLOBAL",0)~ THEN REPLY ~Have you ever heard the teachings of Ilmater?  I think they might make you see the church differently.~  GOTO 28
   IF ~~ THEN REPLY ~I had some more questions about the town.~  GOTO 14
   IF ~~ THEN REPLY ~I had some more questions about Kuldahar in general.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
@@ -236,7 +213,7 @@ END
 
 IF ~~ THEN BEGIN 25 // from: 24.0
   SAY ~If I had half that oak's strength, I'd be a fortunate one, I would.~
-  IF ~Class(Player1,DRUID)~ THEN REPLY ~I could bestow upon you a minor blessing, if you're willing.~  DO ~SetGlobal("Druid_Blessing", "GLOBAL", 1)~ GOTO 26
+  IF ~Class(Player1,DRUID)~ THEN REPLY ~I could bestow upon you a minor blessing, if you're willing.~  DO ~SetGlobal("Druid_Blessing","GLOBAL",1)~ GOTO 26
   IF ~~ THEN REPLY ~I had some more questions about the town.~  GOTO 14
   IF ~~ THEN REPLY ~I had some more questions about Kuldahar in general.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
@@ -244,8 +221,7 @@ END
 
 IF ~~ THEN BEGIN 26 // from: 25.0
   SAY ~Aye - I'd appreciate such a kindness, I would.  ~
-  IF ~~ THEN REPLY ~Very well.  Close your eyes - feel the ground beneath your feet, the running water of the creek, the wind through the branches... now open your eyes.~  DO ~GiveItemCreate("Misc33", Player1, 0, 0, 0)
-AddExperienceParty(11500)~ GOTO 27
+  IF ~~ THEN REPLY ~Very well.  Close your eyes - feel the ground beneath your feet, the running water of the creek, the wind through the branches... now open your eyes.~  DO ~GiveItemCreate("Misc33",Player1, 0, 0, 0) AddExperienceParty(11500)~ GOTO 27
 END
 
 IF ~~ THEN BEGIN 27 // from: 26.0
@@ -257,8 +233,7 @@ END
 
 IF ~~ THEN BEGIN 28 // from: 24.3 24.2
   SAY ~Well, maybe so.  What are his teachings?~
-  IF ~~ THEN REPLY ~Ilmater is the willing sufferer.  He takes on the burdens and pains of others, and so do his priests.  I'm sure you've noticed the priests put others ahead of themselves, and they are always there when one needs healing or comfort.~  DO ~SetGlobal("Ilmater_Blessing", "GLOBAL", 1)
-AddExperienceParty(11500)~ GOTO 29
+  IF ~~ THEN REPLY ~Ilmater is the willing sufferer.  He takes on the burdens and pains of others, and so do his priests.  I'm sure you've noticed the priests put others ahead of themselves, and they are always there when one needs healing or comfort.~  DO ~SetGlobal("Ilmater_Blessing","GLOBAL",1) AddExperienceParty(11500)~ GOTO 29
 END
 
 IF ~~ THEN BEGIN 29 // from: 28.0
@@ -270,8 +245,8 @@ END
 
 IF ~~ THEN BEGIN 30 // from: 14.6
   SAY ~Oh, you mean that airship Fiddlebender's holed up in?   Yeah, well, I thought you were related to him when you first entered town.~
-  IF ~Global("Spoke_Gnome", "GLOBAL", 0)~ THEN REPLY ~Why?  Is he a gnome?~  GOTO 32
-  IF ~Global("Spoke_Gnome", "GLOBAL", 1)~ THEN REPLY ~So THAT'S where Fiddlebender is.  I've been getting tired of being mistaken for him.  He lives in the airship, you say?~  GOTO 32
+  IF ~Global("Spoke_Gnome","GLOBAL",0)~ THEN REPLY ~Why?  Is he a gnome?~  GOTO 32
+  IF ~Global("Spoke_Gnome","GLOBAL",1)~ THEN REPLY ~So THAT'S where Fiddlebender is.  I've been getting tired of being mistaken for him.  He lives in the airship, you say?~  GOTO 32
   IF ~~ THEN REPLY ~I had some more questions about the town.~  GOTO 14
   IF ~~ THEN REPLY ~I had some more questions about Kuldahar in general.~  GOTO 0
   IF ~~ THEN REPLY ~I must take my leave.  Farewell.~  EXIT
@@ -301,10 +276,9 @@ END
 
 IF ~~ THEN BEGIN 34 // from: 3.0 0.0
   SAY ~The Vale of Shadows?  Might want to ask Mirek.  He and his brother Silas make a pilgrimage there every year to pay their respects to their ancestors.  I think they left on their trip a day or two ago, though, so they won't be back for a while.~
-  IF ~Global("Mirek_Quest", "GLOBAL", 0)~ THEN REPLY ~I'll see if I can find them in the Vale, then.~  GOTO 36
-  IF ~GlobalGT("Mirek_Quest", "GLOBAL", 0)
-GlobalLT("Mirek_Quest", "GLOBAL", 5)~ THEN REPLY ~I ran into Mirek.  He was nearly killed by a pack of yetis that were prowling the Vale.  I offered to go get a heirloom of his back.~  GOTO 36
-  IF ~Global("Mirek_Quest", "GLOBAL", 5)~ THEN REPLY ~I ran into Mirek.  He was nearly killed by a pack of yetis that were prowling the Vale.  I ended up going to fetch one of his family heirlooms back from a yeti that had swallowed it... and his brother.~  GOTO 35
+  IF ~Global("Mirek_Quest","GLOBAL",0)~ THEN REPLY ~I'll see if I can find them in the Vale, then.~  GOTO 36
+  IF ~GlobalGT("Mirek_Quest","GLOBAL",0) GlobalLT("Mirek_Quest","GLOBAL",5)~ THEN REPLY ~I ran into Mirek.  He was nearly killed by a pack of yetis that were prowling the Vale.  I offered to go get a heirloom of his back.~  GOTO 36
+  IF ~Global("Mirek_Quest","GLOBAL",5)~ THEN REPLY ~I ran into Mirek.  He was nearly killed by a pack of yetis that were prowling the Vale.  I ended up going to fetch one of his family heirlooms back from a yeti that had swallowed it... and his brother.~  GOTO 35
 END
 
 IF ~~ THEN BEGIN 35 // from: 34.2
@@ -340,12 +314,9 @@ END
 IF ~~ THEN BEGIN 40 // from: 39.0
   SAY ~Terrorized this region years ago, he did, with a whole legion of soldiers, shamans, and priests under his banner.~
   IF ~Class(Player1, CLERIC)~ THEN REPLY ~Priests? What kind of priests?~  GOTO 42
-  IF ~Class(Player1, FIGHTER)
-Global("Sword_Gem", "GLOBAL", 0)~ THEN REPLY ~That's a good-sized force for this region.  It'd take a man of some strength to lead such a band, especially if it had spell casters in it.~  GOTO 44
-  IF ~Class(Player1, RANGER)
-Global("Sword_Gem", "GLOBAL", 0)~ THEN REPLY ~That's a good-sized force for this region.  It'd take a man of some strength to lead such a band, especially if it had spell casters in it.~  GOTO 44
-  IF ~Class(Player1,PALADIN)
-Global("Sword_Gem", "GLOBAL", 0)~ THEN REPLY ~That's a good-sized force for this region.  It'd take a man of some strength to lead such a band, especially if it had spell casters in it.~  GOTO 44
+  IF ~Class(Player1, FIGHTER) Global("Sword_Gem","GLOBAL",0)~ THEN REPLY ~That's a good-sized force for this region.  It'd take a man of some strength to lead such a band, especially if it had spell casters in it.~  GOTO 44
+  IF ~Class(Player1, RANGER) Global("Sword_Gem","GLOBAL",0)~ THEN REPLY ~That's a good-sized force for this region.  It'd take a man of some strength to lead such a band, especially if it had spell casters in it.~  GOTO 44
+  IF ~Class(Player1,PALADIN) Global("Sword_Gem","GLOBAL",0)~ THEN REPLY ~That's a good-sized force for this region.  It'd take a man of some strength to lead such a band, especially if it had spell casters in it.~  GOTO 44
   IF ~~ THEN REPLY ~I had some more questions about the town.~  GOTO 14
   IF ~~ THEN REPLY ~I had some more questions about Kuldahar in general.~  GOTO 0
   IF ~~ THEN REPLY ~I'll ask some of the other townsfolk, then.  Farewell.~  EXIT
@@ -360,8 +331,7 @@ END
 
 IF ~~ THEN BEGIN 42 // from: 40.0
   SAY ~Priests that would make the dead rise, friend.  'Bonedancers,' I think they called them.  That's another reason the Vale of Shadows should be left alone.  I doubt Kresselack rests easily in his crypt.~
-  IF ~~ THEN REPLY ~Bonedancers?  That would make them priests of Myrkul, Lord of the Dead.  The Bonedancers' duty lies in raising undead guardians - especially for tombs they don't wish defiled.  I imagine Kresselack's tomb is well-guarded by undead.    ~  DO ~SetGlobal("Priest_Gem", "GLOBAL", 1)
-GiveItemCreate("Misc34", Player1, 0, 0, 0)~ GOTO 43
+  IF ~~ THEN REPLY ~Bonedancers?  That would make them priests of Myrkul, Lord of the Dead.  The Bonedancers' duty lies in raising undead guardians - especially for tombs they don't wish defiled.  I imagine Kresselack's tomb is well-guarded by undead.    ~  DO ~SetGlobal("Priest_Gem","GLOBAL",1) GiveItemCreate("Misc34",Player1, 0, 0, 0)~ GOTO 43
 END
 
 IF ~~ THEN BEGIN 43 // from: 42.0
@@ -371,8 +341,7 @@ END
 
 IF ~~ THEN BEGIN 44 // from: 40.3 40.2 40.1
   SAY ~Rumor has it he had a sword as large as a man, able to cleave enemies in half.  Not only that, but it had some enchantment that helped Kresselack ward off the cold... but not the chill of death, I'll wager.~
-  IF ~~ THEN REPLY ~Well, a good blade can be the best right hand a leader can have.  It can turn a capable leader into a champion of the people.  ~  DO ~SetGlobal("Sword_Gem", "GLOBAL", 1)
-GiveItemCreate("Misc34", Player1, 0, 0, 0)~ GOTO 45
+  IF ~~ THEN REPLY ~Well, a good blade can be the best right hand a leader can have.  It can turn a capable leader into a champion of the people.  ~  DO ~SetGlobal("Sword_Gem","GLOBAL",1) GiveItemCreate("Misc34",Player1, 0, 0, 0)~ GOTO 45
 END
 
 IF ~~ THEN BEGIN 45 // from: 44.0

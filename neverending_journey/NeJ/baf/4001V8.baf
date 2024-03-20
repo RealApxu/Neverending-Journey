@@ -17,5 +17,3 @@ THEN
 		DisplayStringHead(Myself,~I'm so tired.~) // "I'm so tired."
 		Wait(3)
 END
-
-

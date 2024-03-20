@@ -93,5 +93,3 @@ THEN
 		MoveToPoint([590.2306])
 		Face(8)
 END
-
-

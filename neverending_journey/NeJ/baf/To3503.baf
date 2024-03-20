@@ -11,5 +11,3 @@ THEN
 		ActionOverride(Player5,LeaveAreaLUA("TT3503","",[2341.1249],8))
 		ActionOverride(Player6,LeaveAreaLUA("TT3503","",[2262.1246],8))
 END
-
-

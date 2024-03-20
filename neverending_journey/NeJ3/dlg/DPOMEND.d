@@ -8,7 +8,7 @@ END
 
 IF ~~ THEN BEGIN 1
   SAY ~Interesting choice of words.  Much has changed since you last visited Easthaven.  Now, as you can see, *I* run this town.~
-  IF ~Global("Know_Pomab", "GLOBAL", 1)~ THEN REPLY ~Well, at least you haven't changed.  I see you still indulge yourself with delusions of grandeur.~ GOTO 2
+  IF ~Global("Know_Pomab","GLOBAL",1)~ THEN REPLY ~Well, at least you haven't changed.  I see you still indulge yourself with delusions of grandeur.~ GOTO 2
   IF ~~ THEN REPLY ~You little worm.  You are in league with Poquelin, aren't you?~ GOTO 3
   IF ~~ THEN REPLY ~Do you really expect us to believe you're in charge here?  You couldn't even run a decent shop, let alone an entire town.~ GOTO 2
 END

@@ -479,5 +479,3 @@ THEN
 		MoveToPoint([940.1841])
 		Continue()
 END
-
-

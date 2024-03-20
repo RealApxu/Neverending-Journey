@@ -28,5 +28,3 @@ THEN
 		Help()
 		AttackReevaluate(LastHelp(Myself),75)
 END
-
-

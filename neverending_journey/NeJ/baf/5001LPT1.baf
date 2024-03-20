@@ -64,5 +64,3 @@ THEN
 		MoveToPoint([1416.952])
 		Face(12)
 END
-
-

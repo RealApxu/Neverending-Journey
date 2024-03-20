@@ -6,5 +6,3 @@ THEN
 		PlayDead(180)
 		ReallyForceSpell(Myself,TROLL_CAVE_CHANGE)
 END
-
-

@@ -26,5 +26,3 @@ THEN
 		DisplayStringHead(Myself,~Why, if I had a stout sword in my hand...~) // "Why, if I had a stout sword in my hand..."
 		Wait(3)
 END
-
-

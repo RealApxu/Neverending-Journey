@@ -17,5 +17,3 @@ THEN
 		DisplayStringHead(Myself,~Oh, shut up, Earl!~) // "Oh, shut up, Earl!"
 		Wait(3)
 END
-
-

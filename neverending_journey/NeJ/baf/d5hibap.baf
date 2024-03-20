@@ -217,5 +217,3 @@ THEN
 		Wait(2)
 		SetGlobal("BAPTISM_PHASE","LOCALS",0)
 END
-
-

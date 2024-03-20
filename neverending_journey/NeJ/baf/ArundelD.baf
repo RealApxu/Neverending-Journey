@@ -6,5 +6,3 @@ THEN
 		SmallWait(2)
 		StartDialogueNoSet([PC])
 END
-
-

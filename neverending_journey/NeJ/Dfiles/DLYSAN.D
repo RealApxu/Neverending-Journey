@@ -1,13 +1,9 @@
 BEGIN ~DLYSAN~
 
-IF ~NumberOfTimesTalkedTo(0)
-Global("Lysan_Escaped","GLOBAL",0)
-Global("Know_Lysan","GLOBAL",0)~ THEN BEGIN 0
+IF ~NumberOfTimesTalkedTo(0) Global("Lysan_Escaped","GLOBAL",0) Global("Know_Lysan","GLOBAL",0)~ THEN BEGIN 0
   SAY ~Welcome, traveler. May I be of service to you?~
   IF ~~ THEN REPLY ~I would like to ask you some questions.~ GOTO 2
-  IF ~~ THEN REPLY ~Not right now, farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~Not right now, farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 1
@@ -21,27 +17,21 @@ IF ~~ THEN BEGIN 2
   IF ~~ THEN REPLY ~What can you tell me about this tavern?~ GOTO 11
   IF ~~ THEN REPLY ~I would like to know more about Kuldahar.~ GOTO 12
   IF ~~ THEN REPLY ~Have you heard any rumors you can share with me?~ GOTO 5
-  IF ~~ THEN REPLY ~Nothing for now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~Nothing for now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 3
   SAY ~I'm Lysan, the barmaid. If I may be of service to you, you need but ask.~
   IF ~~ THEN REPLY ~What do you do here, Lysan?~ GOTO 4
   IF ~~ THEN REPLY ~I would like to ask you some more questions.~ GOTO 2
-  IF ~~ THEN REPLY ~Farewell for now.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~Farewell for now.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 4
   SAY ~As I said, I'm a barmaid. I help take care of the customers. I serve food and drinks, chat with folks, and listen to what they have to say. You learn a lot if you take the time to listen.~
   IF ~~ THEN REPLY ~Have you heard any rumors you can share with me?~ GOTO 5
   IF ~~ THEN REPLY ~I would like to ask you some more questions.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 5
@@ -52,9 +42,7 @@ IF ~~ THEN BEGIN 5
   IF ~~ THEN REPLY ~You say people are missing?~ GOTO 9
   IF ~~ THEN REPLY ~Are monsters a problem here?~ GOTO 10
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 6
@@ -64,10 +52,7 @@ IF ~~ THEN BEGIN 6
   IF ~~ THEN REPLY ~What were you saying about missing people?~ GOTO 9
   IF ~~ THEN REPLY ~You said something about monsters. Are they a problem here?~ GOTO 10
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)
-~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 7
@@ -77,9 +62,7 @@ IF ~~ THEN BEGIN 7
   IF ~~ THEN REPLY ~I would like to hear more about the missing people.~ GOTO 9
   IF ~~ THEN REPLY ~You said something about monsters. Are they a problem here?~ GOTO 10
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 8
@@ -89,9 +72,7 @@ IF ~~ THEN BEGIN 8
   IF ~~ THEN REPLY ~Did you say something about missing people earlier?~ GOTO 9
   IF ~~ THEN REPLY ~I believe you said monsters were of concern. Are they a problem here?~ GOTO 10
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 9
@@ -101,9 +82,7 @@ IF ~~ THEN BEGIN 9
   IF ~~ THEN REPLY ~Who is this Arundel you mentioned?~ GOTO 8
   IF ~~ THEN REPLY ~I believe you said monsters were of concern. Are they a problem here?~ GOTO 10
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 10
@@ -113,40 +92,29 @@ IF ~~ THEN BEGIN 10
   IF ~~ THEN REPLY ~Who is this Arundel you mentioned?~ GOTO 8
   IF ~~ THEN REPLY ~Did you say something about missing people earlier?~ GOTO 9
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 11
   SAY ~Why, this is the best tavern in all of Kuldahar. The food is good, the ale isn't watered down, and the service is friendly.~
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 12
   SAY ~I don't rightly know what to say about Kuldahar. It's a bit of a wonder. I'll give it that. The only thing that allows the town to survive is the great tree and the warmth it provides... It doesn't seem right somehow...~
   IF ~~ THEN REPLY ~Not right? What do you mean by that?~ GOTO 13
   IF ~~ THEN REPLY ~Let me ask you something else.~ GOTO 2
-  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~I will take my leave of you now. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 13
   SAY ~Oh, nothing really... I'm just... awed by the tree and all. Did you have more questions?~
   IF ~~ THEN REPLY ~Yes, if I may.~ GOTO 2
-  IF ~~ THEN REPLY ~No, I think not. Farewell.~ DO ~MoveToPoint([253.465])
-SetGlobal("Lysan_Escaped","GLOBAL",1)
-EscapeAreaMove("TT3001",474,402,0)~ EXIT
+  IF ~~ THEN REPLY ~No, I think not. Farewell.~ DO ~MoveToPoint([253.465]) SetGlobal("Lysan_Escaped","GLOBAL",1) EscapeAreaMove("TT3001",474,402,0)~ EXIT
 END
 
-IF ~See([PC])
-Global("Lysan_Escaped","GLOBAL",1)
-Global("Lysan_Talked","GLOBAL",0)
-Global("Lysan_Fight","GLOBAL",0)~ THEN BEGIN 14
+IF ~See([PC]) Global("Lysan_Escaped","GLOBAL",1) Global("Lysan_Talked","GLOBAL",0) Global("Lysan_Fight","GLOBAL",0)~ THEN BEGIN 14
   SAY ~This is my private retreat. I will thank you to leave me to my solitude.~
   IF ~~ THEN REPLY ~Who are you?~ DO ~SetGlobal("Lysan_Talked","GLOBAL",1)~ GOTO 15
   IF ~~ THEN REPLY ~What are you doing here?~ DO ~SetGlobal("Lysan_Talked","GLOBAL",1)~ GOTO 18
@@ -188,8 +156,7 @@ END
 IF ~~ THEN BEGIN 20
   SAY ~That is a private matter that I choose not to discuss with strangers. I do not pry into your private affairs, so I will thank you not to pry into mine. Now, if you are done with your questions I would appreciate being left to my devotions.~
   IF ~GlobalGT("Kress_Quest","GLOBAL",0)~ THEN REPLY ~I seek a priestess of Auril. Would that be you?~ GOTO 21
-  IF ~Global("Know_Lysan","GLOBAL",1)
-CheckStatGT(Player1,9,WIS)~ THEN REPLY ~Let us end this game, Lysan. I recognize you as the barmaid from Kuldahar. What is a barmaid doing here unless she is more than she seems?~ GOTO 39
+  IF ~Global("Know_Lysan","GLOBAL",1) CheckStatGT(Player1,9,WIS)~ THEN REPLY ~Let us end this game, Lysan. I recognize you as the barmaid from Kuldahar. What is a barmaid doing here unless she is more than she seems?~ GOTO 39
   IF ~~ THEN REPLY ~Very well, I shall leave. Farewell.~ EXIT
 END
 
@@ -197,15 +164,13 @@ IF ~~ THEN BEGIN 21
   SAY ~Hmm... I am somewhat familiar with Auril. The Frostmaiden is not very popular among most peoples. Many worship her out of fear rather than love or devotion. Her truly faithful are rare and secretive, to say the least. Why do you seek such a person?~
   IF ~~ THEN REPLY ~I have questions regarding the faith.~ GOTO 22
   IF ~~ THEN REPLY ~I must speak to her about a matter of some importance.~ GOTO 35
-  IF ~Global("Know_Lysan","GLOBAL",1)
-CheckStatGT(Player1,9,WIS)~ THEN REPLY ~Let us end this game, Lysan. I recognize you as the barmaid from Kuldahar. What is a barmaid doing here unless she is more than she seems?~ GOTO 23
+  IF ~Global("Know_Lysan","GLOBAL",1) CheckStatGT(Player1,9,WIS)~ THEN REPLY ~Let us end this game, Lysan. I recognize you as the barmaid from Kuldahar. What is a barmaid doing here unless she is more than she seems?~ GOTO 23
   IF ~~ THEN REPLY ~It is of little importance. Never mind and farewell.~ EXIT
 END
 
 IF ~~ THEN BEGIN 22
   SAY ~I have no answers for you... Well, I wish you well in your search. Now, please leave me to my devotions.~
-  IF ~Global("Know_Lysan","GLOBAL",1)
-CheckStatGT(Player1,9,WIS)~ THEN REPLY ~Let us end this game, Lysan. I recognize you as the barmaid from Kuldahar. What is a barmaid doing here unless she is more than she seems?~ GOTO 23
+  IF ~Global("Know_Lysan","GLOBAL",1) CheckStatGT(Player1,9,WIS)~ THEN REPLY ~Let us end this game, Lysan. I recognize you as the barmaid from Kuldahar. What is a barmaid doing here unless she is more than she seems?~ GOTO 23
   IF ~~ THEN REPLY ~Very well, farewell.~ EXIT
 END
 
@@ -213,13 +178,7 @@ IF ~~ THEN BEGIN 23
   SAY ~I see... I wondered if you would recognize me since our meeting was so brief. Very well, let us drop the charade. I am Lysan, servant of Auril. You have found your priestess. Now state your business with me...~
   IF ~~ THEN REPLY ~I would first know the tenets of your faith.~ GOTO 24
   IF ~~ THEN REPLY ~I have come on behalf of the spirit of the tomb here. He is worried about your intentions toward his resting place.~ GOTO 26
-  IF ~~ THEN REPLY ~My business is to kill you. Prepare to die.~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~My business is to kill you. Prepare to die.~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. Once she revealed herself, we attacked her.~ EXIT
   IF ~~ THEN REPLY ~I will discuss it with you another time. Farewell.~ GOTO 33
@@ -229,13 +188,7 @@ IF ~~ THEN BEGIN 24
   SAY ~Auril is the Frostmaiden, the cold breath of the north. She asks that her followers extinguish all flames, open structures to the cold, and to embrace winter... Those are the basic precepts of the faith. I will reveal nothing more to a non-believer. So tell me, why do you ask?~
   IF ~~ THEN REPLY ~Another told me of your faith. I needed to be sure he was not trying to deceive me.~ GOTO 25
   IF ~~ THEN REPLY ~I have come on behalf of the spirit of the tomb here. He is worried about your intentions toward his resting place.~ GOTO 26
-  IF ~~ THEN REPLY ~I just wanted to be sure I was killing you for the right reason. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~I just wanted to be sure I was killing you for the right reason. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. Once she revealed herself, we attacked her.~ EXIT
 END
@@ -243,13 +196,7 @@ END
 IF ~~ THEN BEGIN 25
   SAY ~Oh? Who dares to speak of Auril? I would know who this person is!~
   IF ~~ THEN REPLY ~Kresselack, the spirit of the tomb here. He is worried about your intentions toward his resting place.~ GOTO 26
-  IF ~~ THEN REPLY ~That is of no consequence. What matters is that you sound like the threat he says you are. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~That is of no consequence. What matters is that you sound like the threat he says you are. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. Once she revealed herself, we attacked her.~ EXIT
   IF ~~ THEN REPLY ~Never mind, we will speak of this at another time. Farewell.~ GOTO 33
@@ -266,26 +213,13 @@ IF ~~ THEN BEGIN 27
   SAY ~I could care less what this spirit wants. He is dead, is he not? What do the dead care for light or dark, cold or warmth? They are beyond such mortal concerns.~
   IF ~~ THEN REPLY ~Be that as it may, this spirit cares. He has asked me to speak with you on his behalf.~ GOTO 28
   IF ~~ THEN REPLY ~What about the people of Kuldahar? They are not dead, nor are they beyond mortal concerns. Would you deny them the warmth and protection of the great tree?~ GOTO 31
-  IF ~~ THEN REPLY ~Enough of this useless chatter. You seem unwilling to listen to reason. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()
-~ EXIT
+  IF ~~ THEN REPLY ~Enough of this useless chatter. You seem unwilling to listen to reason. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy() ~ EXIT
 END
 
 IF ~~ THEN BEGIN 28
   SAY ~I care not for this spirit or his desires! I have worked for months to rid that tomb of the undead within it so that I can perform the will of the goddess. I am not about to forsake the task now!~
   IF ~~ THEN REPLY ~What have you done, Lysan?~ GOTO 29
-  IF ~~ THEN REPLY ~Then I shall have to kill you. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~Then I shall have to kill you. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. Once she revealed herself, we attacked her.~ EXIT
   IF ~~ THEN REPLY ~Enough of this, I am leaving. Farewell.~ GOTO 33
@@ -295,13 +229,7 @@ IF ~~ THEN BEGIN 29
   SAY ~First, I cursed the Vale and the spirits of the dead within it. I bid them to rise and haunt the land. Next, I insinuated myself into Kuldahar society and became a barmaid at the local tavern. From there, I began to spread rumors of the evil brewing within the Vale and the danger it posed to all. It was only a matter of time until someone was sent to deal with the situation. It happened to be you.~
   IF ~~ THEN REPLY ~You cursed the entire Vale? You hardly seem powerful enough for that.~ GOTO 30
   IF ~~ THEN REPLY ~All that manipulating of peoples lives just so you can destroy a tomb? That is sick.~ GOTO 30
-  IF ~~ THEN REPLY ~I think I have heard enough. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~I think I have heard enough. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. Once she revealed herself, we attacked her.~ EXIT
   IF ~~ THEN REPLY ~Enough of this, I am leaving. Farewell.~ GOTO 33
@@ -311,13 +239,7 @@ IF ~~ THEN BEGIN 30
   SAY ~Hold your insults, fool! You have no concept of whom you are dealing with. When I cast my curse I felt a calling, a force that I had never felt before. It engulfed me, fueled my desire, and brought it into being! It had to be the will of the goddess herself made manifest in me. I was chosen to perform this great work!~
   IF ~~ THEN REPLY ~And what of Kuldahar, Lysan.~ GOTO 31
   IF ~~ THEN REPLY ~A calling? Sounds like the raving of a diseased mind to me.~ GOTO 34
-  IF ~~ THEN REPLY ~I have heard enough. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~I have heard enough. Prepare to die!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. Once she revealed herself, we attacked her.~ EXIT
   IF ~~ THEN REPLY ~Enough of this, I am leaving. Farewell.~ GOTO 33
@@ -331,39 +253,21 @@ END
 
 IF ~~ THEN BEGIN 32
   SAY ~Oh really? How sad. I shall have to kill you then. Prepare to meet your fate, fool!~
-  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. She didn't welcome the intrusion, and she attacked us.~ EXIT
 END
 
 IF ~~ THEN BEGIN 33
   SAY ~No, I think not. I have revealed myself to you and cannot allow you to leave this cave alive. Prepare to meet your fate, fool!~
-  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. She didn't welcome the intrusion, and she attacked us.~ EXIT
 END
 
 IF ~~ THEN BEGIN 34
   SAY ~How dare you! I am the chosen of Auril and you shall feel Her wrath. Die, fool!~
-  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. She didn't welcome the intrusion, and she attacked us.~ EXIT
 END
@@ -378,17 +282,9 @@ END
 IF ~~ THEN BEGIN 36
   SAY ~I see... Very well, let us end this charade. I am Lysan, servant of Auril. You have found your priestess. Now, state your business with me...~
   IF ~~ THEN REPLY ~I would first know the tenets of your faith.~ GOTO 24
-  IF ~OR(2)
-Class(Player1,DRUID)
-Class(Player1,CLERIC)~ THEN REPLY ~Followers of Auril believe that all fires should be extinguished, correct?~ GOTO 24
+  IF ~OR(2) Class(Player1,DRUID) Class(Player1,CLERIC)~ THEN REPLY ~Followers of Auril believe that all fires should be extinguished, correct?~ GOTO 24
   IF ~~ THEN REPLY ~I have come on behalf of the spirit of the tomb here. He is worried about your intentions toward his resting place.~ GOTO 26
-  IF ~~ THEN REPLY ~My business is to kill you. Prepare to die.~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~My business is to kill you. Prepare to die.~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. Once she revealed herself, we attacked her.~ EXIT
   IF ~~ THEN REPLY ~I will discuss it with you another time. Farewell.~ GOTO 33
@@ -402,31 +298,18 @@ IF ~Global("Lysan_Talked","GLOBAL",1)~ THEN BEGIN 37
   IF ~~ THEN REPLY ~Very well, farewell.~ DO ~SetGlobal("Lysan_Talked","GLOBAL",2)~ EXIT
 END
 
-IF ~Global("Lysan_Talked","GLOBAL",2)
-GlobalGT("Kress_Quest","GLOBAL",0)~ THEN BEGIN 38
+IF ~Global("Lysan_Talked","GLOBAL",2) GlobalGT("Kress_Quest","GLOBAL",0)~ THEN BEGIN 38
   SAY ~So, you have returned. Will you state your business with me now?~
   IF ~~ THEN REPLY ~I would first know the tenets of your faith.~ GOTO 24
   IF ~~ THEN REPLY ~I have come on behalf of the spirit of the tomb here. He is worried about your intentions toward his resting place.~ GOTO 26
-  IF ~~ THEN REPLY ~My business is to kill you. Prepare to die.~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~My business is to kill you. Prepare to die.~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We found the priestess of Auril that Kresselack spoke of, a woman named Lysan. Once she revealed herself, we attacked her.~ EXIT
 END
 
 IF ~~ THEN BEGIN 39
   SAY ~I see... I wondered if you would recognize me since our meeting was so brief. Very well, let us drop the charade. I am Lysan, servant of Auril. Now state your business with me...~
-  IF ~~ THEN REPLY ~My business is to kill you. Prepare to die.~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~My business is to kill you. Prepare to die.~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We met the priestess of Auril, and recognized her as a barmaid from Kuldahar. Once she revealed herself, we attacked her.~ EXIT
   IF ~~ THEN REPLY ~I will discuss it with you another time. Farewell.~ GOTO 40
@@ -434,13 +317,7 @@ END
 
 IF ~~ THEN BEGIN 40
   SAY ~No, I think not. I have revealed myself to you and cannot allow you to leave this cave alive. Prepare to meet your fate, fool!~
-  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1)
-CreateCreature("MISTWA01",[816.522],0)
-CreateCreature("MISTWA01",[907.392],0)
-CreateCreature("MISTVA01",[456.840],0)
-CreateCreature("MISTVA01",[800.800],0)
-CreateCreature("MISTVA01",[664.684],0)
-Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
+  IF ~~ THEN REPLY ~So be it!~ DO ~SetGlobal("Lysan_Fight","GLOBAL",1) CreateCreature("MISTWA01",[816.522],0) CreateCreature("MISTWA01",[907.392],0) CreateCreature("MISTVA01",[456.840],0) CreateCreature("MISTVA01",[800.800],0) CreateCreature("MISTVA01",[664.684],0) Enemy()~ UNSOLVED_JOURNAL ~Vale of Shadows.
 
 We met the priestess of Auril, and recognized her as a barmaid from Kuldahar. Once she revealed herself, we attacked her.~ EXIT
 END

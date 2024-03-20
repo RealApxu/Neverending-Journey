@@ -30,7 +30,7 @@ END
 
 IF ~~ THEN BEGIN 4 // from: 3.0 2.0 1.2
   SAY ~Dis-disturbances?  Yes.  People disappearing, m-monsters everywhere... even the weather has t-turned against us.  Nobody knows why... not even Arundel.~
-  IF ~Global("Know_Arundel", "GLOBAL", 0)~ THEN REPLY ~Who is this Arundel?~  DO ~SetGlobal("Know_Arundel", "GLOBAL", 1)~ GOTO 5
+  IF ~Global("Know_Arundel","GLOBAL",0)~ THEN REPLY ~Who is this Arundel?~  DO ~SetGlobal("Know_Arundel","GLOBAL",1)~ GOTO 5
   IF ~~ THEN REPLY ~Well, best of luck to you.  Farewell.~  EXIT
 END
 

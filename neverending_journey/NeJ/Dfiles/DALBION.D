@@ -124,7 +124,7 @@ IF ~~ THEN BEGIN 17 // from: 16.0
 END
 
 IF ~NumTimesTalkedToGT(0)
-Global("Yuanti_Surprise", "GLOBAL", 1)~ THEN BEGIN 18 // from:
+Global("Yuanti_Surprise","GLOBAL",1)~ THEN BEGIN 18 // from:
   SAY ~Hello again.  What can Albion do for you, my friend?~
   IF ~!Class(Player1,PALADIN)~ THEN REPLY ~Albion can tell me what in the Nine Hells is going on around here.  I've seen some pretty odd things walking through your "den of peace," friend.~  JOURNAL ~Dragon's Eye.
 
@@ -138,15 +138,15 @@ END
 
 IF ~~ THEN BEGIN 19 // from: 18.1 18.0
   SAY ~Oh dear!  What sorts of things?~
-  IF ~Global("Yuanti_Books","GLOBAL", 1)~ THEN REPLY ~I found some books on your shelves that had some pretty strange titles.  Are "How to Serve Man" and "Ophidian Necromancy" standard texts in Eldathyn monasteries?~  GOTO 20
-  IF ~Global("Yuanti_Carpet","GLOBAL", 1)~ THEN REPLY ~I was looking at some of your carpets, the red and gold ones.  They are quite exotic for an Eldathyn retreat.  What do the gold carp on them symbolize?~  GOTO 21
-  IF ~Global("Yuanti_Room","GLOBAL", 1)~ THEN REPLY ~One of the rooms to the north, it smells like someone died in there.~  GOTO 22
+  IF ~Global("Yuanti_Books","GLOBAL",1)~ THEN REPLY ~I found some books on your shelves that had some pretty strange titles.  Are "How to Serve Man" and "Ophidian Necromancy" standard texts in Eldathyn monasteries?~  GOTO 20
+  IF ~Global("Yuanti_Carpet","GLOBAL",1)~ THEN REPLY ~I was looking at some of your carpets, the red and gold ones.  They are quite exotic for an Eldathyn retreat.  What do the gold carp on them symbolize?~  GOTO 21
+  IF ~Global("Yuanti_Room","GLOBAL",1)~ THEN REPLY ~One of the rooms to the north, it smells like someone died in there.~  GOTO 22
 END
 
 IF ~~ THEN BEGIN 20 // from: 19.0
   SAY ~No, no.  Not in Eldathyn monasteries.  However, they are quite common in hidden yuan-ti temples to Sseth.~
   IF ~~ THEN REPLY ~Hidden yuan-ti temples to Sseth?  Heh, I suppose.  But where are you going to find one of those around... hey!~  GOTO 23
-  IF ~Class(Player1,CLERIC)~ THEN REPLY ~A servant of the god of serpents masquerading as the head of an Eldathyn retreat.  What are you planning on doing now, Albion?  ~  GOTO 23
+  IF ~Class(Player1,CLERIC)~ THEN REPLY ~A servant of the god of serpents masquerading as the head of an Eldathyn retreat.  What are you planning on doing now, Albion?~  GOTO 23
   IF ~~ THEN REPLY ~Hmm.  I think I'll be going now.  Farewell, Albion.~  EXIT
 END
 
@@ -166,22 +166,13 @@ END
 
 IF ~~ THEN BEGIN 23 // from: 25.0 22.2 22.1 22.0 21.2 21.1 21.0 20.1 20.0 17.2 17.1 17.0
   SAY ~Have you ever been afraid of snakes, little one?  Have you ever trembled at the sound of his hiss?  You are afraid because you recognize a master race.  Long before your kind danced on these lands, my people ruled on high!  It shall be that way again, humanoid!  All shall bask in the glory of Sseth!  None shall stand against Yxunomei, his princess!  Ah ha ha ha ha!~
-  IF ~~ THEN REPLY ~I still have no idea what you're talking about.~  DO ~AddExperienceParty(87500)
-SetGlobal("Yuanti_Inferno","GLOBAL", 1)
-Polymorph(IC_YUANTI3)
-Enemy()~ EXIT
-  IF ~~ THEN REPLY ~I'll stand against you, madman.  You're obviously behind the abduction of the Heartstone Gem.  Don't think you can stop me from finding it.~  DO ~AddExperienceParty(87500)
-SetGlobal("Yuanti_Inferno","GLOBAL", 1)
-Polymorph(IC_YUANTI3)
-Enemy()~ EXIT
-  IF ~~ THEN REPLY ~I certainly won't stand against you, Albion.  However, I do think I'll be leaving now...~  DO ~AddExperienceParty(87500)
-SetGlobal("Yuanti_Inferno","GLOBAL", 1)
-Polymorph(IC_YUANTI3)
-Enemy()~ EXIT
+  IF ~~ THEN REPLY ~I still have no idea what you're talking about.~  DO ~AddExperienceParty(87500) SetGlobal("Yuanti_Inferno","GLOBAL",1) Polymorph(IC_YUANTI3) Enemy()~ EXIT
+  IF ~~ THEN REPLY ~I'll stand against you, madman.  You're obviously behind the abduction of the Heartstone Gem.  Don't think you can stop me from finding it.~  DO ~AddExperienceParty(87500) SetGlobal("Yuanti_Inferno","GLOBAL",1) Polymorph(IC_YUANTI3) Enemy()~ EXIT
+  IF ~~ THEN REPLY ~I certainly won't stand against you, Albion.  However, I do think I'll be leaving now...~  DO ~AddExperienceParty(87500) SetGlobal("Yuanti_Inferno","GLOBAL",1) Polymorph(IC_YUANTI3) Enemy()~ EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)
-Global("Yuanti_Inferno", "GLOBAL", 1)~ THEN BEGIN 24 // from:
+Global("Yuanti_Inferno","GLOBAL",1)~ THEN BEGIN 24 // from:
   SAY ~Slaughter!  Blood and slaughter!  Take the flesh of the unbelievers and roast it upon a pit of flame!  Serve their hearts to Yxunomei, our princess!  Devour them!  Devour them in the name of Sseth, the Sibilant Death!~
   IF ~~ THEN EXIT
 END

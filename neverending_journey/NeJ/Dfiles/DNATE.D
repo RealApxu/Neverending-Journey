@@ -1,7 +1,7 @@
 BEGIN ~DNATE~ 83416 // non-zero flags may indicate non-pausing dialogue
 
 IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
-  SAY ~I knew you'd make it through.  I just knew it!  ~
+  SAY ~I knew you'd make it through.  I just knew it!~
   IF ~~ THEN REPLY ~Who are you, and how did you know we were coming?~  GOTO 1
   IF ~~ THEN REPLY ~Well, hooray for you.  Now get out my way, kid.~  EXIT
   IF ~~ THEN REPLY ~Thanks for the vote of confidence.  Farewell.~  EXIT
@@ -10,13 +10,13 @@ END
 IF ~~ THEN BEGIN 1 // from: 0.0
   SAY ~I'm Nate.  Arundel said that help was on its way.  I've been out here every day, keeping a lookout for you.  Where is the rest of your army?  Are you just the scouts or something?~
   IF ~~ THEN REPLY ~Sorry to disappoint you, but we are alone.~  GOTO 2
-  IF ~Global("Know_Arundel", "GLOBAL", 0)~ THEN REPLY ~Who is Arundel?~  DO ~SetGlobal("Know_Arundel", "GLOBAL", 1)~ GOTO 3
+  IF ~Global("Know_Arundel","GLOBAL",0)~ THEN REPLY ~Who is Arundel?~  DO ~SetGlobal("Know_Arundel","GLOBAL",1)~ GOTO 3
   IF ~~ THEN REPLY ~I think you have the wrong idea... we're just passing through.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 2 // from: 1.0
   SAY ~Alone?  I thought for sure that the Ten-Towns would send an army to help us.  Wait 'til Arundel finds out it's just you.~
-  IF ~Global("Know_Arundel", "GLOBAL", 0)~ THEN REPLY ~Who is Arundel?~  DO ~SetGlobal("Know_Arundel", "GLOBAL", 1)~ GOTO 3
+  IF ~Global("Know_Arundel","GLOBAL",0)~ THEN REPLY ~Who is Arundel?~  DO ~SetGlobal("Know_Arundel","GLOBAL",1)~ GOTO 3
   IF ~~ THEN REPLY ~Who says we are here to *help* you?  Maybe we are here to murder little boys who talk too much.~  GOTO 5
   IF ~~ THEN REPLY ~Thanks for the vote of confidence.  Farewell.~  EXIT
 END
@@ -34,28 +34,20 @@ END
 
 IF ~~ THEN BEGIN 5 // from: 2.1
   SAY ~Eeeeek!  Momma!  Momma!  They're gonna kill me!~
-  IF ~~ THEN DO ~Enemy()
-RunAwayFromNoInterrupt(LastTalkedToBy(Myself),15)~ EXIT
+  IF ~~ THEN DO ~Enemy() RunAwayFromNoInterrupt(LastTalkedToBy(Myself),15)~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Know_Arundel", "GLOBAL", 0)~ THEN BEGIN 6 // from:
+IF ~NumTimesTalkedToGT(0) Global("Know_Arundel","GLOBAL",0)~ THEN BEGIN 6 // from:
   SAY ~If you haven't already, you should go see Arundel.  I'm sure he'll want to know that you have arrived.  I'm gonna stay here and keep a lookout.  Maybe they'll send us an army after all.~
   IF ~~ THEN REPLY ~You do that, Nate.  Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-GlobalGT("Know_Arundel", "GLOBAL", 0)
-!Global("Kuldahar_Attack", "GLOBAL", 1)
-!Global("Kuldahar_Attack", "GLOBAL", 2)~ THEN BEGIN 7 // from:
+IF ~NumTimesTalkedToGT(0) GlobalGT("Know_Arundel","GLOBAL",0) !Global("Kuldahar_Attack","GLOBAL",1) !Global("Kuldahar_Attack","GLOBAL",2)~ THEN BEGIN 7 // from:
   SAY ~Hello again.  Arundel says you're gonna help save the town.  I hope he's right.  I hope you don't get squashed by a giant or something.~
   IF ~~ THEN REPLY ~We'll try not to let that happen.  Farewell, Nate.~  EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-GlobalGT("Know_Arundel", "GLOBAL", 0)
-GlobalGT("Kuldahar_Attack", "GLOBAL", 0)
-GlobalLT("Kuldahar_Attack", "GLOBAL", 3)~ THEN BEGIN 8 // from:
+IF ~NumTimesTalkedToGT(0) GlobalGT("Know_Arundel","GLOBAL",0) GlobalGT("Kuldahar_Attack","GLOBAL",0) GlobalLT("Kuldahar_Attack","GLOBAL",3)~ THEN BEGIN 8 // from:
   SAY ~Oh, it's you.  Where have you been?  Did you see the monsters?  They came out of the mountains and started attacking the town.  I saw them from my lookout post...  a bunch of big, scary looking orcs led by a man in grey.~
   IF ~~ THEN REPLY ~Tell me about the man in grey.  Who was he?~  GOTO 9
 END
@@ -65,8 +57,7 @@ IF ~~ THEN BEGIN 9 // from: 8.0
   IF ~~ THEN REPLY ~Well done, Nate.  Keep up the good work.  Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Severed_Hand_Reveal", "GLOBAL", 1)~ THEN BEGIN 10 // from:
+IF ~NumTimesTalkedToGT(0) Global("Severed_Hand_Reveal","GLOBAL",1)~ THEN BEGIN 10 // from:
   SAY ~You're back.  I'm glad you're still alive.  Now that Arundel is gone, you're our only hope.  Please don't die until you've saved the town, ok?~
   IF ~~ THEN REPLY ~We'll do our best.  Farewell, Nate.~  EXIT
 END

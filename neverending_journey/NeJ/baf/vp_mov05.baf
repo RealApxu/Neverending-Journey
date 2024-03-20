@@ -15,5 +15,3 @@ THEN
 		Wait(2)
 		StartCutScene("VP_Mov03")
 END
-
-

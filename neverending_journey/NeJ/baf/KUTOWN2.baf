@@ -591,5 +591,3 @@ THEN
 		CloseDoor("AR2100DOOR2")
 		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
 END
-
-

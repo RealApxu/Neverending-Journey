@@ -17,5 +17,3 @@ THEN
 		Lock("3502HIDE")
 		SetGlobal("TT3502_Solved","GLOBAL",0)
 END
-
-

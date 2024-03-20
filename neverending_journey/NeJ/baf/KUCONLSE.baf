@@ -20,5 +20,3 @@ THEN
 		MoveToObject(LastAttackerOf(Myself))
 		AttackReevaluate(LastAttackerOf(Myself),75)
 END
-
-

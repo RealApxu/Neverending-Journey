@@ -4,5 +4,3 @@ THEN
 	RESPONSE #100
 		OpenDoor(Myself)
 END
-
-

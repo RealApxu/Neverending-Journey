@@ -16,22 +16,16 @@ IF ~~ THEN BEGIN 1 // from: 0.3 0.2 0.0
   IF ~~ THEN REPLY ~Boy, you're stupid.  I'm not giving you one copper piece, much less my gold.~  GOTO 2
   IF ~~ THEN REPLY ~Sorry, but I'm not going to give you a tribute.~  GOTO 2
   IF ~~ THEN REPLY ~How about you shut up before I spill your guts all over the floor?~  GOTO 2
-  IF ~CheckStatGT(Player1,13,CHR)
-CheckStatGT(Player1,13,INT)
-CheckStatGT(Player1,13,STR)~ THEN REPLY ~Quit threatening me or I'll slice your belly open, remove your intestines, and strangle you with them out on the ice so you can see your reflection before you die.  How does that sound?~ GOTO 3
-  IF ~CheckStatGT(Player1,13,CHR)
-CheckStatGT(Player1,13,INT)
-CheckStatLT(Player1,14,STR)~ THEN REPLY ~Quit threatening me or I'll slice your belly open, remove your intestines, and strangle you with them out on the ice so you can see your reflection before you die.  How does that sound?~ GOTO 6
+  IF ~CheckStatGT(Player1,13,CHR) CheckStatGT(Player1,13,INT) CheckStatGT(Player1,13,STR)~ THEN REPLY ~Quit threatening me or I'll slice your belly open, remove your intestines, and strangle you with them out on the ice so you can see your reflection before you die.  How does that sound?~ GOTO 3
+  IF ~CheckStatGT(Player1,13,CHR) CheckStatGT(Player1,13,INT) CheckStatLT(Player1,14,STR)~ THEN REPLY ~Quit threatening me or I'll slice your belly open, remove your intestines, and strangle you with them out on the ice so you can see your reflection before you die.  How does that sound?~ GOTO 6
   IF ~PartyGoldGT(49)~ THEN REPLY ~Okay, okay.  Here, take the gold.~  DO ~TakePartyGold(50)~ GOTO 4
   IF ~PartyGoldLT(50)~ THEN REPLY ~Hmm.  Well, I don't really have much gold to give you.~  GOTO 5
-  IF ~~ THEN REPLY ~Give tribute or die, eh?  Well, it's getting pretty late.  I should probably be going.  Farewell.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN REPLY ~Give tribute or die, eh?  Well, it's getting pretty late.  I should probably be going.  Farewell.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 2 // from: 1.2 1.1 1.0 0.6 0.1
   SAY ~You insult me.  Wolves will feed on your flesh tonight.~
-  IF ~~ THEN REPLY ~We'll see about that.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN REPLY ~We'll see about that.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 3 // from: 1.3
@@ -46,24 +40,18 @@ END
 
 IF ~~ THEN BEGIN 5 // from: 1.6 0.5
   SAY ~You lie.  I find the gold on you.~
-  IF ~~ THEN REPLY ~Uh... er... hold on...~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
-Enemy()~ EXIT
-  IF ~~ THEN REPLY ~I'd like to see you try, you ugly bastard.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN REPLY ~Uh... er... hold on...~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1) Enemy()~ EXIT
+  IF ~~ THEN REPLY ~I'd like to see you try, you ugly bastard.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 6 // from: 1.4
   SAY ~Ha ha.  I laugh.  You talk big but are small.  I kill you now, find gold later.~
-  IF ~~ THEN REPLY ~Oh, uh, heh... heh... I was just joking about that whole "intestine strangling" thing.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
-Enemy()~ EXIT
-  IF ~~ THEN REPLY ~Come over here and try it, pigface.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN REPLY ~Oh, uh, heh... heh... I was just joking about that whole "intestine strangling" thing.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1) Enemy()~ EXIT
+  IF ~~ THEN REPLY ~Come over here and try it, pigface.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 7 // from:
   SAY ~You dare come here again?  I slay you for your... your...  Gruumsh damn you!  What that word?~
-  IF ~~ THEN REPLY ~"Insolence?"  You *are* stupid, aren't you?~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
-Enemy()~ EXIT
-  IF ~~ THEN REPLY ~Sorry.  I don't think I'm going to let you do that.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN REPLY ~"Insolence?"  You *are* stupid, aren't you?~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1) Enemy()~ EXIT
+  IF ~~ THEN REPLY ~Sorry.  I don't think I'm going to let you do that.~  DO ~SetGlobal("Uligar_Attacks","GLOBAL",1) Enemy()~ EXIT
 END

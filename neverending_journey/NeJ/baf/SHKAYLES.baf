@@ -272,5 +272,3 @@ THEN
 		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
 		MoveToPoint([553.542])
 END
-
-

@@ -59,7 +59,7 @@ THEN
 		ReallyForceSpell(Myself,WIZARD_STONE_SKIN)
 		DisplayString(Myself,40248) // No such index
 		ReallyForceSpell(Myself,WIZARD_TRUE_SIGHT)
-		DisplayString(Myself,2469) // 
+		DisplayString(Myself,2469) //
 		ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
 END
 
@@ -69,5 +69,3 @@ THEN
 	RESPONSE #100
 		AttackReevaluate(LastSeenBy(Myself),75)
 END
-
-

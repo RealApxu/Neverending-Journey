@@ -1,8 +1,6 @@
 BEGIN ~DAPSEL~
 
-IF ~NumberOfTimesTalkedTo(0)
-Global("Know_Balance","GLOBAL",0)
-~ THEN BEGIN 0
+IF ~NumberOfTimesTalkedTo(0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 0
   SAY ~Oh, thank the gods.  Whoever you are, you picked the perfect time to wander by.  I could really use some help.~
   IF ~~ THEN REPLY ~My name is <GABBER>. Who might you be?~ GOTO 1
   IF ~~ THEN REPLY ~What seems to be the problem?~ GOTO 2
@@ -25,32 +23,24 @@ END
 IF ~~ THEN BEGIN 3
   SAY ~I am a scrimshander.  I carve the huge, bony skulls of knucklehead trout into fine works of art.  This summer, southlanders will come up and buy my pieces to take back to their fancy shops -- that is, of course, if I ever get any work done.  Damn wolf!~
   IF ~~ THEN REPLY ~What is it exactly that you want me to do?~ GOTO 4
-  IF ~~ THEN REPLY ~Quit your whining, you grouchy, old toad.  Why don't you be a man and go back in there and kill that thing?~ DO ~SetGlobal("Chaotic_Apsel_1","GLOBAL",1)
-~ GOTO 5
+  IF ~~ THEN REPLY ~Quit your whining, you grouchy, old toad.  Why don't you be a man and go back in there and kill that thing?~ DO ~SetGlobal("Chaotic_Apsel_1","GLOBAL",1)~ GOTO 5
   IF ~~ THEN REPLY ~Sorry, but I'm rather busy right now.  Farewell.~ EXIT
 END
 
 IF ~~ THEN BEGIN 4
   SAY ~I'd be most grateful if you could go in there and get rid of that stupid thing for me.  Then I could get back to my scrimshaw.  Of course, you'll have to find a way to get the door open first.~
-  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)
-~ GOTO 6
+  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)~ GOTO 6
   IF ~~ THEN REPLY ~Sounds like quite a task.  What's in it for me?~ GOTO 7
-  IF ~Class(Player1,THIEF)
-~ THEN REPLY ~How am I supposed to get the door open if you broke the key off in the lock?~ GOTO 14
-  IF ~!Class(Player1,THIEF)
-~ THEN REPLY ~How am I supposed to get the door open if you broke the key off in the lock?~ GOTO 15
-  IF ~~ THEN REPLY ~Sorry, but I'm rather busy right now.  Farewell.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",2)
-~ EXIT
-  IF ~PartyHasItem("MiscAps")
-~ THEN REPLY ~We have already killed the beast.~ GOTO 10
-  IF ~!PartyHasItem("MiscAps")
-~ THEN REPLY ~We have already killed the beast but forgot to pick up his pelt.~ GOTO 18
+  IF ~Class(Player1,THIEF)~ THEN REPLY ~How am I supposed to get the door open if you broke the key off in the lock?~ GOTO 14
+  IF ~!Class(Player1,THIEF)~ THEN REPLY ~How am I supposed to get the door open if you broke the key off in the lock?~ GOTO 15
+  IF ~~ THEN REPLY ~Sorry, but I'm rather busy right now.  Farewell.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",2)~ EXIT
+  IF ~PartyHasItem("MiscAps")~ THEN REPLY ~We have already killed the beast.~ GOTO 10
+  IF ~!PartyHasItem("MiscAps")~ THEN REPLY ~We have already killed the beast but forgot to pick up his pelt.~ GOTO 18
 END
 
 IF ~~ THEN BEGIN 5
   SAY ~I ought to spin your head for talking to me that way.  Ah, forget it.  You're not worth it.  I'll take my troubles elsewhere.~
-  IF ~~ THEN DO ~SetGlobal("Chaotic_Apsel_1","GLOBAL",1)
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("Chaotic_Apsel_1","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 6
@@ -62,71 +52,43 @@ END
 
 IF ~~ THEN BEGIN 7
   SAY ~All right, you greedy bastard, I'll throw in some gold for your trouble.  Will that satisfy your copper-clenching black heart?~
-  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)
-~ GOTO 6
-  IF ~~ THEN REPLY ~Nope.  Not good enough.  Sorry.  Farewell.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",2)
-~ EXIT
+  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)~ GOTO 6
+  IF ~~ THEN REPLY ~Nope.  Not good enough.  Sorry.  Farewell.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",2)~ EXIT
 END
 
-IF ~Global("Apsel_Quest","GLOBAL",2)
-Global("Know_Balance","GLOBAL",0)
-~ THEN BEGIN 8
+IF ~Global("Apsel_Quest","GLOBAL",2) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 8
   SAY ~You again.  Look, I'm begging you...  help me get rid of this wolf?  Please?  The creature is in there right now, ravaging my workshop as we speak.~
-  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)
-~ GOTO 6
+  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)~ GOTO 6
   IF ~~ THEN REPLY ~Sorry, but I'm rather busy right now.  Farewell.~ EXIT
 END
 
-IF ~Global("Apsel _Quest","GLOBAL",1)
-!PartyHasItem("MiscAps")
-Global("Know_Balance","GLOBAL",0)
-~ THEN BEGIN 9
+IF ~Global("Apsel _Quest","GLOBAL",1) !PartyHasItem("MiscAps") Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 9
   SAY ~What in Tempus's holy name are you still puttering about here for?  I can still hear that wolf jumping around in there.  If you don't hurry, there won't be anything left of my shop.  I'll be ruined!~
   IF ~~ THEN REPLY ~Sorry, Apsel.  I'll get right to it.~ EXIT
   IF ~~ THEN REPLY ~Look, I'll get rid of that wolf when I'm good and ready.  Now get out of my way, you worm.~ EXIT
 END
 
-IF ~OR(2)
-Global("Apsel _Quest","GLOBAL",1)
-Global("Apsel _Quest","GLOBAL",4)
-PartyHasItem("MiscAps")
-Global("Know_Balance","GLOBAL",0)
-~ THEN BEGIN 10
+IF ~OR(2) Global("Apsel _Quest","GLOBAL",1) Global("Apsel _Quest","GLOBAL",4) PartyHasItem("MiscAps") Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 10
   SAY ~Ah!  My friend!  The wolf is no more!  I am now a happy man.  Thank you for helping me.  Here's a little something for your trouble.~
-  IF ~~ THEN REPLY ~Thank you.  I must take my leave now.  Farewell.~ DO ~TakePartyItem("MiscAps")
-SetGlobal("Apsel_Quest","GLOBAL",3)
-GivePartyGold(25)
-AddexperienceParty(400)
-GiveItemCreate("EHDag",Player1,1,1,1)
-EraseJournalEntry(%Get rid of the wolf in Apsel's workshop.
+  IF ~~ THEN REPLY ~Thank you.  I must take my leave now.  Farewell.~ DO ~TakePartyItem("MiscAps") SetGlobal("Apsel_Quest","GLOBAL",3) GivePartyGold(25) AddexperienceParty(400) GiveItemCreate("EHDag",Player1,1,1,1) EraseJournalEntry(%Get rid of the wolf in Apsel's workshop.
 
 We've agreed to help the old scrimshander, Apsel, by breaking into his shop and dispatching the wolf that has somehow found its way inside.%)~ SOLVED_JOURNAL ~Get rid of the wolf in Apsel's workshop.
 
 We succeeded in getting rid of the wolf in Apsel's workshop.  Apparently the beast had chewed its way inside to get at the fish bones the old man had stored inside.  Apsel was quite relieved and graciously rewarded us with some gold and carved scrimshaw dagger.~ EXIT
 END
 
-IF ~Global("Apsel _Quest","GLOBAL",3)
-Global("Know_Balance","GLOBAL",0)
-~ THEN BEGIN 11
+IF ~Global("Apsel _Quest","GLOBAL",3) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 11
   SAY ~Hello again, my friend.  Thank you again for helping me with my problem.~
   IF ~~ THEN REPLY ~Farewell.~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Apsel_Quest","GLOBAL",0)
-Global("Know_Balance","GLOBAL",0)
-Global("Chaotic_Apsel_1","GLOBAL",0)
-~ THEN BEGIN 12
+IF ~NumTimesTalkedToGT(0) Global("Apsel_Quest","GLOBAL",0) Global("Know_Balance","GLOBAL",0) Global("Chaotic_Apsel_1","GLOBAL",0)~ THEN BEGIN 12
   SAY ~Please... help me, please.~
   IF ~~ THEN REPLY ~What seems to be the problem?~ GOTO 2
   IF ~~ THEN REPLY ~Sorry, but I'm rather busy right now.  Farewell.~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Apsel_Quest","GLOBAL",0)
-Global("Chaotic_Apsel_1","GLOBAL",1)
-Global("Know_Balance","GLOBAL",0)
-~ THEN BEGIN 13
+IF ~NumTimesTalkedToGT(0) Global("Apsel_Quest","GLOBAL",0) Global("Chaotic_Apsel_1","GLOBAL",1) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 13
   SAY ~You again.  Look, I'm begging you...  help me get rid of this wolf?  Please?  The creature is in there right now, ravaging my workshop as we speak.~
   IF ~~ THEN REPLY ~What is it exactly that you want me to do?~ GOTO 2
   IF ~~ THEN REPLY ~Sorry, but I'm rather busy right now.  Farewell.~ EXIT
@@ -134,44 +96,34 @@ END
 
 IF ~~ THEN BEGIN 14
   SAY ~I don't care!  Break it down if you have to.  I doubt it'll come to that, though.  Judging by the looks of you, I'd say you've picked more than your share of locks.  My door shouldn't be much of a challenge.~
-  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)
-~ GOTO 6
+  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)~ GOTO 6
   IF ~~ THEN REPLY ~Sounds like quite a task.  What's in it for me?~ GOTO 7
-  IF ~~ THEN REPLY ~Forget it.  I've got better things to do.  Farewell~ DO ~SetGlobal("Apsel_Quest","GLOBAL",2)
-~ EXIT
+  IF ~~ THEN REPLY ~Forget it.  I've got better things to do.  Farewell~ DO ~SetGlobal("Apsel_Quest","GLOBAL",2)~ EXIT
 END
 
 IF ~~ THEN BEGIN 15
   SAY ~I don't care!  Break it down if you have to.  I'm sure it'll be nothing compared to the damage that monster inside is capable of.~
-  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)
-~ GOTO 6
+  IF ~~ THEN REPLY ~Very well.  I'll dispatch your troublesome hound shortly.~ DO ~SetGlobal("Apsel_Quest","GLOBAL",1)~ GOTO 6
   IF ~~ THEN REPLY ~Sounds like quite a task.  What's in it for me?~ GOTO 7
-  IF ~~ THEN REPLY ~Forget it.  I've got better things to do.  Farewell~ DO ~SetGlobal("Apsel_Quest","GLOBAL",2)
-~ EXIT
+  IF ~~ THEN REPLY ~Forget it.  I've got better things to do.  Farewell~ DO ~SetGlobal("Apsel_Quest","GLOBAL",2)~ EXIT
 END
 
-IF ~GlobalGT("Know_Balance","GLOBAL",0)
-Global("Freed_Everard","GLOBAL",0)
-~ THEN BEGIN 16
+IF ~GlobalGT("Know_Balance","GLOBAL",0) Global("Freed_Everard","GLOBAL",0)~ THEN BEGIN 16
   SAY ~Thank the Gods you're here.  You best go over and speak with Everard.  The old warhorse has taken quite a beating, but he still has the strength enough to lead us to safety.~
   IF ~~ THEN REPLY ~I shall speak with him straight away.  Farewell.~ EXIT
 END
 
-IF ~GlobalGT("Know_Balance","GLOBAL",0)
-Global("Freed_Everard","GLOBAL",1)
-~ THEN BEGIN 17
+IF ~GlobalGT("Know_Balance","GLOBAL",0) Global("Freed_Everard","GLOBAL",1)~ THEN BEGIN 17
   SAY ~Something sinister is behind this attack... I can feel it in my bones.  Whoever or whatever it is, I'd be willing to wager what's left of my shop that it's inside that cursed ice tower.  Watch your backs, friends.~
   IF ~~ THEN REPLY ~You do the same.  Farewell, Apsel.~ EXIT
 END
 
 IF ~~ THEN BEGIN 18
   SAY ~I sincerely thank you. Please, bring me the pelt.~
-  IF ~~ THEN DO ~SetGlobal("Apsel_Quest","GLOBAL",4)
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("Apsel_Quest","GLOBAL",4)~ EXIT
 END
 
-IF ~Global("Apsel_Quest","GLOBAL",4)
-~ THEN BEGIN 19
+IF ~Global("Apsel_Quest","GLOBAL",4)~ THEN BEGIN 19
   SAY ~You again. Look, I'm begging you... bring me the wolf's pelt.~
   IF ~~ THEN EXIT
 END

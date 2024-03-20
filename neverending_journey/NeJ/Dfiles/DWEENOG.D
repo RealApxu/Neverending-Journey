@@ -4,14 +4,14 @@ IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0 // from:
   SAY ~Aieee!  Phew... no sneak up on Weenog like that.~
   IF ~~ THEN REPLY ~Goblin scum!  Prepare to die you filthy runt!~  GOTO 1
   IF ~~ THEN REPLY ~Who are you?~  GOTO 4
-  IF ~Global("Know_Orrick", "GLOBAL", 1)~ THEN REPLY ~I seek the mage called Orrick.  I was told this was his tower.~  GOTO 2
-  IF ~Global("Know_Orrick", "GLOBAL", 0)~ THEN REPLY ~Who lives here?  Surely this tower cannot belong to you.~  GOTO 3
+  IF ~Global("Know_Orrick","GLOBAL",1)~ THEN REPLY ~I seek the mage called Orrick.  I was told this was his tower.~  GOTO 2
+  IF ~Global("Know_Orrick","GLOBAL",0)~ THEN REPLY ~Who lives here?  Surely this tower cannot belong to you.~  GOTO 3
 END
 
 IF ~~ THEN BEGIN 1 // from: 4.3 0.0
   SAY ~P-Please... no hurt Weenog.  Please?  Weenog just servant.  Just work here.  Just do chores... clean tower, make beds, cook tasty food for the master.  ~
-  IF ~Global("Know_Orrick", "GLOBAL", 1)~ THEN REPLY ~The master?  Would that be the mage known as Orrick?~  GOTO 5
-  IF ~Global("Know_Orrick", "GLOBAL", 0)~ THEN REPLY ~The master?  Who is your master?~  GOTO 6
+  IF ~Global("Know_Orrick","GLOBAL",1)~ THEN REPLY ~The master?  Would that be the mage known as Orrick?~  GOTO 5
+  IF ~Global("Know_Orrick","GLOBAL",0)~ THEN REPLY ~The master?  Who is your master?~  GOTO 6
   IF ~~ THEN REPLY ~You are a goblin!  That is reason enough to end your miserable little life.~  GOTO 7
   IF ~~ THEN REPLY ~Stop your sniveling... I'm not going to hurt you.~  GOTO 9
 END
@@ -32,10 +32,10 @@ END
 
 IF ~~ THEN BEGIN 4 // from: 0.1
   SAY ~Me Weenog.  Who you?~
-  IF ~Global("Know_Orrick", "GLOBAL", 1)~ THEN REPLY ~I am <CHARNAME>.  I seek the mage called Orrick.  I was told this was his tower.~  GOTO 2
-  IF ~Global("Know_Orrick", "GLOBAL", 0)~ THEN REPLY ~I am <CHARNAME>.  Who lives here?  Surely this tower cannot belong to you.~  GOTO 3
-  IF ~Global("Know_Orrick", "GLOBAL", 1)~ THEN REPLY ~Never mind who I am.  I've come to see Orrick.  Does he live here?~  GOTO 2
-  IF ~Global("Know_Orrick", "GLOBAL", 0)~ THEN REPLY ~Never mind who I am!  Tell me what you are doing in this tower or I'll cut your ears off and feed them to you.~  GOTO 1
+  IF ~Global("Know_Orrick","GLOBAL",1)~ THEN REPLY ~I am <CHARNAME>.  I seek the mage called Orrick.  I was told this was his tower.~  GOTO 2
+  IF ~Global("Know_Orrick","GLOBAL",0)~ THEN REPLY ~I am <CHARNAME>.  Who lives here?  Surely this tower cannot belong to you.~  GOTO 3
+  IF ~Global("Know_Orrick","GLOBAL",1)~ THEN REPLY ~Never mind who I am.  I've come to see Orrick.  Does he live here?~  GOTO 2
+  IF ~Global("Know_Orrick","GLOBAL",0)~ THEN REPLY ~Never mind who I am!  Tell me what you are doing in this tower or I'll cut your ears off and feed them to you.~  GOTO 1
   IF ~~ THEN REPLY ~Never mind.  Farewell.~  EXIT
 END
 
@@ -48,15 +48,14 @@ END
 
 IF ~~ THEN BEGIN 6 // from: 9.1 3.0 1.1
   SAY ~Or-uck... the master.  Great wizard, the master is.  Weenog serves the master so one day he can be great wizard too.~
-  IF ~~ THEN REPLY ~I see.  Where might I find this great wizard?~  DO ~SetGlobal("Know_Orrick", "GLOBAL", 1)~ GOTO 8
-  IF ~~ THEN REPLY ~You?  A great wizard?  Ha!  That's a good one.~  DO ~SetGlobal("Know_Orrick", "GLOBAL", 1)~ GOTO 10
-  IF ~~ THEN REPLY ~Whatever.  Farewell.~  DO ~SetGlobal("Know_Orrick", "GLOBAL", 1)~ EXIT
+  IF ~~ THEN REPLY ~I see.  Where might I find this great wizard?~  DO ~SetGlobal("Know_Orrick","GLOBAL",1)~ GOTO 8
+  IF ~~ THEN REPLY ~You?  A great wizard?  Ha!  That's a good one.~  DO ~SetGlobal("Know_Orrick","GLOBAL",1)~ GOTO 10
+  IF ~~ THEN REPLY ~Whatever.  Farewell.~  DO ~SetGlobal("Know_Orrick","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 7 // from: 1.2
   SAY ~Aiiiiieeeeee!  Stay back!  Weenog have rabies.  No come near Weenog or he will bite!~
-  IF ~~ THEN REPLY ~Come then, let me put you out of your misery.~  DO ~Enemy()
-Attack(Player1)~ EXIT
+  IF ~~ THEN REPLY ~Come then, let me put you out of your misery.~  DO ~Enemy() Attack(Player1)~ EXIT
   IF ~~ THEN REPLY ~All right, calm down.  I'll let you live... for now.~  GOTO 9
 END
 
@@ -67,15 +66,15 @@ END
 
 IF ~~ THEN BEGIN 9 // from: 7.1 1.3
   SAY ~No hurt Weenog?  Oh, thank you.  The master will be pleased you no kill Weenog.  Weenog is important... he cleans tower, makes beds, cooks tasty food for the master.~
-  IF ~Global("Know_Orrick", "GLOBAL", 1)~ THEN REPLY ~The master?  Would that be the mage known as Orrick?~  GOTO 5
-  IF ~Global("Know_Orrick", "GLOBAL", 0)~ THEN REPLY ~The master?  Who is your master?~  GOTO 6
+  IF ~Global("Know_Orrick","GLOBAL",1)~ THEN REPLY ~The master?  Would that be the mage known as Orrick?~  GOTO 5
+  IF ~Global("Know_Orrick","GLOBAL",0)~ THEN REPLY ~The master?  Who is your master?~  GOTO 6
   IF ~~ THEN REPLY ~How nice, a goblin housekeeper.  Forgive me if I don't hand you my cloak.  Now, where is this master of yours?~  GOTO 8
   IF ~~ THEN REPLY ~Get out of my way before I change my mind.~  EXIT
 END
 
 IF ~~ THEN BEGIN 10 // from: 6.1 5.1
   SAY ~No laugh at Weenog!  You see... one day, wizard he will be.  Weenog will smash houses and make big fires... all with magic waving of hands.  Then all will fear Weenog.~
-  IF ~Global("Chaotic_Weenog_1", "GLOBAL", 0)~ THEN REPLY ~I hate to be the one to break this to you, but you see... you're a goblin.  You have a brain the size of an acorn.  There is no way you could ever be a wizard.~  DO ~SetGlobal("Chaotic_Weenog_1", "GLOBAL", 1)~ GOTO 11
+  IF ~Global("Chaotic_Weenog_1","GLOBAL",0)~ THEN REPLY ~I hate to be the one to break this to you, but you see... you're a goblin.  You have a brain the size of an acorn.  There is no way you could ever be a wizard.~  DO ~SetGlobal("Chaotic_Weenog_1","GLOBAL",1)~ GOTO 11
   IF ~~ THEN REPLY ~Sure.  Whatever you say.  Now, if you don't mind... I'd like to speak with your master.~  GOTO 8
   IF ~~ THEN REPLY ~Yes, well... good luck with your studies.  Farewell.~  EXIT
 END
@@ -88,9 +87,9 @@ END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 12 // from:
   SAY ~Why you bother Weenog again?  Cannot you see he has much chores to do?~
-  IF ~Global("Chaotic_Weenog_1", "GLOBAL", 1)~ THEN REPLY ~Well, if it isn't the little goblin slave who wants to be a wizard.  Learn any new spells lately?  Heh heh.~  GOTO 13
-  IF ~Global("Know_Orrick", "GLOBAL", 1)~ THEN REPLY ~I've come to see Orrick.  Is he about?~  GOTO 8
-  IF ~Global("Know_Orrick", "GLOBAL", 0)~ THEN REPLY ~I wish to speak to your master.  Where might I find him?~  GOTO 8
+  IF ~Global("Chaotic_Weenog_1","GLOBAL",1)~ THEN REPLY ~Well, if it isn't the little goblin slave who wants to be a wizard.  Learn any new spells lately?  Heh heh.~  GOTO 13
+  IF ~Global("Know_Orrick","GLOBAL",1)~ THEN REPLY ~I've come to see Orrick.  Is he about?~  GOTO 8
+  IF ~Global("Know_Orrick","GLOBAL",0)~ THEN REPLY ~I wish to speak to your master.  Where might I find him?~  GOTO 8
   IF ~~ THEN REPLY ~Sorry, Weenog.  I'll let you get back to work.  Farewell.~  EXIT
 END
 

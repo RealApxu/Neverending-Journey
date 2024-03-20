@@ -49,5 +49,3 @@ THEN
 		Wait(7)
 		RandomWalk()
 END
-
-

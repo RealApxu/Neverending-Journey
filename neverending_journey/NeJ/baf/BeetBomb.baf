@@ -41,5 +41,3 @@ THEN
 		SetGlobal("VP_LastChancePoison","LOCALS",1)
 		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_DEATH_FOG)
 END
-
-

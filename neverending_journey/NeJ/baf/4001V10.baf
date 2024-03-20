@@ -14,5 +14,3 @@ THEN
 		DisplayStringHead(Myself,~No one's going to save us..~) // "No one's going to save us.."
 		Wait(3)
 END
-
-

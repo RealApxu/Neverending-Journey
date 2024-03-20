@@ -44,5 +44,3 @@ THEN
 	RESPONSE #100
 		MoveToObject([PC])
 END
-
-

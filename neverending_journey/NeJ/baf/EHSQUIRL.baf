@@ -13,5 +13,3 @@ THEN
 		RandomWalk()
 		Wait(3)
 END
-
-

@@ -1,7 +1,6 @@
 BEGIN ~DGASPAR~
 
-IF ~NumTimesTalkedTo(0)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 0 // from:
+IF ~NumTimesTalkedTo(0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 0 // from:
   SAY ~Well met, stranger.  The name's Gaspar, Gaspar the fishmonger.  What can I do for you this fine day?~
   IF ~PartyHasItem("Contract")~ THEN REPLY ~Gaspar, eh?  Have you ever heard of someone named Ilmus Gallaway?~  GOTO 6
   IF ~~ THEN REPLY ~Fishmonger?  This doesn't look much like a fish shop.~  GOTO 1
@@ -39,10 +38,10 @@ END
 IF ~~ THEN BEGIN 5 // from: 4.0
   SAY ~The town's food stores are running dangerously low.  My warehouse foreman, Churin, tells me that there may not be enough food to last through the coming winter.  I've arranged a trade with ol' Gallaway up in Caer-Dinival that will keep our stomachs full well into next year.  The caravan's due to arrive any day now.~
   IF ~PartyHasItem("Contract")~ THEN REPLY ~Gallaway, you say?  Ilmus Gallaway of Caer-Dinival?~  GOTO 6
-  IF ~Global("Caravan_Quest", "GLOBAL", 1)~ THEN REPLY ~Interesting.  Hrothgar told us the caravan is overdue.  He asked us to go search for it and to see it safely to Easthaven.~  UNSOLVED_JOURNAL ~Finding a missing caravan.
+  IF ~Global("Caravan_Quest","GLOBAL",1)~ THEN REPLY ~Interesting.  Hrothgar told us the caravan is overdue.  He asked us to go search for it and to see it safely to Easthaven.~  UNSOLVED_JOURNAL ~Finding a missing caravan.
 
 We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.~  GOTO 8
-  IF ~GlobalGT("Caravan_Quest", "GLOBAL", 1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
+  IF ~GlobalGT("Caravan_Quest","GLOBAL",1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
   IF ~~ THEN REPLY ~Well, best of luck to you.  Farewell.~  UNSOLVED_JOURNAL ~Finding a missing caravan.
 
 We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  It sounds like the town really needs the supplies the caravan is bringing.~  EXIT
@@ -50,20 +49,11 @@ END
 
 IF ~~ THEN BEGIN 6 // from: 15.2 5.0 3.0 1.2 0.0
   SAY ~Why yes.  You know him?~
-  IF ~~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract")
-AddXPObject(Player1,8500)
-AddXPObject(Player2,8500)
-AddXPObject(Player3,8500)
-AddXPObject(Player4,8500)
-AddXPObject(Player5,8500)
-AddXPObject(Player6,8500)
-EraseJournalEntry(%Finding a missing caravan.
+  IF ~~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract") AddXPObject(Player1,8500) AddXPObject(Player2,8500) AddXPObject(Player3,8500) AddXPObject(Player4,8500) AddXPObject(Player5,8500) AddXPObject(Player6,8500) EraseJournalEntry(%Finding a missing caravan.
 
-Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%)
-EraseJournalEntry(%Finding a missing caravan.
+Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%) EraseJournalEntry(%Finding a missing caravan.
 
-We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%)
-EraseJournalEntry(%Finding a missing caravan.
+We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%) EraseJournalEntry(%Finding a missing caravan.
 
 We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  It sounds like the town really needs the supplies the caravan is bringing.%)~ SOLVED_JOURNAL ~Finding a missing caravan.
 
@@ -73,36 +63,26 @@ END
 
 IF ~~ THEN BEGIN 7 // from: 16.1 14.1 12.1 11.1 9.0 6.0
   SAY ~This is terrible news.  I must send word to Ilmus up at Caer-Dinival at once.  A new contract will have to be negotiated immediately so another caravan can be sent before the snows hit.  Thank you for bringing this to my attention.  Here is something for your troubles.~
-  IF ~~ THEN REPLY ~Thank you.  Farewell.~  DO ~GivePartyGold(25)
-SetGlobal("Gaspar_Quest", "GLOBAL", 3)~ EXIT
+  IF ~~ THEN REPLY ~Thank you.  Farewell.~  DO ~GivePartyGold(25) SetGlobal("Gaspar_Quest","GLOBAL",3)~ EXIT
 END
 
 IF ~~ THEN BEGIN 8 // from: 5.1
   SAY ~Well then, by all means, go to it.  Though, I'm sure there's nothing to worry about.  Caravans always run late this time of year.~
-  IF ~~ THEN REPLY ~I hope you're right.  Farewell.~  DO ~SetGlobal("Gaspar_Quest", "GLOBAL", 1)~ EXIT
+  IF ~~ THEN REPLY ~I hope you're right.  Farewell.~  DO ~SetGlobal("Gaspar_Quest","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 9 // from: 16.0 14.0 12.0 11.0 5.2
   SAY ~What?  Are you certain it was the caravan from Caer-Dinival?~
-  IF ~PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave near the abandoned wagons.~  DO ~TakePartyItem("Contract")
-AddXPObject(Player1,8500)
-AddXPObject(Player2,8500)
-AddXPObject(Player3,8500)
-AddXPObject(Player4,8500)
-AddXPObject(Player5,8500)
-AddXPObject(Player6,8500)
-EraseJournalEntry(%Finding a missing caravan.
+  IF ~PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave near the abandoned wagons.~  DO ~TakePartyItem("Contract") AddXPObject(Player1,8500) AddXPObject(Player2,8500) AddXPObject(Player3,8500) AddXPObject(Player4,8500) AddXPObject(Player5,8500) AddXPObject(Player6,8500) EraseJournalEntry(%Finding a missing caravan.
 
-Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%)
-EraseJournalEntry(%Finding a missing caravan.
+Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%) EraseJournalEntry(%Finding a missing caravan.
 
-We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%)
-EraseJournalEntry(%Finding a missing caravan.
+We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%) EraseJournalEntry(%Finding a missing caravan.
 
 We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  It sounds like the town really needs the supplies the caravan is bringing.%)~ SOLVED_JOURNAL ~Finding a missing caravan.
 
 We told Gaspar the Fishmonger about the lost caravan and showed him the contract from Ilmus Gallaway we'd found in the orc caves.  Once he knew the caravan had been lost, Gaspar set about re-negotiating a contract and insuring that a new caravan of supplies reaches Easthaven.  He thanked us for our trouble, and he paid us a small sum of gold.~ GOTO 7
-  IF ~~ THEN REPLY ~It's hard to say for sure.  There was no sign of the caravan members, and the wagons were empty.~  DO ~SetGlobal("Gaspar_Quest", "GLOBAL", 2)~ UNSOLVED_JOURNAL ~Finding a missing caravan.
+  IF ~~ THEN REPLY ~It's hard to say for sure.  There was no sign of the caravan members, and the wagons were empty.~  DO ~SetGlobal("Gaspar_Quest","GLOBAL",2)~ UNSOLVED_JOURNAL ~Finding a missing caravan.
 
 Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.~  GOTO 10
 END
@@ -113,96 +93,56 @@ IF ~~ THEN BEGIN 10 // from: 9.1
   IF ~~ THEN REPLY ~Tough luck.  See you around, fishmonger.~  EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Damien_Quest", "GLOBAL", 0)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 11 // from:
+IF ~NumTimesTalkedToGT(0) Global("Damien_Quest","GLOBAL",0) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 11 // from:
   SAY ~Well met again.  What brings you to my home this time?~
-  IF ~Global("Gaspar_Quest", "GLOBAL", 1)
-GlobalGT("Caravan_Quest", "GLOBAL", 1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
-  IF ~Global("Gaspar_Quest", "GLOBAL", 2)
-PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract")
-AddXPObject(Player1,8500)
-AddXPObject(Player2,8500)
-AddXPObject(Player3,8500)
-AddXPObject(Player4,8500)
-AddXPObject(Player5,8500)
-AddXPObject(Player6,8500)
-EraseJournalEntry(%Finding a missing caravan.
+  IF ~Global("Gaspar_Quest","GLOBAL",1) GlobalGT("Caravan_Quest","GLOBAL",1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
+  IF ~Global("Gaspar_Quest","GLOBAL",2) PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract") AddXPObject(Player1,8500) AddXPObject(Player2,8500) AddXPObject(Player3,8500) AddXPObject(Player4,8500) AddXPObject(Player5,8500) AddXPObject(Player6,8500) EraseJournalEntry(%Finding a missing caravan.
 
-Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%)
-EraseJournalEntry(%Finding a missing caravan.
+Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%) EraseJournalEntry(%Finding a missing caravan.
 
-We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%)
-EraseJournalEntry(%Finding a missing caravan.
+We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%) EraseJournalEntry(%Finding a missing caravan.
 
 We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  It sounds like the town really needs the supplies the caravan is bringing.%)~ SOLVED_JOURNAL ~Finding a missing caravan.
 
 We told Gaspar the Fishmonger about the lost caravan and showed him the contract from Ilmus Gallaway we'd found in the orc caves.  Once he knew the caravan had been lost, Gaspar set about re-negotiating a contract and insuring that a new caravan of supplies reaches Easthaven.  He thanked us for our trouble, and he paid us a small sum of gold.~ GOTO 7
-  IF ~Global("Gaspar_Quest", "GLOBAL", 0)~ THEN REPLY ~Your home?  I thought this was a fishmonger's shop.~  GOTO 15
+  IF ~Global("Gaspar_Quest","GLOBAL",0)~ THEN REPLY ~Your home?  I thought this was a fishmonger's shop.~  GOTO 15
   IF ~~ THEN REPLY ~Just stopping by.  Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Damien_Quest", "GLOBAL", 1)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 12 // from:
+IF ~NumTimesTalkedToGT(0) Global("Damien_Quest","GLOBAL",1) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 12 // from:
   SAY ~If it isn't the "heroes" that steal fish from little boys.  My son, Damien, told me all about you.  What business do you have coming into my home?~
-  IF ~Global("Gaspar_Quest", "GLOBAL", 1)
-GlobalGT("Caravan_Quest", "GLOBAL", 1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
-  IF ~Global("Gaspar_Quest", "GLOBAL", 2)
-PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract")
-AddXPObject(Player1,4500)
-AddXPObject(Player2,4500)
-AddXPObject(Player3,4500)
-AddXPObject(Player4,4500)
-AddXPObject(Player5,4500)
-AddXPObject(Player6,4500)
-EraseJournalEntry(%Finding a missing caravan.
+  IF ~Global("Gaspar_Quest","GLOBAL",1) GlobalGT("Caravan_Quest","GLOBAL",1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
+  IF ~Global("Gaspar_Quest","GLOBAL",2) PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract") AddXPObject(Player1,4500) AddXPObject(Player2,4500) AddXPObject(Player3,4500) AddXPObject(Player4,4500) AddXPObject(Player5,4500) AddXPObject(Player6,4500) EraseJournalEntry(%Finding a missing caravan.
 
-Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%)
-EraseJournalEntry(%Finding a missing caravan.
+Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%) EraseJournalEntry(%Finding a missing caravan.
 
-We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%)
-EraseJournalEntry(%Finding a missing caravan.
+We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%) EraseJournalEntry(%Finding a missing caravan.
 
 We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  It sounds like the town really needs the supplies the caravan is bringing.%)~ SOLVED_JOURNAL ~Finding a missing caravan.
 
 We told Gaspar the Fishmonger about the lost caravan and showed him the contract from Ilmus Gallaway we'd found in the orc caves.  Once he knew the caravan had been lost, Gaspar set about re-negotiating a contract and insuring that a new caravan of supplies reaches Easthaven.  He thanked us for our trouble, and he paid us a small sum of gold.~ GOTO 7
-  IF ~Global("Gaspar_Quest", "GLOBAL", 0)~ THEN REPLY ~Your home?  I thought this was a fishmonger's shop.~  GOTO 15
+  IF ~Global("Gaspar_Quest","GLOBAL",0)~ THEN REPLY ~Your home?  I thought this was a fishmonger's shop.~  GOTO 15
   IF ~~ THEN REPLY ~Just stopping by.  Farewell.~  EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Damien_Quest", "GLOBAL", 2)
-Global("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 13 // from:
+IF ~NumTimesTalkedToGT(0) Global("Damien_Quest","GLOBAL",2) Global("Know_Balance","GLOBAL",0)~ THEN BEGIN 13 // from:
   SAY ~Ah, hello again, my friends.  I wanted to thank you for looking out for my boy, Damien.  He told me all about you and the monsters.  ~
-  IF ~Global("GasparThanks","GLOBAL",0)~ THEN REPLY ~It was nothing, really.~  DO ~ReputationInc(1)
-SetGlobal("GasparThanks","GLOBAL",1)~ GOTO 14
+  IF ~Global("GasparThanks","GLOBAL",0)~ THEN REPLY ~It was nothing, really.~  DO ~ReputationInc(1) SetGlobal("GasparThanks","GLOBAL",1)~ GOTO 14
   IF ~~ THEN REPLY ~You're lucky we happened to be nearby.  You really ought to keep that little brat on a shorter leash.~  GOTO 16
   IF ~~ THEN REPLY ~Whatever.  Farewell.~  EXIT
 END
 
 IF ~~ THEN BEGIN 14 // from: 13.0
   SAY ~You are too modest.  Now, what brings you to my home today?~
-  IF ~Global("Gaspar_Quest", "GLOBAL", 1)
-GlobalGT("Caravan_Quest", "GLOBAL", 1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
-  IF ~Global("Gaspar_Quest", "GLOBAL", 2)
-PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract")
-AddXPObject(Player1,8500)
-AddXPObject(Player2,8500)
-AddXPObject(Player3,8500)
-AddXPObject(Player4,8500)
-AddXPObject(Player5,8500)
-AddXPObject(Player6,8500)
-EraseJournalEntry(%Finding a missing caravan.
+  IF ~Global("Gaspar_Quest","GLOBAL",1) GlobalGT("Caravan_Quest","GLOBAL",1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
+  IF ~Global("Gaspar_Quest","GLOBAL",2) PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract") AddXPObject(Player1,8500) AddXPObject(Player2,8500) AddXPObject(Player3,8500) AddXPObject(Player4,8500) AddXPObject(Player5,8500) AddXPObject(Player6,8500) EraseJournalEntry(%Finding a missing caravan.
 
-Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%)
-EraseJournalEntry(%Finding a missing caravan.
+Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%) EraseJournalEntry(%Finding a missing caravan.
 
-We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%)
-EraseJournalEntry(%Finding a missing caravan.
+We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%) EraseJournalEntry(%Finding a missing caravan.
 
 We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  It sounds like the town really needs the supplies the caravan is bringing.%)~ GOTO 7
-  IF ~Global("Gaspar_Quest", "GLOBAL", 0)~ THEN REPLY ~Your home?  I thought this was a fishmonger's shop.~  GOTO 15
+  IF ~Global("Gaspar_Quest","GLOBAL",0)~ THEN REPLY ~Your home?  I thought this was a fishmonger's shop.~  GOTO 15
   IF ~~ THEN REPLY ~Just stopping by.  Farewell.~  EXIT
 END
 
@@ -216,30 +156,19 @@ END
 
 IF ~~ THEN BEGIN 16 // from: 13.1
   SAY ~Yes... well, I keep telling him not to fish the far shores, but you know how impetuous boys can be.  In any case... what brings you to my home today?~
-  IF ~Global("Gaspar_Quest", "GLOBAL", 1)
-GlobalGT("Caravan_Quest", "GLOBAL", 1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
-  IF ~Global("Gaspar_Quest", "GLOBAL", 2)
-PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract")
-AddXPObject(Player1,8500)
-AddXPObject(Player2,8500)
-AddXPObject(Player3,8500)
-AddXPObject(Player4,8500)
-AddXPObject(Player5,8500)
-AddXPObject(Player6,8500)
-EraseJournalEntry(%Finding a missing caravan.
+  IF ~Global("Gaspar_Quest","GLOBAL",1) GlobalGT("Caravan_Quest","GLOBAL",1)~ THEN REPLY ~Bad news, Gaspar.  The caravan from Caer-Dinival never made it.  We found the abandoned wagons outside of town.~  GOTO 9
+  IF ~Global("Gaspar_Quest","GLOBAL",2) PartyHasItem("Contract")~ THEN REPLY ~We found this contract on the body of an ogre in a cave outside of town.  I'm afraid the caravan from Caer-Dinival never made it.~  DO ~TakePartyItem("Contract") AddXPObject(Player1,8500) AddXPObject(Player2,8500) AddXPObject(Player3,8500) AddXPObject(Player4,8500) AddXPObject(Player5,8500) AddXPObject(Player6,8500) EraseJournalEntry(%Finding a missing caravan.
 
-Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%)
-EraseJournalEntry(%Finding a missing caravan.
+Once we heard that Gaspar the Fishmonger was waiting for a caravan from Caer-Dinival, we told him about the caravan we'd found outside of town.  There was no proof it was the caravan he'd been waiting for, however.  If we come across any proof it was the caravan Gaspar was waiting for, it might be worthwhile to bring it to Gaspar.%) EraseJournalEntry(%Finding a missing caravan.
 
-We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%)
-EraseJournalEntry(%Finding a missing caravan.
+We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  I wonder if it's the caravan that Hrothgar asked us to find.%) EraseJournalEntry(%Finding a missing caravan.
 
 We met with Gaspar the Fishmonger in Easthaven.  He told us of a trade he'd arranged with a merchant in Caer-Dinival.  The caravan hasn't arrived yet, but it should be arriving any day now.  It sounds like the town really needs the supplies the caravan is bringing.%)~ GOTO 7
-  IF ~Global("Gaspar_Quest", "GLOBAL", 0)~ THEN REPLY ~Your home?  I thought this was a fishmonger's shop.~  GOTO 15
+  IF ~Global("Gaspar_Quest","GLOBAL",0)~ THEN REPLY ~Your home?  I thought this was a fishmonger's shop.~  GOTO 15
   IF ~~ THEN REPLY ~Just stopping by.  Farewell.~  EXIT
 END
 
-IF ~GlobalGT("Know_Balance", "GLOBAL", 0)~ THEN BEGIN 17 // from:
+IF ~GlobalGT("Know_Balance","GLOBAL",0)~ THEN BEGIN 17 // from:
   SAY ~I can't tell you how glad I am to see you again.  I thought for sure we would end up as food for those one-eyed brutes sooner or later.  Watch yourself... there may still be more of them about town.~
   IF ~~ THEN REPLY ~We'll keep an eye out for them.  Farewell.~  EXIT
 END

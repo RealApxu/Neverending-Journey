@@ -5,5 +5,3 @@ THEN
 		SetGlobal("TT2000_INIT","GLOBAL",1)
 		SetGlobal("VP_Start_Banters","GLOBAL",1)
 END
-
-

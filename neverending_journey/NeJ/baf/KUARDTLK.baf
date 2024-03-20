@@ -9,5 +9,3 @@ THEN
 		Wait(1)
 		Dialogue([PC])
 END
-
-

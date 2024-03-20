@@ -6,5 +6,3 @@ THEN
 		SetGlobal("Know_Sheemish","LOCALS",1)
 		StartDialogueNoSet([PC])
 END
-
-

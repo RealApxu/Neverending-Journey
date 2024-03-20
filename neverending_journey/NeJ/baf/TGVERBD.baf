@@ -30,7 +30,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("Red_Toe_Escape","LOCALS",1)
-		DisplayStringHead(Myself,~Move out of the way!~) // Move out of the way!  
+		DisplayStringHead(Myself,~Move out of the way!~) // Move out of the way! 
 		Continue()
 END
 
@@ -144,5 +144,3 @@ THEN
 		DestroySelf()
 		SetGlobal("MOVEMENT_LIST_0_LOC","LOCALS",0)
 END
-
-

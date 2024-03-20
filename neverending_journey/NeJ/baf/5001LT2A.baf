@@ -29,5 +29,3 @@ THEN
 		SetGlobal("VP_Chase_My_Enemy","LOCALS",1)
 		MoveToObjectNoInterrupt([PC])
 END
-
-

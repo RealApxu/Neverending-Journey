@@ -38,5 +38,3 @@ THEN
 	RESPONSE #100
 		ChangeAIScript("KUATKREM",GENERAL)
 END
-
-

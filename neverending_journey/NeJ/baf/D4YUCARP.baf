@@ -17,5 +17,3 @@ THEN
 		SetGlobal("YUANTI_SURPRISE","GLOBAL",1)
 		Calm(LastTrigger)
 END
-
-

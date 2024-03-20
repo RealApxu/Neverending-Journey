@@ -14,5 +14,3 @@ THEN
 	RESPONSE #100
 		StartDialogueNoSet([PC])
 END
-
-

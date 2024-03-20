@@ -48,8 +48,7 @@ END
 
 IF ~~ THEN BEGIN 8
   SAY ~And now... it is harvest time!  Consider yourselves fortunate!  You alone shall witness this historical moment!~ [BELH_09]
-  IF ~~ THEN DO ~SetGlobal("END_PORTAL","GLOBAL",1)
-SetGlobal("VP_BackTo_DornDeep","GLOBAL",2)~ GOTO 9
+  IF ~~ THEN DO ~SetGlobal("END_PORTAL","GLOBAL",1) SetGlobal("VP_BackTo_DornDeep","GLOBAL",2)~ GOTO 9
 END
 
 IF ~~ THEN BEGIN 9
@@ -59,11 +58,8 @@ END
 
 IF ~~ THEN BEGIN 10
   SAY ~And now my brethren are free to plunder this world for its immortal spoils.  Soon, the ranks of the Blood War army will swell with thousands of fresh souls! ~ [BELH_11]
-  IF ~Global("Everard_Dead", "GLOBAL", 0)
-!Dead("EVERARD")~ THEN EXTERN ~DEVERARD~ 35
-  IF ~OR(2)
-Global("Everard_Dead", "GLOBAL", 1)
-Dead("EVERARD")~ THEN REPLY ~Too bad you won't be around to see it.  Your time in this world is over.~ GOTO 20
+  IF ~Global("Everard_Dead", "GLOBAL", 0) !Dead("EVERARD")~ THEN EXTERN ~DEVERARD~ 35
+  IF ~OR(2) Global("Everard_Dead", "GLOBAL", 1) Dead("EVERARD")~ THEN REPLY ~Too bad you won't be around to see it.  Your time in this world is over.~ GOTO 20
 END
 
 IF ~Global("End_Portal", "GLOBAL", 2)~ THEN BEGIN 11
@@ -116,7 +112,5 @@ END
 
 IF ~~ THEN BEGIN 20
   SAY ~Over?!  On the contrary, my time has only just begun!~ [BELH_21]
-  IF ~~ THEN DO ~SetGlobal("END_PORTAL","GLOBAL",10)
-SetGlobal("END_PROGRESS","GLOBAL",5)
-Enemy()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("END_PORTAL","GLOBAL",10) SetGlobal("END_PROGRESS","GLOBAL",5) Enemy()~ EXIT
 END

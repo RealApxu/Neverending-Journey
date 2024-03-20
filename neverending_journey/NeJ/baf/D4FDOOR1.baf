@@ -17,5 +17,3 @@ THEN
 		SetGlobal("YUANTI_SURPRISE","GLOBAL",1)
 		DisplayStringHead(Myself,~A blast of fetid air, heavy with the scent of dead flesh, pours out of this room as you open the door.~) // A blast of fetid air, heavy with the scent of dead flesh, pours out of this room as you open the door.
 END
-
-

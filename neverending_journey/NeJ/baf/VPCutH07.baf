@@ -12,5 +12,3 @@ THEN
 		Wait(36)
 		EndCutSceneMode()
 END
-
-

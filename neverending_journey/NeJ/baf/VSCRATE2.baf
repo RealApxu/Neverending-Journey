@@ -5,5 +5,3 @@ THEN
 		Unlock(Myself)
 		Deactivate(Myself)
 END
-
-

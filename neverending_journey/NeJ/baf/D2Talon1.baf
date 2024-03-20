@@ -122,5 +122,3 @@ THEN
 		EquipMostDamagingMelee()
 		AttackReevaluate(NearestEnemyOf(Myself),75)
 END
-
-

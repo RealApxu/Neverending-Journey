@@ -1,7 +1,6 @@
 BEGIN ~DHIGHTOR~
 
-IF ~NumberOfTimesTalkedTo(0)
-~ THEN BEGIN 0
+IF ~NumberOfTimesTalkedTo(0)~ THEN BEGIN 0
   SAY ~Ah.  A visitor.  Stay still for a moment.  I can't see you clearly.  My eyes are no longer strong.  Have you come as a student or a patient?~
   IF ~~ THEN REPLY ~Uh... what?~ GOTO 1
   IF ~~ THEN REPLY ~A student, of course.~ GOTO 2
@@ -44,12 +43,10 @@ END
 
 IF ~~ THEN BEGIN 6
   SAY ~Damn these weak eyes for failing me!  No matter.  You will suffer all the same, weaklings.~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 7
   SAY ~Wait... wait... something about you doesn't seem right...   Impostors!  Impostors!  Damn my eyes for failing me!~
-  IF ~~ THEN DO ~Enemy()
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END

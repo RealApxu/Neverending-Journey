@@ -19,5 +19,3 @@ THEN
 	RESPONSE #100
 		StartTimer(77,6)
 END
-
-
