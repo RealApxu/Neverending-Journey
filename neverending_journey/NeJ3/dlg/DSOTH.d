@@ -9,15 +9,8 @@ END
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 1
   SAY ~Greetings.  Its good to see you again.  What can I help you with?~
   IF ~~ THEN REPLY ~I would like to ask you some questions.~ GOTO 2
-  IF ~Global("Slaves_Free_1","GLOBAL",0)
-Global("Bridge_Broken","GLOBAL",1)
-Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing.  Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
-GiveItem("BookEng",Player1)
-SetGlobal("Got_BookEng","GLOBAL",1)~ GOTO 16
-  IF ~Global("Slaves_Free_1","GLOBAL",1)
-Global("Bridge_Broken","GLOBAL",1)
-Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing.  Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
-SetGlobal("Got_BookEng","GLOBAL",1)~ GOTO 18
+  IF ~Global("Slaves_Free_1","GLOBAL",0) Global("Bridge_Broken","GLOBAL",1) Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing.  Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500) GiveItem("BookEng",Player1) SetGlobal("Got_BookEng","GLOBAL",1)~ GOTO 16
+  IF ~Global("Slaves_Free_1","GLOBAL",1) Global("Bridge_Broken","GLOBAL",1) Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing.  Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500) SetGlobal("Got_BookEng","GLOBAL",1)~ GOTO 18
   IF ~~ THEN REPLY ~Nothing at this time, farewell.~ EXIT
 END
 
@@ -69,8 +62,7 @@ IF ~~ THEN BEGIN 8
   SAY ~It seems that this entire complex is a temple dedicated to Dugmaren Brightmantle...~
   IF ~~ THEN REPLY ~I am not familiar with that name.  Who is he?~ GOTO 9
   IF ~Race(Player1, Dwarf)~ THEN REPLY ~Dugmaren... He is the dwarven god of scholars, inventors, and explorers.~ GOTO 10
-  IF ~Class(Player1, Cleric)
-!Race(Player1, Dwarf)~ THEN REPLY ~If memory serves me right, he is the dwarven god of scholars, inventors, and explorers.~ GOTO 10
+  IF ~Class(Player1, Cleric) !Race(Player1, Dwarf)~ THEN REPLY ~If memory serves me right, he is the dwarven god of scholars, inventors, and explorers.~ GOTO 10
 END
 
 IF ~~ THEN BEGIN 9
@@ -112,17 +104,10 @@ END
 
 IF ~~ THEN BEGIN 15
   SAY ~Yes, I have.  It didn�t take as long as you would think because most of them are so damaged as to be unreadable. It�s a shame too, because the few that are readable are excellent works on dwarven engineering.~
-  IF ~Global("Slaves_Free_1","GLOBAL",0)
-Global("Bridge_Broken","GLOBAL",1)
-Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing. Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
-GiveItem("BookEng",Protagonist)
-SetGlobal("Got_BookEng","GLOBAL",1)~ JOURNAL ~Wyrm�s Tooth.
+  IF ~Global("Slaves_Free_1","GLOBAL",0) Global("Bridge_Broken","GLOBAL",1) Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing. Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500) GiveItem("BookEng",Protagonist) SetGlobal("Got_BookEng","GLOBAL",1)~ JOURNAL ~Wyrm�s Tooth.
 
 The scholar Soth gave us a book on dwarven engineering. With it we hope to repair the rope bridge that spans the southwest chasm.~ GOTO 16
-  IF ~Global("Slaves_Free_1","GLOBAL",1)
-Global("Bridge_Broken","GLOBAL",1)
-Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing. Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500)
-SetGlobal("Got_BookEng","GLOBAL",1)~ JOURNAL ~Wyrm�s Tooth.
+  IF ~Global("Slaves_Free_1","GLOBAL",1) Global("Bridge_Broken","GLOBAL",1) Global("Got_BookEng","GLOBAL",0)~ THEN REPLY ~There is a rope bridge near here in danger of collapsing. Could I learn to repair it using some of the books here?~ DO ~AddexperienceParty(8500) SetGlobal("Got_BookEng","GLOBAL",1)~ JOURNAL ~Wyrm�s Tooth.
 
 The scholar Soth gave us a book on dwarven engineering. With it we hope to repair the rope bridge that spans the southwest chasm.~ GOTO 18
   IF ~~ THEN REPLY ~I see.  Let me ask you something else.~ GOTO 2

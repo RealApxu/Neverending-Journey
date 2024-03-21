@@ -175,149 +175,101 @@ IF ~~ THEN BEGIN 32
   SAY ~I am the beginning and the end of this story.  I, and *only* I, will determine how it plays out.  Goodbye.~ [POQU_33]
   IF ~~ THEN DO ~EraseJournalEntry(%Lower Dorn's Deep.
 
-A deep gnome sculptor named Callard gave us a portrait of Marketh.  He said that one of Marketh's bodyguards, Flozem, drew it.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+A deep gnome sculptor named Callard gave us a portrait of Marketh.  He said that one of Marketh's bodyguards, Flozem, drew it.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-We killed a group of archers in a watchtower who were keeping the deep gnome slaves in line.  Right after we finished, a small girl entered the tower, shook my hand, and then mysteriously departed.  Strange.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+We killed a group of archers in a watchtower who were keeping the deep gnome slaves in line.  Right after we finished, a small girl entered the tower, shook my hand, and then mysteriously departed.  Strange.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-We killed a group of archers in a watchtower who were keeping the deep gnome slaves in line.  Right after we finished, Fengla entered the tower, shook my hand, and then quickly departed.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+We killed a group of archers in a watchtower who were keeping the deep gnome slaves in line.  Right after we finished, Fengla entered the tower, shook my hand, and then quickly departed.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-I met Marketh in a small palace in Lower Dorn's Deep.  He was a shifty man who fancied himself to be the new ruler of Dorn's Deep.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+I met Marketh in a small palace in Lower Dorn's Deep.  He was a shifty man who fancied himself to be the new ruler of Dorn's Deep.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-In the Great Forge, we met an elven warrior maiden named Ilmadia.  She claimed to be in control of the entire Great Forge region of Lower Dorn's Deep.  The small squad of fire giants around her supported the claim.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+In the Great Forge, we met an elven warrior maiden named Ilmadia.  She claimed to be in control of the entire Great Forge region of Lower Dorn's Deep.  The small squad of fire giants around her supported the claim.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-In Durdel Anatha, we met a gem-cutter named Norl, who hates Marketh. Marketh forces Norl to create jewelry for his concubine.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+In Durdel Anatha, we met a gem-cutter named Norl, who hates Marketh. Marketh forces Norl to create jewelry for his concubine.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-A gem-cutter named Norl told us he would help me get rid of Marketh if we could get hold of Marketh's ring. Of course, if we could do that, making a copy of the ring would be unnecessary.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+A gem-cutter named Norl told us he would help me get rid of Marketh if we could get hold of Marketh's ring. Of course, if we could do that, making a copy of the ring would be unnecessary.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-We gave Norl a sketch of Marketh that we got from two sculptors in the palace. He said that he could use the sketch to make the ring.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+We gave Norl a sketch of Marketh that we got from two sculptors in the palace. He said that he could use the sketch to make the ring.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-A gem-cutter named Norl told us he would help me get rid of Marketh if we could get hold of Marketh's ring. We gave Norl a sketch of Marketh that we got from two sculptors in the palace. He said that he could use the sketch to make the ring.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+A gem-cutter named Norl told us he would help me get rid of Marketh if we could get hold of Marketh's ring. We gave Norl a sketch of Marketh that we got from two sculptors in the palace. He said that he could use the sketch to make the ring.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-Norl finished the copy of Marketh's teleportation ring and gave it to us. Before we left, he told me Callarduran would be with us.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+Norl finished the copy of Marketh's teleportation ring and gave it to us. Before we left, he told me Callarduran would be with us.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-In a temple of butchered people, we found a man named "Brother Perdiem," who claimed to be a priest of Ilmater.  He informed us that, should we try to wander around, he would make us suffer.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+In a temple of butchered people, we found a man named "Brother Perdiem," who claimed to be a priest of Ilmater.  He informed us that, should we try to wander around, he would make us suffer.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-A fallen priest of Ilmater named Brother Perdiem told us about how he came under Revered Brother Poquelin's spell.  Apparently, Poquelin appeared at Perdiem's temple some time ago and hypnotized the entire congregation.  They left their monastery and moved north, many dying along the way.  Poquelin was able to covert an entire temple of devout Ilmaterian priests.  Who is he to be able to do such things?%)
-EraseJournalEntry(%Lower Dorn's Deep.
+A fallen priest of Ilmater named Brother Perdiem told us about how he came under Revered Brother Poquelin's spell.  Apparently, Poquelin appeared at Perdiem's temple some time ago and hypnotized the entire congregation.  They left their monastery and moved north, many dying along the way.  Poquelin was able to covert an entire temple of devout Ilmaterian priests.  Who is he to be able to do such things?%) EraseJournalEntry(%Lower Dorn's Deep.
 
-A halfling named Seth asked me for "papers" outside of a palace in Durdel Anatha.  When I expressed my confusion, he asked me if someone in the "Kraken Society" had sent me.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+A halfling named Seth asked me for "papers" outside of a palace in Durdel Anatha.  When I expressed my confusion, he asked me if someone in the "Kraken Society" had sent me.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-A halfling named Seth asked me for "papers" outside of a palace in Durdel Anatha.  When I told him that I didn't have any papers for him, he had a gang of hidden goons leap out and attack me.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+A halfling named Seth asked me for "papers" outside of a palace in Durdel Anatha.  When I told him that I didn't have any papers for him, he had a gang of hidden goons leap out and attack me.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-I told Seth that I've known the Kraken Society for years.  Apparently, he wasn't convinced.  He had a bunch of thugs jump me.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+I told Seth that I've known the Kraken Society for years.  Apparently, he wasn't convinced.  He had a bunch of thugs jump me.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-I told Seth that I've done work for the Kraken Society.  I kept it pretty casual and nonchalant.  He wasn't entirely convinced, so he asked me a slew of questions about the Kraken and whom we were supposed to work and fight for.%)
-EraseJournalEntry(%Lower Dorn's Deep.
+I told Seth that I've done work for the Kraken Society.  I kept it pretty casual and nonchalant.  He wasn't entirely convinced, so he asked me a slew of questions about the Kraken and whom we were supposed to work and fight for.%) EraseJournalEntry(%Lower Dorn's Deep.
 
-Tarnelm told us that a village of his kind was somewhere nearby, but that it might be attacked at any time by packs of roaming umber hulks.  He told us how to get to the camp.  Apparently, all we have to do is walk to the northeast corner of the Oubliette.  Umber hulks should come looking for us.  From their tunnels, we can follow a path of light to the camp.%)
-EraseJournalEntry(%Upper Dorn’s Deep.
+Tarnelm told us that a village of his kind was somewhere nearby, but that it might be attacked at any time by packs of roaming umber hulks.  He told us how to get to the camp.  Apparently, all we have to do is walk to the northeast corner of the Oubliette.  Umber hulks should come looking for us.  From their tunnels, we can follow a path of light to the camp.%) EraseJournalEntry(%Upper Dornï¿½s Deep.
 
-We gave Bandoth the container of razorvine extract that we found on the dead body in the ettin lair. He told us that to access the lower portion of the area, we’ll have to travel across a bridge located south of his home into an old dwarven stronghold. From there, we’ll need to locate a room with statues of dwarven warriors, and find a secret door hidden along the wall where the statues are placed to progress further into the deeper regions of the complex.%)
-EraseJournalEntry(%Upper Dorn’s Deep.
+We gave Bandoth the container of razorvine extract that we found on the dead body in the ettin lair. He told us that to access the lower portion of the area, weï¿½ll have to travel across a bridge located south of his home into an old dwarven stronghold. From there, weï¿½ll need to locate a room with statues of dwarven warriors, and find a secret door hidden along the wall where the statues are placed to progress further into the deeper regions of the complex.%) EraseJournalEntry(%Upper Dornï¿½s Deep.
 
-Bandoth informed us that there is a puzzle room to tackle before we’ll be able to descend further into the stronghold. Apparently it has three rings with multiple plates on each ring. From what we gather, each ring has one plate that disarms the other plates on that particular ring. It can only be assumed that the other plates contain traps of some sort.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+Bandoth informed us that there is a puzzle room to tackle before weï¿½ll be able to descend further into the stronghold. Apparently it has three rings with multiple plates on each ring. From what we gather, each ring has one plate that disarms the other plates on that particular ring. It can only be assumed that the other plates contain traps of some sort.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We found Vera, the slave leader, hiding in the museum. We informed her that we had been sent by the frost salamander leader to kill her. Naturally, a battle ensued.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We found Vera, the slave leader, hiding in the museum. We informed her that we had been sent by the frost salamander leader to kill her. Naturally, a battle ensued.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We found Vera, the slave leader, hiding in the museum. We informed her that the frost salamander leader wanted her dead. She thanked us for the information and said she would take precautions.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We found Vera, the slave leader, hiding in the museum. We informed her that the frost salamander leader wanted her dead. She thanked us for the information and said she would take precautions.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We told Vera that the slaves were free and had escaped to the surface. She was relieved to hear the news and has escaped the museum as well. Apparently she would not leave until she knew the others were free.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We told Vera that the slaves were free and had escaped to the surface. She was relieved to hear the news and has escaped the museum as well. Apparently she would not leave until she knew the others were free.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-Vera, the slave leader, pretty much told us to go help Gareth and the other slaves. She then dismissed us.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+Vera, the slave leader, pretty much told us to go help Gareth and the other slaves. She then dismissed us.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We told Davin of Joril Frostbeard’s death. With his death the path to freedom for the slaves has been opened.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We told Davin of Joril Frostbeardï¿½s death. With his death the path to freedom for the slaves has been opened.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-Davin asked us to slay the frost giant guard that watches over the slave pens, but we had already done it, so he was free to go.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+Davin asked us to slay the frost giant guard that watches over the slave pens, but we had already done it, so he was free to go.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We told Davin that we cleared the cave north of the slave pens of any danger. We also have slain the frost giant guarding the pens. This opened the path to freedom for the slaves.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We told Davin that we cleared the cave north of the slave pens of any danger. We also have slain the frost giant guarding the pens. This opened the path to freedom for the slaves.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We gave Gareth the key that unlocks the door to the passage leading to the surface. Now he and the other slaves can escape to safety.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We gave Gareth the key that unlocks the door to the passage leading to the surface. Now he and the other slaves can escape to safety.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We decided to continue to reason with Joril to try and get his badge of office. The plan worked, and it is now in our possession.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We decided to continue to reason with Joril to try and get his badge of office. The plan worked, and it is now in our possession.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-Although we probably could have continued to reason with Joril to try and get his badge of office, we decided to fight him for it instead.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+Although we probably could have continued to reason with Joril to try and get his badge of office, we decided to fight him for it instead.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-Wonderful. Our paladin demanded that Joril Frostbeard free the slaves he held in captivity. Naturally Joril became suspicious of our true identities and attacked us. Oh, well.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+Wonderful. Our paladin demanded that Joril Frostbeard free the slaves he held in captivity. Naturally Joril became suspicious of our true identities and attacked us. Oh, well.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We told Kerish that Vera, the slave leader, is dead. He believes his honor has been restored and offered us his gratitude.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We told Kerish that Vera, the slave leader, is dead. He believes his honor has been restored and offered us his gratitude.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We told Kerish that the slaves believe their leader to be dead. He seemed satisfied with that.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We told Kerish that the slaves believe their leader to be dead. He seemed satisfied with that.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We have learned that Joril Frostbeard is the lieutenant of Wyrm’s Tooth Glacier. Apparently he took over the position by killing his father, Kreg.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We have learned that Joril Frostbeard is the lieutenant of Wyrmï¿½s Tooth Glacier. Apparently he took over the position by killing his father, Kreg.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-Apparently there has been a slave revolt among the frost salamanders. A few managed to escape but most died in the attempt.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+Apparently there has been a slave revolt among the frost salamanders. A few managed to escape but most died in the attempt.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We have discovered that the *master* chooses his lieutenants personally. Joril has caused a controversy by slaying his father for the position. Perhaps we can use this knowledge against him somehow.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We have discovered that the *master* chooses his lieutenants personally. Joril has caused a controversy by slaying his father for the position. Perhaps we can use this knowledge against him somehow.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-It seems that the frost salamanders are sensitive to heat. We may be able to use that weakness against them.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+It seems that the frost salamanders are sensitive to heat. We may be able to use that weakness against them.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-The slaves that escaped the frost salamanders fled to a room beneath the museum. Kerish believes them to be trapped there with no means of escape and no supplies. If this is the case then they will surely perish.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+The slaves that escaped the frost salamanders fled to a room beneath the museum. Kerish believes them to be trapped there with no means of escape and no supplies. If this is the case then they will surely perish.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would not do his dirty work for him.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would not do his dirty work for him.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would consider the matter.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+Kerish, the frost salamander leader, has asked us to find the leader of the slave revolt and slay him. We informed him that we would consider the matter.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We met a woman named Kontik who claimed to be a follower of Auril. She became irritated with us quickly and attacked for no reason. We had to defend ourselves.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We met a woman named Kontik who claimed to be a follower of Auril. She became irritated with us quickly and attacked for no reason. We had to defend ourselves.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We met a woman named Kontik who claimed to be a follower of Auril. She said Auril sent her to slay us in retribution over the death of the priestess Lysan.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We met a woman named Kontik who claimed to be a follower of Auril. She said Auril sent her to slay us in retribution over the death of the priestess Lysan.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We talked to a salamander that says he is hearing things down a certain hallway. When he goes to check it out, he finds nothing. This sounds a bit strange. Perhaps it bears checking out.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We talked to a salamander that says he is hearing things down a certain hallway. When he goes to check it out, he finds nothing. This sounds a bit strange. Perhaps it bears checking out.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We talked to a salamander that says he is hearing things down a certain hallway. When he goes to check it out he finds nothing. This sounds a bit strange so we offered to check it out ourselves. Perhaps we will find something that he missed.%)
-EraseJournalEntry(%Upper Dorn’s Deep.
+We talked to a salamander that says he is hearing things down a certain hallway. When he goes to check it out he finds nothing. This sounds a bit strange so we offered to check it out ourselves. Perhaps we will find something that he missed.%) EraseJournalEntry(%Upper Dornï¿½s Deep.
 
-We defeated Terikan and restored the forge of Upper Dorn’s Deep. Norlinor thanked us, and he told us the key we would need to allow us to travel to Wyrm’s Tooth Glacier lay in a receptacle in the forge.%)
-EraseJournalEntry(%Upper Dorn’s Deep.
+We defeated Terikan and restored the forge of Upper Dornï¿½s Deep. Norlinor thanked us, and he told us the key we would need to allow us to travel to Wyrmï¿½s Tooth Glacier lay in a receptacle in the forge.%) EraseJournalEntry(%Upper Dornï¿½s Deep.
 
-We returned with the badge for Saablic, and in turn he informed us that there were five "others" in possession of similar badges.  Apparently, we’ll need to obtain all of them, but for what reason, I don’t know.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We returned with the badge for Saablic, and in turn he informed us that there were five "others" in possession of similar badges.  Apparently, weï¿½ll need to obtain all of them, but for what reason, I donï¿½t know.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We talked to a scholar named Soth who has been studying the books in the Wyrm’s Tooth library. He says that they are works dedicated to dwarven engineering.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We talked to a scholar named Soth who has been studying the books in the Wyrmï¿½s Tooth library. He says that they are works dedicated to dwarven engineering.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-We talked to a scholar named Soth.  He says that the Wyrm’s Tooth buildings are a temple complex dedicated to Dugmaren Brightmane, the dwarven god of scholars and explorers.%)
-EraseJournalEntry(%Wyrm’s Tooth.
+We talked to a scholar named Soth.  He says that the Wyrmï¿½s Tooth buildings are a temple complex dedicated to Dugmaren Brightmane, the dwarven god of scholars and explorers.%) EraseJournalEntry(%Wyrmï¿½s Tooth.
 
-The scholar Soth gave us a book on dwarven engineering. With it we hope to repair the rope bridge that spans the southwest chasm.%)
-Enemy()~ EXIT
+The scholar Soth gave us a book on dwarven engineering. With it we hope to repair the rope bridge that spans the southwest chasm.%) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 33

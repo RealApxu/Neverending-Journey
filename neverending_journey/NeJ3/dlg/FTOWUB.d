@@ -15,8 +15,7 @@ IF ~RandomNum(4,3)~ THEN BEGIN 2
   IF ~~ THEN EXIT
 END
 
-IF ~RandomNum(4,4)
-~ THEN BEGIN 3
+IF ~RandomNum(4,4)~ THEN BEGIN 3
   SAY ~It's a good year for codfish. I'll have fried tongues for me boys tonight.~
   IF ~~ THEN EXIT
 END

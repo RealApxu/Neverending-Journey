@@ -1,25 +1,21 @@
 BEGIN ~MTOWNA~
 
-IF ~RandomNum(8,1)
-~ THEN BEGIN 0
+IF ~RandomNum(8,1)~ THEN BEGIN 0
   SAY ~You people look new to Nashkel. I assume you've come to see the fair.~
   IF ~~ THEN REPLY ~Where is this fair located?~ GOTO 5
 END
 
-IF ~RandomNum(8,2)
-~ THEN BEGIN 1
+IF ~RandomNum(8,2)~ THEN BEGIN 1
   SAY ~Move aside and I'll be on my way. I have no time to waste on idle blathering. Hard enough making a living without you slowing me down.~
   IF ~~ THEN EXIT
 END
 
-IF ~RandomNum(8,3)
-~ THEN BEGIN 2
+IF ~RandomNum(8,3)~ THEN BEGIN 2
   SAY ~I hate this stupid town. Nothing ever happens around here. A person could die just from the boredom.~
   IF ~~ THEN EXIT
 END
 
-IF ~RandomNum(8,4)
-~ THEN BEGIN 3
+IF ~RandomNum(8,4)~ THEN BEGIN 3
   SAY ~I don't know nuthin'. Sorry.~
   IF ~~ THEN EXIT
 END
@@ -34,8 +30,7 @@ IF ~~ THEN BEGIN 5
   IF ~~ THEN EXIT
 END
 
-IF ~RandomNum(8,6)
-~ THEN BEGIN 6
+IF ~RandomNum(8,6)~ THEN BEGIN 6
   SAY ~We be proud citizens of Amn, here, not pussyfoots like you northerners...~
   IF ~~ THEN REPLY ~Amn? I thought this town was called Nashkel...~ GOTO 7
   IF ~~ THEN REPLY ~Watch your tongue or you'll soon be eating it.~ GOTO 8

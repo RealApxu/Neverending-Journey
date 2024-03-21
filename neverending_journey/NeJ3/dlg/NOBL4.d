@@ -1,8 +1,6 @@
 BEGIN ~NOBL4~
 
-IF WEIGHT #2 ~NumberOfTimesTalkedTo(0)
-!Dead("Noblewoman4")
-~ THEN BEGIN 0
+IF WEIGHT #2 ~NumberOfTimesTalkedTo(0) !Dead("Noblewoman4")~ THEN BEGIN 0
   SAY ~Step up to the heat, young one.  You'll NEED a good fire to warm the chill stares of those monks.  Most inhospitable, they are.  Isn't that so, Lovey?~
   IF ~~ THEN EXTERN ~NOBW4~ 0
 END
@@ -37,8 +35,7 @@ IF ~~ THEN BEGIN 6
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #0 ~StateCheck(Myself,STATE_CHARMED)
-~ THEN BEGIN 7
+IF WEIGHT #0 ~StateCheck(Myself,STATE_CHARMED)~ THEN BEGIN 7
   SAY ~It is obvious what you need my good friend.  Living in this library fortress must leave you with little in the way of monetary funds.  Here, take this 20 gold; It is but a trifle to me, but I'm sure it'll put you on the right track.~
   IF ~~ THEN EXIT
 END
@@ -48,8 +45,7 @@ IF ~~ THEN BEGIN 8
   IF ~~ THEN EXIT
 END
 
-IF WEIGHT #1 ~True()
-~ THEN BEGIN 9
+IF WEIGHT #1 ~True() ~ THEN BEGIN 9
   SAY ~I'm sorry, but my wife and I would like some time alone; isn't that right lovey?~
   IF ~~ THEN EXIT
 END

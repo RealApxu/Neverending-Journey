@@ -46,8 +46,7 @@ IF ~RandomNum(14,8)~ THEN BEGIN 8
   IF ~~ THEN EXIT
 END
 
-IF ~RandomNum(14,9)
-~ THEN BEGIN 9
+IF ~RandomNum(14,9) ~ THEN BEGIN 9
   SAY ~Rumor tells of a magical gate in the bottom o' the school ruins, but no-one knows where it leads.  Anywhere is better than that accursed place, if ye ask me!~
   IF ~~ THEN EXIT
 END

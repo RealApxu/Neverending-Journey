@@ -13,8 +13,7 @@ END
 
 IF ~~ THEN BEGIN 2
   SAY ~Kerish in charge.  He up stairs.  I take you him.  You show respect or you die.  You understand?~
-  IF ~~ THEN REPLY ~Yes, take me to see Kerish.~ DO ~StartCutSceneMode()
-StartCutScene("wtgcut2")~ EXIT
+  IF ~~ THEN REPLY ~Yes, take me to see Kerish.~ DO ~StartCutSceneMode() StartCutScene("wtgcut2")~ EXIT
   IF ~~ THEN REPLY ~No, I have changed my mind.  Farewell.~ GOTO 3
 END
 

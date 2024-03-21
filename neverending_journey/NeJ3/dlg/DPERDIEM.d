@@ -1,21 +1,14 @@
 BEGIN ~DPERDIEM~
 
-IF ~NumTimesTalkedTo(0)
-!Global("Crazy_Priests","GLOBAL",1)~ THEN BEGIN 0
+IF ~NumTimesTalkedTo(0) !Global("Crazy_Priests","GLOBAL",1)~ THEN BEGIN 0
   SAY ~Welcome to our humble church, disciples of suffering.  I am Brother Perdiem, servant of Ilmater.  What brings you here today?  Do you seek ecstasy at the hands of Ilmater's servants?~
   IF ~~ THEN REPLY ~This temple doesn't seem like the place where kind, gentle gods are worshipped.~ JOURNAL ~Lower Dorn's Deep.
 
 In a temple of butchered people, we found a man named "Brother Perdiem," who claimed to be a priest of Ilmater.  He informed us that, should we try to wander around, he would make us suffer.~ GOTO 1
-  IF ~OR(2)
-!InParty("Dar")
-!See("Dar")
-OR(2)
-Class(LastTalkedToBy,CLERIC)
-Class(LastTalkedToBy,PALADIN)~ THEN REPLY ~You do not do the work of Ilmater. This temple is a mockery of all that Ilmater stands for.~ JOURNAL ~Lower Dorn's Deep.
+  IF ~OR(2) !InParty("Dar") !See("Dar") OR(2) Class(LastTalkedToBy,CLERIC) Class(LastTalkedToBy,PALADIN)~ THEN REPLY ~You do not do the work of Ilmater. This temple is a mockery of all that Ilmater stands for.~ JOURNAL ~Lower Dorn's Deep.
 
 In a temple of butchered people, we found a man named "Brother Perdiem," who claimed to be a priest of Ilmater.  He informed us that, should we try to wander around, he would make us suffer.~ GOTO 1
-  IF ~InParty("Dar")
-See("Dar")~ THEN REPLY ~Dar thinks you do not do the work of Ilmater. This temple is a mockery of all that Ilmater stands for.~ JOURNAL ~Lower Dorn's Deep.
+  IF ~InParty("Dar") See("Dar")~ THEN REPLY ~Dar thinks you do not do the work of Ilmater. This temple is a mockery of all that Ilmater stands for.~ JOURNAL ~Lower Dorn's Deep.
 
 In a temple of butchered people, we found a man named "Brother Perdiem," who claimed to be a priest of Ilmater.  He informed us that, should we try to wander around, he would make us suffer.~ GOTO 1
   IF ~Global("Know_Poquelin","GLOBAL",1)~ THEN REPLY ~No, I do not seek ecstasy.  I seek Revered Brother Poquelin.~ JOURNAL ~Lower Dorn's Deep.
@@ -28,10 +21,7 @@ END
 
 IF ~~ THEN BEGIN 1
   SAY ~Our god is kind and forgiving.  We are not.  As servants of Ilmater, it is our duty to strip all resistance to suffering from the bodies of believers and unbelievers alike.  Once your resistance has been stripped away, you will weep in the arms of Ilmater.~
-  IF ~Alignment(LastTalkedToBy,MASK_GOOD)
-OR(2)
-Class(LastTalkedToBy,CLERIC)
-Class(LastTalkedToBy,PALADIN)~ THEN REPLY ~Suffering is not a mandate from the church!  It is not an end unto itself.  Suffering is taken on for the sake of others.  It is a means by which we can express charity and humility.  All you are doing is *inflicting* suffering for its own sake.~ GOTO 4
+  IF ~Alignment(LastTalkedToBy,MASK_GOOD) OR(2) Class(LastTalkedToBy,CLERIC) Class(LastTalkedToBy,PALADIN)~ THEN REPLY ~Suffering is not a mandate from the church!  It is not an end unto itself.  Suffering is taken on for the sake of others.  It is a means by which we can express charity and humility.  All you are doing is *inflicting* suffering for its own sake.~ GOTO 4
   IF ~~ THEN REPLY ~That might be your task, but you're not going to be inflicting *any* suffering on us.~ GOTO 3
   IF ~~ THEN REPLY ~I don't need any suffering today.  Farewell.~ GOTO 3
 END
@@ -64,17 +54,14 @@ IF ~~ THEN BEGIN 6
   IF ~~ THEN REPLY ~Farewell.~ GOTO 3
 END
 
-IF ~NumTimesTalkedToGT(0)
-!Global("Crazy_Priests","GLOBAL",1)~ THEN BEGIN 7
+IF ~NumTimesTalkedToGT(0) !Global("Crazy_Priests","GLOBAL",1)~ THEN BEGIN 7
   SAY ~So you have returned, heathen.  The garments you wear weigh down not only your bodies, but your souls.  Let us wrap your bodies in hair shirts, saturated with scarlet tears.  This will liberate your souls from the terrible burden of our world.~
   IF ~~ THEN EXIT
 END
 
-IF ~NumTimesTalkedTo(0)
-Global("Crazy_Priests","GLOBAL",1)~ THEN BEGIN 8
+IF ~NumTimesTalkedTo(0) Global("Crazy_Priests","GLOBAL",1)~ THEN BEGIN 8
   SAY ~My... my god.  I know not who you are, but you have delivered us from such a terrible nightmare...  I dreamt that I was swimming in pitch under a blood red moon.  So much suffering have I caused.  So much suffering must I endure to repay the debt of sin I have incurred.~
-  IF ~~ THEN REPLY ~Who are you?~ DO ~SetGlobal("Crazy_Speech","GLOBAL",1)
-GiveItem("Perdiem",Player1)~ JOURNAL ~Lower Dorn's Deep.
+  IF ~~ THEN REPLY ~Who are you?~ DO ~SetGlobal("Crazy_Speech","GLOBAL",1) GiveItem("Perdiem",Player1)~ JOURNAL ~Lower Dorn's Deep.
 
 A fallen priest of Ilmater named Brother Perdiem told us about how he came under Revered Brother Poquelin's spell.  Apparently, Poquelin appeared at Perdiem's temple some time ago and hypnotized the entire congregation.  They left their monastery and moved north, many dying along the way.  Poquelin was able to covert an entire temple of devout Ilmaterian priests.  Who is he to be able to do such things?~ GOTO 9
 END
@@ -113,11 +100,9 @@ IF ~~ THEN BEGIN 14
   IF ~~ THEN REPLY ~Thank you.  Farewell.~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Crazy_Priests","GLOBAL",1)~ THEN BEGIN 15
+IF ~NumTimesTalkedToGT(0) Global("Crazy_Priests","GLOBAL",1)~ THEN BEGIN 15
   SAY ~My... my god.  You have delivered us from such a terrible nightmare...  I dreamt that I was swimming in pitch under a blood red moon.  So much suffering have I caused.  So much suffering must I endure to repay the debt of sin I have incurred.  I am sorry that I sought to cause you harm.~
-  IF ~~ THEN REPLY ~How did all of this happen?~ DO ~SetGlobal("Crazy_Speech","GLOBAL",1)
-GiveItem("Perdiem",LastTalkedToBy)~ JOURNAL ~Lower Dorn's Deep.
+  IF ~~ THEN REPLY ~How did all of this happen?~ DO ~SetGlobal("Crazy_Speech","GLOBAL",1) GiveItem("Perdiem",LastTalkedToBy)~ JOURNAL ~Lower Dorn's Deep.
 
 A fallen priest of Ilmater named Brother Perdiem told us about how he came under Revered Brother Poquelin's spell.  Apparently, Poquelin appeared at Perdiem's temple some time ago and hypnotized the entire congregation.  They left their monastery and moved north, many dying along the way.  Poquelin was able to covert an entire temple of devout Ilmaterian priests.  Who is he to be able to do such things?~ GOTO 9
 END

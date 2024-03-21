@@ -10,10 +10,8 @@ END
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 1
   SAY ~I see you�ve returned.  Why?~
   IF ~Global("Know_Vera","GLOBAL",0)~ THEN REPLY ~I would like to ask you some questions.~ GOTO 6
-  IF ~Global("Know_Vera","GLOBAL",1)
-Global("Help_Vera","GLOBAL",0)~ THEN REPLY ~I wanted to ask you some questions again.~ GOTO 7
-  IF ~Global("Tell_Tale","GLOBAL",4)
-Global("Help_Vera","GLOBAL",0)~ THEN REPLY ~I spoke with a man named Gareth.  He wove quite a tale about a woman named Vera. Would that be you?~ GOTO 9
+  IF ~Global("Know_Vera","GLOBAL",1) Global("Help_Vera","GLOBAL",0)~ THEN REPLY ~I wanted to ask you some questions again.~ GOTO 7
+  IF ~Global("Tell_Tale","GLOBAL",4) Global("Help_Vera","GLOBAL",0)~ THEN REPLY ~I spoke with a man named Gareth.  He wove quite a tale about a woman named Vera. Would that be you?~ GOTO 9
   IF ~Global("Help_Vera","GLOBAL",1)~ THEN REPLY ~When we last spoke you asked me to help the slaves escape.~ GOTO 21
   IF ~~ THEN REPLY ~No reason. Farewell for now.~ EXIT
 END
@@ -84,20 +82,15 @@ IF ~~ THEN BEGIN 10
   SAY ~Yes, that�s me.  I had to do something to help those poor people.~
   IF ~Global("Kill_Vera","GLOBAL",3)~ THEN REPLY ~Then you are the one I seek.  Kerish has sent me to kill you.  Prepare to die!~ DO ~EraseJournalEntry(%Wyrm�s Tooth.
 
-We found a woman named Vera hiding in the museum. She will not tell us why she is in hiding. She asked us not to mention having found her.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found a woman named Vera hiding in the museum. She will not tell us why she is in hiding. She asked us not to mention having found her.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We warned Vera that one of the salamanders has heard her moving about. She thanked us for the warning and says she will take precautions to not be heard again.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We warned Vera that one of the salamanders has heard her moving about. She thanked us for the warning and says she will take precautions to not be heard again.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We found Vera, the slave leader, hiding in the museum.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found Vera, the slave leader, hiding in the museum.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We found Vera, the slave leader, hiding in the museum. We informed her that the frost salamander leader wanted her dead. She thanked us for the information and said she would take precautions.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found Vera, the slave leader, hiding in the museum. We informed her that the frost salamander leader wanted her dead. She thanked us for the information and said she would take precautions.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-Vera, the slave leader, pretty much told us to go help Gareth and the other slaves. She then dismissed us.%)
-Enemy()~ SOLVED_JOURNAL ~Wyrm�s Tooth.
+Vera, the slave leader, pretty much told us to go help Gareth and the other slaves. She then dismissed us.%) Enemy()~ SOLVED_JOURNAL ~Wyrm�s Tooth.
 
 We found Vera, the slave leader, hiding in the museum. We informed her that we had been sent by the frost salamander leader to kill her. Naturally, a battle ensued.~ EXIT
   IF ~~ THEN REPLY ~You should know that the salamanders want you dead, Vera.~ JOURNAL ~Wyrm�s Tooth.
@@ -118,21 +111,15 @@ IF ~~ THEN BEGIN 12
   IF ~~ THEN REPLY ~Wait. How do you intend to leave?~ GOTO 13
   IF ~Global("Vera_Leave","GLOBAL",0)~ THEN REPLY ~Farewell, Vera.~ DO ~EraseJournalEntry(%Wyrm�s Tooth.
 
-We found a woman named Vera hiding in the museum. She will not tell us why she is in hiding. She asked us not to mention having found her.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found a woman named Vera hiding in the museum. She will not tell us why she is in hiding. She asked us not to mention having found her.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We warned Vera that one of the salamanders has heard her moving about. She thanked us for the warning and says she will take precautions to not be heard again.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We warned Vera that one of the salamanders has heard her moving about. She thanked us for the warning and says she will take precautions to not be heard again.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We found Vera, the slave leader, hiding in the museum.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found Vera, the slave leader, hiding in the museum.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We found Vera, the slave leader, hiding in the museum. We informed her that the frost salamander leader wanted her dead. She thanked us for the information and said she would take precautions.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found Vera, the slave leader, hiding in the museum. We informed her that the frost salamander leader wanted her dead. She thanked us for the information and said she would take precautions.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-Vera, the slave leader, pretty much told us to go help Gareth and the other slaves. She then dismissed us.%)
-AddexperienceParty(18500)
-SetGlobal("Vera_Leave","GLOBAL",1)~ SOLVED_JOURNAL ~Wyrm�s Tooth.
+Vera, the slave leader, pretty much told us to go help Gareth and the other slaves. She then dismissed us.%) AddexperienceParty(18500) SetGlobal("Vera_Leave","GLOBAL",1)~ SOLVED_JOURNAL ~Wyrm�s Tooth.
 
 We told Vera that the slaves were free and had escaped to the surface. She was relieved to hear the news and has escaped the museum as well. Apparently she would not leave until she knew the others were free.~ EXIT
   IF ~Global("Vera_Leave","GLOBAL",1)~ THEN REPLY ~Farewell, Vera.~ EXIT
@@ -142,21 +129,15 @@ IF ~~ THEN BEGIN 13
   SAY ~Well...  I�m a thief and a good one.  I can sneak out of here when the time is right...  I just couldn�t do it until I knew those poor people were safe.~
   IF ~Global("Vera_Leave","GLOBAL",0)~ THEN REPLY ~I see.  Farewell, Vera.~ DO ~EraseJournalEntry(%Wyrm�s Tooth.
 
-We found a woman named Vera hiding in the museum. She will not tell us why she is in hiding. She asked us not to mention having found her.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found a woman named Vera hiding in the museum. She will not tell us why she is in hiding. She asked us not to mention having found her.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We warned Vera that one of the salamanders has heard her moving about. She thanked us for the warning and says she will take precautions to not be heard again.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We warned Vera that one of the salamanders has heard her moving about. She thanked us for the warning and says she will take precautions to not be heard again.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We found Vera, the slave leader, hiding in the museum.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found Vera, the slave leader, hiding in the museum.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We found Vera, the slave leader, hiding in the museum. We informed her that the frost salamander leader wanted her dead. She thanked us for the information and said she would take precautions.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We found Vera, the slave leader, hiding in the museum. We informed her that the frost salamander leader wanted her dead. She thanked us for the information and said she would take precautions.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-Vera, the slave leader, pretty much told us to go help Gareth and the other slaves. She then dismissed us.%)
-AddexperienceParty(18500)
-SetGlobal("Vera_Leave","GLOBAL",1)~ SOLVED_JOURNAL ~Wyrm�s Tooth.
+Vera, the slave leader, pretty much told us to go help Gareth and the other slaves. She then dismissed us.%) AddexperienceParty(18500) SetGlobal("Vera_Leave","GLOBAL",1)~ SOLVED_JOURNAL ~Wyrm�s Tooth.
 
 We told Vera that the slaves were free and had escaped to the surface. She was relieved to hear the news and has escaped the museum as well. Apparently she would not leave until she knew the others were free.~ EXIT
   IF ~Global("Vera_Leave","GLOBAL",1)~ THEN REPLY ~I see.  Farewell, Vera.~ EXIT

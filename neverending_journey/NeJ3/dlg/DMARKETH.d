@@ -8,11 +8,7 @@ I met Marketh in a small palace in Lower Dorn's Deep.  He was a shifty man who f
   IF ~~ THEN REPLY ~I am called <CHARNAME>.  Who are you?~ JOURNAL ~Lower Dorn's Deep.
 
 I met Marketh in a small palace in Lower Dorn's Deep.  He was a shifty man who fancied himself to be the new ruler of Dorn's Deep.~ GOTO 1
-  IF ~OR(4)
-Global("Ginafae_Promise","GLOBAL",1)
-Global("Ginafae_Eye","GLOBAL",1)
-Global("Flozem_Portrait","GLOBAL",1)
-Global("Know_Marketh","GLOBAL",1)~ THEN REPLY ~You must be Marketh.  I've heard about you.~ JOURNAL ~Lower Dorn's Deep.
+  IF ~OR(4) Global("Ginafae_Promise","GLOBAL",1) Global("Ginafae_Eye","GLOBAL",1) Global("Flozem_Portrait","GLOBAL",1) Global("Know_Marketh","GLOBAL",1)~ THEN REPLY ~You must be Marketh.  I've heard about you.~ JOURNAL ~Lower Dorn's Deep.
 
 I met Marketh in a small palace in Lower Dorn's Deep.  He was a shifty man who fancied himself to be the new ruler of Dorn's Deep.~ GOTO 2
 END
@@ -101,13 +97,8 @@ END
 IF ~~ THEN BEGIN 15
   SAY ~Of course, the stupid paladin starting spouting off about how Poquelin would pay for his evil, and so on.  That's when I decided to slip my dagger into our wizard's back.  He died without a sound.  I killed our priest, too.  Poquelin made short work of the paladin.  He appreciated my help and my style.  The rest is history.~
   IF ~~ THEN REPLY ~You bastard.  I hate traitors.~ GOTO 16
-  IF ~OR(2)
-Class(LastTalkedToBy,PALADIN)
-Class(LastTalkedToBy,PALADIN_ALL)~ THEN REPLY ~Dishonorable fiend!  I will avenge the death of my holy brother-in-arms.  Prepare to defend yourself, scum!~ GOTO 17
-  IF ~OR(3)
-Class(LastTalkedToBy,MAGE)
-Class(LastTalkedToBy,MAGE_ALL)
-Class(LastTalkedToBy,SORCERER)~ THEN REPLY ~So, you like killing mages, eh?  I can guarantee that you're not going to die without a sound.~ GOTO 18
+  IF ~OR(2) Class(LastTalkedToBy,PALADIN) Class(LastTalkedToBy,PALADIN_ALL)~ THEN REPLY ~Dishonorable fiend!  I will avenge the death of my holy brother-in-arms.  Prepare to defend yourself, scum!~ GOTO 17
+  IF ~OR(3) Class(LastTalkedToBy,MAGE) Class(LastTalkedToBy,MAGE_ALL) Class(LastTalkedToBy,SORCERER)~ THEN REPLY ~So, you like killing mages, eh?  I can guarantee that you're not going to die without a sound.~ GOTO 18
   IF ~~ THEN REPLY ~Hmm.  Interesting.~ GOTO 19
 END
 
@@ -140,9 +131,7 @@ END
 IF ~~ THEN BEGIN 21
   SAY ~You know, you look like a  reasonable person.  I'm just a thief.  I'm not looking for a fight.  I don't suppose there's any chance you'd just take the badge and let me go, is there?~
   IF ~Global("Ginafae_Promise","GLOBAL",1)~ THEN REPLY ~Yes, actually.  I promised Ginafae I wouldn't hurt you.  Hand over the badge and I'll let you go.~ GOTO 23
-  IF ~OR(2)
-CheckStatGT(LastTalkedToBy,13,INT)
-CheckStatGT(LastTalkedToBy,13,WIS)~ THEN REPLY ~Hmm... I've got an idea, Marketh.  Why don't you hand over the badge *and* all of your armor and weapons?  I don't want you causing any trouble.~ GOTO 26
+  IF ~OR(2) CheckStatGT(LastTalkedToBy,13,INT) CheckStatGT(LastTalkedToBy,13,WIS)~ THEN REPLY ~Hmm... I've got an idea, Marketh.  Why don't you hand over the badge *and* all of your armor and weapons?  I don't want you causing any trouble.~ GOTO 26
   IF ~!Global("Ginafae_Promise","GLOBAL",1)~ THEN REPLY ~Hmm... I guess so.  Just give me the badge and get out of here.~ GOTO 28
   IF ~~ THEN REPLY ~No.  No chance at all.  Your time has come, Marketh.~ GOTO 24
 END
@@ -155,9 +144,7 @@ END
 
 IF ~~ THEN BEGIN 23
   SAY ~Ah, what a sweet girl she is.  Very well.  Say goodbye to Poquelin for me.  Farewell.~
-  IF ~~ THEN DO ~GiveItem("Marketh",Player1)
-SetGlobal("Marketh_Gone","GLOBAL",1)
-EscapeArea()~ EXIT
+  IF ~~ THEN DO ~GiveItem("Marketh",Player1) SetGlobal("Marketh_Gone","GLOBAL",1) EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN 24
@@ -167,12 +154,7 @@ END
 
 IF ~~ THEN BEGIN 25
   SAY ~Ah... you're truly a saint.  I'm sure Ilmater will give you a big pat on the head when you die.  Farewell.~
-  IF ~~ THEN DO ~GiveItem("Marketh",Player1)
-GiveItem("dragarm",Protagonist)
-GiveItem("valiant",Protagonist)
-TakePartyGold(5000)
-SetGlobal("Marketh_Gone","GLOBAL",1)
-EscapeArea()~ EXIT
+  IF ~~ THEN DO ~GiveItem("Marketh",Player1) GiveItem("dragarm",Protagonist) GiveItem("valiant",Protagonist) TakePartyGold(5000) SetGlobal("Marketh_Gone","GLOBAL",1) EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN 26
@@ -183,18 +165,10 @@ END
 
 IF ~~ THEN BEGIN 27
   SAY ~*sigh*  Fine.  Here you go.  Farewell.~
-  IF ~~ THEN DO ~GiveItem("Marketh",Player1)
-GiveItem("dragarm",Protagonist)
-GiveItem("valiant",Protagonist)
-GiveItem("ring05",Protagonist)
-TakePartyGold(5000)
-SetGlobal("Marketh_Gone","GLOBAL",1)
-EscapeArea()~ EXIT
+  IF ~~ THEN DO ~GiveItem("Marketh",Player1) GiveItem("dragarm",Protagonist) GiveItem("valiant",Protagonist) GiveItem("ring05",Protagonist) TakePartyGold(5000) SetGlobal("Marketh_Gone","GLOBAL",1) EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN 28
   SAY ~Ah... you're truly a saint.  I'm sure Ilmater will give you a big pat on the head when you die.  Farewell.~
-  IF ~~ THEN DO ~GiveItem("Marketh",Player1)
-SetGlobal("Marketh_Gone","GLOBAL",1)
-EscapeArea()~ EXIT
+  IF ~~ THEN DO ~GiveItem("Marketh",Player1) SetGlobal("Marketh_Gone","GLOBAL",1) EscapeArea()~ EXIT
 END

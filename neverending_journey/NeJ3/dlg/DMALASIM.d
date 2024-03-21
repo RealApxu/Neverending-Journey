@@ -3,15 +3,9 @@ BEGIN ~DMALASIM~
 IF ~True()~ THEN BEGIN 0
   SAY ~Take one more step and these slaves will die.  You see the golems to each side of me?  They are more than capable of killing all of these pathetic creatures.~
   IF ~~ THEN REPLY ~Hold on.  I'm not going anywhere.  Just don't hurt the slaves.~ DO ~Enemy()~ GOTO 1
-  IF ~Global("Golem_Commands","GLOBAL",1)
-CheckStatLT(LastTalkedToBy,9,INT)~ THEN REPLY ~Malavon, I have just one word for you: Stam.~ DO ~Enemy()~ GOTO 8
-  IF ~Global("Golem_Commands","GLOBAL",1)
-CheckStatGT(LastTalkedToBy,8,INT)
-CheckStatLT(LastTalkedToBy,16,INT)~ THEN REPLY ~Malavon, I have just one word for you: Met.~ DO ~SetGlobal("Golem_Commands","GLOBAL",2)
-Enemy()~ GOTO 9
-  IF ~Global("Golem_Commands","GLOBAL",1)
-CheckStatGT(LastTalkedToBy,15,INT)~ THEN REPLY ~Malavon, I have two words for you: Kalam, Stam.~ DO ~SetGlobal("Golem_Commands","GLOBAL",3)
-Enemy()~ GOTO 10
+  IF ~Global("Golem_Commands","GLOBAL",1) CheckStatLT(LastTalkedToBy,9,INT)~ THEN REPLY ~Malavon, I have just one word for you: Stam.~ DO ~Enemy()~ GOTO 8
+  IF ~Global("Golem_Commands","GLOBAL",1) CheckStatGT(LastTalkedToBy,8,INT) CheckStatLT(LastTalkedToBy,16,INT)~ THEN REPLY ~Malavon, I have just one word for you: Met.~ DO ~SetGlobal("Golem_Commands","GLOBAL",2) Enemy()~ GOTO 9
+  IF ~Global("Golem_Commands","GLOBAL",1) CheckStatGT(LastTalkedToBy,15,INT)~ THEN REPLY ~Malavon, I have two words for you: Kalam, Stam.~ DO ~SetGlobal("Golem_Commands","GLOBAL",3) Enemy()~ GOTO 10
   IF ~~ THEN REPLY ~What's your problem?  Too afraid to fight me one-on-one?~ DO ~Enemy()~ GOTO 2
   IF ~~ THEN REPLY ~Eh, you're bluffing.~ DO ~Enemy()~ GOTO 3
   IF ~~ THEN REPLY ~You think I care about your stupid slaves?  Go ahead and kill them.  It'll just give me more time to get to you.~ DO ~Enemy()~ GOTO 4

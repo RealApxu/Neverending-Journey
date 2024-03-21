@@ -5,12 +5,10 @@ IF ~True()~ THEN BEGIN 0
   IF ~~ THEN REPLY ~Uh... what?~ DO ~SetGlobal("Know_Seth","GLOBAL",1)~ JOURNAL ~Lower Dorn's Deep.
 
 A halfling named Seth asked me for "papers" outside of a palace in Durdel Anatha.  When I expressed my confusion, he asked me if someone in the "Kraken Society" had sent me.~ GOTO 1
-  IF ~~ THEN REPLY ~We don't have the papers you're looking for.~ DO ~SetGlobal("Know_Seth","GLOBAL",1)
-Enemy()~ JOURNAL ~Lower Dorn's Deep.
+  IF ~~ THEN REPLY ~We don't have the papers you're looking for.~ DO ~SetGlobal("Know_Seth","GLOBAL",1) Enemy()~ JOURNAL ~Lower Dorn's Deep.
 
 A halfling named Seth asked me for "papers" outside of a palace in Durdel Anatha.  When I told him that I didn't have any papers for him, he had a gang of hidden goons leap out and attack me.~ GOTO 2
-  IF ~~ THEN REPLY ~Sorry.  I must have left them at home.  Farewell.~ DO ~SetGlobal("Know_Seth","GLOBAL",1)
-Enemy()~ JOURNAL ~Lower Dorn's Deep.
+  IF ~~ THEN REPLY ~Sorry.  I must have left them at home.  Farewell.~ DO ~SetGlobal("Know_Seth","GLOBAL",1) Enemy()~ JOURNAL ~Lower Dorn's Deep.
 
 A halfling named Seth asked me for "papers" outside of a palace in Durdel Anatha.  When I told him that I didn't have any papers for him, he had a gang of hidden goons leap out and attack me.~ GOTO 3
 END
@@ -22,10 +20,7 @@ IF ~~ THEN BEGIN 1
   IF ~~ THEN REPLY ~Yep.  That's right.  Me and the Kraken Society... we go way back.  Ahh... the good old "Kraken Days."~ JOURNAL ~Lower Dorn's Deep.
 
 I told Seth that I've known the Kraken Society for years.  Apparently, he wasn't convinced.  He had a bunch of thugs jump me.~ GOTO 4
-  IF ~OR(3)
-CheckStatGT(LastTalkedToBy,12,INT)
-CheckStatGT(LastTalkedToBy,12,CHR)
-CheckStatGT(LastTalkedToBy,12,WIS)~ THEN REPLY ~Yes.  I have connections with the Kraken Society.  I've done some jobs for them in the past, so they thought they could trust me with a job here.~ JOURNAL ~Lower Dorn's Deep.
+  IF ~OR(3) CheckStatGT(LastTalkedToBy,12,INT) CheckStatGT(LastTalkedToBy,12,CHR) CheckStatGT(LastTalkedToBy,12,WIS)~ THEN REPLY ~Yes.  I have connections with the Kraken Society.  I've done some jobs for them in the past, so they thought they could trust me with a job here.~ JOURNAL ~Lower Dorn's Deep.
 
 I told Seth that I've done work for the Kraken Society.  I kept it pretty casual and nonchalant.  He wasn't entirely convinced, so he asked me a slew of questions about the Kraken and whom we were supposed to work and fight for.~ GOTO 5
   IF ~~ THEN REPLY ~Er.. I think I should go now.  Farewell.~ GOTO 3
@@ -33,23 +28,17 @@ END
 
 IF ~~ THEN BEGIN 2
   SAY ~How unfortunate for you. If you will excuse me... Get them! Now, now!~
-  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
-SetGlobal("SETH_ESCAPE","GLOBAL",1)
-EscapeArea()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1) SetGlobal("SETH_ESCAPE","GLOBAL",1) EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN 3
   SAY ~Not so fast, chum. If you don't have the proper papers, I'm afraid you'll have to be killed. Sorry about this. I'm sure you understand... Get them! Now, now!~
-  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
-SetGlobal("SETH_ESCAPE","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1) SetGlobal("SETH_ESCAPE","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 4
   SAY ~Sure. For some reason, I just don't believe you. Sorry, old boy, but we're going to have to kill you... Get them! Now, now!~
-  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
-SetGlobal("SETH_ESCAPE","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1) SetGlobal("SETH_ESCAPE","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 5
@@ -66,9 +55,7 @@ END
 
 IF ~~ THEN BEGIN 6
   SAY ~I like it when a person can admit their own ignorance. I'm impressed. Now, if you'll excuse me... Get them! Now, now!~
-  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
-SetGlobal("SETH_ESCAPE","GLOBAL",1)
-EscapeArea()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1) SetGlobal("SETH_ESCAPE","GLOBAL",1) EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN 7
@@ -99,9 +86,7 @@ END
 
 IF ~~ THEN BEGIN 9
   SAY ~Hmm.  Nice try... Get them! Now, now!~
-  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1)
-SetGlobal("SETH_ESCAPE","GLOBAL",1)
-Enemy()~ EXIT
+  IF ~~ THEN DO ~SetGlobal("MAP_GROUP_HOSTILE10","MYAREA",1) SetGlobal("SETH_ESCAPE","GLOBAL",1) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 10

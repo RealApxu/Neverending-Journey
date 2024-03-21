@@ -35,16 +35,11 @@ END
 
 IF ~~ THEN BEGIN 5
   SAY ~Bah!  And what if I refuse to hand it over, *little* one?  Do you think you can defeat me and my warriors combined? ~
-  IF ~~ THEN REPLY ~Joril, think about it.  If you do not give me the badge, who do you think will be sent to collect it next?~ DO ~AddexperienceParty(7500)
-GiveItem("Joril",Player1)
-SetGlobal("Got_Joril_Badge","GLOBAL",1)
-EraseJournalEntry(%Wyrm�s Tooth.
+  IF ~~ THEN REPLY ~Joril, think about it.  If you do not give me the badge, who do you think will be sent to collect it next?~ DO ~AddexperienceParty(7500) GiveItem("Joril",Player1) SetGlobal("Got_Joril_Badge","GLOBAL",1) EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%) EraseJournalEntry(%Wyrm�s Tooth.
 
 We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%)~
 SOLVED_JOURNAL ~Wyrm�s Tooth.
@@ -52,14 +47,11 @@ SOLVED_JOURNAL ~Wyrm�s Tooth.
 We decided to continue to reason with Joril to try and get his badge of office. The plan worked, and it is now in our possession.~ GOTO 6
   IF ~~ THEN REPLY ~Very well, if it is a fight want, a fight you shall have.~ DO ~EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%)
-AddexperienceParty(7500)~ SOLVED_JOURNAL ~Wyrm�s Tooth.
+We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%) AddexperienceParty(7500)~ SOLVED_JOURNAL ~Wyrm�s Tooth.
 
 Although we probably could have continued to reason with Joril to try and get his badge of office, we decided to fight him for it instead.~ GOTO 16
 END
@@ -99,14 +91,11 @@ IF ~~ THEN BEGIN 10
   SAY ~Slaves.  I give the wyrms a slave a day.  There�s plenty available, and I can always get more.~
   IF ~Class(Player1, Paladin)~ THEN REPLY ~The slaves are to be freed, Joril.~ DO ~EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%)
-AddexperienceParty(7500)~ SOLVED_JOURNAL ~Wyrm�s Tooth.
+We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%) AddexperienceParty(7500)~ SOLVED_JOURNAL ~Wyrm�s Tooth.
 
 Wonderful. Our paladin demanded that Joril Frostbeard free the slaves he held in captivity. Naturally Joril became suspicious of our true identities and attacked us. Oh, well.~ GOTO 11
   IF ~~ THEN REPLY ~I want to be allowed to look around.~ GOTO 12
@@ -116,14 +105,11 @@ IF ~~ THEN BEGIN 11
   SAY ~Free the slaves?  Never...  Who are you really?  If you were who you pretend to be you would never make such a demand.  Die, fool!~
   IF ~~ THEN REPLY ~So be it!~ DO ~EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%)
-Enemy()~ EXIT
+We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 12
@@ -152,14 +138,11 @@ IF ~~ THEN BEGIN 16
   SAY ~Ha!  I will crush the life out of you with my bare hands.  Die, fool!~
   IF ~~ THEN REPLY ~So be it!~ DO ~EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%)
-Enemy()~ EXIT
+We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%) Enemy()~ EXIT
 END
 
 IF ~~ THEN BEGIN 17
@@ -171,14 +154,11 @@ IF WEIGHT #0 ~Global("Got_Joril_Badge","GLOBAL",1)~ THEN BEGIN 18
   SAY ~You again?  You have what you came for.  Get out of my sight!~
   IF ~~ THEN REPLY ~Yes, I have the badge.  Now I have come for your life.  Prepare to die!~ DO ~EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We talked to Joril Frostbeard and demanded his badge of office. He refused at first, but then we decided to lead him to believe that we were collecting it for his *master*.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%)
-EraseJournalEntry(%Wyrm�s Tooth.
+We asked Joril how he managed to slay his father Kreg. Apparently he made a pact with some creatures he calls *wyrms* and had them perform the deed. He pays them for their aid with sacrifices from the slave pens on a daily basis.%) EraseJournalEntry(%Wyrm�s Tooth.
 
-We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%)
-Enemy()~ EXIT
+We talked to Joril Frostbeard and demanded his badge of office. He was refused at first, demanding to know who sent us to collect it. We were vague with our answer and lead him to believe that we were collecting it for some *higher authority*.%) Enemy()~ EXIT
   IF ~~ THEN REPLY ~Very well, farewell.~ EXIT
 END
 
