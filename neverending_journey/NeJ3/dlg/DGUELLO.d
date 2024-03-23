@@ -1,7 +1,6 @@
 BEGIN ~DGUELLO~
 
-IF ~NumTimesTalkedTo(0)
-GlobalLT("Beorn_Quest","GLOBAL",3)~ THEN BEGIN 0
+IF ~NumTimesTalkedTo(0) GlobalLT("Beorn_Quest","GLOBAL",3)~ THEN BEGIN 0
   SAY ~Watch out, the salamanders are about.  If they see you, they'll kill you.~
   IF ~~ THEN REPLY ~Thanks for the advice.  Who are you?~ JOURNAL ~Lower Dorn's Deep.
 
@@ -9,8 +8,7 @@ The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  A
   IF ~~ THEN REPLY ~I can take care of myself, thanks.  Who are you?~ JOURNAL ~Lower Dorn's Deep.
 
 The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.~ GOTO 1
-  IF ~Global("SPRITE_IS_DEADSHIKATA","GLOBAL",1)
-GlobalGT("SPRITE_IS_DEADSAL8008","GLOBAL",11)~ THEN REPLY ~I already killed Shikata and all of his salamanders.~ GOTO 12
+  IF ~Global("SPRITE_IS_DEADSHIKATA","GLOBAL",1) GlobalGT("SPRITE_IS_DEADSAL8008","GLOBAL",11)~ THEN REPLY ~I already killed Shikata and all of his salamanders.~ GOTO 12
 END
 
 IF ~~ THEN BEGIN 1
@@ -26,11 +24,7 @@ IF ~~ THEN BEGIN 2
   IF ~~ THEN REPLY ~Forget it.  Farewell.~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-GlobalLT("Beorn_Quest","GLOBAL",3)
-OR(2)
-	Global("SPRITE_IS_DEADSHIKATA","GLOBAL",0)
-	GlobalLT("SPRITE_IS_DEADSAL8008","GLOBAL",12)~ THEN BEGIN 3
+IF ~NumTimesTalkedToGT(0) GlobalLT("Beorn_Quest","GLOBAL",3) OR(2) 	Global("SPRITE_IS_DEADSHIKATA","GLOBAL",0) 	GlobalLT("SPRITE_IS_DEADSAL8008","GLOBAL",12)~ THEN BEGIN 3
   SAY ~Please help us!  Send Shikata and his thugs back to the plane they came from.  If you do not, Marketh and his salamanders will work my people into the grave!~
   IF ~~ THEN EXIT
 END
@@ -67,66 +61,30 @@ END
 
 IF ~Global("Beorn_Quest","GLOBAL",5)~ THEN BEGIN 9
   SAY ~You have saved us, and for this, we are eternally grateful. Please accept this small gift as a token of our appreciation.~
-  IF ~~ THEN REPLY ~No, I cannot accept such a gift. Knowing that you and your people are safe is the only reward I need.~ DO ~AddXPObject(Player1,25000)
-AddXPObject(Player2,25000)
-AddXPObject(Player3,25000)
-AddXPObject(Player4,25000)
-AddXPObject(Player5,25000)
-AddXPObject(Player6,25000)
-EraseJournalEntry(%Lower Dorn's Deep.
+  IF ~~ THEN REPLY ~No, I cannot accept such a gift. Knowing that you and your people are safe is the only reward I need.~ DO ~AddXPObject(Player1,25000) AddXPObject(Player2,25000) AddXPObject(Player3,25000) AddXPObject(Player4,25000) AddXPObject(Player5,25000) AddXPObject(Player6,25000) EraseJournalEntry(%Lower Dorn's Deep.
 
-The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.%)
-SetGlobal("Beorn_Quest","GLOBAL",6)~ EXIT
-  IF ~~ THEN REPLY ~Thanks, Guello. Glad we could be of service.~ DO ~AddXPObject(Player1,25000)
-AddXPObject(Player2,25000)
-AddXPObject(Player3,25000)
-AddXPObject(Player4,25000)
-AddXPObject(Player5,25000)
-AddXPObject(Player6,25000)
-EraseJournalEntry(%Lower Dorn's Deep.
+The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.%) SetGlobal("Beorn_Quest","GLOBAL",6)~ EXIT
+  IF ~~ THEN REPLY ~Thanks, Guello. Glad we could be of service.~ DO ~AddXPObject(Player1,25000) AddXPObject(Player2,25000) AddXPObject(Player3,25000) AddXPObject(Player4,25000) AddXPObject(Player5,25000) AddXPObject(Player6,25000) EraseJournalEntry(%Lower Dorn's Deep.
 
-The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.%)
-SetGlobal("Beorn_Quest","GLOBAL",6)
-GiveItemCreate("bootfor2",LastTalkedToBy,0,0,0)~ EXIT
+The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.%) SetGlobal("Beorn_Quest","GLOBAL",6) GiveItemCreate("bootfor2",LastTalkedToBy,0,0,0)~ EXIT
 END
 
-IF ~GlobalGT("Beorn_Quest","GLOBAL",3)
-!Global("Beorn_Quest","GLOBAL",5)
-!Global("Gnome_Hate","GLOBAL",1)~ THEN BEGIN 10
+IF ~GlobalGT("Beorn_Quest","GLOBAL",3) !Global("Beorn_Quest","GLOBAL",5) !Global("Gnome_Hate","GLOBAL",1)~ THEN BEGIN 10
   SAY ~How can I help you, friends?~
   IF ~~ THEN REPLY ~Can you give me some healing?~ DO ~StartStore("LDD_Guel",Player1)~ EXIT
   IF ~~ THEN REPLY ~Oh, nothing.  I just thought I'd say hello.  Farewell, Guello.~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("SPRITE_IS_DEADSHIKATA","GLOBAL",1)
-GlobalGT("SPRITE_IS_DEADSAL8008","GLOBAL",11)
-GlobalLT("Beorn_Quest","GLOBAL",3)~ THEN BEGIN 11
+IF ~NumTimesTalkedToGT(0) Global("SPRITE_IS_DEADSHIKATA","GLOBAL",1) GlobalGT("SPRITE_IS_DEADSAL8008","GLOBAL",11) GlobalLT("Beorn_Quest","GLOBAL",3)~ THEN BEGIN 11
   SAY ~Thank you for slaying Shikata and his evil kin.  You must leave this area quickly, though, before anyone else comes to find you.  I and my people will attempt to return to our camp through lower passages when the opportunity is right.  Again, I thank you, my friends.~
-  IF ~~ THEN DO ~SetGlobal("Beorn_Quest","GLOBAL",3)
-AddXPObject(Player1,10635)
-AddXPObject(Player2,10635)
-AddXPObject(Player3,10635)
-AddXPObject(Player4,10635)
-AddXPObject(Player5,10635)
-AddXPObject(Player6,10635)
-EraseJournalEntry(%Lower Dorn's Deep.
+  IF ~~ THEN DO ~SetGlobal("Beorn_Quest","GLOBAL",3) AddXPObject(Player1,10635) AddXPObject(Player2,10635) AddXPObject(Player3,10635) AddXPObject(Player4,10635) AddXPObject(Player5,10635) AddXPObject(Player6,10635) EraseJournalEntry(%Lower Dorn's Deep.
 
-The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.%)
-EscapeArea()~ EXIT
+The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.%) EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN 12
   SAY ~Thank you for slaying Shikata and his evil kin.  You must leave this area quickly, though, before anyone else comes to find you.  I and my people will attempt to return to our camp through lower passages when the opportunity is right.  Again, I thank you, my friends.~
-  IF ~~ THEN DO ~SetGlobal("Beorn_Quest","GLOBAL",3)
-AddXPObject(Player1,10635)
-AddXPObject(Player2,10635)
-AddXPObject(Player3,10635)
-AddXPObject(Player4,10635)
-AddXPObject(Player5,10635)
-AddXPObject(Player6,10635)
-EraseJournalEntry(%Lower Dorn's Deep.
+  IF ~~ THEN DO ~SetGlobal("Beorn_Quest","GLOBAL",3) AddXPObject(Player1,10635) AddXPObject(Player2,10635) AddXPObject(Player3,10635) AddXPObject(Player4,10635) AddXPObject(Player5,10635) AddXPObject(Player6,10635) EraseJournalEntry(%Lower Dorn's Deep.
 
-The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.%)
-EscapeArea()~ EXIT
+The mines of Lower Dorn's Deep are home to a small population of deep gnomes.  Among them is a priest named Guello.  He warned us about the salamander guards nearby and claimed that he was captured by umber hulks to work in the mines.  He told us that he needed to return to his camp or many of his people would die.%) EscapeArea()~ EXIT
 END

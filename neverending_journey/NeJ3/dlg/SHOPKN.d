@@ -2,8 +2,7 @@ BEGIN ~SHOPKN~
 
 IF ~PartyHasItem("MISC01")~ THEN BEGIN 0
   SAY ~There be a fine looking pelt, if I have ever seen one. Good on you! Here is a fair price for you. Pleasure doing business with you.~
-  IF ~~ THEN DO ~TakePartyItem("MISC01")
-GiveGoldForce(500)~ EXIT
+  IF ~~ THEN DO ~TakePartyItem("MISC01") GiveGoldForce(500)~ EXIT
 END
 
 IF ~!PartyHasItem("MISC01")~ THEN BEGIN 2

@@ -56,12 +56,8 @@ END
 IF ~~ THEN BEGIN 8
   SAY ~My... brother Malavon.  He placed a series of spells on me.  If I ever cross the boundaries of the palace, the first two spells will destroy my natural resistance to magic.  The third spell will extinguish my life force.~
   IF ~!PartyHasItem("PNull")~ THEN REPLY ~If I can find some way to help you Ginafae, I will.  Farewell.~ EXIT
-  IF ~Global("Malavon_Curse","GLOBAL",1)
-PartyHasItem("PNull")
-!Global("Marketh_Gone","GLOBAL",1)~ THEN REPLY ~Ginafae, I found this potion.  It destroys magical effects on people who drink it.  Do you think that you could use it to remove Malavon's contingency spells?~ GOTO 17
-  IF ~Global("Malavon_Curse","GLOBAL",1)
-PartyHasItem("PNull")
-Global("Marketh_Gone","GLOBAL",1)~ THEN REPLY ~Ginafae, I found this potion.  It destroys magical effects on people who drink it.  Do you think that you could use it to remove Malavon's contingency spells?~ GOTO 18
+  IF ~Global("Malavon_Curse","GLOBAL",1) PartyHasItem("PNull") !Global("Marketh_Gone","GLOBAL",1)~ THEN REPLY ~Ginafae, I found this potion.  It destroys magical effects on people who drink it.  Do you think that you could use it to remove Malavon's contingency spells?~ GOTO 17
+  IF ~Global("Malavon_Curse","GLOBAL",1) PartyHasItem("PNull") Global("Marketh_Gone","GLOBAL",1)~ THEN REPLY ~Ginafae, I found this potion.  It destroys magical effects on people who drink it.  Do you think that you could use it to remove Malavon's contingency spells?~ GOTO 18
   IF ~~ THEN REPLY ~Ouch.  I should be going.  Farewell.~ EXIT
 END
 
@@ -104,12 +100,8 @@ IF WEIGHT #2 ~NumTimesTalkedToGT(0)~ THEN BEGIN 15
   SAY ~H... hello again.  Did you want something?~
   IF ~!Global("Ginafae_Eye","GLOBAL",1)~ THEN REPLY ~So, what really happened to your eye?~ GOTO 6
   IF ~~ THEN REPLY ~How did you wind up here?~ GOTO 11
-  IF ~Global("Malavon_Curse","GLOBAL",1)
-PartyHasItem("PNull")
-!Global("Marketh_Gone","GLOBAL",1)~ THEN REPLY ~Ginafae, I found this potion.  It destroys magical effects on people who drink it.  Do you think that you could use it to remove Malavon's contingency spells?~ GOTO 17
-  IF ~Global("Malavon_Curse","GLOBAL",1)
-PartyHasItem("PNull")
-Global("Marketh_Gone","GLOBAL",1)~ THEN REPLY ~Ginafae, I found this potion.  It destroys magical effects on people who drink it.  Do you think that you could use it to remove Malavon's contingency spells?~ GOTO 18
+  IF ~Global("Malavon_Curse","GLOBAL",1) PartyHasItem("PNull") !Global("Marketh_Gone","GLOBAL",1)~ THEN REPLY ~Ginafae, I found this potion.  It destroys magical effects on people who drink it.  Do you think that you could use it to remove Malavon's contingency spells?~ GOTO 17
+  IF ~Global("Malavon_Curse","GLOBAL",1) PartyHasItem("PNull") Global("Marketh_Gone","GLOBAL",1)~ THEN REPLY ~Ginafae, I found this potion.  It destroys magical effects on people who drink it.  Do you think that you could use it to remove Malavon's contingency spells?~ GOTO 18
   IF ~~ THEN REPLY ~No, not right now.  Farewell.~ EXIT
 END
 
@@ -125,14 +117,7 @@ END
 
 IF ~~ THEN BEGIN 18
   SAY ~Now that Marketh has left, I... I suppose there's no reason for me to stay here.  I... I don't know what else to do.  I suppose I should take the potion and leave this dead palace.  Thank you for your help, and farewell.~
-  IF ~~ THEN REPLY ~Farewell, Ginafae.~ DO ~TakePartyItem("PNull")
-AddXPObject(Player1,7500)
-AddXPObject(Player2,7500)
-AddXPObject(Player3,7500)
-AddXPObject(Player4,7500)
-AddXPObject(Player5,7500)
-AddXPObject(Player6,7500)
-EscapeArea()~ EXIT
+  IF ~~ THEN REPLY ~Farewell, Ginafae.~ DO ~TakePartyItem("PNull") AddXPObject(Player1,7500) AddXPObject(Player2,7500) AddXPObject(Player3,7500) AddXPObject(Player4,7500) AddXPObject(Player5,7500) AddXPObject(Player6,7500) EscapeArea()~ EXIT
 END
 
 IF WEIGHT #0 ~Global("SPRITE_IS_DEADMarketh","GLOBAL",1)~ THEN BEGIN 19

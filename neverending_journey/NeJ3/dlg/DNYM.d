@@ -86,9 +86,7 @@ IF WEIGHT #4 ~NumTimesTalkedToGT(0)~ THEN BEGIN 10
   IF ~~ THEN REPLY ~I was just stopping to greet you.  Farewell.~ GOTO 9
 END
 
-IF WEIGHT #3 ~NumTimesTalkedToGT(0)
-PartyHasItem("BeetShld")
-GlobalLT("Nym_Shield","GLOBAL",1)~ THEN BEGIN 11
+IF WEIGHT #3 ~NumTimesTalkedToGT(0) PartyHasItem("BeetShld") GlobalLT("Nym_Shield","GLOBAL",1)~ THEN BEGIN 11
   SAY ~I welcome you back, honored customer.  That's an excellent shield you have there.  Rhino beetles are incredibly durable creatures.  You know, for such an honored customer, I might be able to have this enchanted...~
   IF ~~ THEN REPLY ~How much would it cost to enchant the shield?~ GOTO 12
   IF ~~ THEN REPLY ~Show me your wares, Nym.~ DO ~StartStore("LDD_Nym",Protagonist)~ EXIT
@@ -98,10 +96,7 @@ END
 
 IF ~~ THEN BEGIN 12
   SAY ~For the small sum of fifty thousand of your gold pieces, it could easily be done.~
-  IF ~PartyGoldGT(49999)~ THEN REPLY ~Sounds good, Nym.  Here's the money.~ DO ~TakePartyGold(50000)
-TakePartyItem("BeetShld")
-SetGlobal("Nym_Shield","GLOBAL",1)
-SetGlobalTimer("Nym_Timer","GLOBAL",ONE_DAY)~ GOTO 13
+  IF ~PartyGoldGT(49999)~ THEN REPLY ~Sounds good, Nym.  Here's the money.~ DO ~TakePartyGold(50000) TakePartyItem("BeetShld") SetGlobal("Nym_Shield","GLOBAL",1) SetGlobalTimer("Nym_Timer","GLOBAL",ONE_DAY)~ GOTO 13
   IF ~PartyGoldLT(50000)~ THEN REPLY ~Sounds good, Nym.  Here's the money.~ GOTO 17
   IF ~~ THEN REPLY ~That's outrageous!  Lower your prices or I'm not interested.~ GOTO 14
   IF ~~ THEN REPLY ~Maybe some other time.  Show me your wares, Nym.~ DO ~StartStore("LDD_Nym",Protagonist)~ EXIT
@@ -115,11 +110,7 @@ END
 
 IF ~~ THEN BEGIN 14
   SAY ~Hmm.  You are not only incredibly powerful, but also a tough bargainer.  I will give you an enchanted shield and this beautiful magical dagger for only fifty three thousand gold coins.~
-  IF ~PartyGoldGT(52999)~ THEN REPLY ~Okay.  That seems reasonable.~ DO ~TakePartyGold(53000)
-TakePartyItem("BeetShld")
-GiveItemCreate("NymDagg",Protagonist,0,0,0)
-SetGlobal("Nym_Shield","GLOBAL",1)
-SetGlobalTimer("Nym_Timer","GLOBAL",ONE_DAY)~ GOTO 15
+  IF ~PartyGoldGT(52999)~ THEN REPLY ~Okay.  That seems reasonable.~ DO ~TakePartyGold(53000) TakePartyItem("BeetShld") GiveItemCreate("NymDagg",Protagonist,0,0,0) SetGlobal("Nym_Shield","GLOBAL",1) SetGlobalTimer("Nym_Timer","GLOBAL",ONE_DAY)~ GOTO 15
   IF ~PartyGoldLT(53000)~ THEN REPLY ~Okay.  That seems reasonable.~ GOTO 17
   IF ~~ THEN REPLY ~I don't want the dagger.  I just want the shield.  And I don't want to pay fifty three thousand gold for it.~ GOTO 16
   IF ~~ THEN REPLY ~Maybe some other time.  Show me your wares, Nym.~ DO ~StartStore("LDD_Nym",Protagonist)~ EXIT
@@ -133,10 +124,7 @@ END
 
 IF ~~ THEN BEGIN 16
   SAY ~Of course, of course.  It was insulting of me to imply otherwise.  What would this honored customer want with a trinket, a small jeweled dagger, a nothing?  To apologize for the insult, I will offer you a more powerful enchantment on the shield for a lower price.  Your charisma has swayed me down to the insane price of forty eight thousand gold coins.~
-  IF ~PartyGoldGT(47999)~ THEN REPLY ~That sounds like a good offer.  Here's the money, Nym.~ DO ~TakePartyGold(48000)
-TakePartyItem("BeetShld")
-SetGlobal("Nym_Shield","GLOBAL",1)
-SetGlobalTimer("Nym_Timer","GLOBAL",ONE_DAY)~ GOTO 13
+  IF ~PartyGoldGT(47999)~ THEN REPLY ~That sounds like a good offer.  Here's the money, Nym.~ DO ~TakePartyGold(48000) TakePartyItem("BeetShld") SetGlobal("Nym_Shield","GLOBAL",1) SetGlobalTimer("Nym_Timer","GLOBAL",ONE_DAY)~ GOTO 13
   IF ~PartyGoldLT(48000)~ THEN REPLY ~That sounds like a good offer.  Here's the money, Nym.~ GOTO 17
   IF ~~ THEN REPLY ~Maybe some other time.  Show me your wares, Nym.~ DO ~StartStore("LDD_Nym",Protagonist)~ EXIT
   IF ~~ THEN REPLY ~Forget it.  I'm not interested.  Farewell, Nym.~ GOTO 9
@@ -148,21 +136,14 @@ IF ~~ THEN BEGIN 17
   IF ~~ THEN REPLY ~Farewell, Nym.~ GOTO 9
 END
 
-IF WEIGHT #1 ~NumTimesTalkedToGT(0)
-Global("Nym_Shield","GLOBAL",1)
-!GlobalTimerExpired("Nym_Timer","GLOBAL")~ THEN BEGIN 18
+IF WEIGHT #1 ~NumTimesTalkedToGT(0) Global("Nym_Shield","GLOBAL",1) !GlobalTimerExpired("Nym_Timer","GLOBAL")~ THEN BEGIN 18
   SAY ~I apologize, honored customer.  Your shield is not yet done being enchanted.  Despite the fact that drow wizards can work incredibly fast, they must work for at least three days to create such a powerful item.~
   IF ~~ THEN REPLY ~Show me your wares, Nym.~ DO ~StartStore("LDD_Nym",Protagonist)~ EXIT
   IF ~~ THEN REPLY ~Farewell, Nym.~ GOTO 9
 END
 
-IF WEIGHT #2 ~NumTimesTalkedToGT(0)
-Global("Nym_Shield","GLOBAL",1)
-GlobalTimerExpired("Nym_Timer","GLOBAL")~ THEN BEGIN 19
+IF WEIGHT #2 ~NumTimesTalkedToGT(0) Global("Nym_Shield","GLOBAL",1) GlobalTimerExpired("Nym_Timer","GLOBAL")~ THEN BEGIN 19
   SAY ~I welcome you back, honored customer.  Your shield is finished.  I hope that you are pleased with the results.~
-  IF ~~ THEN REPLY ~Thanks.  Show me your wares, Nym.~ DO ~GiveItemCreate("NymShld",Protagonist,0,0,0)
-SetGlobal("Nym_Shield","GLOBAL",2)
-StartStore("LDD_Nym",Protagonist)~ EXIT
-  IF ~~ THEN REPLY ~Thanks.  Farewell, Nym.~ DO ~GiveItemCreate("NymShld",Protagonist,0,0,0)
-SetGlobal("Nym_Shield","GLOBAL",2)~ GOTO 9
+  IF ~~ THEN REPLY ~Thanks.  Show me your wares, Nym.~ DO ~GiveItemCreate("NymShld",Protagonist,0,0,0) SetGlobal("Nym_Shield","GLOBAL",2) StartStore("LDD_Nym",Protagonist)~ EXIT
+  IF ~~ THEN REPLY ~Thanks.  Farewell, Nym.~ DO ~GiveItemCreate("NymShld",Protagonist,0,0,0) SetGlobal("Nym_Shield","GLOBAL",2)~ GOTO 9
 END

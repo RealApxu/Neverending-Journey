@@ -8,9 +8,7 @@ END
 
 IF ~~ THEN BEGIN 1
   SAY ~As you wish.~
-  IF ~~ THEN  DO ~ClearAllActions()
-StartCutSceneMode()
-StartCutScene("VPHealCt")~ EXIT
+  IF ~~ THEN  DO ~ClearAllActions() StartCutSceneMode() StartCutScene("VPHealCt")~ EXIT
 END
 
 IF ~~ THEN BEGIN 2

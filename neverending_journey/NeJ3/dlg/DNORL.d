@@ -5,14 +5,10 @@ IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0
   IF ~~ THEN REPLY ~Uh... sorry, I don't know what you're talking about.~ GOTO 2
 END
 
-IF ~NumTimesTalkedToGT(0)
-GlobalGT("Marketh_Ring","GLOBAL",2)~ THEN BEGIN 1
+IF ~NumTimesTalkedToGT(0) GlobalGT("Marketh_Ring","GLOBAL",2)~ THEN BEGIN 1
   SAY ~Hello again. What are you still doing around here?~
-  IF ~Global("SPRITE_IS_DEADMarketh","GLOBAL",1)
-Global("Marketh_Ring","GLOBAL",3)~ THEN REPLY ~Marketh's dead. I killed him.~ GOTO 15
-  IF ~OR(2)
-Global("SPRITE_IS_DEADMarketh","GLOBAL",0)
-Global("Marketh_Ring","GLOBAL",4)~ THEN REPLY ~Nothing much. Farewell, Norl.~ EXIT
+  IF ~Global("SPRITE_IS_DEADMarketh","GLOBAL",1) Global("Marketh_Ring","GLOBAL",3)~ THEN REPLY ~Marketh's dead. I killed him.~ GOTO 15
+  IF ~OR(2) Global("SPRITE_IS_DEADMarketh","GLOBAL",0) Global("Marketh_Ring","GLOBAL",4)~ THEN REPLY ~Nothing much. Farewell, Norl.~ EXIT
 END
 
 IF ~~ THEN BEGIN 2
@@ -69,13 +65,10 @@ END
 
 IF ~~ THEN BEGIN 10
   SAY ~Yes... yes... that will do nicely. This ring will be my greatest piece yet...~
-  IF ~~ THEN REPLY ~Sure. Here you go. I'll come back in a while to pick the ring up.~ DO ~TakePartyItem("Portrait")
-SetGlobal("Marketh_Ring","GLOBAL",2)
-SetGlobalTimer("Ring_Quest_Time","GLOBAL",7200)~ EXIT
+  IF ~~ THEN REPLY ~Sure. Here you go. I'll come back in a while to pick the ring up.~ DO ~TakePartyItem("Portrait") SetGlobal("Marketh_Ring","GLOBAL",2) SetGlobalTimer("Ring_Quest_Time","GLOBAL",7200)~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Marketh_Ring","GLOBAL",1)~ THEN BEGIN 11
+IF ~NumTimesTalkedToGT(0) Global("Marketh_Ring","GLOBAL",1)~ THEN BEGIN 11
   SAY ~Ah. You again?~
   IF ~PartyHasItem("Portrait")~ THEN REPLY ~I've got a drawing of Marketh from two sculptors. It shows the ring that Marketh uses to teleport all over Dorn's Deep. If you could make a copy of that ring, we might be able to switch it and trap him.~ JOURNAL ~Lower Dorn's Deep.
 
@@ -83,19 +76,14 @@ A gem-cutter named Norl told us he would help me get rid of Marketh if we could 
   IF ~!PartyHasItem("Portrait")~ THEN REPLY ~Never mind, Norl. Farewell.~ EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Marketh_Ring","GLOBAL",2)
-!GlobalTimerExpired("Ring_Quest_Time","GLOBAL")~ THEN BEGIN 12
+IF ~NumTimesTalkedToGT(0) Global("Marketh_Ring","GLOBAL",2) !GlobalTimerExpired("Ring_Quest_Time","GLOBAL")~ THEN BEGIN 12
   SAY ~I'm sorry, but the ring's not ready yet. Come back later and I'll have what you need.~
   IF ~~ THEN EXIT
 END
 
-IF ~NumTimesTalkedToGT(0)
-Global("Marketh_Ring","GLOBAL",2)
-GlobalTimerExpired("Ring_Quest_Time","GLOBAL")~ THEN BEGIN 13
+IF ~NumTimesTalkedToGT(0) Global("Marketh_Ring","GLOBAL",2) GlobalTimerExpired("Ring_Quest_Time","GLOBAL")~ THEN BEGIN 13
   SAY ~Ah! The ring is finished, gracious allies. Here it is, a silver band with a big fat emerald for Marketh's big fat head. It won't be easy to switch them, I'd imagine, but Callarduran will be with you.~
-  IF ~~ THEN REPLY ~Thanks, Norl. Farewell.~ DO ~GiveItemCreate("RingCop",LastTalkedToBy,0,0,0)
-SetGlobal("Marketh_Ring","GLOBAL",3)~ JOURNAL ~Lower Dorn's Deep.
+  IF ~~ THEN REPLY ~Thanks, Norl. Farewell.~ DO ~GiveItemCreate("RingCop",LastTalkedToBy,0,0,0) SetGlobal("Marketh_Ring","GLOBAL",3)~ JOURNAL ~Lower Dorn's Deep.
 
 Norl finished the copy of Marketh's teleportation ring and gave it to us. Before we left, he told me Callarduran would be with us.~ GOTO 14
 END

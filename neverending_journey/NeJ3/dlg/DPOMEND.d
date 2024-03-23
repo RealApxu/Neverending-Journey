@@ -67,14 +67,10 @@ END
 
 IF ~~ THEN BEGIN 11
   SAY ~We shall see who does the dying this day.  Sentries!  Slay them!~
-  IF ~~ THEN DO ~ClearAllActions()
-StartCutSceneMode()
-StartCutScene("eePomabS")~ EXIT
+  IF ~~ THEN DO ~ClearAllActions() StartCutSceneMode() StartCutScene("eePomabS")~ EXIT
 END
 
 IF ~~ THEN BEGIN 12
   SAY ~Redemption?  I have no desire for redemption.  I now possess all that I have dreamed of.  Guilt is but a small price to pay for such power.  I'll not stand here and be judged by you!  You are nothing!  You are but an insect that I shall squash beneath my boot!  Sentries!  Slay them!~
-  IF ~~ THEN DO ~ClearAllActions()
-StartCutSceneMode()
-StartCutScene("eePomabS")~ EXIT
+  IF ~~ THEN DO ~ClearAllActions() StartCutSceneMode() StartCutScene("eePomabS")~ EXIT
 END

@@ -1,15 +1,10 @@
 BEGIN ~NALIN~
 
-IF ~True()
-~ THEN BEGIN 0
+IF ~True()~ THEN BEGIN 0
   SAY ~Ahh, intrepid adventurers at our door.  Helm guards over all the Realms and his servants are at your disposal. The Vigilant One stands ready to mend thy ailments, and so divert the unyielding gaze of the Great Guide... for a suitable donation, of course.  Just to demonstrate our mutual good will, you understand.~
-  IF ~Global("MetBrage","GLOBAL",0)
-~ THEN GOTO 1
-  IF ~PartyHasItem("MISC65")
-~ THEN GOTO 2
-  IF ~Global("MetBrage","GLOBAL",1)
-!PartyHasItem("MISC65")
-~ THEN DO ~StartStore("Tem4802",LastTalkedToBy())~ EXIT
+  IF ~Global("MetBrage","GLOBAL",0)~ THEN GOTO 1
+  IF ~PartyHasItem("MISC65")~ THEN GOTO 2
+  IF ~Global("MetBrage","GLOBAL",1) !PartyHasItem("MISC65")~ THEN DO ~StartStore("Tem4802",LastTalkedToBy())~ EXIT
 END
 
 IF ~~ THEN BEGIN 1
@@ -30,9 +25,7 @@ END
 
 IF ~~ THEN BEGIN 4
   SAY ~If you are returned to the garrison, yours will be the only willful killing that has occurred about this matter.  It would be a waste of your life which, fractured though it is, can still contribute much.  Helm will see you through.  As for our intrepid friends here, I shall exceed the reward offered by Oublek.  After all, it was the same task of bringing Brage to justice.  The Temple is in your debt for the return of it's lost son. ~
-  IF ~~ THEN DO ~SetGlobal("OublekBounty1","GLOBAL",1)
-GivePartyGold(1000)
-~ JOURNAL ~I have returned Brage to Nashkel, but to the temple of Helm instead of the garrison.  Hopefully he can atone for his deeds, and receive the help that he needs.~ EXIT
+  IF ~~ THEN DO ~SetGlobal("OublekBounty1","GLOBAL",1) GivePartyGold(1000)~ JOURNAL ~I have returned Brage to Nashkel, but to the temple of Helm instead of the garrison.  Hopefully he can atone for his deeds, and receive the help that he needs.~ EXIT
 END
 
 IF ~~ THEN BEGIN 5

@@ -33,12 +33,9 @@ IF ~~ THEN BEGIN 2
   IF ~Gender(Protagonist,2)~ THEN REPLY ~It's hard being the odd woman out, isn't it?~ GOTO 6
   IF ~Gender(Protagonist,1)~ THEN REPLY ~What's a good-looking elf maiden like you doing in a dwarven forge like this?~ GOTO 7
   IF ~~ THEN REPLY ~You're right, I'm not supposed to be down here.  I think the real question is what *you're* doing here.~ GOTO 7
-  IF ~Global("SPRITE_IS_DEADMalavon","GLOBAL",1)
-Global("SPRITE_IS_DEADMarketh","GLOBAL",1)~ THEN REPLY ~Malavon and Marketh are both dead.  I helped usher them out of this world.~ GOTO 3
-  IF ~Global("SPRITE_IS_DEADMalavon","GLOBAL",1)
-!Global("SPRITE_IS_DEADMarketh","GLOBAL",1)~ THEN REPLY ~Malavon's dead.  I took care of him.~ GOTO 3
-  IF ~!Global("SPRITE_IS_DEADMalavon","GLOBAL",1)
-Global("SPRITE_IS_DEADMarketh","GLOBAL",1)~ THEN REPLY ~Marketh's friends aren't going to be too happy when they find out I killed him.~ GOTO 3
+  IF ~Global("SPRITE_IS_DEADMalavon","GLOBAL",1) Global("SPRITE_IS_DEADMarketh","GLOBAL",1)~ THEN REPLY ~Malavon and Marketh are both dead.  I helped usher them out of this world.~ GOTO 3
+  IF ~Global("SPRITE_IS_DEADMalavon","GLOBAL",1) !Global("SPRITE_IS_DEADMarketh","GLOBAL",1)~ THEN REPLY ~Malavon's dead.  I took care of him.~ GOTO 3
+  IF ~!Global("SPRITE_IS_DEADMalavon","GLOBAL",1) Global("SPRITE_IS_DEADMarketh","GLOBAL",1)~ THEN REPLY ~Marketh's friends aren't going to be too happy when they find out I killed him.~ GOTO 3
 END
 
 IF ~~ THEN BEGIN 3

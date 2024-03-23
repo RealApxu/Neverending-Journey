@@ -36,16 +36,7 @@ END
 
 IF ~~ THEN BEGIN 5
   SAY ~Well, if you're such a kindly soul, why don't you get out of here and bring us some food?  My breathing isn't getting any better by choking on rock dust all the time.  While you're at it, why don't you kill the salamanders at the top of the chain elevator?~
-  IF ~PartyHasItem("Potatoes")
-!Global("Tarnelm_Food","GLOBAL",2)~ THEN REPLY ~Food?  I have some food with me right now.  Here you go.~ DO ~SetGlobal("Tarnelm_Food","GLOBAL",2)
-TakePartyItem("potatoes")
-AddXPObject(Player1,3500)
-AddXPObject(Player2,3500)
-AddXPObject(Player3,3500)
-AddXPObject(Player4,3500)
-AddXPObject(Player5,3500)
-AddXPObject(Player6,3500)
-EraseJournalEntry(%Lower Dorn's Deep.
+  IF ~PartyHasItem("Potatoes") !Global("Tarnelm_Food","GLOBAL",2)~ THEN REPLY ~Food?  I have some food with me right now.  Here you go.~ DO ~SetGlobal("Tarnelm_Food","GLOBAL",2) TakePartyItem("potatoes") AddXPObject(Player1,3500) AddXPObject(Player2,3500) AddXPObject(Player3,3500) AddXPObject(Player4,3500) AddXPObject(Player5,3500) AddXPObject(Player6,3500) EraseJournalEntry(%Lower Dorn's Deep.
 
 Tarnelm, a grumpy gnome in the Oubliette, asked us to go get some food for him and his dying brothers.  He seems unlikely to trust us unless we do something nice for him.%)~ GOTO 9
   IF ~!PartyHasItem("Food")~ THEN REPLY ~Where can I find some food?~ UNSOLVED_JOURNAL ~Lower Dorn's Deep.
@@ -74,16 +65,7 @@ END
 
 IF ~~ THEN BEGIN 8
   SAY ~How in the Nine Hells should I know?  Our priest back in... uh, our priest, Beorn, he told us that the dwarves used portals to the elemental plane of fire in order to power their forges.  Maybe the salamanders came through there.~
-  IF ~PartyHasItem("Potatoes")
-!Global("Tarnelm_Food","GLOBAL",2)~ THEN REPLY ~By the way, here's the food you wanted.~ DO ~SetGlobal("Tarnelm_Food","GLOBAL",2)
-TakePartyItem("potatoes")
-AddXPObject(Player1,3500)
-AddXPObject(Player2,3500)
-AddXPObject(Player3,3500)
-AddXPObject(Player4,3500)
-AddXPObject(Player5,3500)
-AddXPObject(Player6,3500)
-EraseJournalEntry(%Lower Dorn's Deep.
+  IF ~PartyHasItem("Potatoes") !Global("Tarnelm_Food","GLOBAL",2)~ THEN REPLY ~By the way, here's the food you wanted.~ DO ~SetGlobal("Tarnelm_Food","GLOBAL",2) TakePartyItem("potatoes") AddXPObject(Player1,3500) AddXPObject(Player2,3500) AddXPObject(Player3,3500) AddXPObject(Player4,3500) AddXPObject(Player5,3500) AddXPObject(Player6,3500) EraseJournalEntry(%Lower Dorn's Deep.
 
 Tarnelm, a grumpy gnome in the Oubliette, asked us to go get some food for him and his dying brothers.  He seems unlikely to trust us unless we do something nice for him.%)~ GOTO 9
   IF ~!PartyHasItem("Food")~ THEN REPLY ~Where can I find some food?~ DO ~SetGlobal("Tarnelm_Food","GLOBAL",1)~ GOTO 7
@@ -135,21 +117,11 @@ END
 
 IF ~NumTimesTalkedToGT(0)~ THEN BEGIN 16
   SAY ~Eh.  It's you again.  What can I do for you?~
-  IF ~PartyHasItem("Potatoes")
-!Global("Tarnelm_Food","GLOBAL",2)~ THEN REPLY ~I brought you some food from the palace.~ DO ~SetGlobal("Tarnelm_Food","GLOBAL",2)
-TakePartyItem("potatoes")
-AddXPObject(Player1,3500)
-AddXPObject(Player2,3500)
-AddXPObject(Player3,3500)
-AddXPObject(Player4,3500)
-AddXPObject(Player5,3500)
-AddXPObject(Player6,3500)
-EraseJournalEntry(%Lower Dorn's Deep.
+  IF ~PartyHasItem("Potatoes") !Global("Tarnelm_Food","GLOBAL",2)~ THEN REPLY ~I brought you some food from the palace.~ DO ~SetGlobal("Tarnelm_Food","GLOBAL",2) TakePartyItem("potatoes") AddXPObject(Player1,3500) AddXPObject(Player2,3500) AddXPObject(Player3,3500) AddXPObject(Player4,3500) AddXPObject(Player5,3500) AddXPObject(Player6,3500) EraseJournalEntry(%Lower Dorn's Deep.
 
 Tarnelm, a grumpy gnome in the Oubliette, asked us to go get some food for him and his dying brothers.  He seems unlikely to trust us unless we do something nice for him.%)~ GOTO 9
   IF ~~ THEN REPLY ~What is this place?~ GOTO 4
   IF ~~ THEN REPLY ~Who's Maiden Ilmadia?~ DO ~SetGlobal("Know_Ilmadia","GLOBAL",1)~ GOTO 6
-  IF ~Global("Tarnelm_Food","GLOBAL",2)
-GlobalLT("TARNEL_TRAP_SET","GLOBAL",2)~ THEN REPLY ~You said that you needed help with something else before...~ GOTO 12
+  IF ~Global("Tarnelm_Food","GLOBAL",2) GlobalLT("TARNEL_TRAP_SET","GLOBAL",2)~ THEN REPLY ~You said that you needed help with something else before...~ GOTO 12
   IF ~~ THEN REPLY ~Nothing in particular.  Farewell.~ EXIT
 END

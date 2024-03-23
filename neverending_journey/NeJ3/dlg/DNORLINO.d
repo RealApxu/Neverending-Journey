@@ -178,8 +178,7 @@ IF ~~ THEN BEGIN 24
   IF ~~ THEN REPLY ~Could I rest here?~ GOTO 35
 END
 
-IF WEIGHT #3 ~NumTimesTalkedToGT(0)
-Global("N_Done","GLOBAL",0)~ THEN BEGIN 25
+IF WEIGHT #3 ~NumTimesTalkedToGT(0) Global("N_Done","GLOBAL",0)~ THEN BEGIN 25
   SAY ~Well met again, traveler.  How may I be of assistance? ~
   IF ~~ THEN REPLY ~What can you tell me about Terikan?~ GOTO 3
   IF ~~ THEN REPLY ~I�d like to know more about the conflict that occurred here.~ GOTO 17
@@ -189,17 +188,13 @@ Global("N_Done","GLOBAL",0)~ THEN BEGIN 25
   IF ~~ THEN REPLY ~Nothing at this time.  Sorry to disturb you.~ EXIT
 END
 
-IF WEIGHT #1 ~Global("Forge_On","GLOBAL",1)
-Global("N_Done","GLOBAL",0)~ THEN BEGIN 26
+IF WEIGHT #1 ~Global("Forge_On","GLOBAL",1) Global("N_Done","GLOBAL",0)~ THEN BEGIN 26
   SAY ~As the hearth warms the room, so is my heart warmed knowing that my brothers will return to their rest.  We owe you much, traveler.  ~
   IF ~~ THEN REPLY ~I�m glad I could help.~ DO ~EraseJournalEntry(%Upper Dorn�s Deep.
 
-We met a ghost named Norlinor near an ancient dwarven forge. Norlinor told us of Terikan, a lich that was attempting to unleash a horde of undead from the plane of Negative Energy into Dorn�s Deep. Norlinor told us that to destroy Terikan, we would need to obtain his soul container from the Hall of Heroes, and bring it into the tomb of Jamoth, also within the Hall of Heroes.%)
-EraseJournalEntry(%Upper Dorn�s Deep.
+We met a ghost named Norlinor near an ancient dwarven forge. Norlinor told us of Terikan, a lich that was attempting to unleash a horde of undead from the plane of Negative Energy into Dorn�s Deep. Norlinor told us that to destroy Terikan, we would need to obtain his soul container from the Hall of Heroes, and bring it into the tomb of Jamoth, also within the Hall of Heroes.%) EraseJournalEntry(%Upper Dorn�s Deep.
 
-Norlinor feels the only way to restore the Dorn forge and return the dwarven spirits to rest is to dispose of Terikan.%)
-AddexperienceParty(68500)
-SetGlobal("N_Done","GLOBAL",1)~ SOLVED_JOURNAL ~Upper Dorn�s Deep.
+Norlinor feels the only way to restore the Dorn forge and return the dwarven spirits to rest is to dispose of Terikan.%) AddexperienceParty(68500) SetGlobal("N_Done","GLOBAL",1)~ SOLVED_JOURNAL ~Upper Dorn�s Deep.
 
 We defeated Terikan and restored the forge of Upper Dorn�s Deep. Norlinor thanked us, and he told us the key we would need to allow us to travel to Wyrm�s Tooth Glacier lay in a receptacle in the forge.~ GOTO 27
 END
@@ -209,8 +204,7 @@ IF ~~ THEN BEGIN 27
   IF ~~ THEN REPLY ~You�re welcome... rest now, Norlinor.~ DO ~EscapeArea()~ EXIT
 END
 
-IF WEIGHT #0 ~Global("Norlinor_Hate","GLOBAL",1)
-Global("N_Done","GLOBAL",0)~ THEN BEGIN 29
+IF WEIGHT #0 ~Global("Norlinor_Hate","GLOBAL",1) Global("N_Done","GLOBAL",0)~ THEN BEGIN 29
   SAY ~I have nothing to say to you, defiler.  I encourage you to speak with Terikan in the room directly up the stairs.  I think you will find that you and him are of the same vein.~
   IF ~Global("Forge_On","GLOBAL",1)~ THEN REPLY ~Actually, I disposed of that lich.~ GOTO 30
   IF ~~ THEN REPLY ~Fine.~ DO ~SetGlobal("Norlinor_Hate","GLOBAL",1)~ EXIT
@@ -218,8 +212,7 @@ END
 
 IF ~~ THEN BEGIN 30
   SAY ~From one vile caretaker to another.  You have helped my brothers and I, defiler, but I know it was of no inclination or yours to do so.  I assume you have some plundering to do, so I�ll leave you to your trade.  ~
-  IF ~~ THEN REPLY ~Leave then - your preaching *was* growing tiresome.~ DO ~SetGlobal("N_Done","GLOBAL",2)
-EscapeArea()~ EXIT
+  IF ~~ THEN REPLY ~Leave then - your preaching *was* growing tiresome.~ DO ~SetGlobal("N_Done","GLOBAL",2) EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN 31
@@ -250,7 +243,5 @@ END
 
 IF ~~ THEN BEGIN 35
   SAY ~I'll make sure you aren�t attacked while sleeping.~
-  IF ~~ THEN  DO ~ClearAllActions()
-StartCutSceneMode()
-StartCutScene("VPHealC2")~ EXIT
+  IF ~~ THEN  DO ~ClearAllActions() StartCutSceneMode() StartCutScene("VPHealC2")~ EXIT
 END
