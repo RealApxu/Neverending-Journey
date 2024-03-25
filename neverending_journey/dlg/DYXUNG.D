@@ -1,0 +1,35 @@
+BEGIN ~DYXUNG~
+
+IF WEIGHT #3 ~NumberOfTimesTalkedTo(0)~ THEN BEGIN 0
+  SAY ~Sidereal translations spell out chaotic events in your future.  Beware.~ [CYXU_01]
+  IF ~OR(2) !InParty("Minsc") Dead("Minsc")~ THEN REPLY ~Uh, that's great little girl.  Who are you?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",1)~ EXIT
+  IF ~OR(2) !InParty("Minsc") Dead("Minsc")~ THEN REPLY ~Silence, cryptic harbinger of doom!~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",1)~ EXIT
+  IF ~OR(2) !InParty("Minsc") Dead("Minsc")~ THEN REPLY ~What do you mean?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",1)~ EXIT
+  IF ~InParty("Minsc") !Dead("Minsc")~ THEN REPLY ~Uh, that's great little girl.  Who are you?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",1)~ EXTERN ~MINSCJ~ NEJ294
+  IF ~InParty("Minsc") !Dead("Minsc")~ THEN REPLY ~Silence, cryptic harbinger of doom!~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",1)~ EXTERN ~MINSCJ~ NEJ294
+  IF ~InParty("Minsc") !Dead("Minsc")~ THEN REPLY ~What do you mean?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",1)~ EXTERN ~MINSCJ~ NEJ294
+END
+
+IF WEIGHT #0 ~Global("D5_Girl_Move_Loc","GLOBAL",1)~ THEN BEGIN 1
+  SAY ~The time is now.  Turn back to avoid the tidal pull.~ [CYXU_02]
+  IF ~OR(2) !InParty("Minsc") Dead("Minsc")~ THEN REPLY ~Where did you come from?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",2)~ EXIT
+  IF ~OR(2) !InParty("Minsc") Dead("Minsc")~ THEN REPLY ~Cease this malefic skullduggery!~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",2)~ EXIT
+  IF ~OR(2) !InParty("Minsc") Dead("Minsc")~ THEN REPLY ~What are you talking about, little girl?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",2)~ EXIT
+  IF ~InParty("Minsc") !Dead("Minsc")~ THEN REPLY ~Where did you come from?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",2)~ EXTERN ~MINSCJ~ NEJ295
+  IF ~InParty("Minsc") !Dead("Minsc")~ THEN REPLY ~Cease this malefic skullduggery!~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",2)~ EXTERN ~MINSCJ~ NEJ295
+  IF ~InParty("Minsc") !Dead("Minsc")~ THEN REPLY ~What are you talking about, little girl?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",2)~ EXTERN ~MINSCJ~ NEJ295
+END
+
+IF WEIGHT #1 ~Global("D5_Girl_Move_Loc","GLOBAL",2)~ THEN BEGIN 2
+  SAY ~Dark plants are growing in this garden.  It is time for your kind to seek safer pastures.~ [CYXU_03]
+  IF ~~ THEN REPLY ~Yeah, I got it.  I *got* it, okay?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",3) ~ EXIT
+  IF ~~ THEN REPLY ~Begone, wicked deceiver!~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",3) ~ EXIT
+  IF ~~ THEN REPLY ~Will you please tell me what you're talking about?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",3) ~ EXIT
+END
+
+IF WEIGHT #2 ~Global("D5_Girl_Move_Loc","GLOBAL",3)~ THEN BEGIN 3
+  SAY ~Your moon is eclipsed.  There are no more shadows, only a corona that illuminates forgotten promises to the black devotees.~ [CYXU_04]
+  IF ~~ THEN REPLY ~*sigh*~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",5)~ EXIT
+  IF ~~ THEN REPLY ~Enough, red-headed step-child of Acheron!~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",5)~ EXIT
+  IF ~~ THEN REPLY ~Won't you please tell me what's wrong?~ DO ~SetGlobal("D5_Girl_No_Talk","GLOBAL",1) SetGlobal("D5_Girl_Move_Loc","GLOBAL",5)~ EXIT
+END

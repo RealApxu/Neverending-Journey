@@ -1,0 +1,27 @@
+BEGIN ~ACCALIP~
+
+IF ~Global("KickedOut","LOCALS",1)~ THEN BEGIN 0
+  SAY ~By Tempus, you have returned!  Are we to join again and fight as mighty warriors should?  Say it is so!~
+  IF ~~ THEN REPLY ~That is a fine idea.  We simply could not do without your fighting spirit.~ GOTO 1
+  IF ~~ THEN REPLY ~I am sorry, but I do not need you back just yet.~ GOTO 2
+END
+
+IF ~~ THEN BEGIN 1
+  SAY ~A triumphant day, indeed!  I welcome your company once again!~
+  IF ~~ THEN DO ~SetGlobal("KickedOut","LOCALS",0) JoinParty()~ EXIT
+END
+
+IF ~~ THEN BEGIN 2
+  SAY ~We have fought well and we have fought bravely. Tempus willing, perhaps I will fight at your side again someday.~
+  IF ~~ THEN EXIT
+END
+
+IF ~HappinessLT(Myself,-299)~ THEN BEGIN 3
+  SAY ~You have proven yourself to be a person of few morals. I'm happy that I'm leaving.~
+  IF ~~ THEN DO ~EscapeArea()~ EXIT
+END
+
+IF ~Global("KickedOut","LOCALS",0)~ THEN BEGIN 4
+  SAY ~We have fought well and we have fought bravely. Tempus willing, perhaps I will fight at your side again someday.~
+  IF ~~ THEN DO ~SetGlobal("KickedOut","LOCALS",1)~ EXIT
+END

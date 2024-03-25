@@ -1,0 +1,23 @@
+BEGIN ~DACOLYTE~
+
+IF ~NumberOfTimesTalkedTo(0)~ THEN BEGIN 0
+  SAY ~Defilers!  Again you profane this temple with your murderous presence!~
+  IF ~~ THEN REPLY ~There must be some mistake... we've never set foot in this temple before now.~ GOTO 2
+  IF ~~ THEN REPLY ~Calm yourself, friend.  We mean you no harm.  We've come from the beleaguered town of Kuldahar on a mission of great importance.~ GOTO 1
+  IF ~~ THEN REPLY ~Stand aside, priest.  We've come for the Heartstone Gem.~ GOTO 3
+END
+
+IF ~~ THEN BEGIN 1
+  SAY ~Silence!  Think you that the children of the Forgotten God are fools enough to be deceived by such lies twice in one day?  Now you shall pay for your trespasses!  Guards!  Guards!  The intruders have returned!~
+  IF ~~ THEN EXTERN ~HROTHJ~ 122
+END
+
+IF ~~ THEN BEGIN 2
+  SAY ~There is no mistake!  The bodies of my slain brothers are not even cold, and yet more intruders arrive... no doubt to finish us off.  Well, you'll find that this time we shall not fall so easily!  Guards!  Guards!  The intruders have returned!~
+  IF ~~ THEN EXTERN ~HROTHJ~ 122
+END
+
+IF ~~ THEN BEGIN 3
+  SAY ~So, you admit you are thieves!  Well, you'll find that this time we shall not fall so easily!  Guards!  Guards!  The intruders have returned!~
+  IF ~~ THEN EXTERN ~HROTHJ~ 122
+END

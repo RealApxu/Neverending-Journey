@@ -74,6 +74,8 @@ ACTION_IF !FILE_EXISTS_IN_GAME ~MASAKI.DLG~ THEN BEGIN
     COPY ~%MOD_FOLDER%/NeJ/notsfix/MISCBC.ITM~ ~override~
 END
 
+COMPILE ~%MOD_FOLDER%/dlg~
+
 ///////////////////////////////////////
 // 5. Spells
 ///////////////////////////////////////
@@ -1160,6 +1162,11 @@ Weight:  25
 Usable by:
   Dar~
 
+SPRINT tooltip1 #12124
+SPRINT tooltip2 #12988
+
+APPEND EVAL ~TOOLTIP.2DA~ ~DarChain %tooltip1% %tooltip2% -1~
+
 COPY ~%MOD_FOLDER%/NeJ/itm/DarShld.ITM~ ~override/DarShld.ITM~
     SAY NAME2 ~Large Shield +3~
     SAY DESC ~Large Shield +3: 'Blessed with Ilmater's Tears'
@@ -1675,6 +1682,11 @@ Type:  2-handed
 Requires: 5 Strength
 Usable By
  Mage(Single, Dual, Multi)~
+
+SPRINT tooltip1 RESOLVE_STR_REF(~Lightning Bolt of Paralyzation~)
+SPRINT tooltip2 #391
+
+APPEND EVAL ~TOOLTIP.2DA~ ~StaffPow %tooltip1% %tooltip2% -1~
 
 COPY ~%MOD_FOLDER%/NeJ/itm/StafSum.ITM~ ~override/StafSum.ITM~
     SAY NAME2 ~The Summoner's Staff~
@@ -4119,6 +4131,12 @@ Abilities when restored:
 4.Spontaneous Combustion:
    When activated all flammable objects within a 10 ft. Cubic area bursts into flame. The effect can be cast out to a range 50 yards. The fire burns for one turn doing 10d6 damage per round to creatures trapped in the blaze. Creatures can save vs. spell each round for half damage until they die or escape the blaze. Creatures immune to fire suffer no damage.~
 
+SPRINT tooltip1 #3806
+SPRINT tooltip2 #3808
+SPRINT tooltip3 #3809
+
+APPEND EVAL ~TOOLTIP.2DA~ ~DeRing %tooltip1% %tooltip2% %tooltip3%~
+
 COPY ~%MOD_FOLDER%/NeJ2/cre/Lhillias.cre~ ~override/Lhillias.cre~
     SAY NAME1 ~Lhillias~
     SAY NAME2 #3139
@@ -4151,6 +4169,12 @@ Elemental Abilities:
 Only usable by:
    Mage (single, dual, & multi-class)~
 
+SPRINT tooltip1 #12061
+SPRINT tooltip2 #3809
+SPRINT tooltip3 RESOLVE_STR_REF(~Conjure Water Elemental~)
+
+APPEND EVAL ~TOOLTIP.2DA~ ~DeRing2 %tooltip1% %tooltip2% %tooltip3%~
+
 COPY ~%MOD_FOLDER%/NeJ2/cre/TuFire.cre~ ~override/TuFire.cre~
     SAY NAME1 ~Genevra~
     SAY NAME2 #3139
@@ -4177,6 +4201,12 @@ Elemental Abilities:
 
 Only usable by:
    Mage (single, dual, & multi-class)~
+
+SPRINT tooltip1 #25880
+SPRINT tooltip2 #3808
+SPRINT tooltip3 RESOLVE_STR_REF(~Conjure Greater Fire Elemental~)
+
+APPEND EVAL ~TOOLTIP.2DA~ ~DeRing3 %tooltip1% %tooltip2% %tooltip3%~
 
 COPY ~%MOD_FOLDER%/NeJ2/itm/DeRing4.itm~ ~override/DeRing4.itm~
     SAY NAME2 ~Ring of Might~
@@ -4208,6 +4238,12 @@ Elemental Abilities:
 Only usable by:
    Mage (single, dual, & multi-class)~
 
+SPRINT tooltip1 #25880
+SPRINT tooltip2 #24829
+SPRINT tooltip3 RESOLVE_STR_REF(~Conjure Greater Fire Elemental~)
+
+APPEND EVAL ~TOOLTIP.2DA~ ~DeRing4 %tooltip1% %tooltip2% %tooltip3%~
+
 COPY ~%MOD_FOLDER%/NeJ2/itm/DeRing5.itm~ ~override/DeRing5.itm~
     SAY NAME2 ~Ring of Might~
     SAY DESC ~Legend says the first Ring of Might was forged by four elementalist wizards, possibly siblings. Only a dozen or so of these potent rings are said to exist. The secret of their creation, the wizards took to their graves. Nevertheless, wizards still continue to seek to discover the process.
@@ -4235,6 +4271,12 @@ Elemental Abilities:
 
 Only usable by:
    Mage (single, dual, & multi-class)~
+
+SPRINT tooltip1 #34590
+SPRINT tooltip2 #24829
+SPRINT tooltip3 RESOLVE_STR_REF(~Conjure Greater Fire Elemental~)
+
+APPEND EVAL ~TOOLTIP.2DA~ ~DeRing5 %tooltip1% %tooltip2% %tooltip3%~
 
 COPY ~%MOD_FOLDER%/NeJ2/itm/BOOT12.ITM~ ~override/BOOT12.ITM~
     SAY DESC ~Legend holds that the mage who created this magical footwear trapped the spirit of an actual gargoyle within these boots. Unfortunately, they couldn't protect the nameless wizard from the vengeance of the gargoyle's mate.
@@ -4527,6 +4569,11 @@ Weight: 3
 Only Usable By:
  Bard
  Mage (single, dual, & multi-class).~
+
+SPRINT tooltip1 #25944
+SPRINT tooltip2 #32427
+
+APPEND EVAL ~TOOLTIP.2DA~ ~invcloak %tooltip1% %tooltip2% -1~
 
 COPY ~%MOD_FOLDER%/NeJ2/itm/UDART5A.ITM~ ~override/UDART5A.ITM~
     SAY NAME1 #6919
@@ -5262,6 +5309,11 @@ Proficiency Type:  Quarter Staves
 Type:  2-handed
 Only Usable By:
   Mage (Single-, Dual-, and Multi-Class)~
+
+SPRINT tooltip1 #39853
+SPRINT tooltip2 #17848
+
+APPEND EVAL ~TOOLTIP.2DA~ ~STAFFBES %tooltip1% %tooltip2% -1~
 
 COPY ~%MOD_FOLDER%/NeJ2/cre/TuCoord.cre~ ~override/TuCoord.cre~
     SAY NAME1 ~Cario De'Vince~
@@ -6774,6 +6826,11 @@ Special Abilities:
 
 Usable By:
  Gnome Mage~
+
+SPRINT tooltip1 #18586
+SPRINT tooltip2 #17848
+
+APPEND EVAL ~TOOLTIP.2DA~ ~staffsw %tooltip1% %tooltip2% -1~
 
 COPY ~%MOD_FOLDER%/NeJ3/taffic/itm/loverdag.ITM~ ~override/loverdag.ITM~
     SAY NAME2 ~Lover~

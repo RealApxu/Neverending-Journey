@@ -1,0 +1,1 @@
+ADD_STATE_TRIGGER ~JAHEIRAP~ 23 ~Global("VP_In_IWD_Part1","GLOBAL",0) Global("VP_In_IWD_Part2","GLOBAL",0) Global("VP_OnIsland","GLOBAL",0) Global("VP_InHalruaa","GLOBAL",0)~ 27 32 34
