@@ -24,11 +24,7 @@ END
 
 IF ~~ THEN BEGIN 3
   SAY ~No student is denied the chance to learn. The abilities he learns here mostly use the basic of components, many of which can be found naturally in the environment.~ [laval04a]
-  IF ~~ THEN GOTO 4
-END
-
-IF ~~ THEN BEGIN 4
-  SAY ~The more costlier items that I supply, are for students who may embark on their own research. It is hoped the cost deters such research until the student has gained a higher degree of knowledge. Past mistakes have made us more careful.~ [laval04b]
+  = ~The more costlier items that I supply, are for students who may embark on their own research. It is hoped the cost deters such research until the student has gained a higher degree of knowledge. Past mistakes have made us more careful.~ [laval04b]
   IF ~~ THEN REPLY ~Mistakes? Tell me more.~ GOTO 5
   IF ~~ THEN REPLY ~Some student get himself killed did he?~ GOTO 5
   IF ~~ THEN REPLY ~Who made the mistake, Student or tutor?~ GOTO 5
@@ -44,11 +40,7 @@ END
 
 IF ~~ THEN BEGIN 6
   SAY ~I have this small problem with things disappearing from my room here. Nothing of significant value, the odd magical item, potion and such like. Nothing that warrants a search myself, more of a nuisance really.~ [laval06a]
-  IF ~~ THEN GOTO 7
-END
-
-IF ~~ THEN BEGIN 7
-  SAY ~As you can see there is only the one door and I make sure that the lock is such that only I can bypass the wards once I set them, but somehow, someone is still able to gain entrance without disturbing the wards. Would you be interested in looking into the matter for me?~ [laval06b]
+  = ~As you can see there is only the one door and I make sure that the lock is such that only I can bypass the wards once I set them, but somehow, someone is still able to gain entrance without disturbing the wards. Would you be interested in looking into the matter for me?~ [laval06b]
   IF ~~ THEN REPLY ~Why not just wait around and catch the thief yourself?~ GOTO 8
   IF ~~ THEN REPLY ~Sounds simple enough why do you need me to do this?~ GOTO 8
   IF ~~ THEN REPLY ~What can I do that a mage of your standing cannot?~ GOTO 8
@@ -164,26 +156,10 @@ END
 
 IF ~~ THEN BEGIN 20
   SAY ~Bartlemy... Yes! Now I remember! Still trying to forge that cursed ring of his. I will tell you briefly what I  know of Bartlemy and his friends, or at least as the story was told to me.~ [laval17]
-  IF ~~ THEN GOTO 21
-END
-
-IF ~~ THEN BEGIN 21
-  SAY ~A few years back, three or four maybe, five very talented students sought to forge a powerful artifact known as a *Ring of Might*. They were forbidden to attempt such a feat but went ahead anyway secretly in this very room.~ [laval18a]
-  IF ~~ THEN GOTO 22
-END
-
-IF ~~ THEN BEGIN 22
-  SAY ~It is said, but not known for sure, that it takes a mage from each of the four elemental schools working together to achieve this, so why a necromancer was involved no one knows.~ [laval18b]
-  IF ~~ THEN GOTO 23
-END
-
-IF ~~ THEN BEGIN 23
-  SAY ~Anyway, they failed, and the explosion that followed destroyed this part of the building and left three of them dead. What became of the fourth, Delrysia, is unknown as only Bartlemy was discovered, unconscious and near death at the scene.~ [laval18c]
-  IF ~~ THEN GOTO 24
-END
-
-IF ~~ THEN BEGIN 24
-  SAY ~After his recovery, he was banished and warned that to set foot on Halruaa soil again would mean his death, but I see he has somehow got around that little hindrance.~ [laval19a]
+  = ~A few years back, three or four maybe, five very talented students sought to forge a powerful artifact known as a *Ring of Might*. They were forbidden to attempt such a feat but went ahead anyway secretly in this very room.~ [laval18a]
+  = ~It is said, but not known for sure, that it takes a mage from each of the four elemental schools working together to achieve this, so why a necromancer was involved no one knows.~ [laval18b]
+  = ~Anyway, they failed, and the explosion that followed destroyed this part of the building and left three of them dead. What became of the fourth, Delrysia, is unknown as only Bartlemy was discovered, unconscious and near death at the scene.~ [laval18c]
+  = ~After his recovery, he was banished and warned that to set foot on Halruaa soil again would mean his death, but I see he has somehow got around that little hindrance.~ [laval19a]
   IF ~~ THEN SOLVED_JOURNAL ~A Ring Of Might.
 
 I have solved the problem of Lavallin's thief and in doing so I encountered a necromancer by name of Bartlemy. He explained that he was searching for an artifact, an item that he had lost some years previous whilst conducting an experiment in Lavallin's room. When Bartlemy refused to hand over all that his goblin had stolen, choosing instead to attack me, I was forced to kill them both. On my return to Lavallin I learnt more of Bartlemy's mysterious item... a ring of might, an artifact that both students and tutors, even the most senior of Halruaa are banned from attempting to construct. Lavallin was most generous in his gratitude and I am left to ponder on what manner of artifact could have so many high powered wizards so worried that they should choose to ban its construction?~ GOTO 25
@@ -307,26 +283,10 @@ END
 
 IF ~~ THEN BEGIN 30
   SAY ~Bartlemy you say? The name is familiar to me... Bartlemy... Yes! Now I remember! Are you saying these thefts are about that damned ring of might! Has Bartlemy's obsession with that artifact brought him back to Halruaa, even at the risk to his own life... I don't know what he has told you but I will tell you briefly what I  know of Bartlemy, his friends and their quest to construct a ring of might... or at least as the story was told to me.~
-  IF ~~ THEN GOTO 31
-END
-
-IF ~~ THEN BEGIN 31
-  SAY ~A few years back, five very talented students sought to forge a powerful artifact known as a "Ring of Might". They were forbidden to attempt such a feat but went ahead anyway secretly in this very room.~
-  IF ~~ THEN GOTO 32
-END
-
-IF ~~ THEN BEGIN 32
-  SAY ~It is said, but not known for sure, that it takes a mage from each of the four elemental schools working together to achieve this, so why a necromancer was involved no one knows. Anyway, they failed and the explosion that followed destroyed this part of the building and left three of them dead.~
-  IF ~~ THEN GOTO 33
-END
-
-IF ~~ THEN BEGIN 33
-  SAY ~What became of the fourth, Delrysia, is unknown as only Bartlemy was discovered, unconscious and near death at the scene. After his recovery, he was banished and warned that to set foot on Halruaa soil again would mean his death, still, that doesn't seem to have deterred him.~
-  IF ~~ THEN GOTO 34
-END
-
-IF ~~ THEN BEGIN 34
-  SAY ~With the disappearance of Delrysia, the truth of what happened has never come to light, although it is rumoured they were very close to completing the artifact.~
+  = ~A few years back, five very talented students sought to forge a powerful artifact known as a "Ring of Might". They were forbidden to attempt such a feat but went ahead anyway secretly in this very room.~
+  = ~It is said, but not known for sure, that it takes a mage from each of the four elemental schools working together to achieve this, so why a necromancer was involved no one knows. Anyway, they failed and the explosion that followed destroyed this part of the building and left three of them dead.~
+  = ~What became of the fourth, Delrysia, is unknown as only Bartlemy was discovered, unconscious and near death at the scene. After his recovery, he was banished and warned that to set foot on Halruaa soil again would mean his death, still, that doesn't seem to have deterred him.~
+  = ~With the disappearance of Delrysia, the truth of what happened has never come to light, although it is rumoured they were very close to completing the artifact.~
   IF ~~ THEN REPLY ~I have already discovered Delrysia living in the sewers. It would appear the explosion transformed her into a ghoul. I have a potion that I took from Bartlemy and I am hoping that it will help her.~ GOTO 35
   IF ~Dead("Bartlemy")~ THEN REPLY ~Delrysia is no longer human and is forced to live in the sewers. That fiend Bartlemy knew and refused to help her! I took a potion from his body which I hope will reverse the transformation.~ GOTO 35
   IF ~Dead("Bartlemy")~ THEN REPLY ~Delrysia exists now as a ghoul. I care not what happens to her but she says she has the Ring of Might. Now that I am interested in! I am hoping she will relinquish it for this potion I took from the necromancers body.~ GOTO 35
@@ -336,16 +296,8 @@ END
 
 IF ~~ THEN BEGIN 35
   SAY ~(*Shaking his head sadly*)... Poor Delrysia, she has paid dearly for her foolishness. It would seem that whatever Bartlemy was trying to add to the ring caused the explosion and left Delrysia as she is.~ [laval22c]
-  IF ~~ THEN GOTO 36
-END
-
-IF ~~ THEN BEGIN 36
-  SAY ~I can do nothing for her at this minute. It would take too long to research a transformation spell, so I truly hope Bartlemy's potion will restore her. Before you leave <CHARNAME>, I ask only one thing, if you do retrieve Bartlemy's accursed ring, please consider giving it to the safe keeping of the academy, enough young lives have been lost already thanks to his folly... bring the ring to me and I will make sure it is put forever out of harms way.~ [laval22a]
-  IF ~~ THEN GOTO 37
-END
-
-IF ~~ THEN BEGIN 37
-  SAY ~Now, I have other business to attend to, but not before I thank you for solving my little problem, here take these items and remember my offer if ever you find the need for components. Farewell and thank you again, <CHARNAME>.~ [laval22b]
+  = ~I can do nothing for her at this minute. It would take too long to research a transformation spell, so I truly hope Bartlemy's potion will restore her. Before you leave <CHARNAME>, I ask only one thing, if you do retrieve Bartlemy's accursed ring, please consider giving it to the safe keeping of the academy, enough young lives have been lost already thanks to his folly... bring the ring to me and I will make sure it is put forever out of harms way.~ [laval22a]
+  = ~Now, I have other business to attend to, but not before I thank you for solving my little problem, here take these items and remember my offer if ever you find the need for components. Farewell and thank you again, <CHARNAME>.~ [laval22b]
   IF ~~ THEN REPLY ~Farewell, Lavallin.~ DO ~SetGlobal("VP_LvQuest_Done","GLOBAL",1) EraseJournalEntry(%Lavallin's Thief.
 
 I have agreed to help a mage named Lavallin solve his problem of disappearing items. So, after casting a spell to make the room appear empty and warning me not to touch anything, he left to attend to a more urgent matter he said. I can't help but wonder if that matter is anything to do with my quest here.%) EraseJournalEntry(%Lavallin's Thief.
